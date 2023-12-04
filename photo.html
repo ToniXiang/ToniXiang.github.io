@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, inital-scale=1">
+        <title>個人網頁</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="shortcut icon" href="Screenshots\picture.png" type="image/x-icon">
+    </head>
+    <body>
+        <header>
+            <h1 id="title1">個人網頁</h1>
+        </header>
+        <nav>
+            <ul>
+                <button onclick="redirectToPage('index.html')">主頁</button>
+            </ul>
+        </nav>
+        <main>
+            <h2 id="title2">精選圖集</h2>
+            <div class="gridcontainer">
+                <div class="griditem">
+                    <img src="Screenshots\1.jpg" class="img-photo">
+                    <h3>中科大甄選實作考場</h3>
+                    <p><a class="a-detail" data-tooltip="2023/06/29">詳細資料&raquo;</a></p>
+                </div>
+                <div class="griditem">
+                    <img src="Screenshots\2.heic" class="img-photo">
+                    <h3>中科院研發展示館</h3>
+                    <p><a class="a-detail" data-tooltip="2022/11/29 飛彈模型展示">詳細資料&raquo;</a></p>
+                </div>
+                <div class="griditem">
+                    <img src="Screenshots\3.heic" class="img-photo">
+                    <h3>中科院研發展示館</h3>
+                    <p><a class="a-detail" data-tooltip="2022/11/29">詳細資料&raquo;</a></p>
+                </div>
+                <div class="griditem">
+                    <img src="Screenshots\4.heic" class="img-photo">
+                    <h3>龍潭台積電</h3>
+                    <p><a class="a-detail" data-tooltip="2022/11/29">詳細資料&raquo;</a></p>
+                </div>
+                <div class="griditem">
+                    <img src="Screenshots\5.heic" class="img-photo">
+                    <h3>台北101</h3>
+                    <p><a class="a-detail" data-tooltip="2022/11/24">詳細資料&raquo;</a></p>
+                </div>
+                <div class="griditem">
+                    <img src="Screenshots\6.heic" class="img-photo">
+                    <h3>龍潭科學園區</h3>
+                    <p><a class="a-detail" data-tooltip="2022/11/29 3D立體地圖">詳細資料&raquo;</a></p>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <hr>
+            <a class="a-back" href="#">Back to Top</a>
+        </footer>
+        <script src="script.js"></script>
+    </body>
