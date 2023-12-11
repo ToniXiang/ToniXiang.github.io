@@ -101,11 +101,11 @@ article:hover {
 }
 
 #skills article>h3 {
-    color: rgb(103, 46, 237)
+    color: rgb(29, 127, 154)
 }
 
 #skills article>p {
-    color: #5c39af;
+    color: #bfcc2b;
 }
 
 #repository article>h3 {
@@ -115,7 +115,21 @@ article:hover {
 #repository article>p {
     color: rgb(183, 151, 35);
 }
+#snowflakes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
 
+.snowflake {
+    position: absolute;
+    background: rgb(209, 34, 194);
+    border-radius: 50%;
+    opacity: 0.7;
+}
 hr {
     border-top: 1px solid rgba(0, 0, 0.2);
     margin: 50px 0 20px;
@@ -166,7 +180,6 @@ button:hover {
     height: 100%;
     background-color: #4caf50;
     position: absolute;
-    transition: width 2s ease-in-out;
     text-align: center;
     line-height: 20px;
     color: #fff;
