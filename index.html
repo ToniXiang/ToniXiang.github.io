@@ -20,8 +20,7 @@
         </nav>
         <main>
             <h2 id="title2">主要頁面</h2>
-            <div id="snowflakes"></div>
-            <marquee direction="right" height="30" scrollamount="5" behavior="alternate" id="title3">「自己參考資料寫的網頁，有新的想法會持續更新!」</marquee>
+            <marquee id="marquee-item">「自己參考資料寫的網頁，有新的想法會持續更新!」</marquee>
             <section id="news">
                 <div class="news-article">
                     <h3>標題1</h3>
@@ -43,9 +42,15 @@
         </main>
         <footer>
             <hr>
-            <a class="a-about" href="#">© 2023 陳國翔 | 聯絡資訊：chen199940@gmail.com | Github：chen199940 | 最後更新：11/28</a></br>
+            <a class="a-about" href="#">© 2023 陳國翔</a></br>
             <a class="a-back" href="#">Back to Top</a>
         </footer>
+        <style>
+            article:hover {
+                background-color: #f5f5f5;
+                transition: background-color 0.3s ease;
+            }
+        </style>
         <script src="script.js"></script>
     </body>
 </html>
