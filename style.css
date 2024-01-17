@@ -5,14 +5,13 @@
     padding: 0;
 }
 
-body {
+body,
+body>header {
     width: 100%;
     max-width: 960px;
     margin: 0 auto;
-    /* 上下外邊距：0，左右外邊距：auto */
 }
 
-header,
 nav,
 main,
 footer {
@@ -22,13 +21,15 @@ footer {
 }
 
 header {
-    color: white;
-    background: rgb(127, 127, 206);
+    position: fixed;
+    top: 1%;
+    align-items: center;
+    background: rgba(127, 127, 206, 0.4);
+    color: rgba(255, 255, 255, 0.4);
 }
 
 nav>ul {
     display: flex;
-    /* flex：物件在左右，而 block：上下 */
     margin-top: 20px;
     text-align: center;
 }
@@ -39,22 +40,36 @@ nav>ul>button {
     width: 125px;
     margin: 0 auto;
     padding: 10px;
+    margin-top: 10%;
     list-style: none;
     border: 1px solid silver;
     text-decoration: none;
-    /* 沒有裝飾效果，去除連結的下劃線 */
     transition: background-color 0.1s ease;
-    /* 狀態變化時的過渡效果，包括顏色的過渡 */
     border-radius: 5px;
     position: relative;
-    /* 聚光燈定位 */
     overflow: hidden;
-    /* 隱藏出界 */
 }
 nav>ul>button:hover {
     background-color:rgb(117, 181, 181);
     transition: background-color 0.3s ease;
+    animation: spotlight 2s infinite;
 }
+
+/* 定義聚光燈動畫 */
+@keyframes spotlight {
+    0% {
+        box-shadow: 0 0 25px 25px rgba(255, 255, 255, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 15px 15px rgba(255, 255, 255, 0.7);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
 article {
     margin-bottom: 20px;
     padding: 10px;
@@ -79,6 +94,7 @@ article {
     background-color: #f5f5f5;
     transition: background-color 0.3s ease;
 }
+
 hr {
     border-top: 1px solid rgba(0, 0, 0.2);
     margin: 50px 0 20px;
@@ -87,6 +103,7 @@ hr {
 footer {
     text-align: center;
 }
+
 h1{
     margin: 10px;
     padding: 10px;
@@ -101,98 +118,6 @@ h2{
 h3{
     text-align: center;
     color: #bac;
-}
-
-/* 定義聚光燈動畫 */
-@keyframes spotlight {
-    0% {
-        box-shadow: 0 0 25px 25px rgba(255, 255, 255, 0);
-    }
-
-    50% {
-        box-shadow: 0 0 15px 15px rgba(255, 255, 255, 0.7);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-    }
-}
-
-button:hover {
-    animation: spotlight 2s infinite;
-    /* 兩秒一循環，無限次 */
-}
-
-#progress-bar-container {
-    width: 100%;
-    height: 20px;
-    background-color: #f0f0f0;
-    position: relative;
-    overflow: hidden;
-}
-
-#progress-bar {
-    width: 0;
-    height: 100%;
-    background-color: #4caf50;
-    position: absolute;
-    text-align: center;
-    line-height: 20px;
-    color: #fff;
-}
-
-.gridcontainer {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: 1fr;
-}
-
-@media screen and (min-width:501px) {
-    .gridcontainer {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media screen and (min-width:769px) {
-    .gridcontainer {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-.img-photo {
-    max-width: 100%;
-    height: auto;
-}
-
-.a-detail {
-    text-decoration: none;
-    color: #0066ff;
-    font-weight: bold;
-}
-
-.a-detail {
-    position: relative;
-    text-decoration: none;
-}
-
-.a-detail::before {
-    content: attr(data-tooltip);
-    /* 令 data-tooltip 屬性的值為 content */
-    position: absolute;
-    width: 120%;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 8px;
-    border-radius: 5px;
-    top: -30px;
-    left: 0;
-    opacity: 0;
-    transition: opacity 0.3s ease-out;
-}
-
-.a-detail:hover::before {
-    opacity: 1;
 }
 
 .a-about {

@@ -55,5 +55,55 @@
             <hr>
             <a class="a-back" href="#">Back to Top</a>
         </footer>
+        <style>
+            .gridcontainer {
+                display: grid;
+                gap: 20px;
+                grid-template-columns: 1fr;
+            }
+
+            .img-photo {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .a-detail {
+                color: #0066ff;
+                font-weight: bold;
+                position: relative;
+                text-decoration: none;
+            }
+
+            .a-detail::before {
+                content: attr(data-tooltip);
+                position: absolute;
+                width: 120%;
+                background-color: #333;
+                color: #fff;
+                text-align: center;
+                padding: 8px;
+                border-radius: 5px;
+                top: -30px;
+                left: 0;
+                opacity: 0;
+                transition: opacity 0.3s ease-out;
+            }
+
+            .a-detail:hover::before {
+                opacity: 1;
+            }
+
+            @media screen and (min-width:501px) {
+                .gridcontainer {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+            
+            @media screen and (min-width:769px) {
+                .gridcontainer {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+        </style>
         <script src="script.js"></script>
     </body>
