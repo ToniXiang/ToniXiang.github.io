@@ -20,8 +20,15 @@
         </nav>
         <main>
             <h2>主要頁面</h2>
-            <marquee id="marquee-item">「自己參考資料寫的網頁，有新的想法會持續更新!」</marquee>
-            
+            <marquee>「自己參考資料寫的網頁，有新的想法會持續更新!」</marquee>
+            <article>
+                <button id="prev-item" onclick="changeSlide(-1)">左頁</button>
+                <div id="center-item">
+                    <h3>網頁設計</h3>
+                    <p>網頁設計是一種視覺設計方法，專門針對網站的布局和用戶體驗。它涉及到色彩選擇、圖形設計、信息架構、用戶界面設計等多個方面。一個好的網頁設計不僅需要吸引用戶的眼球，還需要提供良好的用戶體驗，使用戶能夠輕鬆地找到他們需要的信息。</p>
+                </div>
+                <button id="next-item" onclick="changeSlide(1)">右頁</button>
+            </article>
         </main>
         <footer>
             <hr>
@@ -33,7 +40,64 @@
                 background-color: #f5f5f5;
                 transition: background-color 0.3s ease;
             }
+            
+            #center-item{
+                text-align: left;
+                padding-left: 10%;
+                position: relative;
+                width: 80%;
+            }
+
+            #prev-item {
+                color: aqua;
+                display: block;
+                border: 0.5px solid gray;              
+                cursor: pointer;
+                position: absolute;
+                top: 0%;
+                left: 0%;
+                width: 5%;
+                z-index: 1;/*確保#prev-item在其他元素之上，不會被覆蓋。*/
+            }
+            
+            #next-item {
+                color: aqua;
+                display: block;
+                border: 0.5px solid gray;              
+                cursor: pointer;
+                position: absolute;
+                top: 0%;
+                width: 5%;
+                right: 0%;
+            }
         </style>
         <script src="script.js"></script>
+        <script>
+            //依指定的時間更換與循環，也可讓使用者往前或後做瀏覽文字
+            const str=['網頁設計','軟體設計']
+            const con=[
+              '網頁設計是一種視覺設計方法，專門針對網站的布局和用戶體驗。它涉及到色彩選擇、圖形設計、信息架構、用戶界面設計等多個方面。一個好的網頁設計不僅需要吸引用戶的眼球，還需要提供良好的用戶體驗，使用戶能夠輕鬆地找到他們需要的信息。網頁設計是一種視覺設計方法，專門針對網站的布局和用戶體驗。它涉及到色彩選擇、圖形設計、信息架構、用戶界面設計等多個方面。一個好的網頁設計不僅需要吸引用戶的眼球，還需要提供良好的用戶體驗，使用戶能夠輕鬆地找到他們需要的信息。',
+              '軟體設計是計劃、指定、實現和維護軟體系統結構的過程。它涵蓋需求分析、系統設計、實現和維護。這個過程確定了軟體的功能、性能、架構和用戶界面設計。軟體設計是確定軟體質量和效率的關鍵步驟。']
+            let slideIndex = 0;
+            const slides = document.getElementById("center-item");
+            let prev = document.getElementById("prev-item");
+            let next = document.getElementById("next-item");
+            let h3Element = slides.querySelector('h3');
+            let pElement = slides.querySelector('p');  
+            function showSlide(n) {
+              slideIndex = (slideIndex + n + 2) % 2;
+              h3Element.textContent = str[slideIndex];
+              pElement.textContent = con[slideIndex];
+              prev.style.padding = slides.offsetHeight/2.5 + 'px 0';
+              next.style.padding = slides.offsetHeight/2.5 + 'px 0';
+            }
+            function changeSlide(n) {
+              showSlide(n);
+            }
+            setInterval(() => {
+              changeSlide(1);
+            }, 5000)
+            showSlide(0);
+        </script>
     </body>
 </html>
