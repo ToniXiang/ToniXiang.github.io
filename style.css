@@ -24,8 +24,8 @@ header {
     position: fixed;
     top: 1%;
     align-items: center;
-    background: rgba(127, 127, 206, 0.4);
-    color: rgba(255, 255, 255, 0.4);
+    background: #4343d5;
+    color: rgba(255, 255, 255);
 }
 
 nav>ul {
@@ -91,6 +91,8 @@ h1{
     margin: 10px;
     padding: 10px;
     text-align: center;
+    position: relative;
+    z-index: -1;
 }
 h2{
     color:rgb(191 130 65 / 92%);
