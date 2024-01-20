@@ -85,7 +85,7 @@
               '軟體設計是計劃、指定、實現和維護軟體系統結構的過程。它涵蓋需求分析、系統設計、實現和維護。這個過程確定了軟體的功能、性能、架構和用戶界面設計。軟體設計是確定軟體質量和效率的關鍵步驟。',
               '韌體是嵌入在硬體設備中的軟體，它提供了對硬體設備的低級控制，以及操作系統、應用程式和外部設備之間的橋樑。韌體設計涉及到編寫和優化這些低級控制程式，以確保硬體設備的正確運行。',
               '硬體設計是指設計和開發電子電路，以實現特定功能。硬體設計涉及到電路設計、電路分析、電路模擬、電路測試等多個方面。硬體設計是電子電路設計的一個分支，它專門針對電子電路的設計和開發。'];
-            let slideIndex = 0;
+            let slideIndex = 0,times=0;
             const slides = document.getElementById("center-item");
             let prev = document.getElementById("prev-item");
             let next = document.getElementById("next-item");
@@ -97,13 +97,17 @@
               pElement.textContent = con[slideIndex];
               prev.style.padding = slides.offsetHeight/2.5 + 'px 0';
               next.style.padding = slides.offsetHeight/2.5 + 'px 0';
+              times=0;
             }
             function changeSlide(n) {
               showSlide(n);
             }
             setInterval(() => {
-              changeSlide(1);
-            }, 10000)
+              times++;
+              if(times==10){
+                showSlide(1);
+              }
+            }, 1000)
             showSlide(0);
         </script>
     </body>

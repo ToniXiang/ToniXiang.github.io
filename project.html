@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, inital-scale=1">
         <title>個人網頁</title>
         <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="shortcut icon" href="Screenshots\home.png" type="image/x-icon">
+        <link rel="shortcut icon" type="image/x-icon" href="Screenshots\home.png">
+        <link rel="stylesheet" type="text/css" href="prism.css">
     </head>
     <body>
         <header>
@@ -18,10 +19,34 @@
                 </ul>
             </nav>
             <h2>作品展示</h2>
+            <div class="project">
+                <h3>無向圖</h3>
+                <p>E 代表輸入邊的數量，邊沒有方向只需知道 A 與 B 連接，不需知道儲存在哪個位置，用 unordered_map（無序容器）快速查找。</p>
+                <pre><code class="language-cpp">
+#include&ltvector&gt
+#include&ltunordered_map&gt
+struct Data     //自定義的結構（struct）
+{
+   int val;      //表示節點的值
+   vector&ltint&gtv;//存儲與節點相關的連接節點值的容器
+};
+int main(){
+   unordered_map&ltint,Data&gtgraph; //建立圖
+   for(int j=0;j&ltE;j++){
+       cin>>a>>b;
+       graph[a].v.push_back(b);
+       //無向圖，需雙向
+       graph[b].v.push_back(a);
+       //從節點 A 到節點 B 的邊，同時也可以從節點 B 到節點 A
+   }
+}
+                </code></pre>
+            </div>
         </main>
         <footer>
             <hr>
             <a class="a-back" href="#">Back to Top</a>
         </footer>
         <script src="script.js"></script>
+        <script src="prism.js"></script>
     </body>
