@@ -11,38 +11,15 @@
     <body>
         <div id="background"></div>
         <header>
-            <h1 id="main-page">個人網頁</h1>
+            <h1 id="main-page" onclick="redirectToPage('index.html')">個人網頁</h1>
         </header>
         <main>
-            <nav>
-                <ul>
-                    <button class="turnpage-item" onclick="redirectToPage('index.html')">主頁</button>
-                </ul>
-            </nav>
-            <h2>作品展示</h2>
-            <div class="project">
-                <h3>無向圖</h3>
-                <p>E 代表輸入邊的數量，邊沒有方向只需知道 A 與 B 連接，不需知道儲存在哪個位置，用 unordered_map（無序容器）快速查找。</p>
-                <pre><code class="language-cpp">
-#include&ltvector&gt
-#include&ltunordered_map&gt
-struct Data     //自定義的結構（struct）
-{
-   int val;      //表示節點的值
-   vector&ltint&gtv;//存儲與節點相關的連接節點值的容器
-};
-int main(){
-   unordered_map&ltint,Data&gtgraph; //建立圖
-   for(int j=0;j&ltE;j++){
-       cin>>a>>b;
-       graph[a].v.push_back(b);
-       //無向圖，需雙向
-       graph[b].v.push_back(a);
-       //從節點 A 到節點 B 的邊，同時也可以從節點 B 到節點 A
-   }
-}
+            <article>
+                <h2>作品展示</h2>
+                <p></p>
+                <pre><code class="language-csharp">
                 </code></pre>
-            </div>
+            </article>
         </main>
         <footer>
             <hr>

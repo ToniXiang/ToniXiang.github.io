@@ -10,14 +10,9 @@
 <body>
     <div id="background"></div>
     <header>
-        <h1 id="main-page">個人網頁</h1>
+        <h1 id="main-page" onclick="redirectToPage('index.html')">個人網頁</h1>
     </header>
     <main>
-        <nav>
-            <ul>
-                <button class="turnpage-item" onclick="redirectToPage('index.html')">主頁</button>
-            </ul>
-        </nav>
         <article>
             <h2>關於我</h2>
             <p>我熱衷於探索新的知識及想法，我喜歡深入閱讀書籍，如：密碼學，並且我喜歡沉浸在日本音樂的世界中。實作上，不僅限於單一主控台的演算法、資料結構、數論，還有做多執行續的軟體設計、網頁設計、寫腳本外掛。</p>
@@ -62,19 +57,21 @@
             <p>⭐️好好過生活</p>
         </article>
         <article>
-            <h2>軟體工程</h2>
+            <h2>資訊工程</h2>
             <img src="https://github-readme-stats.vercel.app/api?username=ChenGuoXiang940&count_private=true&theme=tokyonight" alt="GitHub Stats" style="width: 50%;height:auto;">
             <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ChenGuoXiang940&count_private=true&layout=compact&theme=tokyonight" alt="Top Languages" style="width:50%;height:auto;">
-            <article>
+            <article >
                 <h3>語言</h3>
                 <p>🔧C#</p>
                 <p>🔧C/C++</p>
                 <p>🔧Python</p>
                 <p>🔧Html/Css/Js</p>
+                <p>🔧Verilog</p>
                 <h3>IDE</h3>
-                <p>💻Visual Studio</p>
+                <p>💻Visual Studio 2022</p>
                 <p>💻Visual Studio Code</p>
                 <p>💻Arduino IDE</p>
+                <p>💻Vivado 2023.1</p>
             </article>
         </article>
         <article>
@@ -132,7 +129,7 @@
         #progress-bar-container {
             width: 100%;
             height: 20px;
-            background-color: #f0f0f0;
+            background-color: #FFFFCC;
             position: relative;
             overflow: hidden;
         }

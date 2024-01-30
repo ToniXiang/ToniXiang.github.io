@@ -1,8 +1,13 @@
 @charset "utf-8";
-
+@font-face {
+    font-family: pop-gothic-cjkjp;
+    src: url(https://cdn.jsdelivr.net/gh/max32002/pop-gothic@2.143/webfont/CJK%20JP/PopGothicCjkJp-Regular.woff2) format("woff2");
+}
 * {
     margin: 0;
     padding: 0;
+    font-family: pop-gothic-cjkjp;
+    user-select: none; 
 }
 
 body,
@@ -18,28 +23,6 @@ body>main{
 header{
     position: fixed;
     top: 1%;
-}
-
-nav>ul {
-    display: flex;
-    position: relative;
-}
-
-nav>ul>button {
-    border: 0.5px solid gray;
-    width: 125px;
-    margin: 0 auto;
-    padding: 10px;
-    margin-top: 0;
-    transition: background-color 0.1s ease;
-    border-radius: 5px;
-    overflow: hidden;
-    cursor: pointer;
-}
-nav>ul>button:hover {
-    background-color:rgb(117, 181, 181);
-    transition: background-color 0.3s ease;
-    animation: spotlight 2s infinite;
 }
 
 /* 定義聚光燈動畫 */
@@ -63,10 +46,23 @@ article {
     position: relative;
     overflow: hidden;
     text-decoration: none;
-    background-color:rgb(255 255 255 / 7%);
-    color: #00c9a7;
+    background-color:rgb(255 255 255 / 15%);
+    background-repeat: no-repeat;
+    color: #000000;
+    border: #FFFFCC 1px solid;
+    transition: background-color 2s;
+    opacity: 0;
+    transition: opacity 2s;
 }
 
+article.fadeIn {
+    opacity: 1;
+}
+
+article:hover,
+article.clicked {
+    backdrop-filter: blur(20px);
+}
 hr {
     border-top: 1px solid rgba(0, 0, 0.2);
     margin: 50px 0 20px;
@@ -77,37 +73,37 @@ footer {
 }
 
 h1{
-    margin: 10px;
+    margin: 0;
     padding: 10px;
     text-align: center;
     position: relative;
     z-index: -1;
     background: #4343d5;
-    color: rgba(255, 255, 255);
+    color: #FFFFCC;
 }
 h2{
-    color:rgb(191 130 65 / 92%);
+    color:#CCFFFF;
     margin-top: 5;
     margin-bottom: 0;
     text-align: center;
 }
 h3{
     text-align: center;
-    color: #bac;
+    color: #FFCCCC;
 }
 a{
     color: #023786;
 }
 .a-about {
     text-decoration: none;
-    color:  #00c9a7;
+    color:  #CCFFFF;
     padding: 20px 0;
 }
 
 .a-back {
     float: right;
     text-decoration: none;
-    color: #0066ff;
+    color:#CCFFFF;
     font-family: "Arial";
 }
 
