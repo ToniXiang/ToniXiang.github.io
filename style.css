@@ -54,7 +54,11 @@ article {
     opacity: 0;
     transition: opacity 2s;
 }
-
+#region{
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+}
 article.fadeIn {
     opacity: 1;
 }
@@ -94,6 +98,39 @@ h3{
 a{
     color: #023786;
 }
+.a-detail {
+    color: #CCFFFF;
+    font-weight: bold;
+    position: relative;
+    text-decoration: none;
+}
+#info-detail{
+    color: #FFFFCC;
+    display: inline-block;
+    animation: blink 1s steps(1, end) infinite;
+    margin-bottom: 20px;
+}
+.a-detail::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    width: 120%;
+    background-color: #333;
+    color: #FFFFCC;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 8px;
+    border-radius: 5px;
+    top: -30px;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    z-index: 1000;
+}
+
+.a-detail:hover::before {
+    opacity: 1;
+}
+
 .a-about {
     text-decoration: none;
     color:  #CCFFFF;

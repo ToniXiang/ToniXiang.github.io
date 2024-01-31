@@ -15,16 +15,135 @@
         </header>
         <main>
             <article>
-                <h2>作品展示</h2>
-                <p></p>
-                <pre><code class="language-csharp">
-                </code></pre>
+                <h2>旅行商問題</h2>
+                <div class="tags">
+                    <div class="message-tags">軟體設計</div>
+                    <div class="message-tags">C#</div>
+                    <div class="message-tags">NP問題</div>
+                </div>
+                <h3>問題說明</h3>
+                <p>旅行商問題（英語：Travelling salesman problem,TSP）是組合
+                    最佳化中的一個NP困難問題,在作業研究和理論電腦科學中非常重要。
+                    問題內容為「給定一系列城市和每對城市之間的距離,求解訪問每一座
+                    城市一次並回到起始城市的最短迴路。」最直接的解法就是把所有可能
+                    的路線都列出來,再比較哪一個路線是最短的。也就是以n個城市來說,會
+                    有n!條路線,找出其中的最短路線就需要O(n!),即所謂階層時間(factorial time)。
+                    </p>
+                <h3>演算法</h3>
+                <p>目前還沒有快速的演算法可以解決出唯一且最佳解。為了降低時間複雜度，
+                    本範例用退火蟻演算法，執行效率快了許多，但執行結果都不一定相同。</p>
+                <h3>功能說明</h3> 
+                <img src="Screenshots\problem1.png" alt="My Image" width="50%">
+                <div id="region" style="text-align: center;">
+                    <p>「生成路徑」Button</p>
+                    <p><a class="a-detail" data-tooltip="隨機生成25個點並顯示在圖形。"><span id="info-detail">&raquo;</span>詳細介紹</a></p>
+                    <p>「規劃路徑」Button</p>
+                    <p><a class="a-detail" data-tooltip="使用退火蟻演算法，計算出最短路徑並顯示圖形。"><span id="info-detail">&raquo;</span>詳細介紹</a></p>
+                    <p>「清除路徑」</p>
+                    <p><a class="a-detail" data-tooltip="清除所有路徑及圖形。"><span id="info-detail">&raquo;</span>詳細介紹</a></p>
+                    <p>「資訊」MessageBox</p>
+                    <p><a class="a-detail" data-tooltip="顯示執行花費時間。"><span id="info-detail">&raquo;</span>詳細介紹</a></p>
+                </div>
+                    </br>
+                <h3>退火蟻演算法</h3>
+<pre><code class="language-csharp">//初始化
+seq = new int[25];
+seq_f = new int[25];
+double tempterature = 10000;//當前溫度
+double result = 1E9;        //當前最短路徑長度
+double new_energy = 1, old_energy = 0;
+double[,] distance = new double[25, 25];
+//建立圖
+for (int i = 0; i < 25; i++)
+{
+    for(int j = 0; j < 25; j++)
+    {
+        //自己到自己不考慮距離(為零)
+        distance[i, j] = i == j ? 0 : Data.GetDistance(dot[i], dot[j]);
+    }
+}
+//紀錄順序 0~24
+Parallel.For(0, 25, i =>{
+    seq[i] = seq_f[i] = i;
+});
+//使用退火蟻演算法進行迭代，直到溫度足夠低或能量變化足夠小
+while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
+{
+    int iterate = 100;//設定迭帶次數
+    int[] seq_ff = new int[25];//存儲產生的序列
+    while (iterate-- >= 0 && Math.Abs(new_energy - old_energy) > 1E-9)
+    {
+        //生成新的序列
+        Data.generate1(ref seq_ff);
+        //計算新與舊各自的能量
+        new_energy = Data.count_energy(ref seq_ff);
+        old_energy = Data.count_energy(ref seq_f);
+        //Metroplis-Hastings 演算法 (Metropolis-Hastings algorithm)
+        //從複雜的概率分佈中抽取樣本
+        if (Data.metro(old_energy, new_energy, tempterature))
+        {
+            //如果接受，將新生成的序列複製到原序列
+            seq_f = seq_ff.ToArray();
+        }
+    }              
+    new_energy = Data.count_energy(ref seq_f);
+    old_energy = result;
+    if (Data.metro(old_energy, new_energy, tempterature))
+    {
+        seq = seq_f.ToArray();
+        //降低溫度，以便更容易接受新的序列，但不會太快，以免陷入局部最小值
+        tempterature *= 0.998;
+    }
+    else
+    {
+        //稍微降低溫度
+        tempterature *= 0.999;
+    }
+    result = Data.count_energy(ref seq);
+}</code></pre>
             </article>
         </main>
         <footer>
             <hr>
             <a class="a-back" href="#">Back to Top</a>
         </footer>
+        <style>
+            .message-tags{
+                border: #FFFFCC 0.5px solid;
+                border-radius: 5px;
+                padding: 4px 8px;
+                font-size: 13px;
+                line-height: 14px;
+                border-radius: 4px;
+                margin: 0 0 0 8px;
+                display: inline-block;
+                color: #FFFFCC;
+            }
+            img {
+            padding-top: 0%;
+            float: left;
+            margin-right: 20px;
+            }
+        </style>
         <script src="script.js"></script>
         <script src="prism.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                let articles = document.querySelectorAll('article');
+                articles.forEach(article => {
+                    let text = article.textContent;
+                    let pElements = article.querySelectorAll('p');
+                    let tagsElements = article.querySelectorAll('.tags');
+                    if(tagsElements.length == 0) return;
+                    let wordCount = 0;
+                    pElements.forEach(pElement => {
+                        wordCount += pElement.textContent.length;
+                    });
+                    let newMessageTags = document.createElement('div');
+                    newMessageTags.className='message-tags';
+                    newMessageTags.textContent = "字數: " + wordCount;
+                    tagsElements[0].appendChild(newMessageTags);
+                });
+            });
+        </script>
     </body>

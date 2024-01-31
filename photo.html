@@ -19,32 +19,32 @@
                     <div class="griditem">
                         <img src="Screenshots\1.jpg" class="img-photo">
                         <h3>中科大甄選實作考場</h3>
-                        <p><a class="a-detail" data-tooltip="2023/06/29"><span id="photo-info">&raquo;</span>詳細資料</a></p>
+                        <p><a class="a-detail" data-tooltip="2023/06/29"><span id="info-detail">&raquo;</span>詳細資料</a></p>
                     </div>
                     <div class="griditem">
                         <img src="Screenshots\2.heic" class="img-photo">
                         <h3>中科院研發展示館</h3>
-                        <p><a class="a-detail" data-tooltip="2022/11/29 飛彈模型展示"><span id="photo-info">&raquo;</span>詳細資料</a></p>
+                        <p><a class="a-detail" data-tooltip="2022/11/29 飛彈模型展示"><span id="info-detail">&raquo;</span>詳細資料</a></p>
                     </div>
                     <div class="griditem">
                         <img src="Screenshots\3.heic" class="img-photo">
                         <h3>中科院研發展示館</h3>
-                        <p><a class="a-detail" data-tooltip="2022/11/29"><span id="photo-info">&raquo;</span>詳細資料</a></p>
+                        <p><a class="a-detail" data-tooltip="2022/11/29"><span id="info-detail">&raquo;</span>詳細資料</a></p>
                     </div>
                     <div class="griditem">
                         <img src="Screenshots\4.heic" class="img-photo">
                         <h3>龍潭台積電</h3>
-                        <p><a class="a-detail" data-tooltip="2022/11/29"><span id="photo-info">&raquo;</span>詳細資料</a></p>
+                        <p><a class="a-detail" data-tooltip="2022/11/29"><span id="info-detail">&raquo;</span>詳細資料</a></p>
                     </div>
                     <div class="griditem">
                         <img src="Screenshots\5.heic" class="img-photo">
                         <h3>台北101</h3>
-                        <p><a class="a-detail" data-tooltip="2022/11/24"><span id="photo-info">&raquo;</span>詳細資料</a></p>
+                        <p><a class="a-detail" data-tooltip="2022/11/24"><span id="info-detail">&raquo;</span>詳細資料</a></p>
                     </div>
                     <div class="griditem">
                         <img src="Screenshots\6.heic" class="img-photo">
                         <h3>龍潭科學園區</h3>
-                        <p><a class="a-detail" data-tooltip="2022/11/29 3D立體地圖"><span id="photo-info">&raquo;</span>詳細資料</a></p>
+                        <p><a class="a-detail" data-tooltip="2022/11/29 3D立體地圖"><span id="info-detail">&raquo;</span>詳細資料</a></p>
                     </div>
                 </div>
             </article>
@@ -54,10 +54,6 @@
             <a class="a-back" href="#">Back to Top</a>
         </footer>
         <style>
-            #photo-info{
-                display: inline-block;
-                animation: blink 1s steps(1, end) infinite;
-            }
             .gridcontainer {
                 display: grid;
                 gap: 20px;
@@ -67,33 +63,6 @@
             .img-photo {
                 max-width: 100%;
                 height: auto;
-            }
-
-            .a-detail {
-                color: #CCFFFF;
-                font-weight: bold;
-                position: relative;
-                text-decoration: none;
-            }
-
-            .a-detail::before {
-                content: attr(data-tooltip);
-                position: absolute;
-                width: 120%;
-                background-color: #333;
-                color: #FFFFCC;
-                text-align: center;
-                font-family: Arial, Helvetica, sans-serif;
-                padding: 8px;
-                border-radius: 5px;
-                top: -30px;
-                left: 0;
-                opacity: 0;
-                transition: opacity 0.3s ease-out;
-            }
-
-            .a-detail:hover::before {
-                opacity: 1;
             }
 
             @media screen and (min-width:501px) {
