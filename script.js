@@ -14,11 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll("article").forEach((article) => {
         observer.observe(article);
     });
-    if(pagecounts.length !== 0){
-        pagecounts.forEach(pagecount => {
-            pagecount.textContent = "翻頁次數：" + record;
-        });
-    }
 });
 // 網頁都有這個效果，被按下有不同顏色且不同大小的彩色球，以圓心在半徑範圍內四散
 document.body.addEventListener("click", function (event) {
