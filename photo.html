@@ -10,7 +10,27 @@
     <body>
         <div id="background"></div>
         <header>
-            <h1 id="main-page" onclick="redirectToPage('index.html')">個人網頁</h1>
+            <h1>個人網頁</h1>
+            <nav onclick="redirectToPage('index.html')">
+                <img src="Screenshots/home.png" alt="Photo Icon">
+                <p>主頁</p>
+            </nav>
+            <nav onclick="redirectToPage('photo.html')">
+                <img src="Screenshots/photo.png" alt="Photo Icon">
+                <p>精選圖集</p>
+            </nav>
+            <nav onclick="redirectToPage('project.html')">
+                <img src="Screenshots/project.png" alt="Project Icon">
+                <p>作品展示</p>
+            </nav>
+            <nav onclick="redirectToPage('about.html')">
+                <img src="Screenshots/about.png" alt="About Icon">
+                <p>關於我</p>
+            </nav>
+            <nav onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
+                <img src="Screenshots/github.png" alt="Github Icon">
+                <p>Github</p>
+            </nav>
         </header>
         <main>
             <article>
@@ -75,6 +95,9 @@
                 .gridcontainer {
                     grid-template-columns: repeat(3, 1fr);
                 }
+            }
+            .griditem>p>a{
+                color:#FFFFCC;
             }
         </style>
         <script src="script.js"></script>

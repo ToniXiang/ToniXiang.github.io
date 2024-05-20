@@ -10,19 +10,39 @@
     <body>
         <div id="background"></div>
         <header>
-            <h1 id="main-page">個人網頁</h1>
+            <h1>個人網頁</h1>
+            <nav onclick="redirectToPage('index.html')">
+                <img src="Screenshots/home.png" alt="Photo Icon">
+                <p>主頁</p>
+            </nav>
+            <nav onclick="redirectToPage('photo.html')">
+                <img src="Screenshots/photo.png" alt="Photo Icon">
+                <p>精選圖集</p>
+            </nav>
+            <nav onclick="redirectToPage('project.html')">
+                <img src="Screenshots/project.png" alt="Project Icon">
+                <p>作品展示</p>
+            </nav>
+            <nav onclick="redirectToPage('about.html')">
+                <img src="Screenshots/about.png" alt="About Icon">
+                <p>關於我</p>
+            </nav>   
+            <nav onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
+                <img src="Screenshots/github.png" alt="Github Icon">
+                <p>Github</p>
+            </nav>
         </header>
         <main>
             <div style="position: relative;">
-                <img src="Screenshots/bodybg.jpg" alt="my image" width="100%" height="auto">
-                <h2 id="department-title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">資訊工程系</h2>
-                <div style="text-align: center; position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%);"><h2 id="student-text">H</h2><span id="cursor"></span></div>
+                <img src="Screenshots/bodybg.jpg" alt="bodybg jpg" width="100%" height="auto*0.7">
+                <h2 id="department-title" style="position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%);">資訊工程系</h2>
+                <div style="text-align: center; position: absolute; top: 70%; left: 40%; transform: translate(-50%, -50%);"><h3 id="student-text">H</h3><span id="cursor"></span></div>
             </div>
             <nav>
                 <ul>
-                    <button onclick="redirectToPage('photo.html')">精選圖集</button>
-                    <button onclick="redirectToPage('project.html')">作品展示</button>
-                    <button onclick="redirectToPage('about.html')">關於我</button>
+                    <button>精選圖集</button>
+                    <button>作品展示</button>
+                    <button>關於我</button>
                 </ul>
             </nav>
             <article>         

@@ -10,7 +10,27 @@
 <body>
     <div id="background"></div>
     <header>
-        <h1 id="main-page" onclick="redirectToPage('index.html')">個人網頁</h1>
+        <h1>個人網頁</h1>
+        <nav onclick="redirectToPage('index.html')">
+            <img src="Screenshots/home.png" alt="Photo Icon">
+            <p>主頁</p>
+        </nav>
+        <nav onclick="redirectToPage('photo.html')">
+            <img src="Screenshots/photo.png" alt="Photo Icon">
+            <p>精選圖集</p>
+        </nav>
+        <nav onclick="redirectToPage('project.html')">
+            <img src="Screenshots/project.png" alt="Project Icon">
+            <p>作品展示</p>
+        </nav>
+        <nav onclick="redirectToPage('about.html')">
+            <img src="Screenshots/about.png" alt="About Icon">
+            <p>關於我</p>
+        </nav>
+        <nav onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
+            <img src="Screenshots/github.png" alt="Github Icon">
+            <p>Github</p>
+        </nav>
     </header>
     <main>
         <article>
@@ -24,10 +44,8 @@
                 <p>姓名：陳國翔</p>
                 <p>性別：男</p>
                 <p>學號：1411232069</p>
-                <p>GitHub：ChenGuoXiang940</p>
-                <p>電子郵件：chen199940@gmail.com</p>
-                <P>學校郵件：s1411232069@ad1.nutc.edu.tw</P>
-                <p>個人網站：chenguoxiang940.github.io</p>
+                <p>電子郵件1：chen199940@gmail.com</p>
+                <P>電子郵件2：s1411232069@ad1.nutc.edu.tw</P>
                 <h3>經歷</h3>
                 <p>⚡參加111年全國技藝競賽軟體設計職種</p>
                 <h3>證照</h3>
@@ -72,7 +90,7 @@
             <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ChenGuoXiang940&count_private=true&layout=compact&theme=tokyonight" alt="Top Languages" style="width:50%;height:auto;">
             <div id="region">
                 <h3>程式語言</h3>
-                <p>🔧C# (熟練)</p>
+                <p>🔧C# (⭐️熟練)</p>
                 <p>🔧C/C++</p>
                 <p>🔧Java</p>
                 <p>🔧Python</p>
@@ -137,7 +155,7 @@
         #progress-bar-container {
             width: 100%;
             height: 20px;
-            background-color: #FFFFCC;
+            background-color: aliceblue;
             position: relative;
             overflow: hidden;
         }
@@ -149,7 +167,7 @@
             position: absolute;
             text-align: center;
             line-height: 20px;
-            color: #fff;
+            color: aliceblue;
         }
     </style>
     <script>

@@ -11,7 +11,27 @@
     <body>
         <div id="background"></div>
         <header>
-            <h1 id="main-page" onclick="redirectToPage('index.html')">個人網頁</h1>
+            <h1>個人網頁</h1>
+            <nav onclick="redirectToPage('index.html')">
+                <img src="Screenshots/home.png" alt="Photo Icon">
+                <p>主頁</p>
+            </nav>
+            <nav onclick="redirectToPage('photo.html')">
+                <img src="Screenshots/photo.png" alt="Photo Icon">
+                <p>精選圖集</p>
+            </nav>
+            <nav onclick="redirectToPage('project.html')">
+                <img src="Screenshots/project.png" alt="Project Icon">
+                <p>作品展示</p>
+            </nav>
+            <nav onclick="redirectToPage('about.html')">
+                <img src="Screenshots/about.png" alt="About Icon">
+                <p>關於我</p>
+            </nav>
+            <nav onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
+                <img src="Screenshots/github.png" alt="Github Icon">
+                <p>Github</p>
+            </nav>
         </header>
         <main>
             <article>
@@ -32,19 +52,6 @@
                 <h3>演算法</h3>
                 <p>目前還沒有快速的演算法可以解決出唯一且最佳解。為了降低時間複雜度，
                     本範例用退火蟻演算法，執行效率快了許多，但執行結果都不一定相同。</p>
-                <h3>功能說明</h3> 
-                <img src="Screenshots\problem1.png" alt="My Image" width="50%">
-                <div id="region" style="text-align: center;">
-                    <p>「生成路徑」Button</p>
-                    <p><a class="a-detail" data-tooltip="隨機生成25個點並顯示在圖形。"><span id="info-detail">&raquo;</span>詳細介紹</a></p>
-                    <p>「規劃路徑」Button</p>
-                    <p><a class="a-detail" data-tooltip="使用退火蟻演算法，計算出最短路徑並顯示圖形。"><span id="info-detail">&raquo;</span>詳細介紹</a></p>
-                    <p>「清除路徑」</p>
-                    <p><a class="a-detail" data-tooltip="清除所有路徑及圖形。"><span id="info-detail">&raquo;</span>詳細介紹</a></p>
-                    <p>「資訊」MessageBox</p>
-                    <p><a class="a-detail" data-tooltip="顯示執行花費時間。"><span id="info-detail">&raquo;</span>詳細介紹</a></p>
-                </div>
-                    </br>
                 <h3>退火蟻演算法</h3>
 <pre><code class="language-csharp">//初始化
 seq = new int[25];
