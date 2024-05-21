@@ -10,27 +10,29 @@
     <body>
         <div id="background"></div>
         <header>
-            <h1>個人網頁</h1>
-            <nav onclick="redirectToPage('index.html')">
-                <img src="Screenshots/home.png" alt="Photo Icon">
-                <p>主頁</p>
-            </nav>
-            <nav onclick="redirectToPage('photo.html')">
-                <img src="Screenshots/photo.png" alt="Photo Icon">
-                <p>精選圖集</p>
-            </nav>
-            <nav onclick="redirectToPage('project.html')">
-                <img src="Screenshots/project.png" alt="Project Icon">
-                <p>作品展示</p>
-            </nav>
-            <nav onclick="redirectToPage('about.html')">
-                <img src="Screenshots/about.png" alt="About Icon">
-                <p>關於我</p>
-            </nav>   
-            <nav onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
-                <img src="Screenshots/github.png" alt="Github Icon">
-                <p>Github</p>
-            </nav>
+            <div class="blogTitle">
+                <h1>個人網頁</h1>
+                <nav onclick="redirectToPage('index.html')">
+                    <img src="Screenshots/home.png" alt="Photo Icon">
+                    <p>主頁</p>
+                </nav>
+                <nav onclick="redirectToPage('photo.html')">
+                    <img src="Screenshots/photo.png" alt="Photo Icon">
+                    <p>精選圖集</p>
+                </nav>
+                <nav onclick="redirectToPage('project.html')">
+                    <img src="Screenshots/project.png" alt="Project Icon">
+                    <p>作品展示</p>
+                </nav>
+                <nav onclick="redirectToPage('about.html')">
+                    <img src="Screenshots/about.png" alt="About Icon">
+                    <p>關於我</p>
+                </nav>
+                <nav onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
+                    <img src="Screenshots/github.png" alt="Github Icon">
+                    <p>Github</p>
+                </nav>
+            </div>
         </header>
         <main>
             <div style="position: relative;">
@@ -38,19 +40,6 @@
                 <h2 id="department-title" style="position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%);">資訊工程系</h2>
                 <div style="text-align: center; position: absolute; top: 70%; left: 40%; transform: translate(-50%, -50%);"><h3 id="student-text">H</h3><span id="cursor"></span></div>
             </div>
-            <nav>
-                <ul>
-                    <button>精選圖集</button>
-                    <button>作品展示</button>
-                    <button>關於我</button>
-                </ul>
-            </nav>
-            <article>         
-                <div id="center-item">
-                    <h2>網頁設計</h2>
-                    <p>網頁設計是一種視覺設計方法，專門針對網站的布局和用戶體驗。它涉及到色彩選擇、圖形設計、信息架構、用戶界面設計等多個方面。一個好的網頁設計不僅需要吸引用戶的眼球，還需要提供良好的用戶體驗，使用戶能夠輕鬆地找到他們需要的信息。</p>
-                </div>
-            </article>
         </main>
         <footer>
             <hr>
@@ -64,7 +53,7 @@
             }    
             
             #student-text {
-                font-size: 24px;
+                font-size: 20px;
                 padding-top: 20px;
                 font-family: "Raleway", sans-serif;
                 display: inline-block;
@@ -84,67 +73,9 @@
                     background-color: transparent;
                 }
             }
-            nav>ul {
-                display: flex;
-                position: relative;
-            }
-
-            nav>ul>button {
-                border: #FFFFCC 1px solid;
-                font-size: 20px;
-                width: 125px;
-                margin: 0 auto;
-                padding: 30px 20px;
-                margin-top: 80px;
-                margin-bottom: 20px;
-                border-radius: 5px;
-                overflow: hidden;
-                cursor: pointer;
-                background-color: transparent;
-                color: #CCFFFF;
-            }
-
-            nav>ul>button:hover {
-                transition: background-color 0.3s ease;
-                animation: spotlight 2s infinite;
-            }
-
-            #center-item{
-                text-align: left;
-                padding-left: 10%;
-                position: relative;
-                width: 80%;
-            }
         </style>
         <script src="script.js"></script>
         <script>
-            //依指定的時間更換與循環，也可讓使用者往前或後做瀏覽文字
-            const str=['網頁設計','軟體設計','韌體設計','硬體設計'];
-            const con=[
-                '網頁設計是一種視覺設計方法，專門針對網站的布局和用戶體驗。它涉及到色彩選擇、圖形設計、信息架構、用戶界面設計等多個方面。一個好的網頁設計不僅需要吸引用戶的眼球，還需要提供良好的用戶體驗，使用戶能夠輕鬆地找到他們需要的信息。',
-                '軟體設計是計劃、指定、實現和維護軟體系統結構的過程。它涵蓋需求分析、系統設計、實現和維護。這個過程確定了軟體的功能、性能、架構和用戶界面設計。軟體設計是確定軟體質量和效率的關鍵步驟。',
-                '韌體是嵌入在硬體設備中的軟體，它提供了對硬體設備的低級控制，以及操作系統、應用程式和外部設備之間的橋樑。韌體設計涉及到編寫和優化這些低級控制程式，以確保硬體設備的正確運行。',
-                '硬體設計是指設計和開發電子電路，以實現特定功能。硬體設計涉及到電路設計、電路分析、電路模擬、電路測試等多個方面。硬體設計是電子電路設計的一個分支，它專門針對電子電路的設計和開發。'];
-            let slideIndex = 0,times=0;
-            const slides = document.getElementById("center-item");
-            let h3Element = slides.querySelector('h2');
-            let pElement = slides.querySelector('p');  
-            function showSlide(n) {
-                slideIndex = (slideIndex + n + 4) % 4;
-                h3Element.textContent = str[slideIndex];
-                pElement.textContent = con[slideIndex];
-                times=0;
-            }
-            slides.addEventListener('click', function() {
-                showSlide(1);
-            });
-            setInterval(() => {
-                if(++times==10){
-                showSlide(1);
-                }
-            }, 1000)
-            showSlide(0);
-
             // 字串從左到右 出現停五秒 再從右到左消失 循環播放
             function animateText() {
                 let text = "i! I'm 陳國翔, a student at NTCUST, Taiwan.";

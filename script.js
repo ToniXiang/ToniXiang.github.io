@@ -53,3 +53,14 @@ function getRandomColor() {
     }
     return color;
 }
+//點擊照片能放大
+document.querySelectorAll('.img-photo').forEach((img) => {
+    img.addEventListener('click', () => {
+        // 如果图片已经被放大，就移除 enlarge 类，否则就添加 enlarge 类
+        if (img.classList.contains('enlarge')) {
+            img.classList.remove('enlarge');
+        } else {
+            img.classList.add('enlarge');
+        }
+    });
+});

@@ -11,48 +11,60 @@
     <body>
         <div id="background"></div>
         <header>
-            <h1>個人網頁</h1>
-            <nav onclick="redirectToPage('index.html')">
-                <img src="Screenshots/home.png" alt="Photo Icon">
-                <p>主頁</p>
-            </nav>
-            <nav onclick="redirectToPage('photo.html')">
-                <img src="Screenshots/photo.png" alt="Photo Icon">
-                <p>精選圖集</p>
-            </nav>
-            <nav onclick="redirectToPage('project.html')">
-                <img src="Screenshots/project.png" alt="Project Icon">
-                <p>作品展示</p>
-            </nav>
-            <nav onclick="redirectToPage('about.html')">
-                <img src="Screenshots/about.png" alt="About Icon">
-                <p>關於我</p>
-            </nav>
-            <nav onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
-                <img src="Screenshots/github.png" alt="Github Icon">
-                <p>Github</p>
-            </nav>
+            <div class="blogTitle">
+                <h1>個人網頁</h1>
+                <nav onclick="redirectToPage('index.html')">
+                    <img src="Screenshots/home.png" alt="Photo Icon">
+                    <p>主頁</p>
+                </nav>
+                <nav onclick="redirectToPage('photo.html')">
+                    <img src="Screenshots/photo.png" alt="Photo Icon">
+                    <p>精選圖集</p>
+                </nav>
+                <nav onclick="redirectToPage('project.html')">
+                    <img src="Screenshots/project.png" alt="Project Icon">
+                    <p>作品展示</p>
+                </nav>
+                <nav onclick="redirectToPage('about.html')">
+                    <img src="Screenshots/about.png" alt="About Icon">
+                    <p>關於我</p>
+                </nav>
+                <nav onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
+                    <img src="Screenshots/github.png" alt="Github Icon">
+                    <p>Github</p>
+                </nav>
+            </div>
+            <div id="catalog">
+                <h2>目錄</h2>
+                <nav onclick="redirectToPage('#section1')">
+                    <p>一、旅行商問題</p>
+                </nav>
+                <nav onclick="redirectToPage('#section2')">
+                    <p>二、簡易的行控中心</p>
+                </nav>
+            </div>
         </header>
         <main>
             <article>
-                <h2>旅行商問題</h2>
+                <section id="section1"></section>
+                <h2>一、旅行商問題</h2>
                 <div class="tags">
                     <div class="message-tags">軟體設計</div>
                     <div class="message-tags">C#</div>
                     <div class="message-tags">NP問題</div>
                 </div>
-                <h3>問題說明</h3>
+                <nav style="color: #f0883e;" onclick="window.open('https://github.com/ChenGuoXiang940/Algorithm/tree/6b44667a3bcf469e8c33ed8b7e4a1fc4addb3b5a/%E5%9B%B0%E9%9B%A3%E5%95%8F%E9%A1%8CNP/%E6%97%85%E9%81%8A%E5%95%86%E5%95%8F%E9%A1%8CTSP', '_blank')">儲存庫連結</nav>
+                <h3>1. 問題說明</h3>
                 <p>旅行商問題（英語：Travelling salesman problem,TSP）是組合
                     最佳化中的一個NP困難問題,在作業研究和理論電腦科學中非常重要。
                     問題內容為「給定一系列城市和每對城市之間的距離,求解訪問每一座
                     城市一次並回到起始城市的最短迴路。」最直接的解法就是把所有可能
                     的路線都列出來,再比較哪一個路線是最短的。也就是以n個城市來說,會
                     有n!條路線,找出其中的最短路線就需要O(n!),即所謂階層時間(factorial time)。
-                    </p>
-                <h3>演算法</h3>
+                </p>
                 <p>目前還沒有快速的演算法可以解決出唯一且最佳解。為了降低時間複雜度，
                     本範例用退火蟻演算法，執行效率快了許多，但執行結果都不一定相同。</p>
-                <h3>退火蟻演算法</h3>
+                <h3>2. 退火蟻演算法</h3>
 <pre><code class="language-csharp">//初始化
 seq = new int[25];
 seq_f = new int[25];
@@ -109,12 +121,50 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
     result = Data.count_energy(ref seq);
 }</code></pre>
             </article>
+            <article>
+                <section id="section2"></section>
+                <h2>簡易的行控中心</h2>
+                <div class="tags">
+                    <div class="message-tags">軟體設計</div>
+                    <div class="message-tags">C#</div>
+                </div>
+                <nav style="color: #f0883e;" onclick="window.open('https://github.com/ChenGuoXiang940/NTCUST_OCC_myproject.git', '_blank')">儲存庫連結</nav>
+                <h3>表單設計</h3>
+                <div class="gridcontainer">
+                    <div class="griditem">
+                        <img class="img-photo" src="Screenshots/p2-1.png" alt="p2-1">
+                    </div>
+                    <div class="griditem">
+                        <img class="img-photo" src="Screenshots/p2-2.png" alt="p2-2">
+                    </div>
+                </div>
+                <h3>主要功能</h3>
+                <nav>
+                    <ul>
+                        <button>使用者可以自行操作列車</button>
+                        <button>時刻掌握當前時間</button>
+                        <button>使用模擬計算來預估列車的當前狀態</button>
+                        <button>路線地圖可視化展示</button>
+                        <button>用戶回饋功能</button>
+                    </ul>
+                </nav>
+            </article>
         </main>
         <footer>
             <hr>
             <a class="a-back" href="#">Back to Top</a>
         </footer>
         <style>
+            #catalog{
+                position: fixed;
+                padding-top: 5%;
+                width: 20%;
+                border-radius: 2px;
+                margin-bottom: 16.2px;
+            }
+            #catalog>nav>p{
+                color: aliceblue;
+            }
             .message-tags{
                 border: #FFFFCC 0.5px solid;
                 border-radius: 5px;
@@ -126,10 +176,56 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                 display: inline-block;
                 color: #FFFFCC;
             }
-            img {
-            padding-top: 0%;
-            float: left;
-            margin-right: 20px;
+            .gridcontainer {
+                display: grid;
+                gap: 20px;
+                grid-template-columns: 1fr;
+            }
+
+            .img-photo {
+                max-width: 100%;
+                height: auto;
+                border: 1px solid #f0883e;
+            }
+            @media screen and (max-width: 501px) {
+                .gridcontainer {
+                    grid-template-columns: 1fr 1fr;
+                }
+                #catalog{
+                    display: none;
+                }
+            }
+            
+            @media screen and (min-width:1024px) {
+                .gridcontainer {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+            #catalog nav.active {
+                background-color: #f0883e;
+            }
+            nav>ul {
+                display: flex;
+                position: relative;
+            }
+
+            nav>ul>button {
+                border: #FFFFCC 1px solid;
+                font-size: 20px;
+                width: 125px;
+                margin: 0 auto;
+                padding: 0 10px;
+                margin-bottom: 20px;
+                border-radius: 5px;
+                overflow: hidden;
+                cursor: pointer;
+                background-color: transparent;
+                color: #CCFFFF;
+            }
+
+            nav>ul>button:hover {
+                transition: background-color 0.3s ease;
+                animation: spotlight 2s infinite;
             }
         </style>
         <script src="script.js"></script>
@@ -151,6 +247,23 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                     newMessageTags.textContent = "字數: " + wordCount;
                     tagsElements[0].appendChild(newMessageTags);
                 });
+            });
+
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('#catalog nav');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        document.querySelector(`#catalog nav[onclick="redirectToPage('#${id}')"]`).classList.add('active');
+                    } else {
+                        const id = entry.target.getAttribute('id');
+                        document.querySelector(`#catalog nav[onclick="redirectToPage('#${id}')"]`).classList.remove('active');
+                    }
+                });
+            });
+            sections.forEach((section) => {
+                observer.observe(section);
             });
         </script>
     </body>
