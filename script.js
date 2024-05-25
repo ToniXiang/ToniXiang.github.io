@@ -1,4 +1,4 @@
-//點擊後跳轉頁面
+// 點擊後跳轉頁面
 function redirectToPage(url) {
     window.location.href = url;
 }
@@ -28,16 +28,16 @@ document.body.addEventListener("click", function (event) {
         ball.style.borderRadius = "50%";
         ball.style.zIndex = 1000;
         ball.className = "ball";
-        document.body.appendChild(ball);
 
         let angle = Math.random() * Math.PI * 2;
         let distance = Math.random() * 100;
         let x = Math.cos(angle) * distance;
         let y = Math.sin(angle) * distance;
 
-        setTimeout(() => {
-            ball.style.transform = `translate(${x}px, ${y}px)`;
-        }, 0);
+        ball.style.setProperty('--x', `${x}px`);
+        ball.style.setProperty('--y', `${y}px`);
+
+        document.body.appendChild(ball);
 
         setTimeout(() => {
             document.body.removeChild(ball);
@@ -53,10 +53,9 @@ function getRandomColor() {
     }
     return color;
 }
-//點擊照片能放大
+//點擊照片顯示在左上角
 document.querySelectorAll('.img-photo').forEach((img) => {
     img.addEventListener('click', () => {
-        // 如果图片已经被放大，就移除 enlarge 类，否则就添加 enlarge 类
         if (img.classList.contains('enlarge')) {
             img.classList.remove('enlarge');
         } else {

@@ -217,3 +217,17 @@ a{
     height: auto;
     border: 1px solid #f0883e;
 }
+@keyframes moveAndFade {
+    from {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+    to {
+        opacity: 0;
+        transform: translate(var(--x), var(--y));
+    }
+}
+
+.ball {
+    animation: moveAndFade 300ms linear forwards;
+}
