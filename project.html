@@ -14,7 +14,7 @@
             <div class="blogTitle">
                 <h1>個人網頁</h1>
                 <nav onclick="redirectToPage('index.html')">
-                    <img src="Screenshots/home.png" alt="Photo Icon">
+                    <img src="Screenshots/home.png" alt="Home Icon">
                     <p>主頁</p>
                 </nav>
                 <nav onclick="redirectToPage('photo.html')">
@@ -48,18 +48,19 @@
             <article>
                 <section id="section1"></section>
                 <header>
-                    <h2>一、旅行商問題</h2>
+                    <h2>旅行商問題</h2>
                     <div class="tags">
                         <span class="message-tags">軟體設計</span>
                         <span class="message-tags">C#</span>
                         <span class="message-tags">NP問題</span>
                     </div>
                     <nav>
-                        <a href="https://github.com/ChenGuoXiang940/Algorithm/tree/6b44667a3bcf469e8c33ed8b7e4a1fc4addb3b5a/%E5%9B%B0%E9%9B%A3%E5%95%8F%E9%A1%8CNP/%E6%97%85%E9%81%8A%E5%95%86%E5%95%8F%E9%A1%8CTSP" target="_blank" style="color: #f0883e;">儲存庫連結</a>
+                        <a href="https://github.com/ChenGuoXiang940/Algorithm/tree/6b44667a3bcf469e8c33ed8b7e4a1fc4addb3b5a/%E5%9B%B0%E9%9B%A3%E5%95%8F%E9%A1%8CNP/%E6%97%85%E9%81%8A%E5%95%86%E5%95%8F%E9%A1%8CTSP"
+                            target="_blank" style="color: #FFFFCC;">儲存庫連結</a>
                     </nav>
                 </header>
                 <section>
-                    <h3>1. 問題說明</h3>
+                    <h3>問題說明</h3>
                     <p>旅行商問題（英語：Travelling salesman problem,TSP）是組合
                         最佳化中的一個NP困難問題,在作業研究和理論電腦科學中非常重要。
                         問題內容為「給定一系列城市和每對城市之間的距離,求解訪問每一座
@@ -69,7 +70,7 @@
                     </p>
                     <p>目前還沒有快速的演算法可以解決出唯一且最佳解。為了降低時間複雜度，
                         本範例用退火蟻演算法，執行效率快了許多，但執行結果都不一定相同。</p>
-                    <h3>2. 退火蟻演算法</h3>
+                    <h3>退火蟻演算法</h3>
 <pre><code class="language-csharp">//初始化
 seq = new int[25];
 seq_f = new int[25];
@@ -130,17 +131,17 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
             <article>
                 <section id="section2"></section>
                     <header>
-                        <h2>二、簡易的行控中心</h2>
+                        <h2>簡易的行控中心</h2>
                         <div class="tags">
                             <span class="message-tags">軟體設計</span>
                             <span class="message-tags">C#</span>
                         </div>
                         <nav>
-                            <a href="https://github.com/ChenGuoXiang940/NTCUST_OCC_myproject.git" target="_blank" style="color: #f0883e;">儲存庫連結</a>
+                            <a href="https://github.com/ChenGuoXiang940/NTCUST_OCC_myproject.git" target="_blank" style="color: #FFFFCC;">儲存庫連結</a>
                         </nav>
                     </header>
                     <section>
-                        <h3>1.表單設計</h3>
+                        <h3>表單設計</h3>
                         <div class="gridcontainer">
                             <figure class="griditem">
                                 <img class="img-photo" src="Screenshots/p2-1.png" alt="p2-1">
@@ -151,7 +152,7 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                         </div>
                     </section>
                     <section>
-                        <h3>2.主要功能</h3>
+                        <h3>主要功能</h3>
                         <ul>
                             <li>使用者可以自行操作列車</li>
                             <li>時刻掌握當前時間</li>
@@ -192,12 +193,6 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                 display: grid;
                 gap: 20px;
                 grid-template-columns: 1fr;
-            }
-
-            .img-photo {
-                max-width: 100%;
-                height: auto;
-                border: 1px solid #f0883e;
             }
             @media screen and (max-width: 501px) {
                 .gridcontainer {
