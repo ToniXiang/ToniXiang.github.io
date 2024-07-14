@@ -21,12 +21,13 @@ body>header{
     align-items: center;
     background-color: rgba(0,0,0);
 }
-@media screen and (max-width: 501px) {
+@media screen and (max-width: 601px) {
     body>main{
         padding-top: 15%;
     }
     .blogTitle>h1{
         margin-left: 0%;
+        font-size: 16px;
     }
     .blogTitle>nav>p{
         display: none;
@@ -36,13 +37,19 @@ body>header{
     }
 }
 
-@media screen and (min-width: 701px) and (max-width: 1024px) {
+@media screen and (max-width: 1224px) {
     body>main{
         padding-top: 20%;
     }
+    .blogTitle>nav>p{
+        display: none;
+    }
+    .blogTitle{
+        position: fixed;
+    }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1225px) {
     body>main{
         padding-top: 5%;
     }
@@ -136,6 +143,7 @@ h2{
 h3{
     text-align: center;
     color: #13c2c2;
+    text-shadow: 0 0 0.5em #315f8f, 0 0 0.2em #5c5c5c;
 }
 a{
     color: #023786;
