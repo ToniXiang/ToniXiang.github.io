@@ -12,7 +12,7 @@
         <header>
             <div class="blogTitle">
                 <h1>個人網頁</h1>
-                <nav onclick="redirectToPage('index.html')">
+                <nav onclick="redirectToPage('index.html')"  class="cp">
                     <img src="Screenshots/home.png" alt="Home Icon">
                     <p>主頁</p>
                 </nav>
@@ -40,12 +40,36 @@
                 <h2 id="department-title" style="position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%);">資訊工程系</h2>
             </div>
             <div style="text-align: center;"><h3 id="student-text">H</h3><span id="cursor"></span></div>
+            <article class="feedback-section" style="width: 50%;margin: auto;text-align: center;">
+                <p>Was this page helpful to you?</p>
+                <button id="yesButton">Yes</button>
+                <button id="noButton">No</button>
+                <p id="feedbackResponse" style="color: #13c2c2;"></p>
+            </article>
         </main>
         <footer>
             <hr>
-            <a class="a-back" href="#">Back to Top</a>
+            <p class="about">© 2024 ChenGuoXiang940. All rights reserved.</p>
         </footer>
         <style>      
+            .feedback-section{
+                border:solid 1px #f0883e;
+                border-radius: 5px;
+                
+            }
+            .feedback-section p, .feedback-section button {
+                margin: 5px;
+                font-family: "Raleway", sans-serif;
+            }
+            #yesButton, #noButton {
+                cursor: pointer;
+                padding: 5px 10px;
+                font-size: 16px;
+                border: 1px solid #13c2c2;
+                border-radius: 5px;
+                color: #13c2c2;
+                background-color: #000000;
+            }
             #department-title {
                 font-size: 36px;
                 font-family: "Poppins", sans-serif; 
@@ -97,11 +121,19 @@
                                     animateText();
                                 }
                             }, 100);
-                        }, 3000);
+                        }, 5000);
                     }
                 }, 100);
             }
-        animateText();
+            animateText();
+            document.getElementById('yesButton').addEventListener('click', function() {
+                document.getElementById('feedbackResponse').textContent = 'Thank you for your feedback!';
+                document.getElementById('noButton').remove();
+            });
+            document.getElementById('noButton').addEventListener('click', function() {
+                document.getElementById('feedbackResponse').textContent = 'Thank you for your feedback!';
+                document.getElementById('yesButton').remove();
+            });
         </script>
     </body>
 </html>

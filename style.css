@@ -157,6 +157,14 @@ p {
     text-align: justify;
     margin-bottom: 10px;
 }
+.smalltitle{
+    color: #FFFFCC;
+    text-decoration: underline;
+    text-align: center;
+}
+.link:hover,.smalltitle:hover{
+    text-decoration: none;
+}
 .a-detail {
     color: #13c2c2;
     font-weight: bold;
@@ -190,20 +198,15 @@ p {
     opacity: 1;
 }
 
-.a-about {
-    text-decoration: none;
+.about {
+    text-decoration: underline;
     color:  #f0883e;
-    padding: 20px 0;
+    padding: 2px 0;
+    text-align: center;
 }
-
-.a-back {
-    float: right;
-    padding-right: 2%;
+.about:hover {
     text-decoration: none;
-    color:#13c2c2;
-    font-family: "Arial";
 }
-
 #background {
     position: fixed;
     top: 0;
@@ -228,8 +231,10 @@ p {
 
 .img-photo {
     max-width: 100%;
-    height: auto;
+    margin-left: auto;
+    margin-right: auto;
     border: 1px solid aliceblue;
+    display: block;
 }
 @keyframes moveAndFade {
     from {
@@ -244,4 +249,16 @@ p {
 
 .ball {
     animation: moveAndFade 300ms linear forwards;
+}
+.cp {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    color: #f0883e;
+    font-size: 20px;
+    text-decoration: none;
+    background-color: #333;
+    border-radius: 5px 0 0 0;
+    z-index: 1000;
 }

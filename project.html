@@ -21,7 +21,7 @@
                     <img src="Screenshots/photo.png" alt="Photo Icon">
                     <p>精選圖集</p>
                 </nav>
-                <nav onclick="redirectToPage('project.html')">
+                <nav onclick="redirectToPage('project.html')"  class="cp">
                     <img src="Screenshots/project.png" alt="Project Icon">
                     <p>作品展示</p>
                 </nav>
@@ -36,10 +36,10 @@
             </div>
             <div id="catalog">
                 <h2>目錄</h2>
-                <nav onclick="redirectToPage('#section1')">
+                <nav onclick="toArticle('#section1')">
                     <p>一、旅行商問題</p>
                 </nav>
-                <nav onclick="redirectToPage('#section2')">
+                <nav onclick="toArticle('#section2')">
                     <p>二、簡易的行控中心</p>
                 </nav>
             </div>
@@ -56,7 +56,7 @@
                     </div>
                     <nav>
                         <a href="https://github.com/ChenGuoXiang940/Algorithm/tree/6b44667a3bcf469e8c33ed8b7e4a1fc4addb3b5a/%E5%9B%B0%E9%9B%A3%E5%95%8F%E9%A1%8CNP/%E6%97%85%E9%81%8A%E5%95%86%E5%95%8F%E9%A1%8CTSP"
-                            target="_blank" style="color: #FFFFCC;">儲存庫連結</a>
+                            target="_blank" style="color: #FFFFCC;" class="link">儲存庫連結</a>
                     </nav>
                 </header>
                 <section>
@@ -134,38 +134,64 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                         <h2>簡易的行控中心</h2>
                         <div class="tags">
                             <span class="message-tags">軟體設計</span>
+                            <span class="message-tags">模擬</span>
                             <span class="message-tags">C#</span>
                         </div>
                         <nav>
-                            <a href="https://github.com/ChenGuoXiang940/NTCUST_OCC_myproject.git" target="_blank" style="color: #FFFFCC;">儲存庫連結</a>
+                            <a href="https://github.com/ChenGuoXiang940/NTCUST_OCC_myproject.git" target="_blank" style="color: #FFFFCC;" class="link">儲存庫連結</a>
                         </nav>
                     </header>
                     <section>
                         <h3>表單設計</h3>
-                        <div class="gridcontainer">
-                            <figure class="griditem">
-                                <img class="img-photo" src="Screenshots/p2-1.png" alt="p2-1">
-                            </figure>
-                            <figure class="griditem">
-                                <img class="img-photo" src="Screenshots/p2-2.png" alt="p2-2">
-                            </figure>
-                        </div>
-                    </section>
-                    <section>
+                        <img class="img-photo" src="Screenshots/p2-1.png" alt="p2-1" width="50%">
                         <h3>主要功能</h3>
                         <ul>
                             <li>使用者可以自行操作列車</li>
                             <li>時刻掌握當前時間</li>
                             <li>使用模擬計算來預估列車的當前狀態</li>
                             <li>路線地圖可視化展示</li>
+                            <li>緊急事件處理</li>
                             <li>用戶回饋功能</li>
+                            <li>更多功能日後開發(維護和檢修計劃、能源管理連接資料庫)</li>
                         </ul>
+                        <h3>功能介紹</h3>
+                        <p class="smalltitle">1. 車站狀態</p>
+                        <p>請選擇車站名稱，可以調整優先序。</p>
+                        <p>時刻表包含將進站的列車名、預估抵達時間、起始站、終點站。</p>
+                        <p class="smalltitle">2. 列車狀態及操作</p>
+                        <p>請選擇列車名稱，可以調整優先序、更改終點站，但先臨停。</p>
+                        <ul>
+                            <li>列車出站加速度為 1.0 m/s²，維持且不超過 110km/h。</li>
+                            <li>列車進站加速度為 -0.8 m/s²。</li>
+                            <li>調整時速請按「增速」和「減速」分別和進出站加速度相同，增減速不超過 ±10km/h。</li>
+                            <li>「煞車」煞車加速度為 -2.5 m/s² 用於急煞。</li>
+                            <li>「啟動」不等候直接出站或中途停止要開始行駛。</li>
+                            <li>「發車」等候發車。</li>
+                            <li>「停靠站」在此站不發車，需要先停靠在車站。</li>
+                            <li>車站優先序如果低於列車則不會臨停。</li>
+                        </ul>
+                        <ul>
+                            <li>同方向列車不會在車站同時發車，考慮安全問題。</li>
+                            <li>如果要進站的月台數不足則不會發車，需等待已在進站月台的列車離站。</li>
+                            <li>一個月台有各一個北上和南下。</li>
+                        </ul>
+                        <p class="smalltitle">3. 路線地圖</p>
+                        <p>點選車站名可直接更改列車站狀態的車站名。</p>
+                        <p>箭頭顏色說明：</p>
+                        <ul>
+                            <li><span style="color: black;">黑色箭頭</span>：無列車在此行駛。</li>
+                            <li><span style="color: orange;">橘色箭頭</span>：有列車要進站或離站。</li>
+                            <li><span style="color: blue;">藍色箭頭</span>：有列車正在此行駛。</li>
+                            <li><span style="color: red;">紅色箭頭</span>：存在安全問題。</li>
+                        </ul>
+                        <p class="smalltitle">4. 事件處理</p>
+                        <p>選擇事件及列車，勾選聯絡單位，詳細內容可為空。</p>
+                        <p>模擬事件回報功能。</p>
                     </section>
             </article>
         </main>
         <footer>
             <hr>
-            <a class="a-back" href="#">Back to Top</a>
         </footer>
         <style>
             #catalog{
@@ -177,6 +203,12 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
             }
             #catalog>nav>p{
                 color: aliceblue;
+                font-family: '標楷體' , sans-serif;
+                font-size: 20px;
+            }
+            section>p,section>ul{
+                margin-left: 20px;
+                margin-right: 20px;
             }
             .message-tags{
                 border: #FFFFCC 0.5px solid;
@@ -188,11 +220,6 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                 margin: 0 0 0 8px;
                 display: inline-block;
                 color: #FFFFCC;
-            }
-            .gridcontainer {
-                display: grid;
-                gap: 20px;
-                grid-template-columns: 1fr;
             }
             @media screen and (max-width: 501px) {
                 .gridcontainer {
@@ -229,6 +256,10 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                 transition: background-color 0.3s ease;
                 animation: spotlight 2s infinite;
             }
+            img {
+                float: center;
+                margin-right: 20px;
+            }
         </style>
         <script src="script.js"></script>
         <script src="prism.js"></script>
@@ -250,22 +281,32 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                     tagsElements[0].appendChild(newMessageTags);
                 });
             });
-
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('#catalog nav');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         const id = entry.target.getAttribute('id');
-                        document.querySelector(`#catalog nav[onclick="redirectToPage('#${id}')"]`).classList.add('active');
+                        document.querySelector(`#catalog nav[onclick="toArticle('#${id}')"]`).classList.add('active');
                     } else {
                         const id = entry.target.getAttribute('id');
-                        document.querySelector(`#catalog nav[onclick="redirectToPage('#${id}')"]`).classList.remove('active');
+                        document.querySelector(`#catalog nav[onclick="toArticle('#${id}')"]`).classList.remove('active');
                     }
                 });
             });
             sections.forEach((section) => {
                 observer.observe(section);
             });
+            function toArticle(selector) {                
+                const element = document.querySelector(selector);
+                if (element) {
+                    const top = element.getBoundingClientRect().top + window.pageYOffset-70;
+                    if(top<0)top=0;
+                    window.scrollTo({
+                        top: top,
+                        behavior: "smooth"
+                    });
+                }
+            }
         </script>
     </body>
