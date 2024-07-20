@@ -6,9 +6,11 @@
         <title>個人網頁</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="shortcut icon" href="Screenshots\me.png" type="image/x-icon">
+        <link id="prismTheme" rel="stylesheet" href="prism_dark.css">
     </head>
     <body>
         <div id="background"></div>
+        <button id="themeToggle">Toggle Theme</button>
         <header>
             <div class="blogTitle">
                 <h1>個人網頁</h1>
@@ -40,12 +42,46 @@
                 <h2 id="department-title" style="position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%);">資訊工程系</h2>
             </div>
             <div style="text-align: center;"><h3 id="student-text">H</h3><span id="cursor"></span></div>
-            <article class="feedback-section" style="width: 50%;margin: auto;text-align: center;">
-                <p>Was this page helpful to you?</p>
-                <button id="yesButton">Yes</button>
-                <button id="noButton">No</button>
-                <p id="feedbackResponse" style="color: #13c2c2;"></p>
-            </article>
+            <section>
+                <h2>事前準備</h2>
+                <p class="smalltitle">作品展示的程式專案相比一般算相當進階，內容可能過於複雜。在開始之前，您應該熟悉非同步與多執行緒。如果你寫習慣主控台 scanf、printf 但還對此概念還不太熟悉，強烈建議你先了解概念。</p>   
+            </section>
+            <section>
+                <h2>指南</h2>
+                <article class="feedback-section" style="width: 50%;margin: auto;text-align: center;">
+                    <p>部分資訊使用「GitHub Copilot」</p>
+                    <button id="okButton">OK</button>
+                </article>
+                <p class="smalltitle">非同步程式設計通用概念</p>
+                <p>非同步操作是指不會阻止程式的執行的操作。在非同步程式設計中，您可以執行其他操作，而不必等待操作完成。
+                    如果你在表單設計一個按鈕，然而，那個按鈕的程式有無窮迴圈的話，則其他按鍵都無法用，是因為大多數圖形用戶介面（GUI）應用程式使用單一執行緒來處理所有事件。</p>
+                </p>
+                <p class="smalltitle">多執行緒概念</p>
+                <p>將耗時的操作放到另一個執行緒中，避免阻塞主執行緒。例如開啟資料庫的程式碼，如果無法開啟資料庫，雖然有處理異常(避免程序崩潰)，但還是會卡頓，所以放在另一個執行續能解決卡頓問題。</p>
+                <p class="smalltitle">物件導向程式設計概念</p>
+                <p>一種程式設計模式，它將資料和程式碼封裝在物件中。物件是類的實例，類是定義物件的藍圖。</p>
+                <pre><code class="language-csharp">public class Person // 定義類 C#
+{
+    // 定義屬性
+    public string Name { get; set; }
+    public int Age { get; set; }
+    // 定義方法
+    public void SayHello()
+    {
+        Console.WriteLine("Hello, my name is " + Name);
+    }
+}</code></pre>
+                <p class="smalltitle">演算法概念</p>
+                <p>解決問題的規則。演算法可以用來解決各種問題，例如搜尋、排序和刪除數據等。</p>
+                <p class="smalltitle">資料庫概念</p>
+                <p>組織和存儲數據的系統。資料庫可以存儲結構化數據，例如表格和列，以及非結構化數據，例如文件和圖像等。</p>
+                <p class="smalltitle">C# 概念</p>
+                <p>C# 是一種通用、物件導向的程式語言。它是由微軟開發的，用於開發各種應用程式，包括桌面應用程式、Web 應用程式和遊戲等。</p>
+            </section>
+            <section>
+                <h2>參閱</h2>
+                <p>更多資訊，請訪問 <a href="project.html" target="_blank" class="link">作品展示</a>。</p>
+            </section>
         </main>
         <footer>
             <hr>
@@ -55,20 +91,22 @@
             .feedback-section{
                 border:solid 1px #f0883e;
                 border-radius: 5px;
-                
+                transition: opacity 0.5s, height 0.5s;
+                overflow: hidden;
             }
             .feedback-section p, .feedback-section button {
                 margin: 5px;
                 font-family: "Raleway", sans-serif;
+                text-align: center;
             }
-            #yesButton, #noButton {
+            #okButton{
                 cursor: pointer;
                 padding: 5px 10px;
                 font-size: 16px;
                 border: 1px solid #13c2c2;
                 border-radius: 5px;
                 color: #13c2c2;
-                background-color: #000000;
+                background-color: transparent;
             }
             #department-title {
                 font-size: 36px;
@@ -99,11 +137,12 @@
                 }
             }
         </style>
+        <script src="prism.js"></script>
         <script src="script.js"></script>
         <script>
             // 字串從左到右 出現停五秒 再從右到左消失 循環播放
             function animateText() {
-                let text = "i! I'm 陳國翔, a student at NTCUST, Taiwan.";
+                let text = "i! I'm 陳國翔, a student at NTCUST,Taiwan.";
                 let studentText = document.getElementById('student-text');
                 let index = 0;
                 let textInterval = setInterval(function() {
@@ -125,14 +164,20 @@
                     }
                 }, 100);
             }
+            // okButton 如果被按下，feedback-section 會消失
             animateText();
-            document.getElementById('yesButton').addEventListener('click', function() {
-                document.getElementById('feedbackResponse').textContent = 'Thank you for your feedback!';
-                document.getElementById('noButton').remove();
-            });
-            document.getElementById('noButton').addEventListener('click', function() {
-                document.getElementById('feedbackResponse').textContent = 'Thank you for your feedback!';
-                document.getElementById('yesButton').remove();
+            document.getElementById('okButton').addEventListener('click', function() {
+                var elements = document.getElementsByClassName('feedback-section');
+                Array.from(elements).forEach(function(element) {
+                    element.style.height = `${element.offsetHeight}px`;
+                    element.style.opacity = '0';
+                    element.style.height = '0px';
+                    element.addEventListener('transitionend', function() {
+                    if (event.propertyName === 'height') {
+                        element.parentNode.removeChild(element);
+                    }
+                    }, { once: true });
+                });
             });
         </script>
     </body>

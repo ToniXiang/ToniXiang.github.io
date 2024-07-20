@@ -63,3 +63,33 @@ document.querySelectorAll('.img-photo').forEach((img) => {
         }
     });
 });
+// 點擊後切換深色模式和淺色模式
+document.getElementById('themeToggle').addEventListener('click', function() {
+    document.body.classList.toggle('dark-theme');
+    document.body.classList.toggle('light-theme');
+    if (document.body.classList.contains('dark-theme')) {
+        setTheme('dark-theme');
+    } else {
+        setTheme('light-theme');
+    }
+});
+function setTheme(themeName) {
+    localStorage.setItem('theme', themeName);
+    applyTheme(themeName);
+}
+document.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        applyTheme(savedTheme);
+    }
+});
+
+function applyTheme(themeName) {
+    document.body.className = themeName;
+    if(document.body.classList.contains('light-theme')){
+        document.getElementById('prismTheme').setAttribute('href', 'prism_light.css');
+    }
+    else{
+        document.getElementById('prismTheme').setAttribute('href', 'prism_dark.css');
+    }
+}

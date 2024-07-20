@@ -6,10 +6,11 @@
         <title>個人網頁</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="shortcut icon" type="image/x-icon" href="Screenshots\me.png">
-        <link rel="stylesheet" type="text/css" href="prism.css">
+        <link id="prismTheme" rel="stylesheet" href="prism_dark.css">
     </head>
     <body>
         <div id="background"></div>
+        <button id="themeToggle">Toggle Theme</button>
         <header>
             <div class="blogTitle">
                 <h1>個人網頁</h1>
@@ -56,7 +57,7 @@
                     </div>
                     <nav>
                         <a href="https://github.com/ChenGuoXiang940/Algorithm/tree/6b44667a3bcf469e8c33ed8b7e4a1fc4addb3b5a/%E5%9B%B0%E9%9B%A3%E5%95%8F%E9%A1%8CNP/%E6%97%85%E9%81%8A%E5%95%86%E5%95%8F%E9%A1%8CTSP"
-                            target="_blank" style="color: #FFFFCC;" class="link">儲存庫連結</a>
+                            target="_blank" class="link">儲存庫連結</a>
                     </nav>
                 </header>
                 <section>
@@ -128,7 +129,7 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
 }</code></pre>
                 </section>
             </article>
-            <article>
+            <article id="section2">
                 <section id="section2"></section>
                     <header>
                         <h2>簡易的行控中心</h2>
@@ -138,12 +139,12 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                             <span class="message-tags">C#</span>
                         </div>
                         <nav>
-                            <a href="https://github.com/ChenGuoXiang940/NTCUST_OCC_myproject.git" target="_blank" style="color: #FFFFCC;" class="link">儲存庫連結</a>
+                            <a href="https://github.com/ChenGuoXiang940/NTCUST_OCC_myproject.git" target="_blank" class="link">儲存庫連結</a>
                         </nav>
                     </header>
                     <section>
                         <h3>表單設計</h3>
-                        <img class="img-photo" src="Screenshots/p2-1.png" alt="p2-1" width="50%">
+                        <img class="img-photo" src="Screenshots/p2-1.png" alt="p2-1" width="100%">
                         <h3>主要功能</h3>
                         <ul>
                             <li>使用者可以自行操作列車</li>
@@ -192,6 +193,7 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
         </main>
         <footer>
             <hr>
+            <p class="about">© 2024 ChenGuoXiang940. All rights reserved.</p>
         </footer>
         <style>
             #catalog{
@@ -200,18 +202,15 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                 width: 20%;
                 border-radius: 2px;
                 margin-bottom: 16.2px;
+                cursor: pointer;
             }
             #catalog>nav>p{
-                color: aliceblue;
+                color: var(--text-color);
                 font-family: '標楷體' , sans-serif;
                 font-size: 20px;
             }
-            section>p,section>ul{
-                margin-left: 20px;
-                margin-right: 20px;
-            }
             .message-tags{
-                border: #FFFFCC 0.5px solid;
+                border: var(--a-color) 0.5px solid;
                 border-radius: 5px;
                 padding: 4px 8px;
                 font-size: 13px;
@@ -219,7 +218,7 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                 border-radius: 4px;
                 margin: 0 0 0 8px;
                 display: inline-block;
-                color: #FFFFCC;
+                color: var(--a-color);
             }
             @media screen and (max-width: 501px) {
                 .gridcontainer {
