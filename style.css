@@ -27,13 +27,23 @@ body>header{
     }
     .blogTitle>h1{
         margin-left: 0%;
-        font-size: 16px;
+        font-size: 20px;
     }
     .blogTitle>nav>p{
         display: none;
     }
     .blogTitle{
         position: fixed;
+    }
+    #me{
+        width: 100px;
+        height: auto;
+    }
+    p{
+        font-size: 0.9em;
+    }
+    #catalog{
+        display: none;
     }
 }
 
@@ -81,33 +91,23 @@ body>header{
     padding: 0 40px;
     padding-top: 5%;
 }
-/* 定義聚光燈動畫 */
-@keyframes spotlight {
-    0% {
-        box-shadow: 0 0 25px 25px rgba(255, 255, 255, 0);
-    }
-
-    50% {
-        box-shadow: 0 0 15px 15px rgba(255, 255, 255, 0.7);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-    }
-}
-
 article {
     margin-bottom: 20px;
     padding: 10px;
     position: relative;
     overflow: hidden;
     text-decoration: none;
-    background-color:rgb(255 255 255 / 10%);
     color: var(--text-color);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     background-repeat: no-repeat;
     transition: background-color 2s;
+    border-radius: 5px 5px 0 0;
     opacity: 0;
     transition: opacity 2s;
+}
+
+article img:hover {
+    transform: scale(1.05);
 }
 #region{
     position: relative;
@@ -120,7 +120,7 @@ article.fadeIn {
 
 article:hover,
 article.clicked {
-    background-color: rgb(255 255 255 / 15%);
+    background-color: rgb(255 255 255 / 5%);
 }
 hr {
     border-top: 1px solid rgba(0, 0, 0.2);
@@ -135,8 +135,8 @@ h1{
     color: #f0883e;
 }
 h2{
-    margin-top: 5;
-    margin-bottom: 0;
+    margin-top: 5px;
+    margin-bottom: 10px;
     text-align:center;
     color: #f0883e;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
@@ -226,15 +226,6 @@ section>p,section>ul{
     background-size: cover;
 }
 
-.enlarge {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 40%;
-    height: auto;
-    z-index: 9999;
-}
-
 .img-photo {
     max-width: 100%;
     margin-left: auto;
@@ -283,16 +274,17 @@ section>p,section>ul{
 :root {
     --background-color-light: #ffffff; 
     --text-color-light: #333333;
-    --smalltext-color-light: #4E5D6C; 
+    --smalltext-color-light: cornflowerblue;
     --background-color-dark: rgb(46, 51, 73);
     --text-color-dark: aliceblue;
     --smalltext-color-dark: #FFFFCC;
     --a-color-dark:#FFFFCC;
-    --a-color-light:#2E3440;
+    --a-color-light:skyblue;
     --text-color: var(--text-color-dark);
     --bg-color: var(--background-color-dark);
     --smalltext-color: var(--smalltext-color-dark);
     --a-color:var(--a-color-dark);
+    --about-text:© 2024 陳國翔. All rights reserved.;
 }
 .dark-theme {
     --text-color: var(--text-color-dark);
@@ -309,4 +301,20 @@ section>p,section>ul{
     h2,h3 {
         text-shadow: none;
     }
+}
+#catalog{
+    position: fixed;
+    padding-top: 5%;
+    width: 20%;
+    border-radius: 2px;
+    cursor: pointer;
+}
+#catalog>nav>p{
+    color: var(--text-color);
+    font-family: '標楷體' , sans-serif;
+    font-size: 20px;
+    padding-left: 5px;
+}
+#catalog nav.active {
+    background-color: #f0883e;
 }

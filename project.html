@@ -193,22 +193,9 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
         </main>
         <footer>
             <hr>
-            <p class="about">© 2024 ChenGuoXiang940. All rights reserved.</p>
+            <p class="about"></p>
         </footer>
         <style>
-            #catalog{
-                position: fixed;
-                padding-top: 5%;
-                width: 20%;
-                border-radius: 2px;
-                margin-bottom: 16.2px;
-                cursor: pointer;
-            }
-            #catalog>nav>p{
-                color: var(--text-color);
-                font-family: '標楷體' , sans-serif;
-                font-size: 20px;
-            }
             .message-tags{
                 border: var(--a-color) 0.5px solid;
                 border-radius: 5px;
@@ -233,27 +220,6 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                 .gridcontainer {
                     grid-template-columns: repeat(2, 1fr);
                 }
-            }
-            #catalog nav.active {
-                background-color: #f0883e;
-            }
-            nav>article>button {
-                border: #FFFFCC 1px solid;
-                font-size: 20px;
-                width: 125px;
-                margin: 0 auto;
-                padding: 0 10px;
-                margin-bottom: 20px;
-                border-radius: 5px;
-                overflow: hidden;
-                cursor: pointer;
-                background-color: transparent;
-                color: #CCFFFF;
-            }
-
-            nav>article>button:hover {
-                transition: background-color 0.3s ease;
-                animation: spotlight 2s infinite;
             }
             img {
                 float: center;
@@ -280,32 +246,5 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                     tagsElements[0].appendChild(newMessageTags);
                 });
             });
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('#catalog nav');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute('id');
-                        document.querySelector(`#catalog nav[onclick="toArticle('#${id}')"]`).classList.add('active');
-                    } else {
-                        const id = entry.target.getAttribute('id');
-                        document.querySelector(`#catalog nav[onclick="toArticle('#${id}')"]`).classList.remove('active');
-                    }
-                });
-            });
-            sections.forEach((section) => {
-                observer.observe(section);
-            });
-            function toArticle(selector) {                
-                const element = document.querySelector(selector);
-                if (element) {
-                    const top = element.getBoundingClientRect().top + window.pageYOffset-70;
-                    if(top<0)top=0;
-                    window.scrollTo({
-                        top: top,
-                        behavior: "smooth"
-                    });
-                }
-            }
         </script>
     </body>

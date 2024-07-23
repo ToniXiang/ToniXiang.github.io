@@ -36,47 +36,62 @@
             </div>
         </header>
         <main>
-            <article>
-                <h2>精選圖集</h2>
-                <div class="gridcontainer">
-                    <div class="griditem">
-                        <img src="Screenshots\1.jpg" class="img-photo">
-                        <h3>中科大甄選實作考場</h3>
-                        <p><a class="a-detail" data-tooltip="2023/06/29"><span id="info-detail">&raquo;</span>詳細資料</a></p>
-                    </div>
-                    <div class="griditem">
-                        <img src="Screenshots\2.heic" class="img-photo">
-                        <h3>中科院研發展示館</h3>
-                        <p><a class="a-detail" data-tooltip="2022/11/29 飛彈模型展示"><span id="info-detail">&raquo;</span>詳細資料</a></p>
-                    </div>
-                    <div class="griditem">
-                        <img src="Screenshots\3.heic" class="img-photo">
-                        <h3>中科院研發展示館</h3>
-                        <p><a class="a-detail" data-tooltip="2022/11/29"><span id="info-detail">&raquo;</span>詳細資料</a></p>
-                    </div>
-                    <div class="griditem">
-                        <img src="Screenshots\4.heic" class="img-photo">
-                        <h3>龍潭台積電</h3>
-                        <p><a class="a-detail" data-tooltip="2022/11/29"><span id="info-detail">&raquo;</span>詳細資料</a></p>
-                    </div>
-                    <div class="griditem">
-                        <img src="Screenshots\5.heic" class="img-photo">
-                        <h3>台北101</h3>
-                        <p><a class="a-detail" data-tooltip="2022/11/24"><span id="info-detail">&raquo;</span>詳細資料</a></p>
-                    </div>
-                    <div class="griditem">
-                        <img src="Screenshots\6.heic" class="img-photo">
-                        <h3>龍潭科學園區</h3>
-                        <p><a class="a-detail" data-tooltip="2022/11/29 3D立體地圖"><span id="info-detail">&raquo;</span>詳細資料</a></p>
-                    </div>
+            <div id="myModal" class="modal">
+                <span class="close">&times;</span>
+                <h3 id="caption"></h3>
+                <img class="modal-content" id="img01">
+            </div>
+            <h2>精選圖集</h2>
+            <div class="gridcontainer">
+                <div class="griditem" onclick="openModal('Screenshots/1.jpg','中科大資工系')">
+                    <img src="Screenshots\1.jpg" class="img-photo">
+                    <h3>中科大資工系</h3>
+                    <p><img src="Screenshots\time.png"></img><a class="a-detail" data-tooltip="甄選實作考場">2023/06/29</a></p>
                 </div>
-            </article>
+                <div class="griditem" onclick="openModal('Screenshots/2.heic','中科院研發展示館')">
+                    <img src="Screenshots\2.heic" class="img-photo">
+                    <h3>中科院研發展示館</h3>
+                    <p><img src="Screenshots\time.png"></img><a class="a-detail" data-tooltip="飛彈模型展示">2022/11/29</a></p>
+                </div>
+                <div class="griditem" onclick="openModal('Screenshots/3.heic','中科院研發展示館')">
+                    <img src="Screenshots\3.heic" class="img-photo">
+                    <h3>中科院研發展示館</h3>
+                    <p><img src="Screenshots\time.png"></img><a class="a-detail" data-tooltip="桃園龍潭">2022/11/29</a></p>
+                </div>
+                <div class="griditem" onclick="openModal('Screenshots/4.heic','台積電')">
+                    <img src="Screenshots\4.heic" class="img-photo">
+                    <h3>台積電</h3>
+                    <p><img src="Screenshots\time.png"></img><a class="a-detail" data-tooltip="桃園龍潭">2022/11/29</a></p>
+                </div>
+                <div class="griditem" onclick="openModal('Screenshots/5.heic','台北101')">
+                    <img src="Screenshots\5.heic" class="img-photo">
+                    <h3>台北101</h3>
+                    <p><img src="Screenshots\time.png"></img><a class="a-detail" data-tooltip="路上街景">2022/11/24</a></p>
+                </div>
+                <div class="griditem" onclick="openModal('Screenshots/6.heic','龍潭科學園區')">
+                    <img src="Screenshots\6.heic" class="img-photo">
+                    <h3>龍潭科學園區</h3>
+                    <p><img src="Screenshots\time.png"></img><a class="a-detail" data-tooltip="3D立體地圖">2022/11/29</a></p>
+                </div>
+            </div>
         </main>
         <footer>
             <hr>
-            <p class="about">© 2024 ChenGuoXiang940. All rights reserved.</p>
+            <p class="about"></p>
         </footer>
         <style>
+            p img{
+                width: 25px;
+                height: 25px;
+                vertical-align: text-top;
+                padding-right: 10px;
+            }
+            #caption{
+                top: 0;
+                text-align: center;
+                z-index: 1000;
+                position: relative;
+            }
             .gridcontainer {
                 display: grid;
                 gap: 20px;
@@ -97,6 +112,56 @@
             .griditem>p>a{
                 color:var(--a-color);
             }
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1000;
+                padding-top: 100px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgb(0,0,0);
+                background-color: rgba(0,0,0,0.9);
+            }
+
+            .modal-content {
+                margin: auto;
+                display: block;
+                width: 80%;
+                max-width: 700px;
+            }
+
+            .close {
+                position: absolute;
+                top: 15px;
+                right: 35px;
+                color: #f1f1f1;
+                font-size: 40px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            .no-hover-effect .a-detail:hover::before {
+                display: none;
+            }
         </style>
         <script src="script.js"></script>
+        <script>
+            function openModal(imgSrc,imgName) {
+                var modal = document.getElementById("myModal");
+                var modalImg = document.getElementById("img01");
+                var captionText = document.getElementById("caption");
+                modal.style.display = "block";
+                modalImg.src = imgSrc;
+                captionText.textContent = imgName;
+                document.body.classList.add("no-hover-effect");
+            }
+            var span = document.getElementsByClassName("close")[0];
+            span.onclick = function() {
+                var modal = document.getElementById("myModal");
+                modal.style.display = "none";
+                document.body.classList.remove("no-hover-effect");
+            }
+        </script>
     </body>
