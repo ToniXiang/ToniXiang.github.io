@@ -46,6 +46,11 @@
             </div>
         </header>
         <main>
+            <div id="myModal" class="modal">
+                <span class="close">&times;</span>
+                <h3 id="caption"></h3>
+                <img class="modal-content" id="img01">
+            </div>
             <article>
                 <section id="section1"></section>
                 <header>
@@ -144,7 +149,9 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                     </header>
                     <section>
                         <h3>表單設計</h3>
-                        <img class="img-photo" src="Screenshots/p2-1.png" alt="p2-1" width="100%">
+                        <div onclick="openModal('Screenshots/p2-1.png','表單設計')">
+                            <img class="img-photo" src="Screenshots/p2-1.png" alt="p2-1" width="40%">
+                        </div>
                         <h3>主要功能</h3>
                         <ul>
                             <li>使用者可以自行操作列車</li>

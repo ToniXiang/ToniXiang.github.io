@@ -57,7 +57,7 @@ function getRandomColor() {
     }
     return color;
 }
-// 點擊後切換深色模式和淺色模式
+// 點擊後交換主題
 document.getElementById('themeToggle').addEventListener('click', function() {
     document.body.classList.toggle('dark-theme');
     document.body.classList.toggle('light-theme');
@@ -78,13 +78,28 @@ document.addEventListener('DOMContentLoaded', () => {
         applyTheme(savedTheme);
     }
 });
+// 切換 github-readme-stats 主題
+function setStats(action) {
+    document.querySelectorAll('.stats').forEach(item => {
+        let src = item.getAttribute('src');
+        if (action==="add"&&!src.includes('tokyonight')) {
+            src = `${src}&theme=tokyonight`;
+        }
+        else if(action==="remove"&&src.includes('tokyonight')){
+            src = src.replace('&theme=tokyonight', '');
+        }
+        item.setAttribute('src', src);
+    });
+}
 // 切換主題
 function applyTheme(themeName) {
     document.body.className = themeName;
     if(document.body.classList.contains('light-theme')){
+        setStats("remove");
         document.getElementById('prismTheme').setAttribute('href', 'prism_light.css');
     }
     else{
+        setStats("add");
         document.getElementById('prismTheme').setAttribute('href', 'prism_dark.css');
     }
 }
@@ -115,4 +130,20 @@ function toArticle(selector) {
             behavior: "smooth"
         });
     }
+}
+// 圖片點擊後放大
+function openModal(imgSrc,imgName) {
+    var modal = document.getElementById("myModal");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    modal.style.display = "block";
+    modalImg.src = imgSrc;
+    captionText.textContent = imgName;
+    document.body.classList.add("no-hover-effect");
+}
+var span = document.getElementsByClassName("close")[0];
+span.onclick = function() {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+    document.body.classList.remove("no-hover-effect");
 }

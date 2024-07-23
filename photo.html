@@ -112,56 +112,9 @@
             .griditem>p>a{
                 color:var(--a-color);
             }
-            .modal {
-                display: none;
-                position: fixed;
-                z-index: 1000;
-                padding-top: 100px;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                overflow: auto;
-                background-color: rgb(0,0,0);
-                background-color: rgba(0,0,0,0.9);
-            }
-
-            .modal-content {
-                margin: auto;
-                display: block;
-                width: 80%;
-                max-width: 700px;
-            }
-
-            .close {
-                position: absolute;
-                top: 15px;
-                right: 35px;
-                color: #f1f1f1;
-                font-size: 40px;
-                font-weight: bold;
-                cursor: pointer;
-            }
             .no-hover-effect .a-detail:hover::before {
                 display: none;
             }
         </style>
         <script src="script.js"></script>
-        <script>
-            function openModal(imgSrc,imgName) {
-                var modal = document.getElementById("myModal");
-                var modalImg = document.getElementById("img01");
-                var captionText = document.getElementById("caption");
-                modal.style.display = "block";
-                modalImg.src = imgSrc;
-                captionText.textContent = imgName;
-                document.body.classList.add("no-hover-effect");
-            }
-            var span = document.getElementsByClassName("close")[0];
-            span.onclick = function() {
-                var modal = document.getElementById("myModal");
-                modal.style.display = "none";
-                document.body.classList.remove("no-hover-effect");
-            }
-        </script>
     </body>
