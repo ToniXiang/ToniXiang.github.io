@@ -133,12 +133,12 @@ h2{
     margin-top: 5px;
     margin-bottom: 10px;
     text-align:center;
-    color: #f0883e;
+    color: var(--h2-text-color);
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 h3{
     text-align: center;
-    color: #13c2c2;
+    color: var(--h3-text-color);
     text-shadow: 0 0 0.5em #315f8f, 0 0 0.2em #5c5c5c;
 }
 a,p>a{
@@ -160,7 +160,6 @@ section>p,section>ul{
 }
 .bracket{
     color: var(--smalltext-color);
-    white-space: nowrap;
     font-size: 0.9em;
 }
 .bracket:hover{
@@ -175,16 +174,10 @@ section>p,section>ul{
     text-decoration: none;
 }
 .a-detail {
-    color: #13c2c2;
+    color: var(--smalltext-color);
     font-weight: bold;
     position: relative;
     text-decoration: none;
-}
-#info-detail{
-    color: aliceblue;
-    display: inline-block;
-    animation: blink 1s steps(1, end) infinite;
-    margin-bottom: 20px;
 }
 .a-detail::before {
     content: attr(data-tooltip);
@@ -277,23 +270,31 @@ section>p,section>ul{
 :root {
     --background-color-light: #ffffff; 
     --text-color-light: #333333;
-    --smalltext-color-light: cornflowerblue;
+    --smalltext-color-light: #2f9c0a;
+    --a-color-light:#c92c2c;
+    --h2-text-color-light: #f0883e;
+    --h3-text-color-light: #1990b8;
     --background-color-dark: rgb(46, 51, 73);
     --text-color-dark: aliceblue;
     --smalltext-color-dark: #FFFFCC;
     --a-color-dark:#FFFFCC;
-    --a-color-light:cornflowerblue;
+    --h2-text-color-dark: #f0883e;
+    --h3-text-color-dark: #13c2c2;
     --text-color: var(--text-color-dark);
     --bg-color: var(--background-color-dark);
     --smalltext-color: var(--smalltext-color-dark);
     --a-color:var(--a-color-dark);
     --about-text:© 2024 陳國翔. All rights reserved.;
+    --h2-text-color:var(--h2-text-color-dark);
+    --h3-text-color:var(--h3-text-color-dark);
 }
 .dark-theme {
     --text-color: var(--text-color-dark);
     --bg-color: var(--background-color-dark);
     --smalltext-color: var(--smalltext-color-dark);
     --a-color:var(--a-color-dark);
+    --h2-text-color: var(--h2-text-color-dark);
+    --h3-text-color: var(--h3-text-color-dark);
 }
 
 .light-theme {
@@ -301,9 +302,11 @@ section>p,section>ul{
     --bg-color: var(--background-color-light);
     --smalltext-color: var(--smalltext-color-light);
     --a-color:var(--a-color-light);
-    h2,h3 {
+    h2,h3{
         text-shadow: none;
     }
+    --h2-text-color: var(--h2-text-color-light);
+    --h3-text-color: var(--h3-text-color-light);
 }
 #catalog{
     position: fixed;

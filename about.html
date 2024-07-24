@@ -61,15 +61,15 @@
             <div id="progress-bar">0%</div>
         </div>
         <div class="container">
-            <div class="area" style="flex: 1;">
+            <div class="item">
                 <h3>基本資訊</h3>
                 <div class="square"></div>
                 <div class="info-line" style="padding-top: 10px;">
                     <p>姓名：陳國翔</p>
+                    <p>學制：日間部四技</p>
                     <p>性別：男</p>
-                    <p>學號：1411232069</p>
-                    <p><img id="mail" src="Screenshots/mail.png"  alt="Mail" width="20px" height="auto">1：chen199940@gmail.com</p>
-                    <p><img id="mail" src="Screenshots/mail.png"  alt="Mail" width="20px" height="auto">2：s1411232069@ad1.nutc.edu.tw</p>
+                    <p><img id="mail" src="Screenshots/mail.png"  alt="Mail">chen199940@gmail.com</p>
+                    <p><img id="mail" src="Screenshots/mail.png"  alt="Mail">s1411232069@ad1.nutc.edu.tw</p>
                 </div>
                 <h3>經歷</h3>
                 <div class="square"></div>
@@ -88,7 +88,7 @@
                     <p>國立台中科技大學 資訊工程系(就學中)</p>
                 </div>
             </div>
-            <div class="area" style="flex: 1;">
+            <div class="item">
                 <h3>What are your strengths and weaknesses?</h3>
                 <div class="square"></div>
                 <div class="info-line" style="padding-top: 10px;">
@@ -255,6 +255,13 @@
             display: flex;
             margin-left: 2%;
             margin-right: 2%;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .item {
+            flex: 1 1 45%;
+            box-sizing: border-box;
+            margin: 10px;
         }
         .info-line {
             border-left: 3px solid #007BFF;
@@ -263,6 +270,9 @@
             padding-bottom: 5px;
             margin-top: 0;
             margin-bottom: 0;
+        }
+        .info-line p {
+            font-size: 0.9em;
         }
         .info-line:first-child {
             position: relative;
@@ -281,9 +291,8 @@
             width: 25px;
             height: 25px;
             vertical-align: text-top;
-            padding-right: 10px;
         }
-        #area{
+        #area,.item{
             margin: 10px;
             position: relative;
             flex-direction: column;
