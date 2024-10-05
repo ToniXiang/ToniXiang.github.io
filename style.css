@@ -57,6 +57,9 @@ body>header{
     .blogTitle{
         position: fixed;
     }
+    p{
+        font-size: 0.9em;
+    }
 }
 
 @media screen and (min-width: 1225px) {
@@ -226,7 +229,7 @@ section>p,section>ul{
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid aliceblue;
+    border: 1px solid var(--img-color);
     display: block;
 }
 @keyframes moveAndFade {
@@ -274,12 +277,14 @@ section>p,section>ul{
     --a-color-light:#c92c2c;
     --h2-text-color-light: #f0883e;
     --h3-text-color-light: #1990b8;
+    --img-color-light:black;
     --background-color-dark: rgb(46, 51, 73);
     --text-color-dark: aliceblue;
     --smalltext-color-dark: #FFFFCC;
     --a-color-dark:#FFFFCC;
     --h2-text-color-dark: #f0883e;
     --h3-text-color-dark: #13c2c2;
+    --img-color-dark:aliceblue;
     --text-color: var(--text-color-dark);
     --bg-color: var(--background-color-dark);
     --smalltext-color: var(--smalltext-color-dark);
@@ -287,6 +292,8 @@ section>p,section>ul{
     --about-text:© 2024 陳國翔. All rights reserved.;
     --h2-text-color:var(--h2-text-color-dark);
     --h3-text-color:var(--h3-text-color-dark);
+    --img-color:var(--img-color-dark);
+
 }
 .dark-theme {
     --text-color: var(--text-color-dark);
@@ -295,6 +302,7 @@ section>p,section>ul{
     --a-color:var(--a-color-dark);
     --h2-text-color: var(--h2-text-color-dark);
     --h3-text-color: var(--h3-text-color-dark);
+    --img-color:var(--img-color-dark);
 }
 
 .light-theme {
@@ -307,6 +315,7 @@ section>p,section>ul{
     }
     --h2-text-color: var(--h2-text-color-light);
     --h3-text-color: var(--h3-text-color-light);
+    --img-color:var(--img-color-light);
 }
 #catalog{
     position: fixed;
