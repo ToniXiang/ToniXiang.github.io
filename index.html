@@ -1,59 +1,68 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, inital-scale=1">
-        <title>個人網頁</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="shortcut icon" href="Screenshots\me.png" type="image/x-icon">
-        <link id="prismTheme" rel="stylesheet" href="prism_dark.css">
-    </head>
-    <body>
-        <div id="background"></div>
-        <button id="themeToggle">Toggle Theme</button>
-        <header>
-            <div class="blogTitle">
-                <h1>個人網頁</h1>
-                <nav onclick="redirectToPage('index.html')"  class="cp">
-                    <img src="Screenshots/home.png" alt="Home Icon">
-                    <p>主頁</p>
-                </nav>
-                <nav onclick="redirectToPage('project.html')">
-                    <img src="Screenshots/project.png" alt="Project Icon">
-                    <p>作品展示</p>
-                </nav>
-                <nav onclick="redirectToPage('about.html')">
-                    <img src="Screenshots/about.png" alt="About Icon">
-                    <p>關於我</p>
-                </nav>
-                <nav onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
-                    <img src="Screenshots/github.png" alt="Github Icon">
-                    <p>Github</p>
-                </nav>
-            </div>
-        </header>
-        <main>
-            <div id="myModal" class="modal">
-                <span class="close">&times;</span>
-                <h3 id="caption"></h3>
-                <img class="modal-content" id="img01">
-            </div>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, inital-scale=1">
+    <title>個人網頁</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" href="Screenshots\me.png" type="image/x-icon">
+</head>
+
+<body>
+    <div id="background"></div>
+    <button id="themeToggle">Toggle Theme</button>
+    <header>
+        <div class="blogTitle">
+            <h1>個人網頁</h1>
+            <nav onclick="redirectToPage('index.html')" class="cp">
+                <img src="Screenshots/home.png" alt="Home Icon">
+                <p>主頁</p>
+            </nav>
+            <nav onclick="redirectToPage('project.html')">
+                <img src="Screenshots/project.png" alt="Project Icon">
+                <p>作品展示</p>
+            </nav>
+            <nav onclick="redirectToPage('about.html')">
+                <img src="Screenshots/about.png" alt="About Icon">
+                <p>關於我</p>
+            </nav>
+            <nav onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
+                <img src="Screenshots/github.png" alt="Github Icon">
+                <p>Github</p>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <h3 id="caption"></h3>
+            <img class="modal-content" id="img01">
+        </div>
+        <div class="region">
             <div style="position: relative;">
                 <img src="Screenshots/bodybg.jpg" alt="bodybg jpg" width="100%" height="auto*0.7">
-                <h2 id="department-title" style="position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%);">資訊工程系</h2>
+                <h2 id="department-title"
+                    style="position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%);">資訊工程系</h2>
             </div>
-            <div style="text-align: center;"><h3 id="student-text">H</h3><span id="cursor"></span></div>
+            <div style="text-align: center;">
+                <h3 id="student-text">H</h3><span id="cursor"></span>
+            </div>
+        </div>
+        <div class="region">
             <h2>精選圖集</h2>
             <div class="gridcontainer">
                 <div class="griditem" onclick="openModal('Screenshots/1.jpg','中科大資工系')">
                     <img src="Screenshots\1.jpg" class="img-photo">
                     <h3>中科大資工系</h3>
-                    <p><img src="Screenshots\time.png"></img><a class="a-detail" data-tooltip="甄選實作考場">2023/06/29</a></p>
+                    <p><img src="Screenshots\time.png"></img><a class="a-detail" data-tooltip="甄選實作考場">2023/06/29</a>
+                    </p>
                 </div>
                 <div class="griditem" onclick="openModal('Screenshots/2.heic','中科院研發展示館')">
                     <img src="Screenshots\2.heic" class="img-photo">
                     <h3>中科院研發展示館</h3>
-                    <p><img src="Screenshots\time.png"></img><a class="a-detail" data-tooltip="飛彈模型展示">2022/11/29</a></p>
+                    <p><img src="Screenshots\time.png"></img><a class="a-detail" data-tooltip="飛彈模型展示">2022/11/29</a>
+                    </p>
                 </div>
                 <div class="griditem" onclick="openModal('Screenshots/3.heic','中科院研發展示館')">
                     <img src="Screenshots\3.heic" class="img-photo">
@@ -73,104 +82,396 @@
                 <div class="griditem" onclick="openModal('Screenshots/6.heic','龍潭科學園區')">
                     <img src="Screenshots\6.heic" class="img-photo">
                     <h3>龍潭科學園區</h3>
-                    <p><img src="Screenshots\time.png"></img><a class="a-detail" data-tooltip="3D立體地圖">2022/11/29</a></p>
+                    <p><img src="Screenshots\time.png"></img><a class="a-detail" data-tooltip="3D立體地圖">2022/11/29</a>
+                    </p>
                 </div>
             </div>
-        </main>
-        <footer>
-            <hr>
-            <p class="about"></p>
-        </footer>
-        <style>      
-            #department-title {
-                font-size: 36px;
-                font-family: "Poppins", sans-serif; 
-                color: aliceblue;
-            }    
-            
-            #student-text {
-                font-size: 20px;
-                padding-top: 20px;
-                font-family: "Raleway", sans-serif;
-                display: inline-block;
-                color: var(--h3-text-color);
-            }
+        </div>
+        <div class="screen-text-region">
+            <p id="offscreen-text" class="offscreen-text"></p>
+            <p id="text" class="text"></p>
+            <svg id="svg"></svg>
+            <input type="text" class="input", id="input" />
+        </div>
+    </main>
+    <footer>
+        <hr>
+        <p class="about"></p>
+    </footer>
+    <style>
+        #department-title {
+            font-size: 36px;
+            font-family: "Poppins", sans-serif;
+            color: aliceblue;
+        }
 
-            #cursor {
-                display: inline-block;
-                width: 1px;
-                height: 1em;
-                font-size: 24px;
-                background-color: #13c2c2;
-                animation: blink 1s steps(1, end) infinite;
-            }
+        #student-text {
+            font-size: 20px;
+            padding-top: 20px;
+            font-family: "Raleway", sans-serif;
+            display: inline-block;
+            color: var(--h3-text-color);
+        }
 
-            @keyframes blink {
-                50% {
-                    background-color: transparent;
-                }
+        #region {
+            margin-bottom: 20px;
+            padding: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #cursor {
+            display: inline-block;
+            width: 1px;
+            height: 1em;
+            font-size: 24px;
+            background-color: #13c2c2;
+            animation: blink 1s steps(1, end) infinite;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: 0;
+        }
+
+        .input {
+            position: absolute;
+            z-index: 1;
+            bottom: 0px;
+            font-size: 20px;
+            text-align: center;
+            left: 50%;
+            transform: translateX(-50%);
+            background: none;
+            border: 1px solid #ddd;
+            color: #eee;
+            position: relative;
+        }
+
+        .text,
+        .offscreen-text {
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            display: block;
+            position: absolute;
+            margin: 0;
+        }
+
+        .offscreen-text {
+            text-align: center;
+            top: -9999px;
+        }
+
+        .text span {
+            position: absolute;
+        }
+
+
+        .screen-text-region {
+            width: 100%;
+            min-height: 200px;
+            margin-bottom: 20px;
+            padding: 10px;
+            overflow: hidden;
+            position:relative;
+        }
+
+        @keyframes blink {
+            50% {
+                background-color: transparent;
             }
-            p img{
-                width: 25px;
-                height: 25px;
-                vertical-align: text-top;
-                padding-right: 10px;
-            }
-            #caption{
-                top: 0;
-                text-align: center;
-                z-index: 1000;
-                position: relative;
-            }
+        }
+
+        p img {
+            width: 25px;
+            height: 25px;
+            vertical-align: text-top;
+            padding-right: 10px;
+        }
+
+        #caption {
+            top: 0;
+            text-align: center;
+            z-index: 1000;
+            position: relative;
+        }
+
+        .gridcontainer {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: 1fr;
+            position: relative;
+        }
+
+        @media screen and (min-width:501px) {
             .gridcontainer {
-                display: grid;
-                gap: 20px;
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media screen and (min-width:769px) {
+            .gridcontainer {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .no-hover-effect .a-detail:hover::before {
+            display: none;
+        }
+    </style>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script>
+        // 字串從左到右 出現停五秒 再從右到左消失 循環播放
+        animateText();
+        function animateText() {
+            let text = "i! I'm 陳國翔, a student at NTCUST,Taiwan.";
+            let studentText = document.getElementById('student-text');
+            let index = 0;
+            let textInterval = setInterval(function () {
+                if (index < text.length) {
+                    studentText.textContent += text[index++];
+                } else {
+                    clearInterval(textInterval);
+                    setTimeout(function () {
+                        let textReverseInterval = setInterval(function () {
+                            if (studentText.textContent.length > 1) {
+                                studentText.textContent = studentText.textContent.slice(0, -1);
+                            } else {
+                                clearInterval(textReverseInterval);
+                                index = 0;
+                                animateText();
+                            }
+                        }, 100);
+                    }, 5000);
+                }
+            }, 100);
+        }
+        //typing text transition
+        const selectSVG = id => {
+            const el = document.getElementById(id);
+            return new SVGElement(el);
+        };
+
+        const createSVG = type => {
+            const el = document.createElementNS('http://www.w3.org/2000/svg', type);
+            return new SVGElement(el);
+        };
+
+        class SVGElement {
+            constructor(element) {
+                this.element = element;
             }
 
-            @media screen and (min-width:501px) {
-                .gridcontainer {
-                    grid-template-columns: 1fr 1fr;
+            set(attributeName, value) {
+                this.element.setAttribute(attributeName, value);
+            }
+
+            style(property, value) {
+                this.element.style[property] = value;
+            }
+        }
+
+        const colors = [
+            { main: '#FBDB4A', shades: ['#FAE073', '#FCE790', '#FADD65', '#E4C650'] },
+            { main: '#F3934A', shades: ['#F7B989', '#F9CDAA', '#DD8644', '#F39C59'] },
+            { main: '#EB547D', shades: ['#EE7293', '#F191AB', '#D64D72', '#C04567'] },
+            { main: '#9F6AA7', shades: ['#B084B6', '#C19FC7', '#916198', '#82588A'] },
+            { main: '#5476B3', shades: ['#6382B9', '#829BC7', '#4D6CA3', '#3E5782'] },
+            { main: '#2BB19B', shades: ['#4DBFAD', '#73CDBF', '#27A18D', '#1F8171'] },
+            { main: '#70B984', shades: ['#7FBE90', '#98CBA6', '#68A87A', '#5E976E'] }
+        ];
+        const svg = selectSVG('svg');
+        const text = document.getElementById('text');
+        const offscreenText = document.getElementById('offscreen-text');
+        const input = document.getElementById('input');
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+        let textSize = 0;
+        let textCenter = 0;
+        const letters = [];
+        const prompt = ['s', 't', 'a', 'r', 't', ' ', 't', 'y', 'p', 'i', 'n', 'g'];
+        let runPrompt = true;
+
+        const resizePage = () => {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            svg.set('height', height);
+            svg.set('width', width);
+            svg.set('viewBox', `0 0 ${width} ${height}`);
+            resizeLetters();
+        }
+
+        const resizeLetters = () => {
+            textSize = width / (letters.length + 2);
+            if (textSize > 100) textSize = 100;
+            text.style.fontSize = `${textSize}px`;
+            text.style.height = `${textSize}px`;
+            text.style.lineHeight = `${textSize}px`;
+            offscreenText.style.fontSize = `${textSize}px`;
+            const textRect = text.getBoundingClientRect();
+            textCenter = textRect.top + textRect.height / 2;
+            positionLetters();
+        };
+
+        const positionLetters = () => {
+            letters.forEach(letter => {
+                const timing = letter.shift ? 0.1 : 0;
+                TweenLite.to(letter.onScreen, timing, { x: letter.offScreen.offsetLeft + 'px', ease: Power3.easeInOut });
+                letter.shift = true;
+            });
+        }
+
+        const animateLetterIn = letter => {
+            const yOffset = (0.5 + Math.random() * 0.5) * textSize;
+            TweenLite.fromTo(letter, 0.4, { scale: 0 }, { scale: 1, ease: Back.easeOut });
+            TweenLite.fromTo(letter, 0.4, { opacity: 0 }, { opacity: 1, ease: Power3.easeOut });
+            TweenLite.to(letter, 0.2, { y: -yOffset, ease: Power3.easeInOut });
+            TweenLite.to(letter, 0.2, { y: 0, ease: Power3.easeInOut, delay: 0.2 });
+            const rotation = -50 + Math.random() * 100;
+            TweenLite.to(letter, 0.2, { rotation: rotation, ease: Power3.easeInOut });
+            TweenLite.to(letter, 0.2, { rotation: 0, ease: Power3.easeInOut, delay: 0.2 });
+        }
+
+        const addDecor = (letter, color) => {
+            setTimeout(() => {
+                var rect = letter.getBoundingClientRect();
+                const x0 = letter.offsetLeft + letter.offsetWidth / 2;
+                const y0 = textCenter - textSize * 0.5;
+                const shade = color.shades[Math.floor(Math.random() * 4)];
+                for (var i = 0; i < 8; i++) addTri(x0, y0, shade);
+                for (var i = 0; i < 8; i++) addCirc(x0, y0);
+            }, 150);
+        };
+
+        const addTri = (x0, y0, shade) => {
+            const tri = createSVG('polygon');
+            const a = Math.random();
+            const a2 = a + (-0.2 + Math.random() * 0.4);
+            const r = textSize * 0.52;
+            const r2 = r + textSize * Math.random() * 0.2;
+            const x = x0 + r * Math.cos(2 * Math.PI * a);
+            const y = y0 + r * Math.sin(2 * Math.PI * a);
+            const x2 = x0 + r2 * Math.cos(2 * Math.PI * a2);
+            const y2 = y0 + r2 * Math.sin(2 * Math.PI * a2);
+            const triSize = textSize * 0.1;
+            const scale = 0.3 + Math.random() * 0.7;
+            const offset = triSize * scale;
+            tri.set('points', `0,0 ${triSize * 2},0 ${triSize},${triSize * 2}`);
+            tri.style('fill', shade);
+            svg.element.appendChild(tri.element);
+            TweenLite.fromTo(tri.element, 0.6, { rotation: Math.random() * 360, scale: scale, x: x - offset, y: y - offset, opacity: 1 }, {
+                x: x2 - offset, y: y2 - offset, opacity: 0, ease: Power1.easeInOut, onComplete: () => {
+                    svg.element.removeChild(tri.element);
+                }
+            });
+        }
+
+        const addCirc = (x0, y0) => {
+            const circ = createSVG('circle');
+            const a = Math.random();
+            const r = textSize * 0.52;
+            const r2 = r + textSize;
+            const x = x0 + r * Math.cos(2 * Math.PI * a);
+            const y = y0 + r * Math.sin(2 * Math.PI * a);
+            const x2 = x0 + r2 * Math.cos(2 * Math.PI * a);
+            const y2 = y0 + r2 * Math.sin(2 * Math.PI * a);
+            const circSize = textSize * 0.05 * Math.random();
+            circ.set('r', circSize);
+            circ.style('fill', '#eee');
+            svg.element.appendChild(circ.element);
+            TweenLite.fromTo(circ.element, 0.6, { x: x - circSize, y: y - circSize, opacity: 1 }, {
+                x: x2 - circSize, y: y2 - circSize, opacity: 0, ease: Power1.easeInOut, onComplete: () => {
+                    svg.element.removeChild(circ.element);
+                }
+            });
+        }
+
+        const addLetter = (char, i) => {
+            const letter = document.createElement('span');
+            const oLetter = document.createElement('span');
+            letter.innerHTML = char;
+            oLetter.innerHTML = char;
+            text.appendChild(letter);
+            const color = colors[i % colors.length];
+            letter.style.color = color.main;
+            offscreenText.appendChild(oLetter);
+            letters[i] = { offScreen: oLetter, onScreen: letter, char: char };
+            animateLetterIn(letter);
+            addDecor(oLetter, color);
+        }
+
+        const addLetters = value => {
+            value.forEach((char, i) => {
+                if (letters[i] && letters[i].char !== char) {
+                    letters[i].onScreen.innerHTML = char;
+                    letters[i].offScreen.innerHTML = char;
+                    letters[i].char = char;
+                }
+                if (letters[i] === undefined) {
+                    addLetter(char, i);
+                }
+            });
+        };
+
+        const animateLetterOut = (letter, i) => {
+            TweenLite.to(letter.onScreen, 0.1, {
+                scale: 0, opacity: 0, ease: Power2.easeIn, onComplete: () => {
+                    console.log('removing');
+                    console.log(letter);
+                    offscreenText.removeChild(letter.offScreen);
+                    text.removeChild(letter.onScreen);
+                    positionLetters();
+                }
+            });
+            letters.splice(i, 1);
+        }
+
+        const removeLetters = value => {
+            for (let i = letters.length - 1; i >= 0; i--) {
+                const letter = letters[i];
+                if (value[i] === undefined) {
+                    animateLetterOut(letter, i)
                 }
             }
-            
-            @media screen and (min-width:769px) {
-                .gridcontainer {
-                    grid-template-columns: repeat(3, 1fr);
+        }
+
+        const onInputChange = () => {
+            const value = input.value === '' ? [] : input.value.toLowerCase().split('');
+            addLetters(value);
+            removeLetters(value);
+            resizeLetters();
+        };
+
+        const keyup = (e) => {
+            if (runPrompt) {
+                input.value = '';
+                runPrompt = false;
+            };
+            onInputChange();
+        }
+
+        const addPrompt = (i) => {
+            setTimeout(() => {
+                if (runPrompt && prompt[i]) {
+                    input.value = input.value + prompt[i];
+                    onInputChange();
+                    addPrompt(i + 1);
                 }
-            }
-            .no-hover-effect .a-detail:hover::before {
-                display: none;
-            }
-        </style>
-        <script src="prism.js"></script>
-        <script src="script.js"></script>
-        <script>
-            // 字串從左到右 出現停五秒 再從右到左消失 循環播放
-            animateText();
-            function animateText() {
-                let text = "i! I'm 陳國翔, a student at NTCUST,Taiwan.";
-                let studentText = document.getElementById('student-text');
-                let index = 0;
-                let textInterval = setInterval(function() {
-                    if (index < text.length) {
-                        studentText.textContent += text[index++];
-                    } else {
-                        clearInterval(textInterval);
-                        setTimeout(function() {
-                            let textReverseInterval = setInterval(function() {
-                                if (studentText.textContent.length > 1) {
-                                    studentText.textContent = studentText.textContent.slice(0, -1);
-                                } else {
-                                    clearInterval(textReverseInterval);
-                                    index = 0;
-                                    animateText();
-                                }
-                            }, 100);
-                        }, 5000);
-                    }
-                }, 100);
-            }
-        </script>
-    </body>
+            }, 300);
+        }
+
+        resizePage();
+        window.addEventListener('resize', resizePage);
+        input.addEventListener('keyup', keyup);
+        input.focus();
+        addPrompt(0);
+    </script>
+</body>
+
 </html>
