@@ -26,7 +26,7 @@ body>header{
         padding-top: 15%;
     }
     .blogTitle>h1{
-        margin-left: 0%;
+        margin-right: 0%;
         font-size: 20px;
     }
     .blogTitle>nav>p{
@@ -310,7 +310,7 @@ section>p,section>ul{
     --bg-color: var(--background-color-light);
     --smalltext-color: var(--smalltext-color-light);
     --a-color:var(--a-color-light);
-    h2,h3{
+    h3{
         text-shadow: none;
     }
     --h2-text-color: var(--h2-text-color-light);

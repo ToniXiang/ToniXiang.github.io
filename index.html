@@ -39,17 +39,16 @@
             <h3 id="caption"></h3>
             <img class="modal-content" id="img01">
         </div>
-        <div class="region">
+        <div id="region">
             <div style="position: relative;">
                 <img src="Screenshots/bodybg.jpg" alt="bodybg jpg" width="100%" height="auto*0.7">
-                <h2 id="department-title"
-                    style="position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%);">資訊工程系</h2>
+                <h2 id="department-title">資訊工程系</h2>
             </div>
             <div style="text-align: center;">
                 <h3 id="student-text">H</h3><span id="cursor"></span>
             </div>
         </div>
-        <div class="region">
+        <div id="region">
             <h2>精選圖集</h2>
             <div class="gridcontainer">
                 <div class="griditem" onclick="openModal('Screenshots/1.jpg','中科大資工系')">
@@ -87,7 +86,7 @@
                 </div>
             </div>
         </div>
-        <div class="screen-text-region">
+        <div id="screen-text-region">
             <p id="offscreen-text" class="offscreen-text"></p>
             <p id="text" class="text"></p>
             <svg id="svg"></svg>
@@ -101,10 +100,13 @@
     <style>
         #department-title {
             font-size: 36px;
-            font-family: "Poppins", sans-serif;
+            text-align:center;
             color: aliceblue;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
         }
-
         #student-text {
             font-size: 20px;
             padding-top: 20px;
@@ -147,8 +149,8 @@
             left: 50%;
             transform: translateX(-50%);
             background: none;
-            border: 1px solid #ddd;
-            color: #eee;
+            border: 1px solid var(--h3-text-color);
+            color: var(--h3-text-color);
             position: relative;
         }
 
@@ -172,7 +174,7 @@
         }
 
 
-        .screen-text-region {
+        #screen-text-region {
             width: 100%;
             min-height: 200px;
             margin-bottom: 20px;
@@ -204,7 +206,7 @@
         .gridcontainer {
             display: grid;
             gap: 20px;
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 1fr;
             position: relative;
         }
 
@@ -341,7 +343,7 @@
         const addDecor = (letter, color) => {
             setTimeout(() => {
                 var rect = letter.getBoundingClientRect();
-                const x0 = letter.offsetLeft + letter.offsetWidth / 2;
+                const x0 = letter.offsetLeft + letter.offsetWidth*(letters.length-1)*1.5;
                 const y0 = textCenter - textSize * 0.5;
                 const shade = color.shades[Math.floor(Math.random() * 4)];
                 for (var i = 0; i < 8; i++) addTri(x0, y0, shade);
@@ -353,8 +355,8 @@
             const tri = createSVG('polygon');
             const a = Math.random();
             const a2 = a + (-0.2 + Math.random() * 0.4);
-            const r = textSize * 0.52;
-            const r2 = r + textSize * Math.random() * 0.2;
+            const r = textSize * 2;
+            const r2 = r + textSize * Math.random() * 2;
             const x = x0 + r * Math.cos(2 * Math.PI * a);
             const y = y0 + r * Math.sin(2 * Math.PI * a);
             const x2 = x0 + r2 * Math.cos(2 * Math.PI * a2);
@@ -375,7 +377,7 @@
         const addCirc = (x0, y0) => {
             const circ = createSVG('circle');
             const a = Math.random();
-            const r = textSize * 0.52;
+            const r = textSize * 2;
             const r2 = r + textSize;
             const x = x0 + r * Math.cos(2 * Math.PI * a);
             const y = y0 + r * Math.sin(2 * Math.PI * a);
@@ -469,7 +471,6 @@
         resizePage();
         window.addEventListener('resize', resizePage);
         input.addEventListener('keyup', keyup);
-        input.focus();
         addPrompt(0);
     </script>
 </body>
