@@ -3,34 +3,36 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, inital-scale=1">
     <title>個人網頁</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shortcut icon" href="Screenshots\me.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=contrast,description,group,history,home,share" />
 </head>
-
 <body>
     <div id="background"></div>
-    <button id="themeToggle">Toggle Theme</button>
     <header>
         <div class="blogTitle">
             <h1>個人網頁</h1>
-            <nav onclick="redirectToPage('index.html')" class="cp">
-                <img src="Screenshots/home.png" alt="Home Icon">
+            <id onclick="redirectToPage('index.html')" class="cp">
+                <span class="material-symbols-sharp">home</span>
                 <p>主頁</p>
-            </nav>
+            </id>
             <nav onclick="redirectToPage('project.html')">
-                <img src="Screenshots/project.png" alt="Project Icon">
+                <span class="material-symbols-sharp">description</span>
                 <p>作品展示</p>
             </nav>
             <nav onclick="redirectToPage('about.html')">
-                <img src="Screenshots/about.png" alt="About Icon">
+                <span class="material-symbols-sharp">group</span>
                 <p>關於我</p>
             </nav>
             <nav onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
-                <img src="Screenshots/github.png" alt="Github Icon">
+                <span class="material-symbols-sharp">share</span>
                 <p>Github</p>
             </nav>
+            <div id="themeToggle">
+                <span class="material-symbols-sharp">contrast</span>
+                <p>主題</p>
+            </div>
         </div>
     </header>
     <main>
@@ -54,35 +56,50 @@
                 <div class="griditem" onclick="openModal('Screenshots/1.jpg','中科大資工系')">
                     <img src="Screenshots\1.jpg" class="img-photo">
                     <h3>中科大資工系</h3>
-                    <p><img src="Screenshots\time.png"></img><a class="a-detail" data-tooltip="甄選實作考場">2023/06/29</a>
-                    </p>
+                    <div id="detail" data-tooltip="甄選實作考場">
+                        <span class="material-symbols-sharp">history</span>
+                        <p>2023/06/29</p>
+                    </div>
                 </div>
                 <div class="griditem" onclick="openModal('Screenshots/2.heic','中科院研發展示館')">
                     <img src="Screenshots\2.heic" class="img-photo">
                     <h3>中科院研發展示館</h3>
-                    <p><img src="Screenshots\time.png"></img><a class="a-detail" data-tooltip="飛彈模型展示">2022/11/29</a>
-                    </p>
+                    <div id="detail" data-tooltip="飛彈模型展示">
+                        <span class="material-symbols-sharp">history</span>
+                        <p>2022/11/29</p>
+                    </div>
                 </div>
                 <div class="griditem" onclick="openModal('Screenshots/3.heic','中科院研發展示館')">
                     <img src="Screenshots\3.heic" class="img-photo">
                     <h3>中科院研發展示館</h3>
-                    <p><img src="Screenshots\time.png"></img><a class="a-detail" data-tooltip="桃園龍潭">2022/11/29</a></p>
+                    <div id="detail" data-tooltip="桃園龍潭">
+                        <span class="material-symbols-sharp">history</span>
+                        <p>2022/11/29</p>
+                    </div>
                 </div>
                 <div class="griditem" onclick="openModal('Screenshots/4.heic','台積電')">
                     <img src="Screenshots\4.heic" class="img-photo">
                     <h3>台積電</h3>
-                    <p><img src="Screenshots\time.png"></img><a class="a-detail" data-tooltip="桃園龍潭">2022/11/29</a></p>
+                    <div id="detail" data-tooltip="桃園龍潭">
+                        <span class="material-symbols-sharp">history</span>
+                        <p>2022/11/29</p>
+                    </div>
                 </div>
                 <div class="griditem" onclick="openModal('Screenshots/5.heic','台北101')">
                     <img src="Screenshots\5.heic" class="img-photo">
                     <h3>台北101</h3>
-                    <p><img src="Screenshots\time.png"></img><a class="a-detail" data-tooltip="路上街景">2022/11/24</a></p>
+                    <div id="detail" data-tooltip="路上街景">
+                        <span class="material-symbols-sharp">history</span>
+                        <p>2022/11/24</p>
+                    </div>
                 </div>
                 <div class="griditem" onclick="openModal('Screenshots/6.heic','龍潭科學園區')">
                     <img src="Screenshots\6.heic" class="img-photo">
                     <h3>龍潭科學園區</h3>
-                    <p><img src="Screenshots\time.png"></img><a class="a-detail" data-tooltip="3D立體地圖">2022/11/29</a>
-                    </p>
+                    <div id="detail" data-tooltip="3D立體地圖">
+                        <span class="material-symbols-sharp">history</span>
+                        <p>2022/11/29</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -189,27 +206,55 @@
             }
         }
 
-        p img {
-            width: 25px;
-            height: 25px;
+        #detail>span{
             vertical-align: text-top;
             padding-right: 10px;
+            color: var(--smalltext-color);
         }
-
+        #detail{
+            font-weight: bold;
+            position: relative;
+        }
+        #detail>p{
+            color: var(--smalltext-color);
+            display: inline;
+        }
+        #detail::before{
+            content: attr(data-tooltip);
+            position: absolute;
+            background-color: #333;
+            color: aliceblue;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 8px;
+            border-radius: 5px;
+            top: -30px;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+            z-index: 1000;
+        }
+        #detail:hover::before {
+            opacity: 1;
+        }
         #caption {
             top: 0;
             text-align: center;
             z-index: 1000;
             position: relative;
         }
-
+        p img {
+            width: 25px;
+            height: 25px;
+            vertical-align: text-top;
+            padding-right: 10px;
+        }
         .gridcontainer {
             display: grid;
             gap: 20px;
             grid-template-columns: 1fr 1fr;
             position: relative;
         }
-
         @media screen and (min-width:501px) {
             .gridcontainer {
                 grid-template-columns: 1fr 1fr;
@@ -222,7 +267,7 @@
             }
         }
 
-        .no-hover-effect .a-detail:hover::before {
+        .no-hover-effect #detail:hover::before {
             display: none;
         }
     </style>

@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, inital-scale=1">
     <title>個人網頁</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shortcut icon" href="Screenshots\me.png" type="image/x-icon">
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=contrast,description,group,history,home,keyboard_arrow_down,keyboard_arrow_up,mail,share" />
 </head>
+
 <body>
     <div id="background"></div>
-    <button id="themeToggle">Toggle Theme</button>
     <header>
         <div class="blogTitle">
             <h1>個人網頁</h1>
+            <id onclick="redirectToPage('about.html')" class="cp">
+                <span class="material-symbols-sharp">group</span>
+                <p>關於我</p>
+            </id>
             <nav onclick="redirectToPage('index.html')">
-                <img src="Screenshots/home.png" alt="Home Icon">
+                <span class="material-symbols-sharp">home</span>
                 <p>主頁</p>
             </nav>
             <nav onclick="redirectToPage('project.html')">
-                <img src="Screenshots/project.png" alt="Project Icon">
+                <span class="material-symbols-sharp">description</span>
                 <p>作品展示</p>
             </nav>
-            <nav onclick="redirectToPage('about.html')" class="cp">
-                <img src="Screenshots/about.png" alt="About Icon">
-                <p>關於我</p>
-            </nav>
             <nav onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
-                <img src="Screenshots/github.png" alt="Github Icon">
+                <span class="material-symbols-sharp">share</span>
                 <p>Github</p>
             </nav>
+            <div id="themeToggle">
+                <span class="material-symbols-sharp">contrast</span>
+                <p>主題</p>
+            </div>
         </div>
         <div id="catalog">
             <h2>目錄</h2>
@@ -50,7 +56,6 @@
         </div>
     </header>
     <main>
-
         <section id="section1"></section>
         <h2>關於我</h2>
         <div id="progress-bar-container">
@@ -64,8 +69,8 @@
                     <p>姓名：陳國翔</p>
                     <p>學制：日間部四技</p>
                     <p>性別：男</p>
-                    <p><img id="mail" src="Screenshots/mail.png"  alt="Mail">chen199940@gmail.com</p>
-                    <p><img id="mail" src="Screenshots/mail.png"  alt="Mail">s1411232069@ad1.nutc.edu.tw</p>
+                    <p><span class="material-symbols-sharp" id="mail">mail</span>chen199940@gmail.com</p>
+                    <p><span class="material-symbols-sharp" id="mail">mail</span>s1411232069@ad1.nutc.edu.tw</p>
                 </div>
                 <h3>經歷</h3>
                 <div class="square"></div>
@@ -88,17 +93,24 @@
                 <h3>What are your strengths and weaknesses?</h3>
                 <div class="square"></div>
                 <div class="info-line" style="padding-top: 10px;">
-                    <p>I'm really good at programming, especially when it comes to writing clean, effective code and solving difficult problems using logical algorithms. However,calculus is a bit of a challenge for me. While I understand mathematical concepts, but I might not be as strong in advanced calculus compared to other subjects.</p>
+                    <p>I'm really good at programming, especially when it comes to writing clean, effective code and
+                        solving difficult problems using logical algorithms. However,calculus is a bit of a challenge
+                        for me. While I understand mathematical concepts, but I might not be as strong in advanced
+                        calculus compared to other subjects.</p>
                 </div>
                 <h3>Do you prefer working alone or in teams?Why?</h3>
                 <div class="square"></div>
                 <div class="info-line" style="padding-top: 10px;">
-                    <p>I like working alone because it lets me focus completely on my tasks without any distractions. I can work at my own speed and in my own style, which helps me be more productive and creative. </p>
+                    <p>I like working alone because it lets me focus completely on my tasks without any distractions. I
+                        can work at my own speed and in my own style, which helps me be more productive and creative.
+                    </p>
                 </div>
                 <h3>How do you handle pressure?</h3>
                 <div class="square"></div>
                 <div class="info-line" style="padding-top: 10px;">
-                    <p>I handle pressure by reading books. Reading lets me escape into a different world, which helps me forget about stress for a while. Reading also gives me knowledge and inspiration to deal with challenges and find solutions.</p>
+                    <p>I handle pressure by reading books. Reading lets me escape into a different world, which helps me
+                        forget about stress for a while. Reading also gives me knowledge and inspiration to deal with
+                        challenges and find solutions.</p>
                 </div>
             </div>
         </div>
@@ -111,7 +123,8 @@
                     <th>目標</th>
                 </tr>
                 <tr>
-                    <td rowspan="6">短期目標<p class="bracket">(大學一年級)</p></td>
+                    <td rowspan="6">短期目標<p class="bracket">(大學一年級)</p>
+                    </td>
                     <td>✔️增強學校所學專業知識能力</td>
                 </tr>
                 <tr>
@@ -130,7 +143,8 @@
                     <td>✔️希望各科不要被當 All Pass</td>
                 </tr>
                 <tr>
-                    <td rowspan="6">中期目標<p class="bracket">（大學二年級~大學四年級）</p></td>
+                    <td rowspan="6">中期目標<p class="bracket">（大學二年級~大學四年級）</p>
+                    </td>
                     <td>⭐️Github上傳程式、做各種專題</td>
                 </tr>
                 <tr>
@@ -149,7 +163,8 @@
                     <td>⭐️爭取在業界實習軟體相關職務經驗</td>
                 </tr>
                 <tr>
-                    <td rowspan="3">長期目標<p class="bracket">（畢業後）</p></td>
+                    <td rowspan="3">長期目標<p class="bracket">（畢業後）</p>
+                    </td>
                     <td>⭐️沒有打算念研究所，想儘早出社會工作</td>
                 </tr>
                 <tr>
@@ -170,15 +185,21 @@
                 </tr>
                 <tr>
                     <td>我的提交紀錄</td>
-                    <td><img class="stats" src="https://github-readme-stats.vercel.app/api?username=ChenGuoXiang940&count_private=true&theme=tokyonight" alt="GitHub Stats"></td>
+                    <td><img class="stats"
+                            src="https://github-readme-stats.vercel.app/api?username=ChenGuoXiang940&count_private=true&theme=tokyonight"
+                            alt="GitHub Stats"></td>
                 </tr>
                 <tr>
                     <td>我最常使用的語言 Top 6</td>
-                    <td><img class="stats" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ChenGuoXiang940&count_private=true&layout=compact&theme=tokyonight" alt="Top Languages"></td>
+                    <td><img class="stats"
+                            src="https://github-readme-stats.vercel.app/api/top-langs/?username=ChenGuoXiang940&count_private=true&layout=compact&theme=tokyonight"
+                            alt="Top Languages"></td>
                 </tr>
                 <tr>
                     <td>我的連續提交紀錄</td>
-                    <td><img class="stats" src="https://github-readme-streak-stats.herokuapp.com/?user=ChenGuoXiang940&theme=tokyonight" alt="GitHub Streak"></td>
+                    <td><img class="stats"
+                            src="https://github-readme-streak-stats.herokuapp.com/?user=ChenGuoXiang940&theme=tokyonight"
+                            alt="GitHub Streak"></td>
                 </tr>
             </table>
             <table border="1">
@@ -201,9 +222,13 @@
             <section id="section4"></section>
             <h2>就讀動機</h2>
             <div id="region">
-                <h3 onclick="toggleAnswer('answer1')">為什麼選擇資訊工程系？<img id="Arrow1" src="Screenshots\ad.png" alt="Arrow"></h3>
-                <p id="answer1" class="answer hidden">我選擇資訊工程系是因為我對電腦和程式設計有著濃厚的興趣，希望能夠深入了解計算機科學的各個方面。</p>    
-                <h3 onclick="toggleAnswer('answer2')">為什麼選擇台中科大？<img id="Arrow2" src="Screenshots\ad.png" alt="Arrow"></h3>
+                <h3 onclick="toggleAnswer('answer1')">
+                    為什麼選擇資訊工程系？<span class="material-symbols-sharp" id="Arrow1">keyboard_arrow_down</span>
+                </h3>
+                <p id="answer1" class="answer hidden">我選擇資訊工程系是因為我對電腦和程式設計有著濃厚的興趣，希望能夠深入了解計算機科學的各個方面。</p>
+                <h3 onclick="toggleAnswer('answer2')">為什麼選擇台中科大？
+                    <span class="material-symbols-sharp" id="Arrow2">keyboard_arrow_down</span>
+                </h3>
                 <p id="answer2" class="answer hidden">台中科大以其優秀的教學質量和良好的學習環境著稱，我相信這將有助於我在資訊工程領域的學習和成長。</p>
             </div>
         </div>
@@ -254,11 +279,13 @@
             flex-wrap: wrap;
             justify-content: space-between;
         }
+
         .item {
             flex: 1 1 45%;
             box-sizing: border-box;
             margin: 10px;
         }
+
         .info-line {
             border-left: 3px solid #007BFF;
             padding-left: 10px;
@@ -267,13 +294,16 @@
             margin-top: 0;
             margin-bottom: 0;
         }
+
         .info-line p {
             font-size: 0.9em;
         }
+
         .info-line:first-child {
             position: relative;
             margin-top: 20px;
         }
+
         .square {
             width: 10px;
             height: 10px;
@@ -283,35 +313,52 @@
             left: -6px;
             position: relative;
         }
-        #mail{
+
+        #mail {
             width: 25px;
             height: 25px;
             vertical-align: text-top;
         }
-        #area,.item{
+
+        .material-symbols-sharp {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+
+        #area,
+        .item {
             margin: 10px;
             position: relative;
             flex-direction: column;
         }
-        #region{
+
+        #region {
             margin: 10px;
             position: relative;
             text-decoration: none;
         }
-        #region h3{
+
+        #region h3 {
             margin-top: 20px;
             cursor: pointer;
         }
-        h3{
+
+        h3 {
             text-align: left;
         }
+
         #progress-bar-container {
-            width: 100%;
+            width: 90%;
+            left: 5%;
             height: 20px;
             background-color: aliceblue;
             position: relative;
             overflow: hidden;
         }
+
         #progress-bar {
             width: 0;
             height: 100%;
@@ -321,6 +368,7 @@
             line-height: 20px;
             color: aliceblue;
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -331,16 +379,20 @@
             overflow: hidden;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
         }
-        th, td {
+
+        th,
+        td {
             padding: 12px 15px;
             color: var(--text-color);
             text-align: left;
         }
+
         th {
             background-color: #009879;
             color: #ffffff;
-            text-transform: uppercase; 
+            text-transform: uppercase;
         }
+
         .hidden {
             display: none;
         }
@@ -348,14 +400,24 @@
         .answer {
             margin-top: 10px;
         }
-        #Arrow1,#Arrow2{
+
+        #Arrow1,
+        #Arrow2 {
             width: 20px;
             height: 20px;
             float: right;
         }
+
         .stats {
             width: 100%;
             height: auto;
+        }
+        .bracket{
+            color: var(--smalltext-color);
+            font-size: 0.9em;
+        }
+        .bracket:hover{
+            color: #f0883e;
         }
     </style>
     <script src="script.js"></script>
@@ -382,10 +444,10 @@
             var arrow = document.getElementById(arrowId);
             if (answer.classList.contains('hidden')) {
                 answer.classList.remove('hidden');
-                arrow.src = "Screenshots/au.png";
+                arrow.textContent = 'keyboard_arrow_up';
             } else {
                 answer.classList.add('hidden');
-                arrow.src = "Screenshots/ad.png";
+                arrow.textContent = 'keyboard_arrow_down';
             }
         }
     </script>

@@ -1,71 +1,78 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, inital-scale=1">
-        <title>個人網頁</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="shortcut icon" type="image/x-icon" href="Screenshots\me.png">
-        <link id="prismTheme" rel="stylesheet" href="prism_dark.css">
-    </head>
-    <body>
-        <div id="background"></div>
-        <button id="themeToggle">Toggle Theme</button>
-        <header>
-            <div class="blogTitle">
-                <h1>個人網頁</h1>
-                <nav onclick="redirectToPage('index.html')">
-                    <img src="Screenshots/home.png" alt="Home Icon">
-                    <p>主頁</p>
-                </nav>
-                <nav onclick="redirectToPage('project.html')"  class="cp">
-                    <img src="Screenshots/project.png" alt="Project Icon">
-                    <p>作品展示</p>
-                </nav>
-                <nav onclick="redirectToPage('about.html')">
-                    <img src="Screenshots/about.png" alt="About Icon">
-                    <p>關於我</p>
-                </nav>
-                <nav onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
-                    <img src="Screenshots/github.png" alt="Github Icon">
-                    <p>Github</p>
-                </nav>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, inital-scale=1">
+    <title>個人網頁</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="Screenshots\me.png">
+    <link id="prismTheme" rel="stylesheet" href="prism_dark.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=contrast,description,group,history,home,share" />
+</head>
+
+<body>
+    <div id="background"></div>
+    <header>
+        <div class="blogTitle">
+            <h1>個人網頁</h1>
+            <id onclick="redirectToPage('project.html')" class="cp">
+                <span class="material-symbols-sharp">description</span>
+                <p>作品展示</p>
+            </id>
+            <nav onclick="redirectToPage('index.html')">
+                <span class="material-symbols-sharp">home</span>
+                <p>主頁</p>
+            </nav>
+            <nav onclick="redirectToPage('about.html')">
+                <span class="material-symbols-sharp">group</span>
+                <p>關於我</p>
+            </nav>
+            <nav onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
+                <span class="material-symbols-sharp">share</span>
+                <p>Github</p>
+            </nav>
+            <div id="themeToggle">
+                <span class="material-symbols-sharp">contrast</span>
+                <p>主題</p>
             </div>
-            <div id="catalog">
-                <h2>目錄</h2>
-                <nav onclick="toArticle('#section1')">
-                    <p>一、旅行商問題</p>
-                </nav>
-                <nav onclick="toArticle('#section2')">
-                    <p>二、簡易的行控中心</p>
-                </nav>
-            </div>
-        </header>
-        <main>
-            <div id="myModal" class="modal">
-                <span class="close">&times;</span>
-                <h3 id="caption"></h3>
-                <img class="modal-content" id="img01">
-            </div>
-            <section>
-                <h2>事前準備</h2>
-                <p class="smalltitle">作品展示的程式專案相比一般算相當進階，內容可能過於複雜。在開始之前，您應該熟悉非同步與多執行緒。如果你寫習慣主控台輸入輸出但還對此概念還不太熟悉，強烈建議你先了解概念。</p>   
-            </section>
-            <section>
-                <h2>指南</h2>
-                <article class="feedback-section" style="width: 50%;margin: auto;text-align: center;">
-                    <p>部分資訊使用「GitHub Copilot」</p>
-                    <button id="okButton">OK</button>
-                </article>
-                <p class="smalltitle">非同步程式設計通用概念</p>
-                <p>非同步操作是指不會阻止程式的執行的操作。在非同步程式設計中，您可以執行其他操作，而不必等待操作完成。
-                    如果你在表單設計一個按鈕，然而，那個按鈕的程式有無窮迴圈的話，則其他按鍵都無法用，是因為大多數圖形用戶介面（GUI）應用程式使用單一執行緒來處理所有事件。</p>
-                </p>
-                <p class="smalltitle">多執行緒概念</p>
-                <p>將耗時的操作放到另一個執行緒中，避免阻塞主執行緒。例如開啟資料庫的程式碼，如果無法開啟資料庫，雖然有處理異常(避免程序崩潰)，但還是會卡頓，所以放在另一個執行續能解決卡頓問題。</p>
-                <p class="smalltitle">物件導向程式設計概念</p>
-                <p>一種程式設計模式，它將資料和程式碼封裝在物件中。物件是類的實例，類是定義物件的藍圖。</p>
-                <pre><code class="language-csharp">public class Person // 定義類 C#
+        </div>
+        <div id="catalog">
+            <h2>目錄</h2>
+            <nav onclick="toArticle('#section1')">
+                <p>一、旅行商問題</p>
+            </nav>
+            <nav onclick="toArticle('#section2')">
+                <p>二、簡易的行控中心</p>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <h3 id="caption"></h3>
+            <img class="modal-content" id="img01">
+        </div>
+        <section>
+            <h2>事前準備</h2>
+            <p class="smalltitle">作品展示的程式專案相比一般算相當進階，內容可能過於複雜。在開始之前，您應該熟悉非同步與多執行緒。如果你寫習慣主控台輸入輸出但還對此概念還不太熟悉，強烈建議你先了解概念。
+            </p>
+        </section>
+        <section>
+            <h2>指南</h2>
+            <article class="feedback-section" style="width: 50%;margin: auto;text-align: center;">
+                <p>部分資訊使用「GitHub Copilot」</p>
+                <button id="okButton">OK</button>
+            </article>
+            <p class="smalltitle">非同步程式設計通用概念</p>
+            <p>非同步操作是指不會阻止程式的執行的操作。在非同步程式設計中，您可以執行其他操作，而不必等待操作完成。
+                如果你在表單設計一個按鈕，然而，那個按鈕的程式有無窮迴圈的話，則其他按鍵都無法用，是因為大多數圖形用戶介面（GUI）應用程式使用單一執行緒來處理所有事件。</p>
+            </p>
+            <p class="smalltitle">多執行緒概念</p>
+            <p>將耗時的操作放到另一個執行緒中，避免阻塞主執行緒。例如開啟資料庫的程式碼，如果無法開啟資料庫，雖然有處理異常(避免程序崩潰)，但還是會卡頓，所以放在另一個執行續能解決卡頓問題。</p>
+            <p class="smalltitle">物件導向程式設計概念</p>
+            <p>一種程式設計模式，它將資料和程式碼封裝在物件中。物件是類的實例，類是定義物件的藍圖。</p>
+            <pre><code class="language-csharp">public class Person // 定義類 C#
 {
     // 定義屬性
     public string Name { get; set; }
@@ -76,15 +83,15 @@
         Console.WriteLine("Hello, my name is " + Name);
     }
 }</code></pre>
-                <p class="smalltitle">演算法概念</p>
-                <p>解決問題的規則。演算法可以用來解決各種問題，例如搜尋、排序和刪除數據等。</p>
-                <p class="smalltitle">資料庫概念</p>
-                <p>組織和存儲數據的系統。資料庫可以存儲結構化數據，例如表格和列，以及非結構化數據，例如文件和圖像等。</p>
-                <p class="smalltitle">C# 概念</p>
-                <p>C# 是一種通用、物件導向的程式語言。它是由微軟開發的，用於開發各種應用程式，包括桌面應用程式、Web 應用程式和遊戲等。</p>
-            </section>
-            <article>
-                <section id="section1"></section>
+            <p class="smalltitle">演算法概念</p>
+            <p>解決問題的規則。演算法可以用來解決各種問題，例如搜尋、排序和刪除數據等。</p>
+            <p class="smalltitle">資料庫概念</p>
+            <p>組織和存儲數據的系統。資料庫可以存儲結構化數據，例如表格和列，以及非結構化數據，例如文件和圖像等。</p>
+            <p class="smalltitle">C# 概念</p>
+            <p>C# 是一種通用、物件導向的程式語言。它是由微軟開發的，用於開發各種應用程式，包括桌面應用程式、Web 應用程式和遊戲等。</p>
+        </section>
+        <article>
+            <section id="section1">
                 <header>
                     <h2>旅行商問題</h2>
                     <div class="tags">
@@ -109,7 +116,7 @@
                     <p>目前還沒有快速的演算法可以解決出唯一且最佳解。為了降低時間複雜度，
                         本範例用退火蟻演算法，執行效率快了許多，但執行結果都不一定相同。</p>
                     <h3>退火蟻演算法</h3>
-<pre><code class="language-csharp">//初始化
+                    <pre><code class="language-csharp">//初始化
 seq = new int[25];
 seq_f = new int[25];
 double tempterature = 10000;//當前溫度
@@ -165,160 +172,170 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
     result = Data.count_energy(ref seq);
 }</code></pre>
                 </section>
-            </article>
-            <article id="section2">
-                <section id="section2"></section>
-                    <header>
-                        <h2>簡易的行控中心</h2>
-                        <div class="tags">
-                            <span class="message-tags">軟體設計</span>
-                            <span class="message-tags">模擬</span>
-                            <span class="message-tags">C#</span>
-                        </div>
-                        <nav>
-                            <a href="https://github.com/ChenGuoXiang940/NTCUST_OCC_myproject.git" target="_blank" class="link">儲存庫連結</a>
-                        </nav>
-                    </header>
-                    <section>
-                        <h3>表單設計</h3>
-                        <div onclick="openModal('Screenshots/p2-1.png','表單設計')">
-                            <img class="img-photo" src="Screenshots/p2-1.png" alt="p2-1" width="40%">
-                        </div>
-                        <h3>主要功能</h3>
-                        <ul>
-                            <li>使用者可以自行操作列車</li>
-                            <li>時刻掌握當前時間</li>
-                            <li>使用模擬計算來預估列車的當前狀態</li>
-                            <li>路線地圖可視化展示</li>
-                            <li>緊急事件處理</li>
-                            <li>用戶回饋功能</li>
-                            <li>更多功能日後開發(維護和檢修計劃、能源管理連接資料庫)</li>
-                        </ul>
-                        <h3>功能介紹</h3>
-                        <p class="smalltitle">1. 車站狀態</p>
-                        <p>請選擇車站名稱，可以調整優先序。</p>
-                        <p>時刻表包含將進站的列車名、預估抵達時間、起始站、終點站。</p>
-                        <p class="smalltitle">2. 列車狀態及操作</p>
-                        <p>請選擇列車名稱，可以調整優先序、更改終點站，但先臨停。</p>
-                        <ul>
-                            <li>列車出站加速度為 1.0 m/s²，維持且不超過 110km/h。</li>
-                            <li>列車進站加速度為 -0.8 m/s²。</li>
-                            <li>調整時速請按「增速」和「減速」分別和進出站加速度相同，增減速不超過 ±10km/h。</li>
-                            <li>「煞車」煞車加速度為 -2.5 m/s² 用於急煞。</li>
-                            <li>「啟動」不等候直接出站或中途停止要開始行駛。</li>
-                            <li>「發車」等候發車。</li>
-                            <li>「停靠站」在此站不發車，需要先停靠在車站。</li>
-                            <li>車站優先序如果低於列車則不會臨停。</li>
-                        </ul>
-                        <ul>
-                            <li>同方向列車不會在車站同時發車，考慮安全問題。</li>
-                            <li>如果要進站的月台數不足則不會發車，需等待已在進站月台的列車離站。</li>
-                            <li>一個月台有各一個北上和南下。</li>
-                        </ul>
-                        <p class="smalltitle">3. 路線地圖</p>
-                        <p>點選車站名可直接更改列車站狀態的車站名。</p>
-                        <p>箭頭顏色說明：</p>
-                        <ul>
-                            <li><span style="color: black;">黑色箭頭</span>：無列車在此行駛。</li>
-                            <li><span style="color: orange;">橘色箭頭</span>：有列車要進站或離站。</li>
-                            <li><span style="color: blue;">藍色箭頭</span>：有列車正在此行駛。</li>
-                            <li><span style="color: red;">紅色箭頭</span>：存在安全問題。</li>
-                        </ul>
-                        <p class="smalltitle">4. 事件處理</p>
-                        <p>選擇事件及列車，勾選聯絡單位，詳細內容可為空。</p>
-                        <p>模擬事件回報功能。</p>
-                    </section>
-            </article>
-        </main>
-        <footer>
-            <hr>
-            <p class="about"></p>
-        </footer>
-        <style>
-            .feedback-section{
-                border:solid 1px #f0883e;
-                border-radius: 5px;
-                transition: opacity 0.5s, height 0.5s;
-                overflow: hidden;
+            </section>
+        </article>
+        <article>
+            <section id="section2">
+                <header>
+                    <h2>簡易的行控中心</h2>
+                    <div class="tags">
+                        <span class="message-tags">軟體設計</span>
+                        <span class="message-tags">模擬</span>
+                        <span class="message-tags">C#</span>
+                    </div>
+                    <nav>
+                        <a href="https://github.com/ChenGuoXiang940/NTCUST_OCC_myproject.git" target="_blank"
+                            class="link">儲存庫連結</a>
+                    </nav>
+                </header>
+                <section>
+                    <h3>表單設計</h3>
+                    <div onclick="openModal('Screenshots/p2-1.png','表單設計')">
+                        <img class="img-photo" src="Screenshots/p2-1.png" alt="p2-1" width="40%">
+                    </div>
+                    <h3>主要功能</h3>
+                    <ul>
+                        <li>使用者可以自行操作列車</li>
+                        <li>時刻掌握當前時間</li>
+                        <li>使用模擬計算來預估列車的當前狀態</li>
+                        <li>路線地圖可視化展示</li>
+                        <li>緊急事件處理</li>
+                        <li>用戶回饋功能</li>
+                        <li>更多功能日後開發(維護和檢修計劃、能源管理連接資料庫)</li>
+                    </ul>
+                    <h3>功能介紹</h3>
+                    <p class="smalltitle">1. 車站狀態</p>
+                    <p>請選擇車站名稱，可以調整優先序。</p>
+                    <p>時刻表包含將進站的列車名、預估抵達時間、起始站、終點站。</p>
+                    <p class="smalltitle">2. 列車狀態及操作</p>
+                    <p>請選擇列車名稱，可以調整優先序、更改終點站，但先臨停。</p>
+                    <ul>
+                        <li>列車出站加速度為 1.0 m/s²，維持且不超過 110km/h。</li>
+                        <li>列車進站加速度為 -0.8 m/s²。</li>
+                        <li>調整時速請按「增速」和「減速」分別和進出站加速度相同，增減速不超過 ±10km/h。</li>
+                        <li>「煞車」煞車加速度為 -2.5 m/s² 用於急煞。</li>
+                        <li>「啟動」不等候直接出站或中途停止要開始行駛。</li>
+                        <li>「發車」等候發車。</li>
+                        <li>「停靠站」在此站不發車，需要先停靠在車站。</li>
+                        <li>車站優先序如果低於列車則不會臨停。</li>
+                    </ul>
+                    <ul>
+                        <li>同方向列車不會在車站同時發車，考慮安全問題。</li>
+                        <li>如果要進站的月台數不足則不會發車，需等待已在進站月台的列車離站。</li>
+                        <li>一個月台有各一個北上和南下。</li>
+                    </ul>
+                    <p class="smalltitle">3. 路線地圖</p>
+                    <p>點選車站名可直接更改列車站狀態的車站名。</p>
+                    <p>箭頭顏色說明：</p>
+                    <ul>
+                        <li><span style="color: black;">黑色箭頭</span>：無列車在此行駛。</li>
+                        <li><span style="color: orange;">橘色箭頭</span>：有列車要進站或離站。</li>
+                        <li><span style="color: blue;">藍色箭頭</span>：有列車正在此行駛。</li>
+                        <li><span style="color: red;">紅色箭頭</span>：存在安全問題。</li>
+                    </ul>
+                    <p class="smalltitle">4. 事件處理</p>
+                    <p>選擇事件及列車，勾選聯絡單位，詳細內容可為空。</p>
+                    <p>模擬事件回報功能。</p>
+                </section>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <hr>
+        <p class="about"></p>
+    </footer>
+    <style>
+        .feedback-section {
+            border: solid 1px #f0883e;
+            border-radius: 5px;
+            transition: opacity 0.5s, height 0.5s;
+            overflow: hidden;
+        }
+
+        .feedback-section p,
+        .feedback-section button {
+            margin: 5px;
+            font-family: "Raleway", sans-serif;
+            text-align: center;
+        }
+
+        #okButton {
+            cursor: pointer;
+            padding: 5px 10px;
+            font-size: 16px;
+            border: 1px solid var(--h3-text-color);
+            border-radius: 5px;
+            color: var(--h3-text-color);
+            background-color: transparent;
+        }
+
+        .message-tags {
+            border: var(--a-color) 0.5px solid;
+            border-radius: 5px;
+            padding: 4px 8px;
+            font-size: 13px;
+            line-height: 14px;
+            border-radius: 4px;
+            margin: 0 0 0 8px;
+            display: inline-block;
+            color: var(--a-color);
+        }
+
+        @media screen and (max-width: 501px) {
+            .gridcontainer {
+                grid-template-columns: 1fr 1fr;
             }
-            .feedback-section p, .feedback-section button {
-                margin: 5px;
-                font-family: "Raleway", sans-serif;
-                text-align: center;
+
+            #catalog {
+                display: none;
             }
-            #okButton{
-                cursor: pointer;
-                padding: 5px 10px;
-                font-size: 16px;
-                border: 1px solid var(--h3-text-color);
-                border-radius: 5px;
-                color: var(--h3-text-color);
-                background-color: transparent;
+        }
+
+        @media screen and (min-width:1024px) {
+            .gridcontainer {
+                grid-template-columns: repeat(2, 1fr);
             }
-            .message-tags{
-                border: var(--a-color) 0.5px solid;
-                border-radius: 5px;
-                padding: 4px 8px;
-                font-size: 13px;
-                line-height: 14px;
-                border-radius: 4px;
-                margin: 0 0 0 8px;
-                display: inline-block;
-                color: var(--a-color);
-            }
-            @media screen and (max-width: 501px) {
-                .gridcontainer {
-                    grid-template-columns: 1fr 1fr;
-                }
-                #catalog{
-                    display: none;
-                }
-            }
-            
-            @media screen and (min-width:1024px) {
-                .gridcontainer {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-            }
-            img {
-                float: center;
-                margin-right: 20px;
-            }
-        </style>
-        <script src="script.js"></script>
-        <script src="prism.js"></script>
-        <script>
-            // 統計文章字數
-            document.addEventListener("DOMContentLoaded", function () {
-                let articles = document.querySelectorAll('article');
-                articles.forEach(article => {
-                    let text = article.textContent;
-                    let pElements = article.querySelectorAll('p');
-                    let tagsElements = article.querySelectorAll('.tags');
-                    if(tagsElements.length == 0) return;
-                    let wordCount = 0;
-                    pElements.forEach(pElement => {
-                        wordCount += pElement.textContent.length;
-                    });
-                    let newMessageTags = document.createElement('div');
-                    newMessageTags.className='message-tags';
-                    newMessageTags.textContent = "字數: " + wordCount;
-                    tagsElements[0].appendChild(newMessageTags);
+        }
+
+        img {
+            float: center;
+            margin-right: 20px;
+        }
+    </style>
+    <script src="script.js"></script>
+    <script src="prism.js"></script>
+    <script>
+        // 統計文章字數
+        document.addEventListener("DOMContentLoaded", function () {
+            let articles = document.querySelectorAll('article');
+            articles.forEach(article => {
+                let text = article.textContent;
+                let pElements = article.querySelectorAll('p');
+                let tagsElements = article.querySelectorAll('.tags');
+                if (tagsElements.length == 0) return;
+                let wordCount = 0;
+                pElements.forEach(pElement => {
+                    wordCount += pElement.textContent.length;
                 });
+                let newMessageTags = document.createElement('div');
+                newMessageTags.className = 'message-tags';
+                newMessageTags.textContent = "字數: " + wordCount;
+                tagsElements[0].appendChild(newMessageTags);
             });
-            // okButton 如果被按下，feedback-section 會消失
-            document.getElementById('okButton').addEventListener('click', function() {
-                var elements = document.getElementsByClassName('feedback-section');
-                Array.from(elements).forEach(function(element) {
-                    element.style.height = `${element.offsetHeight}px`;
-                    element.style.opacity = '0';
-                    element.style.height = '0px';
-                    element.addEventListener('transitionend', function() {
+        });
+        // okButton 如果被按下，feedback-section 會消失
+        document.getElementById('okButton').addEventListener('click', function () {
+            var elements = document.getElementsByClassName('feedback-section');
+            Array.from(elements).forEach(function (element) {
+                element.style.height = `${element.offsetHeight}px`;
+                element.style.opacity = '0';
+                element.style.height = '0px';
+                element.addEventListener('transitionend', function () {
                     if (event.propertyName === 'height') {
                         element.parentNode.removeChild(element);
                     }
-                    }, { once: true });
-                });
+                }, { once: true });
             });
-        </script>
-    </body>
+        });
+    </script>
+</body>

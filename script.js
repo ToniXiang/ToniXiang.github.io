@@ -123,7 +123,7 @@ sections.forEach((section) => {
 function toArticle(selector) {                
     const element = document.querySelector(selector);
     if (element) {
-        const top = element.getBoundingClientRect().top + window.pageYOffset-70;
+        const top = element.getBoundingClientRect().top + window.scrollY -70;
         if(top<0)top=0;
         window.scrollTo({
             top: top,
