@@ -1,3 +1,8 @@
+// Loading 畫面
+window.addEventListener('load', function() {
+    document.getElementById('loadingScreen').style.display = 'none';
+    document.getElementById('mainContent').style.display = 'block';
+});
 // 點擊後跳轉頁面
 function redirectToPage(url) {
     window.location.href = url;
@@ -96,11 +101,9 @@ function applyTheme(themeName) {
     document.body.className = themeName;
     if(document.body.classList.contains('light-theme')){
         setStats("remove");
-        document.getElementById('prismTheme').setAttribute('href', 'prism_light.css');
     }
     else{
         setStats("add");
-        document.getElementById('prismTheme').setAttribute('href', 'prism_dark.css');
     }
 }
 // 點擊後跳轉頁面
