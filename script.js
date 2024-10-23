@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var rootStyle = getComputedStyle(document.documentElement);
     var aboutText = rootStyle.getPropertyValue('--about-text').trim();
     document.querySelector('footer .about').textContent = aboutText;
-    // article 第一次出現在螢幕爾且還要被看到時產生淡入效果
+    // article 第一次出現在螢幕而且還要被看到時產生淡入效果
     let observer = new IntersectionObserver(function (entries) {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -68,8 +68,10 @@ document.getElementById('themeToggle').addEventListener('click', function() {
     document.body.classList.toggle('light-theme');
     if (document.body.classList.contains('dark-theme')) {
         setTheme('dark-theme');
+        document.getElementById('prismTheme').setAttribute('href', 'prism_dark.css');
     } else {
         setTheme('light-theme');
+        document.getElementById('prismTheme').setAttribute('href', 'prism_light.css');
     }
 });
 // 紀錄使用者選擇的主題
@@ -134,7 +136,7 @@ function toArticle(selector) {
         });
     }
 }
-// 圖片點擊後放大
+// 圖片點擊後占滿整個螢幕大小
 function openModal(imgSrc,imgName) {
     var modal = document.getElementById("myModal");
     var modalImg = document.getElementById("img01");
