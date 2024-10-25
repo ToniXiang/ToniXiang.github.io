@@ -137,8 +137,9 @@ h2{
     margin-top: 5px;
     margin-bottom: 10px;
     text-align:center;
+    font-size: 30px;
+    text-shadow:  0 0 2px hsl(40, 28.57% , 28.82%),0 0 2px hsl(40, 28.57% , 28.82%), 0 0 2px hsl(40, 28.57% , 28.82%);
     color: var(--h2-text-color);
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 h3{
     text-align: center;

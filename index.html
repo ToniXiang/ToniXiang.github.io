@@ -47,7 +47,7 @@
         <div id="region">
             <div style="position: relative;">
                 <img src="Screenshots/bodybg.jpg" alt="bodybg jpg" width="100%" height="auto*0.7">
-                <h2 id="department-title">資訊工程系</h2>
+                <p id="department-title">資訊工程系</p>
             </div>
             <div style="text-align: center;">
                 <h3 id="student-text">H</h3><span id="cursor"></span>
@@ -56,7 +56,7 @@
         <div id="region">
             <h2>精選圖集</h2>
             <div class="gridcontainer">
-                <div class="griditem" onclick="openModal('Screenshots/1.jpg','中科大資工系')">
+                <div onclick="openModal('Screenshots/1.jpg','中科大資工系')">
                     <img src="Screenshots\1.jpg" class="img-photo">
                     <h3>中科大資工系</h3>
                     <div id="detail" data-tooltip="甄選實作考場">
@@ -64,7 +64,7 @@
                         <p>2023/06/29</p>
                     </div>
                 </div>
-                <div class="griditem" onclick="openModal('Screenshots/2.heic','中科院研發展示館')">
+                <div onclick="openModal('Screenshots/2.heic','中科院研發展示館')">
                     <img src="Screenshots\2.heic" class="img-photo">
                     <h3>中科院研發展示館</h3>
                     <div id="detail" data-tooltip="飛彈模型展示">
@@ -72,7 +72,7 @@
                         <p>2022/11/29</p>
                     </div>
                 </div>
-                <div class="griditem" onclick="openModal('Screenshots/3.heic','中科院研發展示館')">
+                <div onclick="openModal('Screenshots/3.heic','中科院研發展示館')">
                     <img src="Screenshots\3.heic" class="img-photo">
                     <h3>中科院研發展示館</h3>
                     <div id="detail" data-tooltip="桃園龍潭">
@@ -80,7 +80,7 @@
                         <p>2022/11/29</p>
                     </div>
                 </div>
-                <div class="griditem" onclick="openModal('Screenshots/4.heic','台積電')">
+                <div onclick="openModal('Screenshots/4.heic','台積電')">
                     <img src="Screenshots\4.heic" class="img-photo">
                     <h3>台積電</h3>
                     <div id="detail" data-tooltip="桃園龍潭">
@@ -88,7 +88,7 @@
                         <p>2022/11/29</p>
                     </div>
                 </div>
-                <div class="griditem" onclick="openModal('Screenshots/5.heic','台北101')">
+                <div onclick="openModal('Screenshots/5.heic','台北101')">
                     <img src="Screenshots\5.heic" class="img-photo">
                     <h3>台北101</h3>
                     <div id="detail" data-tooltip="路上街景">
@@ -96,7 +96,7 @@
                         <p>2022/11/24</p>
                     </div>
                 </div>
-                <div class="griditem" onclick="openModal('Screenshots/6.heic','龍潭科學園區')">
+                <div onclick="openModal('Screenshots/6.heic','龍潭科學園區')">
                     <img src="Screenshots\6.heic" class="img-photo">
                     <h3>龍潭科學園區</h3>
                     <div id="detail" data-tooltip="3D立體地圖">
@@ -120,6 +120,8 @@
     <style>
         #department-title {
             font-size: 36px;
+            font-weight: bold;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
             text-align:center;
             color: aliceblue;
             top: 40%;

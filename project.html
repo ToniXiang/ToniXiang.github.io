@@ -58,15 +58,12 @@
         </div>
         <section>
             <h2>事前準備</h2>
-            <p class="smalltitle">作品展示的程式專案相比一般算相當進階，內容可能過於複雜。在開始之前，您應該熟悉非同步與多執行緒。如果你寫習慣主控台輸入輸出但還對此概念還不太熟悉，強烈建議你先了解概念。
+            <p>作品展示的程式專案相比一般算相當進階，內容可能過於複雜。在開始之前，您應該熟悉非同步與多執行緒。
+                如果你寫習慣主控台輸入輸出但還對此概念還不太熟悉，強烈建議你先了解概念。部分資訊使用「GitHub Copilot」。
             </p>
         </section>
         <section>
             <h2>指南</h2>
-            <article class="feedback-section" style="width: 50%;margin: auto;text-align: center;">
-                <p>部分資訊使用「GitHub Copilot」</p>
-                <button id="okButton">OK</button>
-            </article>
             <p class="smalltitle">非同步程式設計通用概念</p>
             <p>非同步操作是指不會阻止程式的執行的操作。在非同步程式設計中，您可以執行其他操作，而不必等待操作完成。
                 如果你在表單設計一個按鈕，然而，那個按鈕的程式有無窮迴圈的話，則其他按鍵都無法用，是因為大多數圖形用戶介面（GUI）應用程式使用單一執行緒來處理所有事件。</p>
@@ -107,6 +104,12 @@
                             target="_blank" class="link">儲存庫連結</a>
                     </nav>
                 </header>
+                <section>
+                    <h3>表單設計</h3>
+                    <div onclick="openModal('Screenshots/p1-1.png','表單設計')">
+                        <img class="img-photo" src="Screenshots/p1-1.png" alt="p1-1" width="40%">
+                    </div>
+                </section>
                 <section>
                     <h3>問題說明</h3>
                     <p>旅行商問題（英語：Travelling salesman problem,TSP）是組合
@@ -194,9 +197,14 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                 </header>
                 <section>
                     <h3>表單設計</h3>
-                    <div onclick="openModal('Screenshots/p2-1.png','表單設計')">
-                        <img class="img-photo" src="Screenshots/p2-1.png" alt="p2-1" width="40%">
-                    </div>
+                    <div class="gridcontainer">
+                        <div onclick="openModal('Screenshots/p2-1.png','表單設計')">
+                            <img class="img-photo" src="Screenshots/p2-1.png" alt="p2-1" width="80%">
+                        </div>
+                        <div onclick="openModal('Screenshots/p2-2.png','表單設計')">
+                            <img class="img-photo" src="Screenshots/p2-2.png" alt="p2-2" width="60%">
+                        </div>
+                    </div>                
                     <h3>主要功能</h3>
                     <ul>
                         <li>使用者可以自行操作列車</li>
@@ -249,29 +257,6 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
         <p class="about"></p>
     </footer>
     <style>
-        .feedback-section {
-            border: solid 1px #f0883e;
-            border-radius: 5px;
-            transition: opacity 0.5s, height 0.5s;
-            overflow: hidden;
-        }
-
-        .feedback-section p,
-        .feedback-section button {
-            margin: 5px;
-            font-family: "Raleway", sans-serif;
-            text-align: center;
-        }
-
-        #okButton {
-            cursor: pointer;
-            padding: 5px 10px;
-            font-size: 16px;
-            border: 1px solid var(--h3-text-color);
-            border-radius: 5px;
-            color: var(--h3-text-color);
-            background-color: transparent;
-        }
 
         .message-tags {
             border: var(--a-color) 0.5px solid;
@@ -286,24 +271,15 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
         }
 
         @media screen and (max-width: 501px) {
-            .gridcontainer {
-                grid-template-columns: 1fr 1fr;
-            }
-
             #catalog {
                 display: none;
             }
         }
-
-        @media screen and (min-width:1024px) {
-            .gridcontainer {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        img {
-            float: center;
-            margin-right: 20px;
+        .gridcontainer {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
         }
     </style>
     <script src="script.js"></script>
@@ -325,20 +301,6 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                 newMessageTags.className = 'message-tags';
                 newMessageTags.textContent = "字數: " + wordCount;
                 tagsElements[0].appendChild(newMessageTags);
-            });
-        });
-        // okButton 如果被按下，feedback-section 會消失
-        document.getElementById('okButton').addEventListener('click', function () {
-            var elements = document.getElementsByClassName('feedback-section');
-            Array.from(elements).forEach(function (element) {
-                element.style.height = `${element.offsetHeight}px`;
-                element.style.opacity = '0';
-                element.style.height = '0px';
-                element.addEventListener('transitionend', function () {
-                    if (event.propertyName === 'height') {
-                        element.parentNode.removeChild(element);
-                    }
-                }, { once: true });
             });
         });
     </script>

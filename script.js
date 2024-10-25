@@ -68,10 +68,8 @@ document.getElementById('themeToggle').addEventListener('click', function() {
     document.body.classList.toggle('light-theme');
     if (document.body.classList.contains('dark-theme')) {
         setTheme('dark-theme');
-        document.getElementById('prismTheme').setAttribute('href', 'prism_dark.css');
     } else {
         setTheme('light-theme');
-        document.getElementById('prismTheme').setAttribute('href', 'prism_light.css');
     }
 });
 // 紀錄使用者選擇的主題
@@ -103,9 +101,11 @@ function applyTheme(themeName) {
     document.body.className = themeName;
     if(document.body.classList.contains('light-theme')){
         setStats("remove");
+        document.getElementById('prismTheme').setAttribute('href', 'prism_light.css');
     }
     else{
         setStats("add");
+        document.getElementById('prismTheme').setAttribute('href', 'prism_dark.css');
     }
 }
 // 點擊後跳轉頁面
