@@ -35,9 +35,8 @@
                 <span class="material-symbols-sharp">share</span>
                 <p>Github</p>
             </nav>
-            <div id="themeToggle">
-                <span class="material-symbols-sharp">contrast</span>
-                <p>主題</p>
+            <div class="themeToggle">
+                <div class="switch"></div>
             </div>
         </div>
         <div id="catalog">
@@ -56,40 +55,6 @@
             <h3 id="caption"></h3>
             <img class="modal-content" id="img01">
         </div>
-        <section>
-            <h2>事前準備</h2>
-            <p>作品展示的程式專案相比一般算相當進階，內容可能過於複雜。在開始之前，您應該熟悉非同步與多執行緒。
-                如果你寫習慣主控台輸入輸出但還對此概念還不太熟悉，強烈建議你先了解概念。部分資訊使用「GitHub Copilot」。
-            </p>
-        </section>
-        <section>
-            <h2>指南</h2>
-            <p class="smalltitle">非同步程式設計通用概念</p>
-            <p>非同步操作是指不會阻止程式的執行的操作。在非同步程式設計中，您可以執行其他操作，而不必等待操作完成。
-                如果你在表單設計一個按鈕，然而，那個按鈕的程式有無窮迴圈的話，則其他按鍵都無法用，是因為大多數圖形用戶介面（GUI）應用程式使用單一執行緒來處理所有事件。</p>
-            </p>
-            <p class="smalltitle">多執行緒概念</p>
-            <p>將耗時的操作放到另一個執行緒中，避免阻塞主執行緒。例如開啟資料庫的程式碼，如果無法開啟資料庫，雖然有處理異常(避免程序崩潰)，但還是會卡頓，所以放在另一個執行續能解決卡頓問題。</p>
-            <p class="smalltitle">物件導向程式設計概念</p>
-            <p>一種程式設計模式，它將資料和程式碼封裝在物件中。物件是類的實例，類是定義物件的藍圖。</p>
-            <pre><code class="language-csharp">public class Person // 定義類 C#
-{
-    // 定義屬性
-    public string Name { get; set; }
-    public int Age { get; set; }
-    // 定義方法
-    public void SayHello()
-    {
-        Console.WriteLine("Hello, my name is " + Name);
-    }
-}</code></pre>
-            <p class="smalltitle">演算法概念</p>
-            <p>解決問題的規則。演算法可以用來解決各種問題，例如搜尋、排序和刪除數據等。</p>
-            <p class="smalltitle">資料庫概念</p>
-            <p>組織和存儲數據的系統。資料庫可以存儲結構化數據，例如表格和列，以及非結構化數據，例如文件和圖像等。</p>
-            <p class="smalltitle">C# 概念</p>
-            <p>C# 是一種通用、物件導向的程式語言。它是由微軟開發的，用於開發各種應用程式，包括桌面應用程式、Web 應用程式和遊戲等。</p>
-        </section>
         <article>
             <section id="section1">
                 <header>
@@ -222,11 +187,10 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                     <p class="smalltitle">2. 列車狀態及操作</p>
                     <p>請選擇列車名稱，可以調整優先序、更改終點站，但先臨停。</p>
                     <ul>
-                        <li>列車出站加速度為 1.0 m/s²，維持且不超過 110km/h。</li>
-                        <li>列車進站加速度為 -0.8 m/s²。</li>
-                        <li>調整時速請按「增速」和「減速」分別和進出站加速度相同，增減速不超過 ±10km/h。</li>
-                        <li>「煞車」煞車加速度為 -2.5 m/s² 用於急煞。</li>
-                        <li>「啟動」不等候直接出站或中途停止要開始行駛。</li>
+                        <li>列車出站加速度為 2.5 m/s²，維持且不超過 110km/h。</li>
+                        <li>列車進站加速度為 -2.0 m/s²。</li>
+                        <li>「煞車」煞車加速度為 -3.0 m/s² 用於急煞。</li>
+                        <li>「啟動」要開始行駛加速，需要在軌道上。</li>
                         <li>「發車」等候發車。</li>
                         <li>「停靠站」在此站不發車，需要先停靠在車站。</li>
                         <li>車站優先序如果低於列車則不會臨停。</li>
@@ -234,7 +198,7 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                     <ul>
                         <li>同方向列車不會在車站同時發車，考慮安全問題。</li>
                         <li>如果要進站的月台數不足則不會發車，需等待已在進站月台的列車離站。</li>
-                        <li>一個月台有各一個北上和南下。</li>
+                        <li>一個月台有各一個北上和南下可給列車停靠。</li>
                     </ul>
                     <p class="smalltitle">3. 路線地圖</p>
                     <p>點選車站名可直接更改列車站狀態的車站名。</p>

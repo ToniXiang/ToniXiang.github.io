@@ -63,13 +63,23 @@ function getRandomColor() {
     return color;
 }
 // 點擊後交換主題
-document.getElementById('themeToggle').addEventListener('click', function() {
-    document.body.classList.toggle('dark-theme');
-    document.body.classList.toggle('light-theme');
-    if (document.body.classList.contains('dark-theme')) {
-        setTheme('dark-theme');
-    } else {
-        setTheme('light-theme');
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.querySelector('.themeToggle');
+    themeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('dark-theme');
+        document.body.classList.toggle('light-theme');
+        if (document.body.classList.contains('dark-theme')) {
+            setTheme('dark-theme');
+            document.getElementById('prismTheme').setAttribute('href', 'prism_dark.css');
+        } else {
+            setTheme('light-theme');
+            document.getElementById('prismTheme').setAttribute('href', 'prism_light.css');
+        }
+    });
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        applyTheme(savedTheme);
     }
 });
 // 紀錄使用者選擇的主題

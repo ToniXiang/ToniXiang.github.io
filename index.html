@@ -32,9 +32,8 @@
                 <span class="material-symbols-sharp">share</span>
                 <p>Github</p>
             </nav>
-            <div id="themeToggle">
-                <span class="material-symbols-sharp">contrast</span>
-                <p>主題</p>
+            <div class="themeToggle">
+                <div class="switch"></div>
             </div>
         </div>
     </header>
@@ -45,12 +44,12 @@
             <img class="modal-content" id="img01">
         </div>
         <div id="region">
-            <div style="position: relative;">
-                <img src="Screenshots/bodybg.jpg" alt="bodybg jpg" width="100%" height="auto*0.7">
+            <div class="image-container">
+                <img class="main-image" src="Screenshots/bodybg.jpg" alt="bodybg jpg">
                 <p id="department-title">資訊工程系</p>
             </div>
-            <div style="text-align: center;">
-                <h3 id="student-text">H</h3><span id="cursor"></span>
+            <div class="text-center">
+                <h3 id="student-text"></h3><span id="cursor"></span>
             </div>
         </div>
         <div id="region">
@@ -118,6 +117,32 @@
         <p class="about"></p>
     </footer>
     <style>
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .main-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 5px solid #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+        .main-image:hover{
+            transform: scale(1.05);
+        }
+        .text-center {
+            text-align: center;
+            margin-top: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis; 
+        }
         #department-title {
             font-size: 36px;
             font-weight: bold;
@@ -136,23 +161,19 @@
             display: inline-block;
             color: var(--h3-text-color);
         }
-
+        #cursor {
+            display: inline-block;
+            width: 2px;
+            height: 24px;
+            background-color: #13c2c2;
+            animation: blink 1s step-end infinite;
+        }
         #region {
             margin-bottom: 20px;
             padding: 10px;
             position: relative;
             overflow: hidden;
         }
-
-        #cursor {
-            display: inline-block;
-            width: 1px;
-            height: 1em;
-            font-size: 24px;
-            background-color: #13c2c2;
-            animation: blink 1s steps(1, end) infinite;
-        }
-
         svg {
             width: 100%;
             height: 100%;
@@ -184,6 +205,7 @@
             display: block;
             position: absolute;
             margin: 0;
+            font-weight: bold;
         }
 
         .offscreen-text {
@@ -280,23 +302,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
     <script>
         // 字串從左到右 出現停五秒 再從右到左消失 循環播放
-        animateText();
+        document.addEventListener('DOMContentLoaded', () => {
+            animateText();
+            adjustFontSize();
+        });
+        let texts = ["Hi! I'm 陳國翔, a student at NTCUST, Taiwan.", "i am passionate about exploring new ideas."];
+        let aim = 0;
         function animateText() {
-            let text = "i! I'm 陳國翔, a student at NTCUST,Taiwan.";
             let studentText = document.getElementById('student-text');
             let index = 0;
+            let currentText = texts[aim].split('');
             let textInterval = setInterval(function () {
-                if (index < text.length) {
-                    studentText.textContent += text[index++];
+                if (index < currentText.length) {
+                    studentText.textContent += currentText[index++];
                 } else {
                     clearInterval(textInterval);
                     setTimeout(function () {
                         let textReverseInterval = setInterval(function () {
-                            if (studentText.textContent.length > 1) {
+                            if (studentText.textContent.length > 0) {
                                 studentText.textContent = studentText.textContent.slice(0, -1);
                             } else {
                                 clearInterval(textReverseInterval);
                                 index = 0;
+                                aim = (aim + 1) % texts.length;
                                 animateText();
                             }
                         }, 100);
