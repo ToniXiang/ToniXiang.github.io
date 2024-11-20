@@ -104,7 +104,7 @@ body>header{
     visibility: visible;
     width: 100%;
 }
-.blogTitle>nav>span,.blogTitle>nav>img,.cp>span{
+.blogTitle>nav>span,.blogTitle>nav>img{
     height: 100%;
     width: 30px;
     padding-top: 5%;
@@ -112,7 +112,7 @@ body>header{
     margin-right: 10px;
     color: aliceblue;
 }
-.blogTitle>nav>p,.cp>p{
+.blogTitle>nav>p{
     font-size: 15px;
     font-weight: bold;
     color: #13c2c2;
@@ -234,9 +234,22 @@ section>p,section>ul{
     left: 0;
     cursor: pointer;
     padding: 10px;
-    text-decoration: none;
-    background-color: #000;
+    color: var(--img-color);
+    display: none;
     z-index: 999;
+}
+.cp:hover {
+    color: #0a8a8a;
+}
+.cp.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cp.hide {
+    opacity: 0;
+    transform: translateY(100%);
 }
 .img-photo {
     max-width: 100%;

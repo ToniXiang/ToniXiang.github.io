@@ -24,6 +24,41 @@ document.addEventListener("DOMContentLoaded", function () {
         observer.observe(article);
     });
 });
+// 設定最頂的導航如果往下移動就消失
+document.addEventListener('DOMContentLoaded', () => {
+    let lastScrollTop = 0;
+    const blogTitle = document.querySelector('.blogTitle');
+    window.addEventListener('scroll', () => {
+        let scrollTop = window.scrollY || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop) {
+            // Scroll down
+            blogTitle.style.transform = 'translateY(-100%)';
+        } else {
+            // Scroll up
+            blogTitle.style.transform = 'translateY(0)';
+        }
+        lastScrollTop = scrollTop;
+    });
+});
+//如果不在最頂就顯示"往上的標誌" 如果被按下就滑動到最頂
+document.addEventListener('DOMContentLoaded', () => {
+    const backToTopButton = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            backToTopButton.classList.add('show');
+            backToTopButton.classList.remove('hide');
+        } else {
+            backToTopButton.classList.add('hide');
+            backToTopButton.classList.remove('show');
+        }
+    });
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
 // 網頁都有這個效果，被按下有不同顏色且不同大小的彩色球，以圓心在半徑範圍內四散
 document.body.addEventListener("click", function (event) {
     for (let i = 0; i < 10; i++) {
