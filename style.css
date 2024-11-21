@@ -126,7 +126,7 @@ article {
     overflow: hidden;
     text-decoration: none;
     color: var(--text-color);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 20px rgba(212, 129, 129, 0.15);
     background-repeat: no-repeat;
     transition: background-color 2s;
     border-radius: 5px 5px 0 0;
@@ -159,7 +159,6 @@ h2{
     margin-bottom: 10px;
     text-align:center;
     font-size: 30px;
-    text-shadow:  0 0 2px hsl(40, 28.57% , 28.82%),0 0 2px hsl(40, 28.57% , 28.82%), 0 0 2px hsl(40, 28.57% , 28.82%);
     color: var(--h2-text-color);
 }
 h3{
@@ -266,7 +265,7 @@ section>p,section>ul{
     --h2-text-color-light: #f0883e;
     --h3-text-color-light: #1990b8;
     --img-color-light:black;
-    --background-color-dark: rgb(46, 51, 73);
+    --background-color-dark: #0d1117;
     --text-color-dark: aliceblue;
     --smalltext-color-dark: #FFFFCC;
     --a-color-dark:#FFFFCC;
