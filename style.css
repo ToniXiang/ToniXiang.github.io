@@ -148,7 +148,8 @@ hr {
 }
 
 footer {
-    text-align: center;
+    padding: 20px 0;
+    text-align: left;
 }
 h1{
     margin-left: 20%;
@@ -192,13 +193,13 @@ section>p,section>ul{
     text-decoration: none;
 }
 
-.about {
+.about1,.about2 {
     text-decoration: underline;
-    color:  #f0883e;
+    color:  var(--highlight-light);
     padding: 2px 0;
     text-align: center;
 }
-.about:hover {
+.about1:hover,.about2:hover {
     text-decoration: none;
 }
 #background {
@@ -258,7 +259,7 @@ section>p,section>ul{
     display: none;
 }
 :root {
-    --background-color-light: #ffffff; 
+    --background-color-light: #f3f3f3;
     --text-color-light: #333333;
     --smalltext-color-light: #2f9c0a;
     --a-color-light:#c92c2c;
@@ -278,7 +279,8 @@ section>p,section>ul{
     --bg-color: var(--background-color-dark);
     --smalltext-color: var(--smalltext-color-dark);
     --a-color:var(--a-color-dark);
-    --about-text:© 2024 陳國翔. All rights reserved.;
+    --about1-text:有新的想法會持續更新;
+    --about2-text:© 2024 陳國翔. All rights reserved.;
     --h2-text-color:var(--h2-text-color-dark);
     --h3-text-color:var(--h3-text-color-dark);
     --img-color:var(--img-color-dark);
@@ -392,4 +394,67 @@ section>p,section>ul{
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+#mail,#arrow {
+    width: 25px;
+    height: 25px;
+    vertical-align: text-top;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.farea {
+    flex: 1;
+    min-width: 200px;
+    margin: 20px;
+}
+.farea-top{
+    flex: 1;
+    min-width: 200px;
+    margin: 20px;
+    padding: 20px 20px;
+}
+.farea p,
+.farea ul {
+    margin: 5px 0;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.farea ul {
+    list-style: none;
+    padding: 0;
+}
+
+.farea ul li {
+    margin: 5px 0;
+}
+
+.farea ul li a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.farea ul li a:hover {
+    color: #13c2c2;
+}
+.farea-top h2{
+    font-size: 20px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+.farea h3{
+    font-size: 15px;
+    font-weight: bold;
+}
+.footer-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
 }

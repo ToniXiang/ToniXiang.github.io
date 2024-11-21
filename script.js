@@ -1,4 +1,4 @@
-// Loading 畫面
+// Loading 加載照片的動畫
 document.addEventListener('DOMContentLoaded', () => {
     const loadingScreens = document.querySelectorAll('.loadingScreen');
     const images = document.querySelectorAll('.img-photo');
@@ -27,8 +27,11 @@ function redirectToPage(url) {
 document.addEventListener("DOMContentLoaded", function () {
     // 設定頁尾的文字
     var rootStyle = getComputedStyle(document.documentElement);
-    var aboutText = rootStyle.getPropertyValue('--about-text').trim();
-    document.querySelector('footer .about').textContent = aboutText;
+    const footerTexts = ['--about1-text', '--about2-text'];
+    footerTexts.forEach((textVar, index) => {
+        const aboutText = rootStyle.getPropertyValue(textVar).trim();
+        document.querySelector(`footer .about${index + 1}`).textContent = aboutText;
+    });
     // article 第一次出現在螢幕而且還要被看到時產生淡入效果
     let observer = new IntersectionObserver(function (entries) {
         entries.forEach((entry) => {

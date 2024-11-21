@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, inital-scale=1">
     <title>個人網頁</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shortcut icon" href="Screenshots\me.png" type="image/x-icon">
-    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_drop_up,contrast,description,group,history,home,keyboard_arrow_down,keyboard_arrow_up,mail,share" />
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_drop_up,arrow_forward_ios,contrast,description,group,history,home,keyboard_arrow_down,keyboard_arrow_up,mail,share" />
 </head>
-
 <body>
     <div id="background"></div>
     <div class="cp" id="backToTop">
@@ -34,239 +32,284 @@
                 <div class="switch"></div>
             </div>
         </div>
-        <div id="catalog">
-            <h2>目錄</h2>
-            <nav onclick="toArticle('#section1')">
-                <p>關於我</p>
-            </nav>
-            <nav onclick="toArticle('#section2')">
-                <p>生涯目標</p>
-            </nav>
-            <nav onclick="toArticle('#section3')">
-                <p>資訊工程</p>
-            </nav>
-            <nav onclick="toArticle('#section4')">
-                <p>就讀動機</p>
-            </nav>
-            <nav onclick="toArticle('#section5')">
-                <p>職涯規劃</p>
-            </nav>
-        </div>
     </header>
+    <div id="catalog">
+        <h2>目錄</h2>
+        <nav onclick="toArticle('#section1')">
+            <p>關於我</p>
+        </nav>
+        <nav onclick="toArticle('#section2')">
+            <p>生涯目標</p>
+        </nav>
+        <nav onclick="toArticle('#section3')">
+            <p>資訊工程</p>
+        </nav>
+        <nav onclick="toArticle('#section4')">
+            <p>就讀動機</p>
+        </nav>
+        <nav onclick="toArticle('#section5')">
+            <p>職涯規劃</p>
+        </nav>
+    </div>
     <main>
         <div class="area">
             <h2>關於我</h2>
-            <section id="section1"></section>
-            <div class="container">
-                <div class="item">
-                    <h3>基本資訊</h3>
-                    <div class="square"></div>
-                    <div class="info-line" style="padding-top: 10px;">
-                        <p>姓名：陳國翔</p>
-                        <p>學制：日間部四技</p>
-                        <p>性別：男</p>
-                        <p><span class="material-symbols-sharp" id="mail">mail</span>chen199940@gmail.com</p>
-                        <p><span class="material-symbols-sharp" id="mail">mail</span>s1411232069@ad1.nutc.edu.tw</p>
+            <section id="section1">
+                <div class="container">
+                    <div class="item">
+                        <h3>基本資訊</h3>
+                        <div class="square"></div>
+                        <div class="info-line" style="padding-top: 10px;">
+                            <p>姓名：陳國翔</p>
+                            <p>學制：日間部四技</p>
+                            <p>性別：男</p>
+                            <p><span class="material-symbols-sharp" id="mail">mail</span>chen199940@gmail.com</p>
+                            <p><span class="material-symbols-sharp" id="mail">mail</span>s1411232069@ad1.nutc.edu.tw</p>
+                        </div>
+                        <h3>經歷</h3>
+                        <div class="square"></div>
+                        <div class="info-line" style="padding-top: 10px;">
+                            <p>參加111年全國技藝競賽軟體設計職種 ⚡</p>
+                        </div>
+                        <h3>證照</h3>
+                        <div class="square"></div>
+                        <div class="info-line" style="padding-top: 10px;">
+                            <p>軟體設計丙級 ✔️</p>
+                        </div>
+                        <h3>學歷</h3>
+                        <div class="square"></div>
+                        <div class="info-line" style="padding-top: 10px;">
+                            <p>國立龍潭高級中學 電子科</p>
+                            <p>國立台中科技大學 資訊工程系(就學中)</p>
+                        </div>
                     </div>
-                    <h3>經歷</h3>
-                    <div class="square"></div>
-                    <div class="info-line" style="padding-top: 10px;">
-                        <p>參加111年全國技藝競賽軟體設計職種 ⚡</p>
-                    </div>
-                    <h3>證照</h3>
-                    <div class="square"></div>
-                    <div class="info-line" style="padding-top: 10px;">
-                        <p>軟體設計丙級 ✔️</p>
-                    </div>
-                    <h3>學歷</h3>
-                    <div class="square"></div>
-                    <div class="info-line" style="padding-top: 10px;">
-                        <p>國立龍潭高級中學 電子科</p>
-                        <p>國立台中科技大學 資訊工程系(就學中)</p>
+                    <div class="item">
+                        <h3>What are your strengths and weaknesses?</h3>
+                        <div class="square"></div>
+                        <div class="info-line" style="padding-top: 10px;">
+                            <p>I'm really good at programming, especially when it comes to writing clean, effective code and
+                                solving difficult problems using logical algorithms. However,calculus is a bit of a challenge
+                                for me. While I understand mathematical concepts, but I might not be as strong in advanced
+                                calculus compared to other subjects.</p>
+                        </div>
+                        <h3>Do you prefer working alone or in teams?Why?</h3>
+                        <div class="square"></div>
+                        <div class="info-line" style="padding-top: 10px;">
+                            <p>I like working alone because it lets me focus completely on my tasks without any distractions. I
+                                can work at my own speed and in my own style, which helps me be more productive and creative.
+                            </p>
+                        </div>
+                        <h3>How do you handle pressure?</h3>
+                        <div class="square"></div>
+                        <div class="info-line" style="padding-top: 10px;">
+                            <p>I handle pressure by reading books. Reading lets me escape into a different world, which helps me
+                                forget about stress for a while. Reading also gives me knowledge and inspiration to deal with
+                                challenges and find solutions.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="item">
-                    <h3>What are your strengths and weaknesses?</h3>
-                    <div class="square"></div>
-                    <div class="info-line" style="padding-top: 10px;">
-                        <p>I'm really good at programming, especially when it comes to writing clean, effective code and
-                            solving difficult problems using logical algorithms. However,calculus is a bit of a challenge
-                            for me. While I understand mathematical concepts, but I might not be as strong in advanced
-                            calculus compared to other subjects.</p>
-                    </div>
-                    <h3>Do you prefer working alone or in teams?Why?</h3>
-                    <div class="square"></div>
-                    <div class="info-line" style="padding-top: 10px;">
-                        <p>I like working alone because it lets me focus completely on my tasks without any distractions. I
-                            can work at my own speed and in my own style, which helps me be more productive and creative.
-                        </p>
-                    </div>
-                    <h3>How do you handle pressure?</h3>
-                    <div class="square"></div>
-                    <div class="info-line" style="padding-top: 10px;">
-                        <p>I handle pressure by reading books. Reading lets me escape into a different world, which helps me
-                            forget about stress for a while. Reading also gives me knowledge and inspiration to deal with
-                            challenges and find solutions.</p>
-                    </div>
+            </section>
+        </div>
+        <div class="area">
+            <section id="section2">
+                <h2>生涯目標</h2>
+                <table border="1">
+                    <tr>
+                        <th>階段</th>
+                        <th>目標</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="6">短期目標<p class="bracket">(大學一年級)</p>
+                        </td>
+                        <td>✔️增強學校所學專業知識能力</td>
+                    </tr>
+                    <tr>
+                        <td>✔️精進自己所學的程式演算法</td>
+                    </tr>
+                    <tr>
+                        <td>✔️自學網頁設計(Html、CSS、JavaScript)</td>
+                    </tr>
+                    <tr>
+                        <td>✔️準備大學程式能力檢定(CPE)，嘗試實做歷屆考題</td>
+                    </tr>
+                    <tr>
+                        <td>✔️背好單字，練聽力，英文要進步</td>
+                    </tr>
+                    <tr>
+                        <td>✔️希望各科不要被當 All Pass</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="6">中期目標<p class="bracket">（大學二年級~大學四年級）</p>
+                        </td>
+                        <td>⭐️Github上傳程式、做各種專題</td>
+                    </tr>
+                    <tr>
+                        <td>⭐️考多益(TOEIC)，希望能從原本350進步到500以上</td>
+                    </tr>
+                    <tr>
+                        <td>⭐️考汽車及機車駕照</td>
+                    </tr>
+                    <tr>
+                        <td>⭐️考程式設計檢測(APCS)，希望至少能做三題</td>
+                    </tr>
+                    <tr>
+                        <td>⭐️考大學程式能力檢定(CPE)，希望至少能做三題</td>
+                    </tr>
+                    <tr>
+                        <td>⭐️爭取在業界實習軟體相關職務經驗</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">長期目標<p class="bracket">（畢業後）</p>
+                        </td>
+                        <td>⭐️沒有打算念研究所，想儘早出社會工作</td>
+                    </tr>
+                    <tr>
+                        <td>⭐️在國內任何需要軟體或韌體開發的職務上工作</td>
+                    </tr>
+                    <tr>
+                        <td>⭐️好好過生活</td>
+                    </tr>
+                </table>
+            </section>
+        </div>
+        <div class="area">
+            <section id="section3">
+                <h2>資訊工程</h2>
+                <table border="1">
+                    <tr>
+                        <th>類別</th>
+                        <th>數據統計資料</th>
+                    </tr>
+                    <tr>
+                        <td>我的提交紀錄</td>
+                        <td><img class="stats"
+                                src="https://github-readme-stats.vercel.app/api?username=ChenGuoXiang940&count_private=true&theme=tokyonight"
+                                alt="GitHub Stats"></td>
+                    </tr>
+                    <tr>
+                        <td>我最常使用的語言 Top 6</td>
+                        <td><img class="stats"
+                                src="https://github-readme-stats.vercel.app/api/top-langs/?username=ChenGuoXiang940&count_private=true&layout=compact&theme=tokyonight"
+                                alt="Top Languages"></td>
+                    </tr>
+                    <tr>
+                        <td>我的連續提交紀錄</td>
+                        <td><img class="stats"
+                                src="https://github-readme-streak-stats.herokuapp.com/?user=ChenGuoXiang940&theme=tokyonight"
+                                alt="GitHub Streak"></td>
+                    </tr>
+                </table>
+                <table border="1">
+                    <tr>
+                        <th>類別</th>
+                        <th>軟體應用程式</th>
+                    </tr>
+                    <tr>
+                        <td>整合開發環境</td>
+                        <td>💻Visual Studio 2022<br>
+                            💻Visual Studio Code</td>
+                    </tr>
+                    <tr>
+                        <td>資料庫</td>
+                        <td>SQL Server Management Studio 20</td>
+                    </tr>
+                </table>
+            </section>
+        </div>
+        <div class="area">
+            <section id="section4">
+                <h2>就讀動機</h2>
+                <div id="region">
+                    <h3 onclick="toggleAnswer('answer1')">
+                        為什麼選擇資訊工程系？<span class="material-symbols-sharp" id="Arrow1">keyboard_arrow_down</span>
+                    </h3>
+                    <p id="answer1" class="answer hidden">我選擇資訊工程系是因為我對電腦和程式設計有著濃厚的興趣，希望能夠深入了解計算機科學的各個方面。</p>
+                    <h3 onclick="toggleAnswer('answer2')">為什麼選擇台中科大？
+                        <span class="material-symbols-sharp" id="Arrow2">keyboard_arrow_down</span>
+                    </h3>
+                    <p id="answer2" class="answer hidden">台中科大以其優秀的教學質量和良好的學習環境著稱，我相信這將有助於我在資訊工程領域的學習和成長。</p>
                 </div>
-            </div>
+            </section>
         </div>
         <div class="area">
-            <section id="section2"></section>
-            <h2>生涯目標</h2>
-            <table border="1">
-                <tr>
-                    <th>階段</th>
-                    <th>目標</th>
-                </tr>
-                <tr>
-                    <td rowspan="6">短期目標<p class="bracket">(大學一年級)</p>
-                    </td>
-                    <td>✔️增強學校所學專業知識能力</td>
-                </tr>
-                <tr>
-                    <td>✔️精進自己所學的程式演算法</td>
-                </tr>
-                <tr>
-                    <td>✔️自學網頁設計(Html、CSS、JavaScript)</td>
-                </tr>
-                <tr>
-                    <td>✔️準備大學程式能力檢定(CPE)，嘗試實做歷屆考題</td>
-                </tr>
-                <tr>
-                    <td>✔️背好單字，練聽力，英文要進步</td>
-                </tr>
-                <tr>
-                    <td>✔️希望各科不要被當 All Pass</td>
-                </tr>
-                <tr>
-                    <td rowspan="6">中期目標<p class="bracket">（大學二年級~大學四年級）</p>
-                    </td>
-                    <td>⭐️Github上傳程式、做各種專題</td>
-                </tr>
-                <tr>
-                    <td>⭐️考多益(TOEIC)，希望能從原本350進步到500以上</td>
-                </tr>
-                <tr>
-                    <td>⭐️考汽車及機車駕照</td>
-                </tr>
-                <tr>
-                    <td>⭐️考程式設計檢測(APCS)，希望至少能做三題</td>
-                </tr>
-                <tr>
-                    <td>⭐️考大學程式能力檢定(CPE)，希望至少能做三題</td>
-                </tr>
-                <tr>
-                    <td>⭐️爭取在業界實習軟體相關職務經驗</td>
-                </tr>
-                <tr>
-                    <td rowspan="3">長期目標<p class="bracket">（畢業後）</p>
-                    </td>
-                    <td>⭐️沒有打算念研究所，想儘早出社會工作</td>
-                </tr>
-                <tr>
-                    <td>⭐️在國內任何需要軟體或韌體開發的職務上工作</td>
-                </tr>
-                <tr>
-                    <td>⭐️好好過生活</td>
-                </tr>
-            </table>
-        </div>
-        <div class="area">
-            <section id="section3"></section>
-            <h2>資訊工程</h2>
-            <table border="1">
-                <tr>
-                    <th>類別</th>
-                    <th>數據統計資料</th>
-                </tr>
-                <tr>
-                    <td>我的提交紀錄</td>
-                    <td><img class="stats"
-                            src="https://github-readme-stats.vercel.app/api?username=ChenGuoXiang940&count_private=true&theme=tokyonight"
-                            alt="GitHub Stats"></td>
-                </tr>
-                <tr>
-                    <td>我最常使用的語言 Top 6</td>
-                    <td><img class="stats"
-                            src="https://github-readme-stats.vercel.app/api/top-langs/?username=ChenGuoXiang940&count_private=true&layout=compact&theme=tokyonight"
-                            alt="Top Languages"></td>
-                </tr>
-                <tr>
-                    <td>我的連續提交紀錄</td>
-                    <td><img class="stats"
-                            src="https://github-readme-streak-stats.herokuapp.com/?user=ChenGuoXiang940&theme=tokyonight"
-                            alt="GitHub Streak"></td>
-                </tr>
-            </table>
-            <table border="1">
-                <tr>
-                    <th>類別</th>
-                    <th>軟體應用程式</th>
-                </tr>
-                <tr>
-                    <td>整合開發環境</td>
-                    <td>💻Visual Studio 2022<br>
-                        💻Visual Studio Code</td>
-                </tr>
-                <tr>
-                    <td>資料庫</td>
-                    <td>SQL Server Management Studio 20</td>
-                </tr>
-            </table>
-        </div>
-        <div class="area">
-            <section id="section4"></section>
-            <h2>就讀動機</h2>
-            <div id="region">
-                <h3 onclick="toggleAnswer('answer1')">
-                    為什麼選擇資訊工程系？<span class="material-symbols-sharp" id="Arrow1">keyboard_arrow_down</span>
-                </h3>
-                <p id="answer1" class="answer hidden">我選擇資訊工程系是因為我對電腦和程式設計有著濃厚的興趣，希望能夠深入了解計算機科學的各個方面。</p>
-                <h3 onclick="toggleAnswer('answer2')">為什麼選擇台中科大？
-                    <span class="material-symbols-sharp" id="Arrow2">keyboard_arrow_down</span>
-                </h3>
-                <p id="answer2" class="answer hidden">台中科大以其優秀的教學質量和良好的學習環境著稱，我相信這將有助於我在資訊工程領域的學習和成長。</p>
-            </div>
-        </div>
-        <div class="area">
-            <section id="section5"></section>
-            <h2>職涯規劃</h2>
-            <table>
-                <tr>
-                    <th>選擇</th>
-                    <th>行業/職位</th>
-                    <th>工作內容</th>
-                    <th>相關證照/技能 (硬實力)</th>
-                    <th>所需特質 (軟實力)</th>
-                </tr>
-                <tr>
-                    <td>第一選擇</td>
-                    <td>韌體設計工程師</td>
-                    <td>規劃及執行產品控制單元之設計、產品韌體之撰寫與量產產品韌體之維護，並進行產品韌體之測試，控管韌體設計之進度、品質與成本。</td>
-                    <td>程式語言C++、Linux、MCU、韌體程式設計、韌體工程開發</td>
-                    <td>喜歡動手做，韌體是軟硬體都要會，程式要會寫多執行續程式，電路與電腦間才能互傳資料。</td>
-                </tr>
-                <tr>
-                    <td>第二選擇</td>
-                    <td>軟體設計工程師</td>
-                    <td>寫程式開發軟體應用程式，並且維護正常運作。</td>
-                    <td>程式語言JavaScript、Java、軟體程式設計、軟體工程系統開發、RESTful</td>
-                    <td>喜歡看書增廣見聞，學習各種演算法，開發各種程式，並持續維護或更新自己做的軟體。</td>
-                </tr>
-                <tr>
-                    <td>第三選擇</td>
-                    <td>Internet程式設計師</td>
-                    <td>運用對網路系統的專業，打造穩定安全的網站。</td>
-                    <td>程式語言Html、CSS、JavaScript、jQuery、Git、 軟體程式設計、RESTful、軟體工程系統開發、資料庫</td>
-                    <td>喜歡展示網頁，做出讓人一眼就清楚網頁所展示的內容，並對資安有所了解。</td>
-                </tr>
-            </table>
+            <section id="section5">
+                <h2>職涯規劃</h2>
+                <table>
+                    <tr>
+                        <th>選擇</th>
+                        <th>行業/職位</th>
+                        <th>工作內容</th>
+                        <th>相關證照/技能 (硬實力)</th>
+                        <th>所需特質 (軟實力)</th>
+                    </tr>
+                    <tr>
+                        <td>第一選擇</td>
+                        <td>韌體設計工程師</td>
+                        <td>規劃及執行產品控制單元之設計、產品韌體之撰寫與量產產品韌體之維護，並進行產品韌體之測試，控管韌體設計之進度、品質與成本。</td>
+                        <td>程式語言C++、Linux、MCU、韌體程式設計、韌體工程開發</td>
+                        <td>喜歡動手做，韌體是軟硬體都要會，程式要會寫多執行續程式，電路與電腦間才能互傳資料。</td>
+                    </tr>
+                    <tr>
+                        <td>第二選擇</td>
+                        <td>軟體設計工程師</td>
+                        <td>寫程式開發軟體應用程式，並且維護正常運作。</td>
+                        <td>程式語言JavaScript、Java、軟體程式設計、軟體工程系統開發、RESTful</td>
+                        <td>喜歡看書增廣見聞，學習各種演算法，開發各種程式，並持續維護或更新自己做的軟體。</td>
+                    </tr>
+                    <tr>
+                        <td>第三選擇</td>
+                        <td>Internet程式設計師</td>
+                        <td>運用對網路系統的專業，打造穩定安全的網站。</td>
+                        <td>程式語言Html、CSS、JavaScript、jQuery、Git、 軟體程式設計、RESTful、軟體工程系統開發、資料庫</td>
+                        <td>喜歡展示網頁，做出讓人一眼就清楚網頁所展示的內容，並對資安有所了解。</td>
+                    </tr>
+                </table>
+            </section>
         </div>
     </main>
     <footer>
         <hr>
-        <p class="about"></p>
+        <div class="footer-content">
+            <div class="farea farea-top">
+                <h2><img src="Screenshots/me.png" class="footer-img">個人網頁</h2>
+                <p><span class="material-symbols-sharp" id="mail">mail</span>s1411232069@ad1.nutc.edu.tw</p>
+                <p><span class="material-symbols-sharp" id="mail">home</span>Taiwan,Taichung</p>
+            </div>
+            <div class="farea">
+                <h3>導航</h3>
+                <ul>
+                    <li><a href="index.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>主頁</a></li>
+                    <li><a href="project.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>作品展示</a></li>
+                    <li><a href="about.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>關於我</a></li>
+                </ul>
+            </div>
+            <div class="farea">
+                <h3>社交媒體</h3>
+                <ul>
+                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Facebook</a></li>
+                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Twitter</a></li>
+                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>LinkedIn</a></li>
+                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Instagram</a></li>
+                </ul>
+            </div>
+            <div class="farea">
+                <h3>其他資訊</h3>
+                <p>使用工具</p>
+                <ul>
+                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>VSCode</a></li>
+                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>GitHub Copilot</a></li>
+                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Live Server</a></li>
+                </ul>
+                <p>參考網站</p>
+                <ul>
+                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>All | NavNav+</a></li>
+                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Bootstrap Templates</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="about1"></p>
+        <p class="about2"></p>
     </footer>
     <style>
         .container {
@@ -309,20 +352,6 @@
             top: 0;
             left: -6px;
             position: relative;
-        }
-
-        #mail {
-            width: 25px;
-            height: 25px;
-            vertical-align: text-top;
-        }
-
-        .material-symbols-sharp {
-            font-variation-settings:
-                'FILL' 0,
-                'wght' 400,
-                'GRAD' 0,
-                'opsz' 24
         }
 
         #area,

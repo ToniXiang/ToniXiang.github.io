@@ -6,7 +6,7 @@
     <title>個人網頁</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shortcut icon" href="Screenshots\me.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_drop_up,contrast,description,group,history,home,share" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_drop_up,arrow_forward_ios,contrast,description,group,history,home,mail,share" />
 </head>
 <body>
     <div id="background"></div>
@@ -128,7 +128,47 @@
     </main>
     <footer>
         <hr>
-        <p class="about"></p>
+        <div class="footer-content">
+            <div class="farea farea-top">
+                <h2><img src="Screenshots/me.png" class="footer-img">個人網頁</h2>
+                <p><span class="material-symbols-sharp" id="mail">mail</span>s1411232069@ad1.nutc.edu.tw</p>
+                <p><span class="material-symbols-sharp" id="mail">home</span>Taiwan,Taichung</p>
+            </div>
+            <div class="farea">
+                <h3>導航</h3>
+                <ul>
+                    <li><a href="index.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>主頁</a></li>
+                    <li><a href="project.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>作品展示</a></li>
+                    <li><a href="about.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>關於我</a></li>
+                </ul>
+            </div>
+            <div class="farea">
+                <h3>社交媒體</h3>
+                <ul>
+                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Facebook</a></li>
+                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Twitter</a></li>
+                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>LinkedIn</a></li>
+                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Instagram</a></li>
+                </ul>
+            </div>
+            <div class="farea">
+                <h3>其他資訊</h3>
+                <p>使用工具</p>
+                <ul>
+                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>VSCode</a></li>
+                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>GitHub Copilot</a></li>
+                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Live Server</a></li>
+                </ul>
+                <p>參考網站</p>
+                <ul>
+                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>All | NavNav+</a></li>
+                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Bootstrap Templates</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="about1"></p>
+        <p class="about2"></p>
     </footer>
     <style>
         .image-container {
@@ -220,6 +260,7 @@
             position: absolute;
             margin: 0;
             font-weight: bold;
+            text-shadow: -1px -1px 0 #000,  1px -1px 0 #000,-1px  1px 0 #000,1px  1px 0 #000;
         }
 
         .offscreen-text {
