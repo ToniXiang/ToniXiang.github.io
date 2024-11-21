@@ -1,7 +1,24 @@
 // Loading 畫面
-window.addEventListener('load', function() {
-    document.getElementById('loadingScreen').style.display = 'none';
-    document.getElementById('mainContent').style.display = 'block';
+document.addEventListener('DOMContentLoaded', () => {
+    const loadingScreens = document.querySelectorAll('.loadingScreen');
+    const images = document.querySelectorAll('.img-photo');
+    images.forEach((image,index)=>{
+        const loadingScreen=loadingScreens[index];
+        image.addEventListener('load',()=>{
+            if(loadingScreen){
+                loadingScreen.style.display='none';
+            }
+            image.style.display='block';
+        })
+        image.addEventListener('error',()=>{
+            if(loadingScreen){
+                loadingScreen.style.display='none';
+            }
+        })
+        if(image.complete){
+            image.dispatchEvent(new Event('load'));
+        }
+    });
 });
 // 點擊後跳轉頁面
 function redirectToPage(url) {

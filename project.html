@@ -10,11 +10,7 @@
     <link id="prismTheme" rel="stylesheet" href="prism_dark.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_drop_up,contrast,description,group,history,home,share" />
 </head>
-
 <body>
-    <div id="loadingScreen">
-        <p>Loading...</p>
-    </div>
     <div id="background"></div>
     <div class="cp" id="backToTop">
         <span class="material-symbols-sharp">arrow_drop_up</span>
@@ -71,6 +67,9 @@
                 <section>
                     <h3>表單設計</h3>
                     <div onclick="openModal('Screenshots/p1-1.png','表單設計')">
+                        <div class="loadingScreen">
+                            <div class="loader"></div>
+                        </div>
                         <img class="img-photo" src="Screenshots/p1-1.png" alt="p1-1" width="40%">
                     </div>
                 </section>
@@ -163,9 +162,15 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                     <h3>表單設計</h3>
                     <div class="gridcontainer">
                         <div onclick="openModal('Screenshots/p2-1.png','表單設計')">
+                            <div class="loadingScreen">
+                                <div class="loader"></div>
+                            </div>
                             <img class="img-photo" src="Screenshots/p2-1.png" alt="p2-1" width="80%">
                         </div>
                         <div onclick="openModal('Screenshots/p2-2.png','表單設計')">
+                            <div class="loadingScreen">
+                                <div class="loader"></div>
+                            </div>
                             <img class="img-photo" src="Screenshots/p2-2.png" alt="p2-2" width="60%">
                         </div>
                     </div>                
@@ -203,7 +208,7 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                     <p>點選車站名可直接更改列車站狀態的車站名。</p>
                     <p>箭頭顏色說明：</p>
                     <ul>
-                        <li><span style="color: black;">黑色箭頭</span>：無列車在此行駛。</li>
+                        <li><span style="color: var(--img-color);">黑色箭頭</span>：無列車在此行駛。</li>
                         <li><span style="color: orange;">橘色箭頭</span>：有列車要進站或離站。</li>
                         <li><span style="color: blue;">藍色箭頭</span>：有列車正在此行駛。</li>
                         <li><span style="color: red;">紅色箭頭</span>：存在安全問題。</li>
