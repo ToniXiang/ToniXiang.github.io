@@ -214,27 +214,13 @@ section>p,section>ul{
     background-attachment: fixed;
     background-size: cover;
 }
-@keyframes moveAndFade {
-    from {
-        opacity: 1;
-        transform: translate(0, 0);
-    }
-    to {
-        opacity: 0;
-        transform: translate(var(--x), var(--y));
-    }
-}
-
-.ball {
-    animation: moveAndFade 300ms linear forwards;
-}
 .cp {
     position: fixed;
     bottom: 0;
     left: 0;
     cursor: pointer;
     padding: 10px;
-    color: var(--img-color);
+    color: var(--text-color);
     display: none;
     z-index: 999;
 }
@@ -255,7 +241,7 @@ section>p,section>ul{
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid var(--img-color);
+    border-radius: 10px;
     display: none;
 }
 :root {
@@ -265,14 +251,12 @@ section>p,section>ul{
     --a-color-light:#c92c2c;
     --h2-text-color-light: #f0883e;
     --h3-text-color-light: #1990b8;
-    --img-color-light:black;
     --background-color-dark: #0d1117;
     --text-color-dark: aliceblue;
     --smalltext-color-dark: #FFFFCC;
     --a-color-dark:#FFFFCC;
     --h2-text-color-dark: #f0883e;
     --h3-text-color-dark: #13c2c2;
-    --img-color-dark:aliceblue;
     --highlight-dark:#333333;
     --highlight-light:#1990b8;
     --text-color: var(--text-color-dark);
@@ -283,7 +267,6 @@ section>p,section>ul{
     --about2-text:© 2024 陳國翔. All rights reserved.;
     --h2-text-color:var(--h2-text-color-dark);
     --h3-text-color:var(--h3-text-color-dark);
-    --img-color:var(--img-color-dark);
     --highlight:var(--highlight-dark);
 }
 .dark-theme {
@@ -293,7 +276,6 @@ section>p,section>ul{
     --a-color:var(--a-color-dark);
     --h2-text-color: var(--h2-text-color-dark);
     --h3-text-color: var(--h3-text-color-dark);
-    --img-color:var(--img-color-dark);
     --highlight:var(--highlight-dark);
 }
 
@@ -307,7 +289,6 @@ section>p,section>ul{
     }
     --h2-text-color: var(--h2-text-color-light);
     --h3-text-color: var(--h3-text-color-light);
-    --img-color:var(--img-color-light);
     --highlight:var(--highlight-light);
     .switch{
         transform: translateX(calc(100%*0.7));

@@ -79,44 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-// 網頁都有這個效果，被按下有不同顏色且不同大小的彩色球，以圓心在半徑範圍內四散
-document.body.addEventListener("click", function (event) {
-    for (let i = 0; i < 10; i++) {
-        let ball = document.createElement("div");
-        ball.style.backgroundColor = getRandomColor();
-        ball.style.position = "absolute";
-        ball.style.left = `${event.pageX}px`;
-        ball.style.top = `${event.pageY}px`;
-        ball.style.width = "20px";
-        ball.style.height = "20px";
-        ball.style.borderRadius = "50%";
-        ball.style.zIndex = 1000;
-        ball.className = "ball";
-
-        let angle = Math.random() * Math.PI * 2;
-        let distance = Math.random() * 100;
-        let x = Math.cos(angle) * distance;
-        let y = Math.sin(angle) * distance;
-
-        ball.style.setProperty('--x', `${x}px`);
-        ball.style.setProperty('--y', `${y}px`);
-
-        document.body.appendChild(ball);
-
-        setTimeout(() => {
-            document.body.removeChild(ball);
-        }, 300);
-    }
-});
-// 產生隨機顏色
-function getRandomColor() {
-    const letters = "0123456789ABCDEF";
-    let color = "#";
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
 // 點擊後交換主題
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.querySelector('.themeToggle');

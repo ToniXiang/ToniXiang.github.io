@@ -50,73 +50,15 @@
         </div>
         <div id="region">
             <h2>精選圖集</h2>
-            <div class="gridcontainer">
-                <div onclick="openModal('Screenshots/1.jpg','中科大資工系')">
-                    <div class="loadingScreen">
-                        <div class="loader"></div>
-                    </div>
-                    <img src="Screenshots\1.jpg" class="img-photo">
-                    <h3>中科大資工系</h3>
-                    <div id="detail" data-tooltip="甄選實作考場">
-                        <span class="material-symbols-sharp">history</span>
-                        <p>2023/06/29</p>
-                    </div>
-                </div>
-                <div onclick="openModal('Screenshots/2.heic','中科院研發展示館')">
-                    <div class="loadingScreen">
-                        <div class="loader"></div>
-                    </div>
-                    <img src="Screenshots\2.heic" class="img-photo">
-                    <h3>中科院研發展示館</h3>
-                    <div id="detail" data-tooltip="飛彈模型展示">
-                        <span class="material-symbols-sharp">history</span>
-                        <p>2022/11/29</p>
-                    </div>
-                </div>
-                <div onclick="openModal('Screenshots/3.heic','中科院研發展示館')">
-                    <div class="loadingScreen">
-                        <div class="loader"></div>
-                    </div>
-                    <img src="Screenshots\3.heic" class="img-photo">
-                    <h3>中科院研發展示館</h3>
-                    <div id="detail" data-tooltip="桃園龍潭">
-                        <span class="material-symbols-sharp">history</span>
-                        <p>2022/11/29</p>
-                    </div>
-                </div>
-                <div onclick="openModal('Screenshots/4.heic','台積電')">
-                    <div class="loadingScreen">
-                        <div class="loader"></div>
-                    </div>
-                    <img src="Screenshots\4.heic" class="img-photo">
-                    <h3>台積電</h3>
-                    <div id="detail" data-tooltip="桃園龍潭">
-                        <span class="material-symbols-sharp">history</span>
-                        <p>2022/11/29</p>
-                    </div>
-                </div>
-                <div onclick="openModal('Screenshots/5.heic','台北101')">
-                    <div class="loadingScreen">
-                        <div class="loader"></div>
-                    </div>
-                    <img src="Screenshots\5.heic" class="img-photo">
-                    <h3>台北101</h3>
-                    <div id="detail" data-tooltip="路上街景">
-                        <span class="material-symbols-sharp">history</span>
-                        <p>2022/11/24</p>
-                    </div>
-                </div>
-                <div onclick="openModal('Screenshots/6.heic','龍潭科學園區')">
-                    <div class="loadingScreen">
-                        <div class="loader"></div>
-                    </div>
-                    <img src="Screenshots\6.heic" class="img-photo">
-                    <h3>龍潭科學園區</h3>
-                    <div id="detail" data-tooltip="3D立體地圖">
-                        <span class="material-symbols-sharp">history</span>
-                        <p>2022/11/29</p>
-                    </div>
-                </div>
+            <div class="gridcontainer"></div>
+            <div class="pagination">
+                <a href="#" class="prev">&laquo;</a>
+                <a href="#" class="page" data-page="1">1</a>
+                <a href="#" class="page" data-page="2">2</a>
+                <a href="#" class="page" data-page="3">3</a>
+                <a href="#" class="page" data-page="4">4</a>
+                <a href="#" class="page" data-page="5">5</a>
+                <a href="#" class="next">&raquo;</a>
             </div>
         </div>
         <div id="screen-text-region">
@@ -137,7 +79,7 @@
             <div class="farea">
                 <h3>導航</h3>
                 <ul>
-                    <li><a href="index.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>主頁</a></li>
+                    <li><a href="index.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>主要頁面</a></li>
                     <li><a href="project.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>作品展示</a></li>
                     <li><a href="about.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>關於我</a></li>
                 </ul>
@@ -337,6 +279,34 @@
             grid-template-columns: 1fr 1fr;
             position: relative;
         }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            user-select: none;
+        }
+
+        .pagination a {
+            color: var(--text-color);
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin: 0 4px;
+            border: 1px solid var(--h3-text-color);
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .pagination a:hover {
+            background-color: var(--h3-text-color);
+        }
+
+        .pagination a.active {
+            background-color: var(--smalltext-color-light);
+            color: var(--text-color);
+            border: 1px solid  var(--smalltext-color-light);
+        }
         @media screen and (min-width:501px) {
             .gridcontainer {
                 grid-template-columns: 1fr 1fr;
@@ -351,6 +321,14 @@
 
         .no-hover-effect #detail:hover::before {
             display: none;
+        }
+        .no-photo {
+            display: flex;
+            align-items: center;
+            width: 200px;
+            height: 200px;
+            background-color:var(text-color-light);
+            text-align: center;
         }
     </style>
     <script src="script.js"></script>
@@ -387,6 +365,104 @@
                 }
             }, 100);
         }
+        // 往前或後頁和點頁數變化
+        document.addEventListener('DOMContentLoaded', () => {
+            const pages = document.querySelectorAll('.pagination .page');
+            const prev = document.querySelector('.pagination .prev');
+            const next = document.querySelector('.pagination .next');
+            const images = [
+                { src: 'Screenshots/1.jpg', title: '中科大資工系', date: '2022/11/24', tooltip: '甄選實作考場' },
+                { src: 'Screenshots/2.heic', title: '中科院研發展示館', date: '2022/11/29', tooltip: '飛彈模型展示' },
+                { src: 'Screenshots/3.heic', title: '中科院研發展示館', date: '2022/11/29', tooltip: '桃園龍潭' },
+                { src: 'Screenshots/4.heic', title: '台積電', date: '2022/11/29', tooltip: '桃園龍潭' },
+                { src: 'Screenshots/5.heic', title: '台北101', date: '2022/11/24', tooltip: '路上街景' },
+                { src: 'Screenshots/6.heic', title: '龍潭科學園區', date: '2022/11/29', tooltip: '3D立體地圖' }
+            ];
+            let currentPage = 1;
+            function updatePagination() {
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                    if (parseInt(page.dataset.page) === currentPage) {
+                        page.classList.add('active');
+                    }
+                });
+                pages.forEach(page => {
+                    page.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        currentPage = parseInt(page.dataset.page);
+                        updatePagination();
+                    });
+                });
+                if (currentPage === 1) {
+                        prev.classList.add('disabled');
+                }
+                else {
+                    prev.classList.remove('disabled');
+                }
+                if (currentPage === pages.length) {
+                    next.classList.add('disabled');
+                }
+                else {
+                    next.classList.remove('disabled');
+                }
+                const imageContainer = document.querySelector('.gridcontainer');
+                if (currentPage === 1) {
+                    imageContainer.innerHTML = images.map(image => `
+                        <div onclick="openModal('${image.src}','${image.title}')">
+                            <div class="loadingScreen">
+                                <div class="loader"></div>
+                            </div>
+                            <img src="${image.src}" class="img-photo">
+                            <h3>${image.title}</h3>
+                            <div id="detail" data-tooltip="${image.tooltip}">
+                                <span class="material-symbols-sharp">history</span>
+                                <p>${image.date}</p>
+                            </div>
+                        </div>
+                    `).join('');
+                    const imgElements = imageContainer.querySelectorAll('.img-photo');
+                    imgElements.forEach(img => {
+                        img.addEventListener('load', () => {
+                            img.previousElementSibling.style.display = 'none'; // Hide the loading screen
+                            img.style.display = 'block'; // Show the image
+                        });
+                    });
+                } else {
+                    imageContainer.innerHTML = images.map(image => `
+                        <div>
+                            <div class="no-photo img-photo"></div>
+                            <h3>標題</h3>
+                            <div id="detail" data-tooltip="補充">
+                                <span class="material-symbols-sharp">history</span>
+                                <p>日期</p>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            }     
+            pages.forEach(page => {
+                page.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    currentPage = parseInt(page.dataset.page);
+                    updatePagination();
+                });
+            });     
+            prev.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (currentPage > 1) {
+                    currentPage--;
+                    updatePagination();
+                }
+            });       
+            next.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (currentPage < pages.length) {
+                    currentPage++;
+                    updatePagination();
+                }
+            });
+            updatePagination();
+        });
         //typing text transition
         const selectSVG = id => {
             const el = document.getElementById(id);
