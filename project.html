@@ -8,19 +8,19 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shortcut icon" type="image/x-icon" href="Screenshots\me.png">
     <link id="prismTheme" rel="stylesheet" href="prism_dark.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_drop_up,arrow_forward_ios,contrast,description,group,history,home,mail,share" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_drop_up,arrow_forward_ios,contrast,dark_mode,description,group,history,home,light_mode,mail,menu,share" />
 </head>
 <body>
     <div id="background"></div>
     <div class="cp" id="backToTop">
         <span class="material-symbols-sharp">arrow_drop_up</span>
     </div>
-    <header>
-        <div class="blogTitle">
-            <h1>作品展示</h1>
+    <header class="blogTitle">
+        <h1>作品展示</h1>
+        <div class="sticky">
             <nav onclick="redirectToPage('index.html')">
                 <span class="material-symbols-sharp">home</span>
-                <p>主頁</p>
+                <p>主要頁面</p>
             </nav>
             <nav onclick="redirectToPage('about.html')">
                 <span class="material-symbols-sharp">group</span>
@@ -30,9 +30,31 @@
                 <span class="material-symbols-sharp">share</span>
                 <p>Github</p>
             </nav>
-            <div class="themeToggle">
-                <div class="switch"></div>
+            <nav onclick="toggleTheme()">
+                <span class="material-symbols-sharp" id="theme-icon"></span>
+                <p id="theme-p"></p>
+            </nav>
+        </div>
+        <div class="hamburger">
+            <div onclick="redirectToPage('index.html')">
+                <span class="material-symbols-sharp">home</span>
+                <p>主要頁面</p>
             </div>
+            <div onclick="redirectToPage('about.html')">
+                <span class="material-symbols-sharp">group</span>
+                <p>關於我</p>
+            </div>
+            <div onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
+                <span class="material-symbols-sharp">share</span>
+                <p>Github</p>
+            </div>
+            <div onclick="toggleTheme()">
+                <span class="material-symbols-sharp" id="theme-icon"></span>
+                <p id="theme-p"></p>
+            </div>
+        </div>
+        <div class="menu" onclick="toggleMenu()">
+            <span class="material-symbols-sharp">menu</span>
         </div>
     </header>
     <div id="catalog">
