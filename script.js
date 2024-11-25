@@ -20,6 +20,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+// 開啟手機的導航欄
+function toggleMenu() {
+    const hamburgerNavs = document.querySelectorAll('.hamburger');
+    hamburgerNavs.forEach((hamburgerNav)=>{
+        if (window.getComputedStyle(hamburgerNav).display === 'none') {
+            hamburgerNav.style.display = 'flex';
+        } else {
+            hamburgerNav.style.display = 'none';
+        }
+    });
+}
 // 點擊後跳轉頁面
 function redirectToPage(url) {
     window.location.href = url;
@@ -48,17 +59,20 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener('DOMContentLoaded', () => {
     let lastScrollTop = 0;
     const blogTitle = document.querySelector('.blogTitle');
+    const hamburgerNav = document.querySelector('.hamburger');
     window.addEventListener('scroll', () => {
         let scrollTop = window.scrollY || document.documentElement.scrollTop;
         if (scrollTop > lastScrollTop) {
             // Scroll down
             blogTitle.style.transform = 'translateY(-100%)';
+            hamburgerNav.style.display = 'none';
         } else {
             // Scroll up
             blogTitle.style.transform = 'translateY(0)';
         }
         lastScrollTop = scrollTop;
     });
+    
 });
 //如果不在最頂就顯示"往上的標誌" 如果被按下就滑動到最頂
 document.addEventListener('DOMContentLoaded', () => {
@@ -80,25 +94,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 // 點擊後交換主題
-document.addEventListener('DOMContentLoaded', () => {
-    const themeToggle = document.querySelector('.themeToggle');
-    themeToggle.addEventListener('click', function() {
-        document.body.classList.toggle('dark-theme');
-        document.body.classList.toggle('light-theme');
-        if (document.body.classList.contains('dark-theme')) {
-            setTheme('dark-theme');
-            document.getElementById('prismTheme').setAttribute('href', 'prism_dark.css');
-        } else {
-            setTheme('light-theme');
-            document.getElementById('prismTheme').setAttribute('href', 'prism_light.css');
-        }
-    });
-
+function toggleTheme(){
+    document.body.classList.toggle('dark-theme');
+    document.body.classList.toggle('light-theme');
+    if (document.body.classList.contains('dark-theme')) {
+        setTheme('dark-theme');
+        document.getElementById('prismTheme').setAttribute('href', 'prism_dark.css');
+    } else {
+        setTheme('light-theme');
+        document.getElementById('prismTheme').setAttribute('href', 'prism_light.css');
+    }
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         applyTheme(savedTheme);
     }
-});
+}
 // 紀錄使用者選擇的主題
 function setTheme(themeName) {
     localStorage.setItem('theme', themeName);
@@ -126,12 +136,26 @@ function setStats(action) {
 // 切換主題
 function applyTheme(themeName) {
     document.body.className = themeName;
+    const themeIcons = document.querySelectorAll('#theme-icon');
+    const themePs = document.querySelectorAll('#theme-p');
     if(document.body.classList.contains('light-theme')){
         setStats("remove");
+        themeIcons.forEach(themeIcon=>{
+            themeIcon.textContent='light_mode';
+        });
+        themePs.forEach(themeP=>{
+            themeP.textContent='亮色';
+        });
         document.getElementById('prismTheme').setAttribute('href', 'prism_light.css');
     }
     else{
         setStats("add");
+        themeIcons.forEach(themeIcon=>{
+            themeIcon.textContent='dark_mode';
+        });
+        themePs.forEach(themeP=>{
+            themeP.textContent='暗色';
+        });
         document.getElementById('prismTheme').setAttribute('href', 'prism_dark.css');
     }
 }

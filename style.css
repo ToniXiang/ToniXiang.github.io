@@ -18,27 +18,61 @@ body>header{
 .blogTitle{
     width: 100%;
     display: flex;
-    align-items: center;
     background-color: rgba(0,0,0);
     user-select: none;
+}
+.sticky{
+    padding-left: 40%;
+    align-items: center;
+}
+.menu{
+    position: absolute;
+    cursor: pointer;
+    right: 10px;
+}
+.hamburger{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0,0,0);
+}
+.hamburger>div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    border-top:  1px solid aliceblue;
+    border-bottom: 1px solid aliceblue;
+    padding: 10px 0;
+    justify-content: center;
+    cursor: pointer;
+}
+.hamburger>div:hover {
+    transform: scale(1.05);
+}
+.menu>span.material-symbols-sharp,.hamburger>div>span.material-symbols-sharp{
+    font-size: 2em;
 }
 @media screen and (max-width: 601px) {
     body>main{
         padding-top: 15%;
     }
-    .blogTitle>h1{
-        margin-right: 0%;
-        font-size: 20px;
-    }
-    .blogTitle>nav>p{
-        display: none;
+    h1{
+        font-size: 40px;
     }
     .blogTitle{
-        position: fixed;
+        height: 10%;
     }
-    #me{
-        width: 100px;
-        height: auto;
+    .menu>span.material-symbols-sharp,.hamburger>div>span.material-symbols-sharp{
+        font-size: 3em;
+    }
+    .sticky{
+        display: none;
     }
     p{
         font-size: 0.9em;
@@ -46,42 +80,17 @@ body>header{
     #catalog{
         display: none;
     }
-    .themeToggle {
-        width: 25px;
-    }
-}
-
-@media screen and (max-width: 1224px) {
-    body>main{
-        padding-top: 20%;
-    }
-    .blogTitle>nav>p{
-        display: none;
-    }
-    .blogTitle{
-        position: fixed;
-    }
-    p{
-        font-size: 0.9em;
-    }
-    .themeToggle {
-        width: 40px;
-    }
 }
 
 @media screen and (min-width: 1225px) {
     body>main{
         padding-top: 5%;
     }
-    .blogTitle{
-        position: fixed;
-    }
-    .themeToggle {
-        width: 20px;
+    .sticky{
+        display: flex;
     }
 }
-.blogTitle>nav,.blogTitle>.themeToggle{
-    padding-left: 2%;
+.sticky>nav{
     display:inline-block;
     align-items: center;
     justify-content: space-between;
@@ -89,7 +98,7 @@ body>header{
     cursor: pointer;
     position: relative;
 }
-.blogTitle > nav::after {
+.sticky>nav::after {
     content: '';
     position: absolute;
     width: 0;
@@ -100,11 +109,11 @@ body>header{
     visibility: hidden;
     transition: all 0.3s ease-in-out;
 }
-.blogTitle > nav:hover::after {
+.sticky>nav:hover::after{
     visibility: visible;
     width: 100%;
 }
-.blogTitle>nav>span,.blogTitle>nav>img{
+.sticky>nav>span,.menu>span{
     height: 100%;
     width: 30px;
     padding-top: 5%;
@@ -112,12 +121,25 @@ body>header{
     margin-right: 10px;
     color: aliceblue;
 }
-.blogTitle>nav>p{
+.sticky>nav>p{
     font-size: 15px;
     font-weight: bold;
     color: #13c2c2;
     padding: 0 40px;
     padding-top: 5%;
+}
+.hamburger>div>span{
+    height: 100%;
+    width: 60px;
+    float: left;
+    margin-right: 10px;
+    color: aliceblue;
+}
+.hamburger>div>p{
+    font-size: 30px;
+    font-weight: bold;
+    color: #13c2c2;
+    padding: 0 40px;
 }
 article {
     margin-bottom: 20px;
@@ -153,6 +175,7 @@ footer {
 }
 h1{
     margin-left: 20%;
+    position: absolute;
     color: #f0883e;
 }
 h2{
@@ -337,23 +360,6 @@ section>p,section>ul{
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
-}
-.themeToggle {
-    --background: #FFF;
-    height: 30px;
-    background: var(--highlight);
-    border-radius: 50px;
-    position: relative;
-    .switch {
-        width: 24px;
-        height: 24px;
-        background: var(--h2-text-color-light);
-        border-radius: 100%;
-        position: absolute;
-        top: 3px;
-        left: 4px;
-        transition: 0.5s all ease;
-    }
 }
 #loadingScreen {
     position: relative;

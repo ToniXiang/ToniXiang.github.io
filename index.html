@@ -6,16 +6,16 @@
     <title>個人網頁</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shortcut icon" href="Screenshots\me.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_drop_up,arrow_forward_ios,contrast,description,group,history,home,mail,share" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_drop_up,arrow_forward_ios,contrast,dark_mode,description,group,history,home,light_mode,mail,menu,share" />
 </head>
 <body>
     <div id="background"></div>
     <div class="cp" id="backToTop">
         <span class="material-symbols-sharp">arrow_drop_up</span>
     </div>
-    <header>
-        <div class="blogTitle">
-            <h1>主要頁面</h1>
+    <header class="blogTitle">
+        <h1>主要頁面</h1>
+        <div class="sticky">
             <nav onclick="redirectToPage('project.html')">
                 <span class="material-symbols-sharp">description</span>
                 <p>作品展示</p>
@@ -28,9 +28,31 @@
                 <span class="material-symbols-sharp">share</span>
                 <p>Github</p>
             </nav>
-            <div class="themeToggle">
-                <div class="switch"></div>
+            <nav onclick="toggleTheme()">
+                <span class="material-symbols-sharp" id="theme-icon"></span>
+                <p id="theme-p"></p>
+            </nav>
+        </div>
+        <div class="hamburger">
+            <div onclick="redirectToPage('project.html')">
+                <span class="material-symbols-sharp">description</span>
+                <p>作品展示</p>
             </div>
+            <div onclick="redirectToPage('about.html')">
+                <span class="material-symbols-sharp">group</span>
+                <p>關於我</p>
+            </div>
+            <div onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
+                <span class="material-symbols-sharp">share</span>
+                <p>Github</p>
+            </div>
+            <div onclick="toggleTheme()">
+                <span class="material-symbols-sharp" id="theme-icon"></span>
+                <p id="theme-p"></p>
+            </div>
+        </div>
+        <div class="menu" onclick="toggleMenu()">
+            <span class="material-symbols-sharp">menu</span>
         </div>
     </header>
     <main>
@@ -52,13 +74,13 @@
             <h2>精選圖集</h2>
             <div class="gridcontainer"></div>
             <div class="pagination">
-                <a href="#" class="prev">&laquo;</a>
+                <a href="#" class="prev">&lt;</a>
                 <a href="#" class="page" data-page="1">1</a>
                 <a href="#" class="page" data-page="2">2</a>
                 <a href="#" class="page" data-page="3">3</a>
                 <a href="#" class="page" data-page="4">4</a>
                 <a href="#" class="page" data-page="5">5</a>
-                <a href="#" class="next">&raquo;</a>
+                <a href="#" class="next">&gt;</a>
             </div>
         </div>
         <div id="screen-text-region">
