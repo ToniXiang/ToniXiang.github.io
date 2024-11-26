@@ -36,23 +36,23 @@ body>header{
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 60px;
+    top: 50px;
     left: 0;
     width: 100%;
     background-color: rgba(0,0,0);
 }
-.hamburger>div{
-    width: 100%;
+.hamburger>nav{
+    width: 95%;
     display: flex;
     align-items: center;
-    margin: 10px 0;
-    border-top:  1px solid aliceblue;
-    border-bottom: 1px solid aliceblue;
-    padding: 10px 0;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 5px 0;
     justify-content: center;
     cursor: pointer;
 }
-.hamburger>div:hover {
+.hamburger>nav:hover {
     transform: scale(1.05);
 }
 .menu>span.material-symbols-sharp,.hamburger>div>span.material-symbols-sharp{
@@ -62,32 +62,49 @@ body>header{
     body>main{
         padding-top: 15%;
     }
-    h1{
-        font-size: 40px;
-    }
     .blogTitle{
-        height: 10%;
+        height: 8%;
+
     }
-    .menu>span.material-symbols-sharp,.hamburger>div>span.material-symbols-sharp{
+    .menu>span.material-symbols-sharp,.hamburger>nav>span.material-symbols-sharp{
         font-size: 3em;
     }
     .sticky{
         display: none;
     }
+    .menu{
+        display: flex;
+    }
     p{
         font-size: 0.9em;
+    }
+    h1{
+        margin-left: 5%;
     }
     #catalog{
         display: none;
     }
 }
-
+@media screen and (max-width: 1224px){
+    body>main{
+        padding-top: 20%;
+    }
+    h1{
+        margin-left: 15%;
+    }
+}
 @media screen and (min-width: 1225px) {
     body>main{
         padding-top: 5%;
     }
     .sticky{
         display: flex;
+    }
+    .menu{
+        display: none;
+    }
+    h1{
+        margin-left: 20%;
     }
 }
 .sticky>nav{
@@ -98,7 +115,7 @@ body>header{
     cursor: pointer;
     position: relative;
 }
-.sticky>nav::after {
+.sticky>nav::after{
     content: '';
     position: absolute;
     width: 0;
@@ -128,18 +145,18 @@ body>header{
     padding: 0 40px;
     padding-top: 5%;
 }
-.hamburger>div>span{
+.hamburger>nav>span{
     height: 100%;
     width: 60px;
     float: left;
     margin-right: 10px;
     color: aliceblue;
 }
-.hamburger>div>p{
+.hamburger>nav>p{
     font-size: 30px;
     font-weight: bold;
     color: #13c2c2;
-    padding: 0 40px;
+    padding: 0;
 }
 article {
     margin-bottom: 20px;
@@ -174,7 +191,6 @@ footer {
     text-align: left;
 }
 h1{
-    margin-left: 20%;
     position: absolute;
     color: #f0883e;
 }
