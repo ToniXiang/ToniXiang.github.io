@@ -55,22 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
         observer.observe(article);
     });
 });
-// 設定畫面往上滑就顯示導航欄
-document.addEventListener('DOMContentLoaded', () => {
-    let lastScrollTop = 0;
-    const blogTitle = document.querySelector('.blogTitle');
-    const navigationNav = document.querySelector('.navigation');
-    window.addEventListener('scroll', () => {
-        let scrollTop = window.scrollY || document.documentElement.scrollTop;
-        if (scrollTop < lastScrollTop) {
-            // Scroll up
-            blogTitle.style.transform = 'translateY(0)';
-            navigationNav.style.display = 'flex';
-        }
-        lastScrollTop = scrollTop;
-    });
-    
-});
 //如果不在最頂就顯示"往上的標誌" 如果被按下就滑動到最頂
 document.addEventListener('DOMContentLoaded', () => {
     const backToTopButton = document.getElementById('backToTop');
