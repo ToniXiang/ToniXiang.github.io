@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 // 開啟手機的導航欄
 function toggleMenu() {
-    const hamburgerNavs = document.querySelectorAll('.hamburger');
+    const hamburgerNavs = document.querySelectorAll('.navigation');
     hamburgerNavs.forEach((hamburgerNav)=>{
         if (window.getComputedStyle(hamburgerNav).display === 'none') {
             hamburgerNav.style.display = 'flex';
@@ -55,20 +55,17 @@ document.addEventListener("DOMContentLoaded", function () {
         observer.observe(article);
     });
 });
-// 設定最頂的導航如果往下移動就消失
+// 設定畫面往上滑就顯示導航欄
 document.addEventListener('DOMContentLoaded', () => {
     let lastScrollTop = 0;
     const blogTitle = document.querySelector('.blogTitle');
-    const hamburgerNav = document.querySelector('.hamburger');
+    const navigationNav = document.querySelector('.navigation');
     window.addEventListener('scroll', () => {
         let scrollTop = window.scrollY || document.documentElement.scrollTop;
-        if (scrollTop > lastScrollTop) {
-            // Scroll down
-            blogTitle.style.transform = 'translateY(-100%)';
-            hamburgerNav.style.display = 'none';
-        } else {
+        if (scrollTop < lastScrollTop) {
             // Scroll up
             blogTitle.style.transform = 'translateY(0)';
+            navigationNav.style.display = 'flex';
         }
         lastScrollTop = scrollTop;
     });
