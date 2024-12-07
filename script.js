@@ -31,10 +31,10 @@ function toggleMenu() {
         h1.style.display = 'none';
     }
     Navs.forEach((Nav)=>{
-        if (window.getComputedStyle(Nav).display === 'none') {
-            Nav.style.display = 'flex';
-        } else {
+        if (window.getComputedStyle(Nav).display !== 'none') {
             Nav.style.display = 'none';
+        } else {
+            Nav.style.display = 'flex';
         }
     });
 }

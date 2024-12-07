@@ -158,7 +158,7 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                 </header>
                 <section>
                     <h3>表單設計</h3>
-                    <div class="gridcontainer">
+                    <div class="img-region">
                         <div class="flip" onclick="openModal('Screenshots/p2-1.png','Form1')">
                             <div class="front" style="background-image: url(Screenshots/p2-1.png)"></div>
                             <div class="back">
@@ -173,7 +173,8 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                                 <p>這是用戶回饋表單，允許用戶提交問題報告、功能建議或使用體驗等回饋信息。表單包括電子郵件欄位、回饋類型選項、具體內容描述，以及是否參與進一步討論或測試新功能的選擇。旨在收集用戶意見，改進系統功能。</p>
                             </div>
                         </div>
-                    </div>                
+                    </div>
+                    
                     <h3>主要功能</h3>
                     <ul>
                         <li>使用者可以自行操作列車</li>
@@ -265,6 +266,11 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
         <p class="about2"></p>
     </footer>
     <style>
+        .img-region {
+            display: grid;
+            gap: 20px;
+            position: relative;
+        }
         .message-tags {
             border: var(--a-color) 0.5px solid;
             border-radius: 5px;
@@ -276,11 +282,15 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
             display: inline-block;
             color: var(--a-color);
         }
-        .gridcontainer {
-            display: grid;
-            gap: 20px;
-            grid-template-columns: 1fr 1fr;
-            position: relative;
+        @media screen and (max-width: 1001px) {
+            .img-region{
+                grid-template-columns: 1fr;
+            }
+        }
+        @media screen and (min-width: 1001px) {
+            .img-region{
+                grid-template-columns: 1fr 1fr;
+            }
         }
     </style>
     <script src="script.js"></script>

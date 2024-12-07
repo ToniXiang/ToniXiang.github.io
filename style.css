@@ -37,7 +37,6 @@ body>header{
         padding-top: 15%;
     }
     .navigation{
-        display: none;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -45,6 +44,7 @@ body>header{
         top: 50px;
         left: 0;
         width: 100%;
+        display: flex;
         background-color: rgba(0,0,0);
     }
     .navigation>nav{
@@ -91,7 +91,6 @@ body>header{
     .navigation{
         padding-left: 40%;
         align-items: center;
-        display: flex;
     }
     .navigation>nav{
         display:inline-block;
@@ -255,9 +254,6 @@ section>p,section>ul{
     margin-right: auto;
     border-radius: 10px;
     display: none;
-}
-.img-project {
-    max-width: 100%;
 }
 .flip {
     position: relative;
