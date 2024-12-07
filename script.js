@@ -22,12 +22,19 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 // 開啟手機的導航欄
 function toggleMenu() {
-    const hamburgerNavs = document.querySelectorAll('.navigation');
-    hamburgerNavs.forEach((hamburgerNav)=>{
-        if (window.getComputedStyle(hamburgerNav).display === 'none') {
-            hamburgerNav.style.display = 'flex';
+    const Navs = document.querySelectorAll('.navigation');
+    const h1 = document.querySelector('.blogTitle h1');
+    if (window.getComputedStyle(h1).display === 'none'){
+        h1.style.display = 'block';
+    }
+    else{
+        h1.style.display = 'none';
+    }
+    Navs.forEach((Nav)=>{
+        if (window.getComputedStyle(Nav).display === 'none') {
+            Nav.style.display = 'flex';
         } else {
-            hamburgerNav.style.display = 'none';
+            Nav.style.display = 'none';
         }
     });
 }
@@ -168,6 +175,29 @@ function toArticle(selector) {
         });
     }
 }
+// 顯示和隱藏目錄
+document.addEventListener('DOMContentLoaded', () => {
+    const h2 = document.querySelector('#catalog h2');
+    const showNavsButton = document.getElementById('showNavs');
+    const navs = document.querySelectorAll('#catalog nav');
+    h2.addEventListener('click', () => {
+        navs.forEach(nav => {
+            nav.classList.add('hidden');
+            nav.classList.remove('visible');
+        });
+        showNavsButton.style.display = 'block';
+        h2.style.display='none';
+    });
+
+    showNavsButton.addEventListener('click', () => {
+        navs.forEach(nav => {
+            nav.classList.add('visible');
+            nav.classList.remove('hidden');
+        });
+        showNavsButton.style.display = 'none';
+        h2.style.display='block';
+    });
+});
 // 圖片點擊後占滿整個螢幕大小
 function openModal(imgSrc,imgName) {
     var modal = document.getElementById("myModal");
