@@ -31,7 +31,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     const names=['index','project','about'];
     const navnames=['主要頁面','作品展示','關於我'];
     const icons=['home','description','group']
-    const index=names.indexOf(getPageName());
+    let index=names.indexOf(getPageName());
+    if(index===-1)index=0;
     const left=index-1<0?2:index-1;
     const right=index+1>2?0:index+1;
     const foot = document.querySelector('footer');
@@ -99,15 +100,8 @@ document.addEventListener('DOMContentLoaded',()=>{
             </div>
         </div>
         <hr>
-        <p class="about1"></p>
-        <p class="about2"></p>`;
-    // 設定頁尾的文字
-    var rootStyle = getComputedStyle(document.documentElement);
-    const footerTexts = ['--about1-text', '--about2-text'];
-    footerTexts.forEach((textVar, index) => {
-        const aboutText = rootStyle.getPropertyValue(textVar).trim();
-        document.querySelector(`footer .about${index + 1}`).textContent = aboutText;
-    });
+        <p class="about">有新的想法會持續更新</p>
+        <p class="about">© 2024 陳國翔. All rights reserved.</p>`;
 });
 // 開啟與關閉的導航欄動畫
 function toggleMenu() {

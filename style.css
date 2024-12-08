@@ -203,13 +203,13 @@ section>p,section>ul{
     text-decoration: none;
 }
 
-.about1,.about2 {
+.about {
     text-decoration: underline;
     color:  var(--accent-color);
     padding: 2px 0;
     text-align: center;
 }
-.about1:hover,.about2:hover {
+.about:hover{
     text-decoration: none;
 }
 #background {
@@ -279,8 +279,6 @@ section>p,section>ul{
     --tertiary-color:var(--tertiary-color-dark);
     --accent-color:var(--accent-color-dark);
     --img-color:var(--img-color-dark);
-    --about1-text:有新的想法會持續更新;
-    --about2-text:© 2024 陳國翔. All rights reserved.;
 }
 .dark-theme {
     --background-color:var(--background-color-dark);
