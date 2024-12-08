@@ -13,30 +13,7 @@
     <div class="cp" id="backToTop">
         <span class="material-symbols-sharp">arrow_drop_up</span>
     </div>
-    <header class="blogTitle">
-        <h1>主要頁面</h1>
-        <div class="navigation">
-            <nav onclick="redirectToPage('project.html')">
-                <span class="material-symbols-sharp">description</span>
-                <p>作品展示</p>
-            </nav>
-            <nav onclick="redirectToPage('about.html')">
-                <span class="material-symbols-sharp">group</span>
-                <p>關於我</p>
-            </nav>
-            <nav onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
-                <span class="material-symbols-sharp">share</span>
-                <p>Github</p>
-            </nav>
-            <nav onclick="toggleTheme()">
-                <span class="material-symbols-sharp" id="theme-icon"></span>
-                <p id="theme-p"></p>
-            </nav>
-        </div>
-        <div class="menu" onclick="toggleMenu()">
-            <span class="material-symbols-sharp">menu</span>
-        </div>
-    </header>
+    <header class="blogTitle"></header>
     <main>
         <div id="myModal" class="modal">
             <span class="close">&times;</span>
@@ -72,50 +49,7 @@
             <input type="text" class="input", id="input" />
         </div>
     </main>
-    <footer>
-        <hr>
-        <div class="footer-content">
-            <div class="farea farea-top">
-                <h2><img src="Screenshots/me.png" class="footer-img">個人網頁</h2>
-                <p><span class="material-symbols-sharp" id="mail">mail</span>s1411232069@ad1.nutc.edu.tw</p>
-                <p><span class="material-symbols-sharp" id="mail">home</span>Taiwan,Taichung</p>
-            </div>
-            <div class="farea">
-                <h3>導航</h3>
-                <ul>
-                    <li><a href="index.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>主要頁面</a></li>
-                    <li><a href="project.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>作品展示</a></li>
-                    <li><a href="about.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>關於我</a></li>
-                </ul>
-            </div>
-            <div class="farea">
-                <h3>社交媒體</h3>
-                <ul>
-                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Facebook</a></li>
-                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Twitter</a></li>
-                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>LinkedIn</a></li>
-                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Instagram</a></li>
-                </ul>
-            </div>
-            <div class="farea">
-                <h3>其他資訊</h3>
-                <p>使用工具</p>
-                <ul>
-                    <li><a href="https://code.visualstudio.com/"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>VSCode</a></li>
-                    <li><a href="https://github.com/features/copilot"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>GitHub Copilot</a></li>
-                    <li><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Live Server</a></li>
-                </ul>
-                <p>參考網站</p>
-                <ul>
-                    <li><a href="https://navnav.co"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>All | NavNav+</a></li>
-                    <li><a href="https://bootstrapmade.com"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Bootstrap Templates</a></li>
-                </ul>
-            </div>
-        </div>
-        <hr>
-        <p class="about1"></p>
-        <p class="about2"></p>
-    </footer>
+    <footer></footer>
     <style>
         .image-container {
             position: relative;
@@ -159,7 +93,7 @@
             padding-top: 20px;
             font-family: "Raleway", sans-serif;
             display: inline-block;
-            color: var(--h3-text-color);
+            color: var(--secondary-color);
         }
         #cursor {
             display: inline-block;
@@ -192,8 +126,8 @@
             left: 50%;
             transform: translateX(-50%);
             background: none;
-            border: 1px solid var(--h3-text-color);
-            color: var(--h3-text-color);
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
             position: relative;
         }
 
@@ -237,14 +171,14 @@
         #detail>span{
             vertical-align: text-top;
             padding-right: 10px;
-            color: var(--smalltext-color);
+            color: var(--accent-color);
         }
         #detail{
             font-weight: bold;
             position: relative;
         }
         #detail>p{
-            color: var(--smalltext-color);
+            color: var(--accent-color);
             display: inline;
         }
         #detail::before{
@@ -297,19 +231,19 @@
             text-decoration: none;
             transition: background-color 0.3s;
             margin: 0 4px;
-            border: 1px solid var(--h3-text-color);
+            border: 1px solid var(--secondary-color);
             border-radius: 5px;
             font-weight: bold;
         }
 
         .pagination a:hover {
-            background-color: var(--h3-text-color);
+            background-color: var(--secondary-color);
         }
 
         .pagination a.active {
-            background-color: var(--smalltext-color-light);
+            background-color: #ff4081;
             color: var(--text-color);
-            border: 1px solid  var(--smalltext-color-light);
+            border: 1px solid  #ff4081;
         }
         @media screen and (min-width:501px) {
             .gridcontainer {
@@ -331,7 +265,7 @@
             align-items: center;
             width: 200px;
             height: 200px;
-            background-color:var(text-color-light);
+            background-color:var(--text-color);
             text-align: center;
         }
     </style>
@@ -436,7 +370,7 @@
                         <div>
                             <div class="no-photo img-photo"></div>
                             <h3>標題</h3>
-                            <div id="detail" data-tooltip="補充">
+                            <div id="detail" data-tooltip="No Image">
                                 <span class="material-symbols-sharp">history</span>
                                 <p>日期</p>
                             </div>

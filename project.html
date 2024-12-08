@@ -8,37 +8,16 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shortcut icon" type="image/x-icon" href="Screenshots\me.png">
     <link id="prismTheme" rel="stylesheet" href="prism_dark.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_drop_up,arrow_forward_ios,chevron_right,contrast,dark_mode,description,group,history,home,light_mode,mail,menu,share" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_drop_up,arrow_forward_ios,chevron_right,contrast,dark_mode,description,group,history,home,light_mode,mail,menu,share" />
 </head>
+
 <body>
     <div id="background"></div>
     <div class="cp" id="backToTop">
         <span class="material-symbols-sharp">arrow_drop_up</span>
     </div>
-    <header class="blogTitle">
-        <h1>作品展示</h1>
-        <div class="navigation">
-            <nav onclick="redirectToPage('index.html')">
-                <span class="material-symbols-sharp">home</span>
-                <p>主要頁面</p>
-            </nav>
-            <nav onclick="redirectToPage('about.html')">
-                <span class="material-symbols-sharp">group</span>
-                <p>關於我</p>
-            </nav>
-            <nav onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
-                <span class="material-symbols-sharp">share</span>
-                <p>Github</p>
-            </nav>
-            <nav onclick="toggleTheme()">
-                <span class="material-symbols-sharp" id="theme-icon"></span>
-                <p id="theme-p"></p>
-            </nav>
-        </div>
-        <div class="menu" onclick="toggleMenu()">
-            <span class="material-symbols-sharp">menu</span>
-        </div>
-    </header>
+    <header class="blogTitle"></header>
     <div id="catalog">
         <h2>目錄</h2>
         <button id="showNavs"><span class="material-symbols-sharp">chevron_right</span></button>
@@ -62,16 +41,18 @@
                     <span class="message-tags">軟體設計</span>
                     <span class="message-tags">C#</span>
                     <span class="message-tags">NP問題</span>
-                    <span class="message-tags"><a href="https://github.com/ChenGuoXiang940/Algorithm/tree/6b44667a3bcf469e8c33ed8b7e4a1fc4addb3b5a/%E5%9B%B0%E9%9B%A3%E5%95%8F%E9%A1%8CNP/%E6%97%85%E9%81%8A%E5%95%86%E5%95%8F%E9%A1%8CTSP"
-                        target="_blank" class="link">儲存庫連結</a></span>
+                    <span class="message-tags"><a
+                            href="https://github.com/ChenGuoXiang940/Algorithm/tree/6b44667a3bcf469e8c33ed8b7e4a1fc4addb3b5a/%E5%9B%B0%E9%9B%A3%E5%95%8F%E9%A1%8CNP/%E6%97%85%E9%81%8A%E5%95%86%E5%95%8F%E9%A1%8CTSP"
+                            target="_blank" class="link">儲存庫連結</a></span>
                 </header>
                 <section>
                     <h3>表單設計</h3>
                     <div class="flip" onclick="openModal('Screenshots/p1-1.png','Form1')">
                         <div class="front" style="background-image: url(Screenshots/p1-1.png)"></div>
                         <div class="back">
-                            <h3>Form1</h3>
-                            <p>這個應用程式的核心功能包括隨機生成代表城市位置的座標（生成路線）、利用退火蟻演算法規劃最佳或次優行進路徑（規劃路線），並實時顯示計算所需的時間（時間顯示）。整體設計高效直觀，適合解決旅行商問題（TSP）類的優化需求。</p>
+                            <h4>Form1</h4>
+                            <p>這個應用程式的核心功能包括隨機生成代表城市位置的座標（生成路線）、利用退火蟻演算法規劃最佳或次優行進路徑（規劃路線），並實時顯示計算所需的時間（時間顯示）。整體設計高效直觀，適合解決旅行商問題（TSP）類的優化需求。
+                            </p>
                         </div>
                     </div>
                 </section>
@@ -153,8 +134,8 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                     <span class="message-tags">模擬</span>
                     <span class="message-tags">資料庫</span>
                     <span class="message-tags">C#</span>
-                    <span class="message-tags"><a href="https://github.com/ChenGuoXiang940/NTCUST_OCC_myproject.git" target="_blank"
-                        class="link">儲存庫連結</a></span>
+                    <span class="message-tags"><a href="https://github.com/ChenGuoXiang940/NTCUST_OCC_myproject.git"
+                            target="_blank" class="link">儲存庫連結</a></span>
                 </header>
                 <section>
                     <h3>表單設計</h3>
@@ -162,19 +143,21 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                         <div class="flip" onclick="openModal('Screenshots/p2-1.png','Form1')">
                             <div class="front" style="background-image: url(Screenshots/p2-1.png)"></div>
                             <div class="back">
-                                <h3>Form1</h3>
-                                <p>這個行控中心系統界面整合了列車狀態監控、路線圖可視化、列車靈活控制、事件應急處理等功能，具有操作直觀、信息全面和響應高效的特點。適合應用於列車運行調度和事件處理中，提升整體管理效率和安全性。</p>
+                                <h4>Form1</h4>
+                                <p>這個行控中心系統界面整合了列車狀態監控、路線圖可視化、列車靈活控制、事件應急處理等功能，具有操作直觀、信息全面和響應高效的特點。適合應用於列車運行調度和事件處理中，提升整體管理效率和安全性。
+                                </p>
                             </div>
                         </div>
                         <div class="flip" onclick="openModal('Screenshots/p2-2.png','Form2')">
                             <div class="front" style="background-image: url(Screenshots/p2-2.png)"></div>
                             <div class="back">
-                                <h3>Form2</h3>
-                                <p>這是用戶回饋表單，允許用戶提交問題報告、功能建議或使用體驗等回饋信息。表單包括電子郵件欄位、回饋類型選項、具體內容描述，以及是否參與進一步討論或測試新功能的選擇。旨在收集用戶意見，改進系統功能。</p>
+                                <h4>Form2</h4>
+                                <p>這是用戶回饋表單，允許用戶提交問題報告、功能建議或使用體驗等回饋信息。表單包括電子郵件欄位、回饋類型選項、具體內容描述，以及是否參與進一步討論或測試新功能的選擇。旨在收集用戶意見，改進系統功能。
+                                </p>
                             </div>
                         </div>
                     </div>
-                    
+
                     <h3>主要功能</h3>
                     <ul>
                         <li>使用者可以自行操作列車</li>
@@ -186,10 +169,10 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                         <li>更多功能日後開發(維護和檢修計劃、能源管理連接資料庫)</li>
                     </ul>
                     <h3>功能介紹</h3>
-                    <p class="smalltitle">1. 車站狀態</p>
+                    <h4>1. 車站狀態</h4>
                     <p>請選擇車站名稱，可以調整優先序。</p>
                     <p>時刻表包含將進站的列車名、預估抵達時間、起始站、終點站。</p>
-                    <p class="smalltitle">2. 列車狀態及操作</p>
+                    <h4>2. 列車狀態及操作</h4>
                     <p>請選擇列車名稱，可以調整優先序、更改終點站，但先臨停。</p>
                     <ul>
                         <li>列車出站加速度為 2.5 m/s²，維持且不超過 110km/h。</li>
@@ -205,74 +188,32 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                         <li>如果要進站的月台數不足則不會發車，需等待已在進站月台的列車離站。</li>
                         <li>一個月台有各一個北上和南下可給列車停靠。</li>
                     </ul>
-                    <p class="smalltitle">3. 路線地圖</p>
+                    <h4>3. 路線地圖</h4>
                     <p>點選車站名可直接更改列車站狀態的車站名。</p>
                     <p>箭頭顏色說明：</p>
                     <ul>
-                        <li><span style="color: var(--img-color);">黑色箭頭</span>：無列車在此行駛。</li>
+                        <li><span style="color: var(--text-color);">黑色箭頭</span>：無列車在此行駛。</li>
                         <li><span style="color: orange;">橘色箭頭</span>：有列車要進站或離站。</li>
                         <li><span style="color: blue;">藍色箭頭</span>：有列車正在此行駛。</li>
                         <li><span style="color: red;">紅色箭頭</span>：存在安全問題。</li>
                     </ul>
-                    <p class="smalltitle">4. 事件處理</p>
+                    <h4>4. 事件處理</h4>
                     <p>選擇事件及列車，勾選聯絡單位，詳細內容可為空。</p>
                     <p>模擬事件回報功能。</p>
                 </section>
             </section>
         </article>
     </main>
-    <footer>
-        <hr>
-        <div class="footer-content">
-            <div class="farea farea-top">
-                <h2><img src="Screenshots/me.png" class="footer-img">個人網頁</h2>
-                <p><span class="material-symbols-sharp" id="mail">mail</span>s1411232069@ad1.nutc.edu.tw</p>
-                <p><span class="material-symbols-sharp" id="mail">home</span>Taiwan,Taichung</p>
-            </div>
-            <div class="farea">
-                <h3>導航</h3>
-                <ul>
-                    <li><a href="index.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>主要頁面</a></li>
-                    <li><a href="project.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>作品展示</a></li>
-                    <li><a href="about.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>關於我</a></li>
-                </ul>
-            </div>
-            <div class="farea">
-                <h3>社交媒體</h3>
-                <ul>
-                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Facebook</a></li>
-                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Twitter</a></li>
-                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>LinkedIn</a></li>
-                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Instagram</a></li>
-                </ul>
-            </div>
-            <div class="farea">
-                <h3>其他資訊</h3>
-                <p>使用工具</p>
-                <ul>
-                    <li><a href="https://code.visualstudio.com/"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>VSCode</a></li>
-                    <li><a href="https://github.com/features/copilot"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>GitHub Copilot</a></li>
-                    <li><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Live Server</a></li>
-                </ul>
-                <p>參考網站</p>
-                <ul>
-                    <li><a href="https://navnav.co"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>All | NavNav+</a></li>
-                    <li><a href="https://bootstrapmade.com"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Bootstrap Templates</a></li>
-                </ul>
-            </div>
-        </div>
-        <hr>
-        <p class="about1"></p>
-        <p class="about2"></p>
-    </footer>
+    <footer></footer>
     <style>
         .img-region {
             display: grid;
             gap: 20px;
             position: relative;
         }
+
         .message-tags {
-            border: var(--a-color) 0.5px solid;
+            border: var(--accent-color) 0.5px solid;
             border-radius: 5px;
             padding: 4px 8px;
             font-size: 13px;
@@ -280,15 +221,100 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
             border-radius: 4px;
             margin: 0 0 0 8px;
             display: inline-block;
-            color: var(--a-color);
+            color: var(--accent-color);
         }
+
+        .flip {
+            position: relative;
+
+            >.front,
+            >.back {
+                display: block;
+                transition-timing-function: cubic-bezier(.175, .885, .32, 1.275);
+                transition-duration: .5s;
+                transition-property: transform, opacity;
+            }
+
+            >.front {
+                transform: rotateY(0deg);
+            }
+
+            >.back {
+                position: absolute;
+                opacity: 0;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                transform: rotateY(-180deg);
+            }
+
+            &:hover {
+                >.front {
+                    transform: rotateY(180deg);
+                }
+
+                >.back {
+                    opacity: 1;
+                    transform: rotateY(0deg);
+                }
+            }
+
+            &.flip-vertical {
+                >.back {
+                    transform: rotateX(-180deg);
+                }
+
+                &:hover {
+                    >.front {
+                        transform: rotateX(180deg);
+                    }
+
+                    >.back {
+                        transform: rotateX(0deg);
+                    }
+                }
+            }
+        }
+
+        .flip {
+            position: relative;
+            display: inline-block;
+            margin-right: 2px;
+            margin-bottom: 1em;
+            width: 300px;
+
+            >.front,
+            >.back {
+                display: block;
+                color: white;
+                width: inherit;
+                background-size: cover !important;
+                background-position: center !important;
+                height: 220px;
+                padding: 1em 2em;
+                background: var(--img-color);
+                border-radius: 10px;
+                p {
+                    font-size: 0.9125rem;
+                    line-height: 160%;
+                    color: aliceblue;
+                }
+            }
+        }
+
+        .text-shadow {
+            text-shadow: 1px 1px rgba(0, 0, 0, 0.04), 2px 2px rgba(0, 0, 0, 0.04), 3px 3px rgba(0, 0, 0, 0.04), 4px 4px rgba(0, 0, 0, 0.04), 0.125rem 0.125rem rgba(0, 0, 0, 0.04), 6px 6px rgba(0, 0, 0, 0.04), 7px 7px rgba(0, 0, 0, 0.04), 8px 8px rgba(0, 0, 0, 0.04), 9px 9px rgba(0, 0, 0, 0.04), 0.3125rem 0.3125rem rgba(0, 0, 0, 0.04), 11px 11px rgba(0, 0, 0, 0.04), 12px 12px rgba(0, 0, 0, 0.04), 13px 13px rgba(0, 0, 0, 0.04), 14px 14px rgba(0, 0, 0, 0.04), 0.625rem 0.625rem rgba(0, 0, 0, 0.04), 16px 16px rgba(0, 0, 0, 0.04), 17px 17px rgba(0, 0, 0, 0.04), 18px 18px rgba(0, 0, 0, 0.04), 19px 19px rgba(0, 0, 0, 0.04), 1.25rem 1.25rem rgba(0, 0, 0, 0.04);
+        }
+
         @media screen and (max-width: 1001px) {
-            .img-region{
+            .img-region {
                 grid-template-columns: 1fr;
             }
         }
+
         @media screen and (min-width: 1001px) {
-            .img-region{
+            .img-region {
                 grid-template-columns: 1fr 1fr;
             }
         }
@@ -314,6 +340,18 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                 tagsElements[0].appendChild(newMessageTags);
             });
         });
-        
+        // article 第一次出現在螢幕而且還要被看到時產生淡入效果
+        document.addEventListener("DOMContentLoaded", function () {
+            let observer = new IntersectionObserver(function (entries) {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("fadeIn");
+                    }
+                });
+            });
+            document.querySelectorAll("article").forEach((article) => {
+                observer.observe(article);
+            });
+        });
     </script>
 </body>

@@ -20,7 +20,96 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-// 開啟手機的導航欄
+// 載入時加導覽欄和頁尾的資訊
+document.addEventListener('DOMContentLoaded',()=>{
+    function getPageName() {
+        const path = window.location.pathname;
+        const page = path.split("/").pop();
+        const pageName = page.split(".")[0];
+        return pageName;
+    }
+    const names=['index','project','about'];
+    const navnames=['主要頁面','作品展示','關於我'];
+    const icons=['home','description','group']
+    const index=names.indexOf(getPageName());
+    const left=index-1<0?2:index-1;
+    const right=index+1>2?0:index+1;
+    const foot = document.querySelector('footer');
+    const blogTitle = document.querySelector('.blogTitle');
+    blogTitle.innerHTML=`
+        <h1>${navnames[index]}</h1>
+        <div class="navigation">
+            <nav onclick="redirectToPage('${names[left]}.html')">
+                <span class="material-symbols-sharp">${icons[left]}</span>
+                <p>${navnames[left]}</p>
+            </nav>
+            <nav onclick="redirectToPage('${names[right]}.html')">
+                <span class="material-symbols-sharp">${icons[right]}</span>
+                <p>${navnames[right]}</p>
+            </nav>
+            <nav onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
+                <span class="material-symbols-sharp">share</span>
+                <p>Github</p>
+            </nav>
+            <nav onclick="toggleTheme()">
+                <span class="material-symbols-sharp" id="theme-icon"></span>
+                <p id="theme-p"></p>
+            </nav>
+        </div>
+        <div class="menu" onclick="toggleMenu()">
+            <span class="material-symbols-sharp">menu</span>
+        </div>`;
+    foot.innerHTML =`<hr>
+        <div class="footer-content">
+            <div class="farea farea-top">
+                <h2><img src="Screenshots/me.png" class="footer-img">個人網頁</h2>
+                <p><span class="material-symbols-sharp" id="mail">mail</span>s1411232069@ad1.nutc.edu.tw</p>
+                <p><span class="material-symbols-sharp" id="mail">home</span>Taiwan,Taichung</p>
+            </div>
+            <div class="farea">
+                <h3>導航</h3>
+                <ul>
+                    <li><a href="index.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>主要頁面</a></li>
+                    <li><a href="project.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>作品展示</a></li>
+                    <li><a href="about.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>關於我</a></li>
+                </ul>
+            </div>
+            <div class="farea">
+                <h3>社交媒體</h3>
+                <ul>
+                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Facebook</a></li>
+                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Twitter</a></li>
+                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>LinkedIn</a></li>
+                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Instagram</a></li>
+                </ul>
+            </div>
+            <div class="farea">
+                <h3>其他資訊</h3>
+                <p>使用工具</p>
+                <ul>
+                    <li><a href="https://code.visualstudio.com/"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>VSCode</a></li>
+                    <li><a href="https://github.com/features/copilot"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>GitHub Copilot</a></li>
+                    <li><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Live Server</a></li>
+                </ul>
+                <p>參考網站</p>
+                <ul>
+                    <li><a href="https://navnav.co"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>All | NavNav+</a></li>
+                    <li><a href="https://bootstrapmade.com"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Bootstrap Templates</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="about1"></p>
+        <p class="about2"></p>`;
+    // 設定頁尾的文字
+    var rootStyle = getComputedStyle(document.documentElement);
+    const footerTexts = ['--about1-text', '--about2-text'];
+    footerTexts.forEach((textVar, index) => {
+        const aboutText = rootStyle.getPropertyValue(textVar).trim();
+        document.querySelector(`footer .about${index + 1}`).textContent = aboutText;
+    });
+});
+// 開啟與關閉的導航欄動畫
 function toggleMenu() {
     const Navs = document.querySelectorAll('.navigation');
     const h1 = document.querySelector('.blogTitle h1');
@@ -42,27 +131,7 @@ function toggleMenu() {
 function redirectToPage(url) {
     window.location.href = url;
 }
-document.addEventListener("DOMContentLoaded", function () {
-    // 設定頁尾的文字
-    var rootStyle = getComputedStyle(document.documentElement);
-    const footerTexts = ['--about1-text', '--about2-text'];
-    footerTexts.forEach((textVar, index) => {
-        const aboutText = rootStyle.getPropertyValue(textVar).trim();
-        document.querySelector(`footer .about${index + 1}`).textContent = aboutText;
-    });
-    // article 第一次出現在螢幕而且還要被看到時產生淡入效果
-    let observer = new IntersectionObserver(function (entries) {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("fadeIn");
-            }
-        });
-    });
-    document.querySelectorAll("article").forEach((article) => {
-        observer.observe(article);
-    });
-});
-//如果不在最頂就顯示"往上的標誌" 如果被按下就滑動到最頂
+//  如果不在最頂就顯示"往上的標誌" 如果被按下就滑動到最頂
 document.addEventListener('DOMContentLoaded', () => {
     const backToTopButton = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
@@ -147,7 +216,7 @@ function applyTheme(themeName) {
         document.getElementById('prismTheme').setAttribute('href', 'prism_dark.css');
     }
 }
-// 點擊後跳轉頁面
+// 點擊後跳到指定的段落
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('#catalog nav');
 const observer = new IntersectionObserver((entries) => {
@@ -198,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
         h2.style.display='block';
     });
 });
-// 圖片點擊後占滿整個螢幕大小
+// 圖片點擊後顯示它的大圖
 function openModal(imgSrc,imgName) {
     var modal = document.getElementById("myModal");
     var modalImg = document.getElementById("img01");
