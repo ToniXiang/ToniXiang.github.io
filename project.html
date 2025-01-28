@@ -27,6 +27,9 @@
         <nav onclick="toArticle('#section2')">
             <p>二、簡易的行控中心</p>
         </nav>
+        <nav onclick="toArticle('#section3')">
+            <p>三、設計網路</p>
+        </nav>
     </div>
     <main>
         <div id="myModal" class="modal">
@@ -200,6 +203,143 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                     <h4>4. 事件處理</h4>
                     <p>選擇事件及列車，勾選聯絡單位，詳細內容可為空。</p>
                     <p>模擬事件回報功能。</p>
+                </section>
+            </section>
+        </article>
+        <article>
+            <section id="section3">
+                <header>
+                    <h2>設計網路</h2>
+                    <span class="message-tags">packet tracer</span>
+                    <span class="message-tags">計算機網路</span>
+                    <span class="message-tags">期末實作</span>
+                </header>
+                <section>
+                    <h3>設計與功能</h3>
+                    <div class="img-region">
+                        <div class="flip" onclick="openModal('Screenshots/p3-1.png','網路拓樸圖')">
+                            <div class="front" style="background-image: url(Screenshots/p3-1.png)"></div>
+                            <div class="back">
+                                <h4>網路拓樸圖</h4>
+                                <p>請利用Packet tracer將網路拓樸畫出並且設定網路.將畫面截圖
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flip" onclick="openModal('Screenshots/p3-2.png','測試連通')">
+                            <div class="front" style="background-image: url(Screenshots/p3-2.png)"></div>
+                            <div class="back">
+                                <h4>測試連通</h4>
+                                <p>以PC1-PC2, PC3-PC0 Ping測試連通成功之畫面截圖
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flip" onclick="openModal('Screenshots/p3-3.png','測試連通')">
+                            <div class="front" style="background-image: url(Screenshots/p3-3.png)"></div>
+                            <div class="back">
+                                <h4>測試連通</h4>
+                                <p>PC0瀏覽器打www.nutc.edu.學號後兩碼有網頁連通之畫面截圖
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flip" onclick="openModal('Screenshots/p3-4.png','測試連通')">
+                            <div class="front" style="background-image: url(Screenshots/p3-4.png)"></div>
+                            <div class="back">
+                                <h4>測試連通</h4>
+                                <p>PC0 IP configuration打開可看到自動指定的IP (DHCP)  
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>問題說明</h3>
+                    <p>假設你是系計中的網路管理人員，你將負責來規劃系上新增的 5 個子網路的分割與設定，電算中心給定以下 5 個子網路位址空間為 140.111.XX.0/24，XX為你的學號後兩碼。此外你需要建立3個應用層服務於 2704 的 1 個 servers (Server1為HTTP/DNS/DHCP server) </p>
+                    <p>該網路包括以下網段： </p>
+                    <ul>
+                        <li>連接到路由器 R1 的R2701  LAN需容納 60 台的 IP 位址，請設定PC1為此網路第 1 個 IP 位址. 預設閘道為最後 1 個 IP 位址</li>
+                        <li>連接到路由器 R1 的R2702  LAN 需容納 20 台的 IP 位址，請設定PC3為此網路第 1 個 IP 位址. 預設閘道為最後 1 個 IP 位址</li>
+                        <li>連接到路由器 R2 的R2703  LAN 需容納 30 台的 IP 位址，請設定PC2為此網路第 1 個 IP 位址. 預設閘道為最後 1 個 IP 位址</li>
+                        <li>連接到路由器 R2 的R2704  LAN 需容納 10 台的 IP 位址，請設定Server -PT為此網路第 1 個IP位址. 預設閘道為最後 1 個 IP 位址. PC0 則由 DHCP 分配剩餘的其中 1 個 IP 位址</li>
+                        <li>路由器 R1 和路由器 R2 之間的WAN1鏈路每一端都需要一個 IP 位址。 </li>
+                    </ul>
+                    <p>其餘設定如下</p>
+                    <ul>
+                        <li>Server 1 DNS/HTTP Server 的 DNS 設定為 www.nutc.edu.學號後兩碼，HTTP 設定 ON。</li>
+                        <li>Server 1 DHCP 給定 10 個有效主機位址設定成 DHCP 動態配置給 PC0。</li>
+                        <li>設定個裝置的網路設定</li>
+                        <li>設定各路由器 R1 與 R2 的靜態路由</li>
+                    </ul>
+                    <h3>https://subnettingpractice.com/vlsm.html</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>網路名稱</th>
+                                <th>網路位址</th>
+                                <th>廣播位址</th>
+                                <th>主機範圍</th>
+                                <th>網路遮罩</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2701</td>
+                                <td>140.111.69.0</td>
+                                <td>140.111.69.63</td>
+                                <td>140.111.69.1 - 140.111.69.62</td>
+                                <td>255.255.255.192</td>
+                            </tr>
+                            <tr>
+                                <td>2702</td>
+                                <td>140.111.69.64</td>
+                                <td>140.111.69.95</td>
+                                <td>140.111.69.65 - 140.111.69.94</td>
+                                <td>255.255.255.224</td>
+                            </tr>
+                            <tr>
+                                <td>2703</td>
+                                <td>140.111.69.96</td>
+                                <td>140.111.69.127</td>
+                                <td>140.111.69.97 - 140.111.69.126</td>
+                                <td>255.255.255.224</td>
+                            </tr>
+                            <tr>
+                                <td>2704</td>
+                                <td>140.111.69.128</td>
+                                <td>140.111.69.143</td>
+                                <td>140.111.69.129 - 140.111.69.142</td>
+                                <td>255.255.255.240</td>
+                            </tr>
+                            <tr>
+                                <td>WAN1 (R1-R2)</td>
+                                <td>140.111.69.144</td>
+                                <td>140.111.69.147</td>
+                                <td>140.111.69.145 - 140.111.69.146</td>
+                                <td>255.255.255.252</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>命令列網路工具</h3>
+                    <div class="img-region">
+                        <div class="flip" onclick="openModal('Screenshots/p3-5.png','PC1到PC2經過的路由器')">
+                            <div class="front" style="background-image: url(Screenshots/p3-5.png)"></div>
+                            <div class="back">
+                                <h4>PC1 到 PC2 經過的路由器</h4>
+                                <p>用 PC1 的終端輸入>tracert PC2 的網路位址</p>
+                            </div>
+                        </div>
+                        <div class="flip" onclick="openModal('Screenshots/p3-6.png','PC1 目前TCP/UDP連接狀況')">
+                            <div class="front" style="background-image: url(Screenshots/p3-6.png)"></div>
+                            <div class="back">
+                                <h4>PC1 目前TCP/UDP連接狀況</h4>
+                                <p>用 PC1 的終端輸入>netstat</p>
+                            </div>
+                        </div>
+                        <div class="flip" onclick="openModal('Screenshots/p3-7.png','PC1的實體位址(Physical Address)')">
+                            <div class="front" style="background-image: url(Screenshots/p3-7.png)"></div>
+                            <div class="back">
+                                <h4> PC1 的實體位址(Physical Address)</h4>
+                                <p>用 PC1 的終端輸入>ipconfig /all</p>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </section>
         </article>

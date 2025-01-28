@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         </div>
         <hr>
         <p class="about">有新的想法會持續更新</p>
-        <p class="about">© 2024 陳國翔. All rights reserved.</p>`;
+        <p class="about">© 2025 陳國翔. All rights reserved.</p>`;
 });
 // 開啟與關閉的導航欄動畫
 function toggleMenu() {
