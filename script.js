@@ -107,11 +107,14 @@ document.addEventListener('DOMContentLoaded',()=>{
 function toggleMenu() {
     const Navs = document.querySelectorAll('.navigation');
     const h1 = document.querySelector('.blogTitle h1');
+    const menuIcon = document.querySelector('.menu span.material-symbols-sharp');
     if (window.getComputedStyle(h1).display === 'none'){
         h1.style.display = 'block';
+        menuIcon.style.color = 'var(--blog-span-color)';
     }
     else{
         h1.style.display = 'none';
+        menuIcon.style.color = 'var(--img-color-light)';
     }
     Navs.forEach((Nav)=>{
         if (window.getComputedStyle(Nav).display !== 'none') {
