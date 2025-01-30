@@ -293,6 +293,7 @@ section>p,section>ul{
     --h1-color-light:#ff4081;
     --blog-color-light:#1990b8;
     --blog-span-color-light:#ffffff;
+    --inpo-color-light:#ffffff;
 
     --background-color-dark: #0d1117;
     --text-color-dark: aliceblue;
@@ -304,6 +305,7 @@ section>p,section>ul{
     --h1-color-dark:#f0883e;
     --blog-color-dark:#000000;
     --blog-span-color-dark:#13c2c2;
+    --inpo-color-dark:#333333;
 
     --background-color:var(--background-color-dark);
     --text-color:var(--text-color-dark);
@@ -315,6 +317,7 @@ section>p,section>ul{
     --h1-color:var(--h1-color-dark);
     --blog-color:var(--blog-color-dark);
     --blog-span-color:var(--blog-span-color-dark);
+    --inpo-color:var(--inpo-color-dark);
 }
 .dark-theme {
     --background-color:var(--background-color-dark);
@@ -327,6 +330,7 @@ section>p,section>ul{
     --h1-color: var(--h1-color-dark);
     --blog-color:var(--blog-color-dark);
     --blog-span-color:var(--blog-span-color-dark);
+    --inpo-color:var(--inpo-color-dark);
 }
 
 .light-theme {
@@ -340,6 +344,7 @@ section>p,section>ul{
     --h1-color:var(--h1-color-light);
     --blog-color:var(--blog-color-light);
     --blog-span-color:var(--blog-span-color-light);
+    --inpo-color:var(--inpo-color-light);
 }
 .light-theme h3 {
     text-shadow: none;

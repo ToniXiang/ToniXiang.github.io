@@ -30,6 +30,49 @@
             </div>
         </div>
         <div id="region">
+            <h2>最新文章</h2>
+            <div class="informations">
+                <div class="information">
+                    <h3>VSCode 筆記</h3>
+                    <p>它提供了許多方便的功能和快速鍵，讓程式開發變得更加高效，以下是一些常用的快速鍵和撰寫程式技巧。</p>
+                    <a onclick="window.open('https://github.com/ChenGuoXiang940/NOTE/blob/f91a1e55635242eed9be9f7933cb14cf176bab1b/%E6%8A%80%E8%A1%93/VSCode%E7%AD%86%E8%A8%98.md', '_blank')">閱讀更多</a>
+                </div>
+                <div class="information">
+                    <h3>Windows Form 尺寸問題</h3>
+                    <p>本文介紹了在 Windows Forms 應用程式中處理高 DPI 螢幕下的字體模糊問題，並提供了一段 C# 程式碼示例，以確保應用程式在不同 DPI 設定下正常運作。</p>
+                    <a onclick="window.open('https://github.com/ChenGuoXiang940/NOTE/blob/f91a1e55635242eed9be9f7933cb14cf176bab1b/%E6%8A%80%E8%A1%93/Windows%20Form%E5%B0%BA%E5%AF%B8%E5%95%8F%E9%A1%8C.md','_blank')">閱讀更多</a>
+                </div>
+                <div class="information">
+                    <h3>Mermaid 流程圖設計</h3>
+                    <p>基於文本的繪圖工具，通過簡單的文本描述，可以快速生成各種圖表，如流程圖、序列圖、甘特圖等。 使用Mermaid語法時，最前加上一行「```mermaid」表示程式開始，最後再加上一行「```」表示程式結束。 並且適用於多種文本編輯器和環境</p>
+                    <a onclick="window.open('https://github.com/ChenGuoXiang940/NOTE/blob/f91a1e55635242eed9be9f7933cb14cf176bab1b/%E6%8A%80%E8%A1%93/%E6%B5%81%E7%A8%8B%E5%9C%96%E8%A8%AD%E8%A8%88.md','_blank')">閱讀更多</a>
+                </div>
+            </div>
+        </div>
+        <div id="region">
+            <h2>最新作品</h2>
+            <div class="projects">
+                <div class="project">
+                    <img src="Screenshots/p1-1.png" alt="Project 1">
+                    <h3>旅行商問題</h3>
+                    <p>目前還沒有快速的演算法可以解決出唯一且最佳解。為了降低時間複雜度，本範例用 C# 編程實現退火蟻演算法，執行效率快了許多，但執行結果都不一定相同。</p>
+                    <a href="project.html#section1">閱讀更多</a>
+                </div>
+                <div class="project">
+                    <img src="Screenshots/p2-1.png" alt="Project 2">
+                    <h3>簡易的行控中心</h3>
+                    <p>本範例展示了一個簡易的行控中心系統，通過 C# 編程實現了基本的功能模塊，包括列車狀態監控、路線圖可視化和事件應急處理。系統界面友好，操作簡便，適合用於小型交通運輸系統的管理。</p>
+                    <a href="project.html#section2">閱讀更多</a>
+                </div>
+                <div class="project">
+                    <img src="Screenshots/p3-1.png" alt="Project 3">
+                    <h3>設計網路</h3>
+                    <p>網路設計是信息技術領域中的一個重要課題，涉及到如何構建高效、穩定的網路結構，以滿足不同應用場景的需求。設計一個優秀的網路需要考慮多種因素，包括拓撲結構、數據傳輸效率、故障恢復能力等。</p>
+                    <a href="project.html#section3">閱讀更多</a>
+                </div>
+            </div>
+        </div>
+        <div id="region">
             <h2>精選圖集</h2>
             <div class="gridcontainer"></div>
             <div class="pagination">
@@ -96,8 +139,8 @@
         }
         #cursor {
             display: inline-block;
-            width: 2px;
-            height: 24px;
+            width: 1px;
+            height: 30px;
             background-color: #13c2c2;
             animation: blink 1s step-end infinite;
         }
@@ -106,6 +149,38 @@
             padding: 10px;
             position: relative;
             overflow: hidden;
+        }
+        .informations, .projects {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
+        .information, .project {
+            background-color: var(--inpo-color);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .information h3, .project h3 {
+            margin-top: 0;
+        }
+
+        .information a,.project a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bolder;
+            cursor: pointer;
+        }
+
+        .information a:hover,.project a:hover {
+            text-decoration: underline;
+        }
+
+        .project img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
         }
         svg {
             width: 100%;
@@ -169,11 +244,10 @@
 
         #detail>span{
             vertical-align: text-top;
-            padding-right: 10px;
+            font-size: 1em;
             color: var(--accent-color);
         }
         #detail{
-            font-weight: bold;
             position: relative;
         }
         #detail>p{
@@ -186,7 +260,6 @@
             background-color: #333;
             color: aliceblue;
             text-align: center;
-            font-family: Arial, Helvetica, sans-serif;
             padding: 8px;
             border-radius: 5px;
             top: -30px;
@@ -264,7 +337,7 @@
             align-items: center;
             width: 200px;
             height: 200px;
-            background-color:var(--text-color);
+            background-color:var(--img-color);
             text-align: center;
         }
     </style>
