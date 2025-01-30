@@ -288,7 +288,7 @@ section>p,section>ul{
     --primary-color-light: #ff4081;
     --secondary-color-light: #1990b8;
     --tertiary-color-light:#0d1117;
-    --accent-color-light: #333333;
+    --accent-color-light: #009879;
     --img-color-light:#1990b8;
     --h1-color-light:#ff4081;
     --blog-color-light:#1990b8;
@@ -490,7 +490,9 @@ nav.visible {
     text-decoration: none;
     transition: color 0.3s ease;
 }
-
+.farea ul li a span,.farea p span{
+    font-size: 1em;
+}
 .farea ul li a:hover {
     color: #13c2c2;
 }

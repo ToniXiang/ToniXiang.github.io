@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                     <li><a href="index.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>主要頁面</a></li>
                     <li><a href="project.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>作品展示</a></li>
                     <li><a href="about.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>關於我</a></li>
+                    <li><a onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Github</a></li>
                 </ul>
             </div>
             <div class="farea">
