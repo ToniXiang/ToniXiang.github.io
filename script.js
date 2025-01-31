@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             </nav>
         </div>
         <div class="menu" onclick="toggleMenu()">
-            <span class="material-symbols-sharp">menu</span>
+            <span class="material-symbols-sharp" style="color:var(--img-color-light)">menu</span>
         </div>`;
     foot.innerHTML =`<hr>
         <div class="footer-content">

@@ -40,6 +40,9 @@ body>header{
     font-size: 2em;
     color: var(--blog-span-color);
 }
+.blogTitle>h1{
+    display: none;
+}
 @media screen and (max-width: 1001px) {
     body>main{
         padding-top: 15%;
@@ -53,7 +56,7 @@ body>header{
         left: 0;
         width: 100%;
         padding-top: 60px;
-        display: flex;
+        display: none;
         background-color: var(--blog-color);
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
@@ -116,6 +119,7 @@ body>header{
     .navigation{
         padding-left: 40%;
         align-items: center;
+        display: none;
     }
     .navigation>nav{
         display:inline-block;
@@ -358,6 +362,8 @@ section>p,section>ul{
     padding-top: 5%;
     width: 20%;
     border-radius: 2px;
+}
+#catalog>nav,#catalog>h2{
     cursor: pointer;
 }
 #catalog>nav>p{
