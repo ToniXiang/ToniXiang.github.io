@@ -30,6 +30,9 @@
         <nav onclick="toArticle('#section3')">
             <p>設計網路</p>
         </nav>
+        <nav onclick="toArticle('#section4')">
+            <p>摺疊地圖</p>
+        </nav>
     </div>
     <main>
         <div id="myModal" class="modal">
@@ -160,7 +163,6 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                             </div>
                         </div>
                     </div>
-
                     <h3>主要功能</h3>
                     <ul>
                         <li>使用者可以自行操作列車</li>
@@ -340,6 +342,51 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
                             </div>
                         </div>
                     </div>
+                </section>
+            </section>
+        </article>
+        <article>
+            <section id="section4">
+                <header>
+                    <h2>摺疊地圖</h2>
+                    <span class="message-tags">軟體設計</span>
+                    <span class="message-tags">C#</span>
+                    <span class="message-tags">monogame</span>
+                    <span class="message-tags">波函數塌縮</span>
+                    <span class="message-tags"><a
+                            href="https://github.com/ChenGuoXiang940/WFC_myproject.git"
+                            target="_blank" class="link">儲存庫連結</a></span>
+                </header>
+                <section>
+                    <h3>表單設計</h3>
+                        <div class="flip" onclick="openModal('Screenshots/p4-1.png','Form1')">
+                            <div class="front" style="background-image: url(Screenshots/p4-1.png)"></div>
+                            <div class="back">
+                                <h4>Form1</h4>
+                                <p>這張圖的生成方式是透過一組設定相容性規則，例如：草地可以與水相鄰，但不直接鄰近森林，而建築物不能直接放在水上。
+                                </p>
+                            </div>
+                        </div>
+                        <h3>設計與功能</h3>
+                        <p>地圖生成：</p>
+                        <p>定義各種地形和瓦片的類型，如水、草地、森林、道路、房屋等。
+                            用瓦片之間的規則和連接性，確保生成的地圖符合預定的地形規則。
+                            每個瓦片根據周圍環境進行塌縮，最終生成符合規則的地圖。</p>
+                        <p>遊戲控制：</p>
+                        <p>提供重新生成地圖的功能，通過按下 T 鍵來重新開始生成地圖。
+                            顯示生成的地圖和提示信息。</p>
+                        <h3>其他應用</h3>
+                        <p>WFC 演算法的應用範圍非常廣泛，包括但不限於：</p>
+                        <ul>
+                            <li>隨機地圖生成（如遊戲地圖、迷宮、城鎮）</li>
+                            <li>自動關卡設計（如 Rogue-like 遊戲）</li>
+                            <li>紋理合成（如 procedural texture generation）</li>
+                        </ul>
+                        <p>這種技術常被應用在遊戲開發中，用於生成隨機且具有挑戰性的地圖和關卡，提升遊戲的可玩性和重玩性。</p>
+                        <h3>個人想法</h3>
+                        <p>當初(2023冬季)在網路上看到別人的實作影片，就開始對 Wave Function Collapse 有些想法，但礙於當時我的程式水平不足，Python 還沒學，網路上有關的中英資料也看不懂，只好中途而退。
+                            今(2025寒假)我的數學與程式能力有顯著提升，已掌握機率與統計、線代、圖論、離散的基本概念，嘗試理解別人寫 Python 程式轉我熟悉的 C#，並在此基礎上做一些變化。
+                        </p>
                 </section>
             </section>
         </article>
