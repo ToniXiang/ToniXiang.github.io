@@ -310,18 +310,6 @@ section>p,section>ul{
     --blog-color-dark:#000000;
     --blog-span-color-dark:#13c2c2;
     --inpo-color-dark:#333333;
-
-    --background-color:var(--background-color-dark);
-    --text-color:var(--text-color-dark);
-    --primary-color:var(--primary-color);
-    --secondary-color:var(--secondary-text-color-dark);
-    --tertiary-color:var(--tertiary-color-dark);
-    --accent-color:var(--accent-color-dark);
-    --img-color:var(--img-color-dark);
-    --h1-color:var(--h1-color-dark);
-    --blog-color:var(--blog-color-dark);
-    --blog-span-color:var(--blog-span-color-dark);
-    --inpo-color:var(--inpo-color-dark);
 }
 .dark-theme {
     --background-color:var(--background-color-dark);

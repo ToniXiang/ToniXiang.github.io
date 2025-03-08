@@ -20,6 +20,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+// 載入預設主題
+document.addEventListener('DOMContentLoaded', () => {
+    //localStorage.removeItem('theme')//測試用:處於曾未使用時的狀態 預設主題黑色
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        applyTheme(savedTheme);
+    } else {
+        // Apply default theme if no theme is saved
+        const defaultTheme = 'dark-theme'; // or 'dark-theme'
+        applyTheme(defaultTheme);
+    }
+});
 // 載入時加導覽欄和頁尾的資訊
 document.addEventListener('DOMContentLoaded',()=>{
     function getPageName() {
@@ -53,8 +65,8 @@ document.addEventListener('DOMContentLoaded',()=>{
                 <p>Github</p>
             </nav>
             <nav onclick="toggleTheme()">
-                <span class="material-symbols-sharp" id="theme-icon"></span>
-                <p id="theme-p"></p>
+                <span class="material-symbols-sharp" id="theme-icon">light_mode</span>
+                <p id="theme-p">亮色</p>
             </nav>
         </div>
         <div class="menu" onclick="toggleMenu()">
@@ -193,25 +205,21 @@ function applyTheme(themeName) {
     document.body.className = themeName;
     const themeIcons = document.querySelectorAll('#theme-icon');
     const themePs = document.querySelectorAll('#theme-p');
-    if(document.body.classList.contains('light-theme')){
-        setStats("remove");
-        themeIcons.forEach(themeIcon=>{
-            themeIcon.textContent='light_mode';
-        });
+    if(document.body.classList.contains('dark-theme')){
+        setStats("add");
         themePs.forEach(themeP=>{
+            themeIcons.forEach(themeIcon=>themeIcon.textContent='light_mode');
             themeP.textContent='亮色';
         });
-        document.getElementById('prismTheme').setAttribute('href', 'prism_light.css');
+        document.getElementById('prismTheme').setAttribute('href', 'prism_dark.css');
     }
     else{
-        setStats("add");
-        themeIcons.forEach(themeIcon=>{
-            themeIcon.textContent='dark_mode';
-        });
+        setStats("remove");
+        themeIcons.forEach(themeIcon=>themeIcon.textContent='dark_mode');
         themePs.forEach(themeP=>{
             themeP.textContent='暗色';
         });
-        document.getElementById('prismTheme').setAttribute('href', 'prism_dark.css');
+        document.getElementById('prismTheme').setAttribute('href', 'prism_light.css');
     }
 }
 // 點擊後跳到指定的段落
