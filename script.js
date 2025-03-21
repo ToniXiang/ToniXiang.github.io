@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         <div class="footer-content">
             <div class="farea farea-top">
                 <h2><img src="Screenshots/me.png" class="footer-img">個人網頁</h2>
+                <p>作者 陳國翔</p>
                 <p><span class="material-symbols-sharp" id="mail">mail</span>s1411232069@ad1.nutc.edu.tw</p>
                 <p><span class="material-symbols-sharp" id="mail">home</span>Taiwan,Taichung</p>
             </div>
@@ -112,9 +113,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                 </ul>
             </div>
         </div>
-        <hr>
-        <p class="about">有新的想法會持續更新</p>
-        <p class="about">© 2025 陳國翔. All rights reserved.</p>`;
+        <p class="about">有新的想法會持續更新</p>`;
 });
 // 開啟與關閉的導航欄動畫
 function toggleMenu() {

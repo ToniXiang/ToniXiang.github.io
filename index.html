@@ -20,14 +20,12 @@
             <h3 id="caption"></h3>
             <img class="modal-content" id="img01">
         </div>
-        <div id="region">
-            <div class="image-container">
-                <img class="main-image" src="Screenshots/bodybg.jpg" alt="bodybg jpg">
-                <p id="department-title">資訊工程系</p>
-            </div>
-            <div class="text-center">
-                <h3 id="student-text"></h3><span id="cursor"></span>
-            </div>
+        <div class="image-container">
+            <img class="main-image" src="Screenshots/bodybg.jpg" alt="main-image">
+            <p id="department-title">資訊工程系</p>
+        </div>
+        <div class="text-center">
+            <h3 id="student-text"></h3>
         </div>
         <div id="region">
             <h2>最新作品</h2>
@@ -80,20 +78,10 @@
     </main>
     <footer></footer>
     <style>
-        .image-container {
-            position: relative;
-            width: 100%;
-            height: auto;
-            overflow: hidden;
-            padding: 10px;
-            box-sizing: border-box;
-        }
         .main-image {
             width: 100%;
             height: auto;
             display: block;
-            border: 5px solid #333;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease-in-out;
         }
         .main-image:hover{
@@ -112,23 +100,14 @@
             text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
             text-align:center;
             color: aliceblue;
-            top: 40%;
             left: 50%;
             transform: translate(-50%, -50%);
             position: absolute;
         }
         #student-text {
-            font-size: 16px;
+            font-size: 18px;
             padding-top: 20px;
             display: inline-block;
-            color: var(--secondary-color);
-        }
-        #cursor {
-            display: inline-block;
-            width: 1px;
-            height: 30px;
-            background-color: #13c2c2;
-            animation: blink 1s step-end infinite;
         }
         #region {
             margin-bottom: 20px;
@@ -145,7 +124,7 @@
             background-color: var(--inpo-color);
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px rgba(212, 129, 129, 0.15);
         }
 
         .project h3 {
@@ -502,7 +481,7 @@
         let textSize = 0;
         let textCenter = 0;
         const letters = [];
-        const prompt = ['s', 't', 'a', 'r', 't', ' ', 't', 'y', 'p', 'i', 'n', 'g'];
+        const prompt = ['H','e','l','l','o',' ','W','o','r','l','d','!'];
         let runPrompt = true;
 
         const resizePage = () => {

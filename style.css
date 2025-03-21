@@ -1,8 +1,14 @@
 @charset "utf-8";
-* {
+*{
     margin: 0;
     padding: 0;
-    font-family: "標楷體";
+}
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
 }
 body>main{
     width: 100%;
@@ -12,6 +18,7 @@ body>main{
 }
 body>header{
     z-index: 1000;
+    text-align: center;
     top: 0;
     position: fixed;
 }
@@ -235,13 +242,9 @@ section>p,section>ul{
 }
 
 .about {
-    text-decoration: underline;
     color:  var(--accent-color);
     padding: 2px 0;
     text-align: center;
-}
-.about:hover{
-    text-decoration: none;
 }
 #background {
     position: fixed;
@@ -348,7 +351,7 @@ section>p,section>ul{
 #catalog{
     position: fixed;
     padding-top: 5%;
-    width: 20%;
+    width: 10%;
     border-radius: 2px;
 }
 #catalog>nav,#catalog>h2{
@@ -456,13 +459,15 @@ nav.visible {
 .farea {
     flex: 1;
     min-width: 200px;
-    margin: 20px;
+    margin: 10px;
 }
 .farea-top{
     flex: 1;
     min-width: 200px;
     margin: 20px;
     padding: 20px 20px;
+    box-shadow: 0 0 20px rgba(212, 129, 129, 0.15);
+    border-radius: 10px;
 }
 .farea p,
 .farea ul {
@@ -477,18 +482,20 @@ nav.visible {
 }
 
 .farea ul li {
-    margin: 5px 0;
+    margin: 10px 0;
 }
 
 .farea ul li a {
     text-decoration: none;
-    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
 }
 .farea ul li a span,.farea p span{
-    font-size: 1em;
+    font-size: 1.5em;
 }
 .farea ul li a:hover {
     color: #13c2c2;
+    text-decoration: underline;
 }
 .farea-top h2{
     font-size: 20px;
@@ -497,8 +504,9 @@ nav.visible {
     align-items: center;
 }
 .farea h3{
-    font-size: 15px;
-    font-weight: bold;
+    border-bottom: 2px solid #ff4081;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 .footer-img {
     width: 50px;
