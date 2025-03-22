@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>個人網頁</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shortcut icon" href="Screenshots\me.png" type="image/x-icon">
@@ -17,7 +17,7 @@
     <header class="blogTitle"></header>
     <main>
         <div id="myModal" class="modal">
-            <span class="close">&times;</span>
+            <span class="close">&times;</span>  
             <h3 id="caption"></h3>
             <img class="modal-content" id="img01">
         </div>
@@ -28,25 +28,21 @@
         <div class="text-center">
             <h3 id="student-text"></h3>
         </div>
-        <div id="region">
-            <h2>精選圖集</h2>
-            <div class="gridcontainer"></div>
-            <div class="pagination">
-                <a href="#" class="prev">&lt;</a>
-                <a href="#" class="page" data-page="1">1</a>
-                <a href="#" class="page" data-page="2">2</a>
-                <a href="#" class="page" data-page="3">3</a>
-                <a href="#" class="page" data-page="4">4</a>
-                <a href="#" class="page" data-page="5">5</a>
-                <a href="#" class="next">&gt;</a>
-            </div>
-        </div>
-        <div id="screen-text-region">
-            <p id="offscreen-text" class="offscreen-text"></p>
-            <p id="text" class="text"></p>
-            <svg id="svg"></svg>
-            <input type="text" class="input", id="input" />
-        </div>
+        <section>
+            <h2>程式倉庫</h2>
+            <table id="repo-table" class="info-table">
+                <thead>
+                    <tr>
+                        <th>庫名</th>
+                        <th>簡介</th>
+                        <th>最後更新</th>
+                    </tr>
+                </thead>
+                <tbody id="repo-list">
+                    <!-- Repositories will be inserted here -->
+                </tbody>
+            </table>
+        </section>
     </main>
     <footer></footer>
     <style>
@@ -56,9 +52,11 @@
             display: block;
             transition: transform 0.3s ease-in-out;
         }
+
         .main-image:hover{
             transform: scale(1.05);
         }
+
         .text-center {
             text-align: center;
             margin-top: 20px;
@@ -66,6 +64,7 @@
             overflow: hidden;
             text-overflow: ellipsis; 
         }
+
         #department-title {
             font-size: 36px;
             font-weight: bold;
@@ -76,162 +75,18 @@
             transform: translate(-50%, -50%);
             position: absolute;
         }
+
         #student-text {
             font-size: 18px;
             padding-top: 20px;
             display: inline-block;
         }
-        #region {
-            margin-bottom: 20px;
-            padding: 10px;
-            position: relative;
-            overflow: hidden;
-        }
-        svg {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            z-index: 0;
-        }
 
-        .input {
-            position: absolute;
-            z-index: 1;
-            bottom: 0px;
-            font-size: 20px;
-            text-align: center;
-            left: 50%;
-            transform: translateX(-50%);
-            background: none;
-            border: 1px solid var(--accent-color);
-            color: var(--accent-color);
-            position: relative;
-        }
-
-        .text,
-        .offscreen-text {
-            width: 100%;
-            top: 50%;
-            transform: translateY(-50%);
-            display: block;
-            position: absolute;
-            margin: 0;
-            font-weight: bold;
-            text-shadow: -1px -1px 0 #000,  1px -1px 0 #000,-1px  1px 0 #000,1px  1px 0 #000;
-        }
-
-        .offscreen-text {
-            text-align: center;
-            top: -9999px;
-        }
-
-        .text span {
-            position: absolute;
-        }
-
-
-        #screen-text-region {
-            width: 100%;
-            min-height: 200px;
-            margin-bottom: 20px;
-            padding: 10px;
-            overflow: hidden;
-            position:relative;
-        }
-
-        @keyframes blink {
-            50% {
-                background-color: transparent;
-            }
-        }
-
-        #detail>span{
-            vertical-align: text-top;
-            font-size: 1em;
-            color: var(--accent-color);
-        }
-        #detail{
-            position: relative;
-        }
-        #detail>p{
-            color: var(--accent-color);
-            display: inline;
-        }
-        #detail::before{
-            content: attr(data-tooltip);
-            position: absolute;
-            background-color: #333;
-            color: aliceblue;
-            text-align: center;
-            padding: 8px;
-            border-radius: 5px;
-            top: -30px;
-            left: 0;
-            opacity: 0;
-            transition: opacity 0.3s ease-out;
-            z-index: 1000;
-        }
-        #detail:hover::before {
-            opacity: 1;
-        }
         #caption {
             top: 0;
             text-align: center;
             z-index: 1000;
             position: relative;
-        }
-        p img {
-            width: 25px;
-            height: 25px;
-            vertical-align: text-top;
-            padding-right: 10px;
-        }
-        .gridcontainer {
-            display: grid;
-            gap: 20px;
-            grid-template-columns: 1fr 1fr;
-            position: relative;
-        }
-        .pagination {
-            display: flex;
-            justify-content: center;
-            padding: 20px 0;
-            user-select: none;
-        }
-
-        .pagination a {
-            color: var(--text-color);
-            float: left;
-            padding: 8px 16px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-            margin: 0 4px;
-            border: 1px solid var(--secondary-color);
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
-        .pagination a:hover {
-            background-color: #ff4081;
-        }
-
-        .pagination a.active {
-            background-color: #ff4081;
-            color: var(--text-color);
-            border: 1px solid  #ff4081;
-        }
-        @media screen and (min-width:501px) {
-            .gridcontainer {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media screen and (min-width:769px) {
-            .gridcontainer {
-                grid-template-columns: repeat(3, 1fr);
-            }
         }
 
         .no-hover-effect #detail:hover::before {
@@ -252,7 +107,6 @@
         // 字串從左到右 出現停五秒 再從右到左消失 循環播放
         document.addEventListener('DOMContentLoaded', () => {
             animateText();
-            adjustFontSize();
         });
         let texts = ["Hi! I'm a student at NTCUST, Taiwan.", "I'm passionate about exploring new ideas."];
         let aim = 0;
@@ -280,322 +134,23 @@
                 }
             }, 100);
         }
-        // 往前或後頁和點頁數變化
-        document.addEventListener('DOMContentLoaded', () => {
-            const pages = document.querySelectorAll('.pagination .page');
-            const prev = document.querySelector('.pagination .prev');
-            const next = document.querySelector('.pagination .next');
-            const images = [
-                { src: 'Screenshots/1.jpg', title: '中科大資工系', date: '2022/11/24', tooltip: '甄選實作考場' },
-                { src: 'Screenshots/2.heic', title: '中科院研發展示館', date: '2022/11/29', tooltip: '飛彈模型展示' },
-                { src: 'Screenshots/3.heic', title: '中科院研發展示館', date: '2022/11/29', tooltip: '桃園龍潭' },
-                { src: 'Screenshots/4.heic', title: '台積電', date: '2022/11/29', tooltip: '桃園龍潭' },
-                { src: 'Screenshots/5.heic', title: '台北101', date: '2022/11/24', tooltip: '路上街景' },
-                { src: 'Screenshots/6.heic', title: '龍潭科學園區', date: '2022/11/29', tooltip: '3D立體地圖' }
-            ];
-            let currentPage = 1;
-            function updatePagination() {
-                pages.forEach(page => {
-                    page.classList.remove('active');
-                    if (parseInt(page.dataset.page) === currentPage) {
-                        page.classList.add('active');
-                    }
+        // 獲取我 GitHub 上的項目
+        const apiUrl = `https://api.github.com/users/ChenGuoXiang940/repos`;
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(repos => {
+                let repoList = document.getElementById("repo-list");
+                repos.forEach(repo => {
+                    let row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td><a href="${repo.html_url}" target="_blank">${repo.name}</a></td>
+                        <td>${repo.description || '沒有任何描述'}</td>
+                        <td>${new Date(repo.updated_at).toLocaleDateString()}</td>
+                    `;
+                    repoList.appendChild(row);
                 });
-                pages.forEach(page => {
-                    page.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        currentPage = parseInt(page.dataset.page);
-                        updatePagination();
-                    });
-                });
-                if (currentPage === 1) {
-                        prev.classList.add('disabled');
-                }
-                else {
-                    prev.classList.remove('disabled');
-                }
-                if (currentPage === pages.length) {
-                    next.classList.add('disabled');
-                }
-                else {
-                    next.classList.remove('disabled');
-                }
-                const imageContainer = document.querySelector('.gridcontainer');
-                if (currentPage === 1) {
-                    imageContainer.innerHTML = images.map(image => `
-                        <div onclick="openModal('${image.src}','${image.title}')">
-                            <div class="loadingScreen">
-                                <div class="loader"></div>
-                            </div>
-                            <img src="${image.src}" class="img-photo">
-                            <h3>${image.title}</h3>
-                            <div id="detail" data-tooltip="${image.tooltip}">
-                                <span class="material-symbols-sharp">history</span>
-                                <p>${image.date}</p>
-                            </div>
-                        </div>
-                    `).join('');
-                    const imgElements = imageContainer.querySelectorAll('.img-photo');
-                    imgElements.forEach(img => {
-                        img.addEventListener('load', () => {
-                            img.previousElementSibling.style.display = 'none'; // Hide the loading screen
-                            img.style.display = 'block'; // Show the image
-                        });
-                    });
-                } else {
-                    imageContainer.innerHTML = images.map(image => `
-                        <div>
-                            <div class="no-photo img-photo"></div>
-                            <h3>標題</h3>
-                            <div id="detail" data-tooltip="No Image">
-                                <span class="material-symbols-sharp">history</span>
-                                <p>日期</p>
-                            </div>
-                        </div>
-                    `).join('');
-                }
-            }     
-            pages.forEach(page => {
-                page.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    currentPage = parseInt(page.dataset.page);
-                    updatePagination();
-                });
-            });     
-            prev.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (currentPage > 1) {
-                    currentPage--;
-                    updatePagination();
-                }
-            });       
-            next.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (currentPage < pages.length) {
-                    currentPage++;
-                    updatePagination();
-                }
-            });
-            updatePagination();
-        });
-        //typing text transition
-        const selectSVG = id => {
-            const el = document.getElementById(id);
-            return new SVGElement(el);
-        };
-
-        const createSVG = type => {
-            const el = document.createElementNS('http://www.w3.org/2000/svg', type);
-            return new SVGElement(el);
-        };
-
-        class SVGElement {
-            constructor(element) {
-                this.element = element;
-            }
-
-            set(attributeName, value) {
-                this.element.setAttribute(attributeName, value);
-            }
-
-            style(property, value) {
-                this.element.style[property] = value;
-            }
-        }
-
-        const colors = [
-            { main: '#FBDB4A', shades: ['#FAE073', '#FCE790', '#FADD65', '#E4C650'] },
-            { main: '#F3934A', shades: ['#F7B989', '#F9CDAA', '#DD8644', '#F39C59'] },
-            { main: '#EB547D', shades: ['#EE7293', '#F191AB', '#D64D72', '#C04567'] },
-            { main: '#9F6AA7', shades: ['#B084B6', '#C19FC7', '#916198', '#82588A'] },
-            { main: '#5476B3', shades: ['#6382B9', '#829BC7', '#4D6CA3', '#3E5782'] },
-            { main: '#2BB19B', shades: ['#4DBFAD', '#73CDBF', '#27A18D', '#1F8171'] },
-            { main: '#70B984', shades: ['#7FBE90', '#98CBA6', '#68A87A', '#5E976E'] }
-        ];
-        const svg = selectSVG('svg');
-        const text = document.getElementById('text');
-        const offscreenText = document.getElementById('offscreen-text');
-        const input = document.getElementById('input');
-        let width = window.innerWidth;
-        let height = window.innerHeight;
-        let textSize = 0;
-        let textCenter = 0;
-        const letters = [];
-        const prompt = ['H','e','l','l','o',' ','W','o','r','l','d','!'];
-        let runPrompt = true;
-
-        const resizePage = () => {
-            width = window.innerWidth;
-            height = window.innerHeight;
-            svg.set('height', height);
-            svg.set('width', width);
-            svg.set('viewBox', `0 0 ${width} ${height}`);
-            resizeLetters();
-        }
-
-        const resizeLetters = () => {
-            textSize = width / (letters.length + 2);
-            if (textSize > 100) textSize = 100;
-            text.style.fontSize = `${textSize}px`;
-            text.style.height = `${textSize}px`;
-            text.style.lineHeight = `${textSize}px`;
-            offscreenText.style.fontSize = `${textSize}px`;
-            const textRect = text.getBoundingClientRect();
-            textCenter = textRect.top + textRect.height / 2;
-            positionLetters();
-        };
-
-        const positionLetters = () => {
-            letters.forEach(letter => {
-                const timing = letter.shift ? 0.1 : 0;
-                TweenLite.to(letter.onScreen, timing, { x: letter.offScreen.offsetLeft + 'px', ease: Power3.easeInOut });
-                letter.shift = true;
-            });
-        }
-
-        const animateLetterIn = letter => {
-            const yOffset = (0.5 + Math.random() * 0.5) * textSize;
-            TweenLite.fromTo(letter, 0.4, { scale: 0 }, { scale: 1, ease: Back.easeOut });
-            TweenLite.fromTo(letter, 0.4, { opacity: 0 }, { opacity: 1, ease: Power3.easeOut });
-            TweenLite.to(letter, 0.2, { y: -yOffset, ease: Power3.easeInOut });
-            TweenLite.to(letter, 0.2, { y: 0, ease: Power3.easeInOut, delay: 0.2 });
-            const rotation = -50 + Math.random() * 100;
-            TweenLite.to(letter, 0.2, { rotation: rotation, ease: Power3.easeInOut });
-            TweenLite.to(letter, 0.2, { rotation: 0, ease: Power3.easeInOut, delay: 0.2 });
-        }
-
-        const addDecor = (letter, color) => {
-            setTimeout(() => {
-                var rect = letter.getBoundingClientRect();
-                const x0 = letter.offsetLeft + letter.offsetWidth*(letters.length-1)*1.5;
-                const y0 = textCenter - textSize * 0.5;
-                const shade = color.shades[Math.floor(Math.random() * 4)];
-                for (var i = 0; i < 8; i++) addTri(x0, y0, shade);
-                for (var i = 0; i < 8; i++) addCirc(x0, y0);
-            }, 150);
-        };
-
-        const addTri = (x0, y0, shade) => {
-            const tri = createSVG('polygon');
-            const a = Math.random();
-            const a2 = a + (-0.2 + Math.random() * 0.4);
-            const r = textSize * 2;
-            const r2 = r + textSize * Math.random() * 2;
-            const x = x0 + r * Math.cos(2 * Math.PI * a);
-            const y = y0 + r * Math.sin(2 * Math.PI * a);
-            const x2 = x0 + r2 * Math.cos(2 * Math.PI * a2);
-            const y2 = y0 + r2 * Math.sin(2 * Math.PI * a2);
-            const triSize = textSize * 0.1;
-            const scale = 0.3 + Math.random() * 0.7;
-            const offset = triSize * scale;
-            tri.set('points', `0,0 ${triSize * 2},0 ${triSize},${triSize * 2}`);
-            tri.style('fill', shade);
-            svg.element.appendChild(tri.element);
-            TweenLite.fromTo(tri.element, 0.6, { rotation: Math.random() * 360, scale: scale, x: x - offset, y: y - offset, opacity: 1 }, {
-                x: x2 - offset, y: y2 - offset, opacity: 0, ease: Power1.easeInOut, onComplete: () => {
-                    svg.element.removeChild(tri.element);
-                }
-            });
-        }
-
-        const addCirc = (x0, y0) => {
-            const circ = createSVG('circle');
-            const a = Math.random();
-            const r = textSize * 2;
-            const r2 = r + textSize;
-            const x = x0 + r * Math.cos(2 * Math.PI * a);
-            const y = y0 + r * Math.sin(2 * Math.PI * a);
-            const x2 = x0 + r2 * Math.cos(2 * Math.PI * a);
-            const y2 = y0 + r2 * Math.sin(2 * Math.PI * a);
-            const circSize = textSize * 0.05 * Math.random();
-            circ.set('r', circSize);
-            circ.style('fill', '#eee');
-            svg.element.appendChild(circ.element);
-            TweenLite.fromTo(circ.element, 0.6, { x: x - circSize, y: y - circSize, opacity: 1 }, {
-                x: x2 - circSize, y: y2 - circSize, opacity: 0, ease: Power1.easeInOut, onComplete: () => {
-                    svg.element.removeChild(circ.element);
-                }
-            });
-        }
-
-        const addLetter = (char, i) => {
-            const letter = document.createElement('span');
-            const oLetter = document.createElement('span');
-            letter.innerHTML = char;
-            oLetter.innerHTML = char;
-            text.appendChild(letter);
-            const color = colors[i % colors.length];
-            letter.style.color = color.main;
-            offscreenText.appendChild(oLetter);
-            letters[i] = { offScreen: oLetter, onScreen: letter, char: char };
-            animateLetterIn(letter);
-            addDecor(oLetter, color);
-        }
-
-        const addLetters = value => {
-            value.forEach((char, i) => {
-                if (letters[i] && letters[i].char !== char) {
-                    letters[i].onScreen.innerHTML = char;
-                    letters[i].offScreen.innerHTML = char;
-                    letters[i].char = char;
-                }
-                if (letters[i] === undefined) {
-                    addLetter(char, i);
-                }
-            });
-        };
-
-        const animateLetterOut = (letter, i) => {
-            TweenLite.to(letter.onScreen, 0.1, {
-                scale: 0, opacity: 0, ease: Power2.easeIn, onComplete: () => {
-                    console.log('removing');
-                    console.log(letter);
-                    offscreenText.removeChild(letter.offScreen);
-                    text.removeChild(letter.onScreen);
-                    positionLetters();
-                }
-            });
-            letters.splice(i, 1);
-        }
-
-        const removeLetters = value => {
-            for (let i = letters.length - 1; i >= 0; i--) {
-                const letter = letters[i];
-                if (value[i] === undefined) {
-                    animateLetterOut(letter, i)
-                }
-            }
-        }
-
-        const onInputChange = () => {
-            const value = input.value === '' ? [] : input.value.toLowerCase().split('');
-            addLetters(value);
-            removeLetters(value);
-            resizeLetters();
-        };
-
-        const keyup = (e) => {
-            if (runPrompt) {
-                input.value = '';
-                runPrompt = false;
-            };
-            onInputChange();
-        }
-
-        const addPrompt = (i) => {
-            setTimeout(() => {
-                if (runPrompt && prompt[i]) {
-                    input.value = input.value + prompt[i];
-                    onInputChange();
-                    addPrompt(i + 1);
-                }
-            }, 300);
-        }
-
-        resizePage();
-        window.addEventListener('resize', resizePage);
-        input.addEventListener('keyup', keyup);
-        addPrompt(0);
+            })
+            .catch(error => console.error("Error fetching GitHub repos:", error));
     </script>
     <script src="prism.js"></script>
 </body>

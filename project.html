@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, inital-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>個人網頁</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shortcut icon" type="image/x-icon" href="Screenshots\me.png">
@@ -46,14 +46,20 @@
                     <li>探索不同的專案，了解我的工作和興趣。</li>
                     <li>每個專案都有詳細的描述和相關連結。</li>
                     <li>如果有任何問題或建議，歡迎聯繫我。</li>
-                    <li>目前嘗試以 JSON 來存儲文章數據。</li>
-                    <li>目前開發中英語言支持。</li>
+                    <li><span class="highlight">目前嘗試以 JSON 來存儲文章數據。</span></li>
+                    <li><span class="highlight">目前正在開發中英語言支持。</span></li>
                 </ul>
             </div>
         </article>
     </main>
     <footer></footer>
     <style>
+        .centered-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 70%;
+        }
         .message-tags {
             border: var(--accent-color) 0.5px solid;
             border-radius: 5px;
@@ -61,7 +67,7 @@
             font-size: 13px;
             line-height: 14px;
             border-radius: 4px;
-            margin: 0 0 0 8px;
+            margin: 8px 0 0 8px;
             display: inline-block;
             color: var(--accent-color);
         }
@@ -92,9 +98,6 @@
         .default-message li {
             margin-bottom: 5px;
         }
-        .active-nav {
-            background-color: var(--primary-color);
-        }
         #languageSwitcher {
             display: block;
             margin: 20px auto;
@@ -113,12 +116,6 @@
         // 載入文章
         let currentArticleId = '';
         function loadArticle(articleId, event) {
-            document.querySelectorAll('#catalog nav').forEach(nav => {
-                nav.classList.remove('active-nav');
-            });
-            if (event) {
-                event.currentTarget.classList.add('active-nav');
-            }
             currentArticleId = articleId;
             const selectedLanguage = document.getElementById('languageSwitcher').value;
             const repositoryLinkText = {
@@ -154,7 +151,32 @@
                     `;
                 });
         }
-        // language switch
+        // 顯示和隱藏目錄
+        document.addEventListener('DOMContentLoaded', () => {
+            const h2 = document.querySelector('#catalog h2');
+            const showNavsButton = document.getElementById('showNavs');
+            const navs = document.querySelectorAll('#catalog nav');
+            if(h2&&showNavsButton&&navs){
+                h2.addEventListener('click', () => {
+                    navs.forEach(nav => {
+                        nav.classList.add('hidden');
+                        nav.classList.remove('visible');
+                    });
+                    showNavsButton.style.display = 'block';
+                    h2.style.display='none';
+                });
+            
+                showNavsButton.addEventListener('click', () => {
+                    navs.forEach(nav => {
+                        nav.classList.add('visible');
+                        nav.classList.remove('hidden');
+                    });
+                    showNavsButton.style.display = 'none';
+                    h2.style.display='block';
+                });
+            }
+        });
+        // 中與英的語言選擇
         document.getElementById('languageSwitcher').addEventListener('change', function() {
             if(currentArticleId==='')return;
             loadArticle(currentArticleId);

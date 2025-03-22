@@ -17,8 +17,8 @@
                         "zh": "表單設計"
                     },
                     "content": {
-                        "en": "This control center system interface integrates functions such as train status monitoring, route map visualization, flexible train control, and emergency event handling. It features intuitive operation, comprehensive information, and efficient response. Suitable for application in train operation scheduling and event handling, improving overall management efficiency and safety.",
-                        "zh": "這個行控中心系統界面整合了列車狀態監控、路線圖可視化、列車靈活控制、事件應急處理等功能，具有操作直觀、信息全面和響應高效的特點。適合應用於列車運行調度和事件處理中，提升整體管理效率和安全性。"
+                        "en": "This control center system interface integrates functions such as train status monitoring, route map visualization, flexible train control, and emergency event handling. It features intuitive operation, comprehensive information, and efficient response. Suitable for application in train operation scheduling and event handling, improving overall management efficiency and safety.<img src='Screenshots/p1-1.png' alt='表單設計圖片' class='centered-image' onclick=\"openModal('Screenshots/p1-1.png', 'Form Design Image')\">",
+                        "zh": "這個行控中心系統界面整合了列車狀態監控、路線圖可視化、列車靈活控制、事件應急處理等功能，具有操作直觀、信息全面和響應高效的特點。適合應用於列車運行調度和事件處理中，提升整體管理效率和安全性。<img src='Screenshots/p1-1.png' alt='表單設計圖片' class='centered-image' onclick=\"openModal('Screenshots/p1-1.png', '表單設計')\">"
                     }
                 },
                 {

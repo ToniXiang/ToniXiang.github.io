@@ -22,13 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 // 載入預設主題
 document.addEventListener('DOMContentLoaded', () => {
-    //localStorage.removeItem('theme')//測試用:處於曾未使用時的狀態 預設主題黑色
+    //localStorage.removeItem('theme')  //  NOTE: 處於曾未使用時的狀態 預設主題黑色
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         applyTheme(savedTheme);
     } else {
-        // Apply default theme if no theme is saved
-        const defaultTheme = 'dark-theme'; // or 'dark-theme'
+        const defaultTheme = 'dark-theme';
         applyTheme(defaultTheme);
     }
 });
@@ -114,7 +113,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             </div>
         </div>
         <p class="about">有新的想法會持續更新</p>
-        <p class="about">*目前為過渡版本 可能存在許多問題</p>`;
+        <p class="about"><span class="highlight">過渡版本 可能存在許多問題</span></p>`;
 });
 // 開啟與關閉的導航欄動畫
 function toggleMenu() {
@@ -166,10 +165,14 @@ function toggleTheme(){
     document.body.classList.toggle('light-theme');
     if (document.body.classList.contains('dark-theme')) {
         setTheme('dark-theme');
-        document.getElementById('prismTheme').setAttribute('href', 'prism_dark.css');
+        if (prismTheme) {
+            prismTheme.setAttribute('href', 'prism_dark.css');
+        }
     } else {
         setTheme('light-theme');
-        document.getElementById('prismTheme').setAttribute('href', 'prism_light.css');
+        if (prismTheme) {
+            prismTheme.setAttribute('href', 'prism_light.css');
+        }
     }
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
@@ -205,46 +208,28 @@ function applyTheme(themeName) {
     document.body.className = themeName;
     const themeIcons = document.querySelectorAll('#theme-icon');
     const themePs = document.querySelectorAll('#theme-p');
-    if(document.body.classList.contains('dark-theme')){
+    const prismTheme = document.getElementById('prismTheme');
+    
+    if (document.body.classList.contains('dark-theme')) {
         setStats("add");
-        themePs.forEach(themeP=>{
-            themeIcons.forEach(themeIcon=>themeIcon.textContent='light_mode');
-            themeP.textContent='亮色';
+        themePs.forEach(themeP => {
+            themeIcons.forEach(themeIcon => themeIcon.textContent = 'light_mode');
+            themeP.textContent = '亮色';
         });
-        document.getElementById('prismTheme').setAttribute('href', 'prism_dark.css');
-    }
-    else{
+        if (prismTheme) {
+            prismTheme.setAttribute('href', 'prism_dark.css');
+        }
+    } else {
         setStats("remove");
-        themeIcons.forEach(themeIcon=>themeIcon.textContent='dark_mode');
-        themePs.forEach(themeP=>{
-            themeP.textContent='暗色';
+        themeIcons.forEach(themeIcon => themeIcon.textContent = 'dark_mode');
+        themePs.forEach(themeP => {
+            themeP.textContent = '暗色';
         });
-        document.getElementById('prismTheme').setAttribute('href', 'prism_light.css');
+        if (prismTheme) {
+            prismTheme.setAttribute('href', 'prism_light.css');
+        }
     }
 }
-// 顯示和隱藏目錄
-document.addEventListener('DOMContentLoaded', () => {
-    const h2 = document.querySelector('#catalog h2');
-    const showNavsButton = document.getElementById('showNavs');
-    const navs = document.querySelectorAll('#catalog nav');
-    h2.addEventListener('click', () => {
-        navs.forEach(nav => {
-            nav.classList.add('hidden');
-            nav.classList.remove('visible');
-        });
-        showNavsButton.style.display = 'block';
-        h2.style.display='none';
-    });
-
-    showNavsButton.addEventListener('click', () => {
-        navs.forEach(nav => {
-            nav.classList.add('visible');
-            nav.classList.remove('hidden');
-        });
-        showNavsButton.style.display = 'none';
-        h2.style.display='block';
-    });
-});
 // 圖片點擊後顯示它的大圖
 function openModal(imgSrc,imgName) {
     var modal = document.getElementById("myModal");
@@ -255,9 +240,12 @@ function openModal(imgSrc,imgName) {
     captionText.textContent = imgName;
     document.body.classList.add("no-hover-effect");
 }
+// 大圖中用來關閉的 ICON
 var span = document.getElementsByClassName("close")[0];
-span.onclick = function() {
-    var modal = document.getElementById("myModal");
-    modal.style.display = "none";
-    document.body.classList.remove("no-hover-effect");
+if(span){
+    span.onclick = function() {
+        var modal = document.getElementById("myModal");
+        modal.style.display = "none";
+        document.body.classList.remove("no-hover-effect");
+    }
 }
