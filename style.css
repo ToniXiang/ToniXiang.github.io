@@ -114,10 +114,6 @@ body>header{
         font-size: 0.95em;
         line-height: 1.5;
     }
-    
-    #catalog{
-        display: none;
-    }
 }
 @media screen and (min-width: 1001px) {
     body>main{
@@ -175,13 +171,13 @@ article {
     text-decoration: none;
     color: var(--text-color);
     box-shadow: 0 0 20px rgba(212, 129, 129, 0.15);
-    background-repeat: no-repeat;
     transition: background-color 2s;
     border-radius: 5px 5px 0 0;
     opacity: 0;
     transition: opacity 2s;
     margin-left: 2%;
     margin-right: 2%;
+    z-index: 1;
 }
 
 article.fadeIn {
@@ -195,11 +191,12 @@ hr {
 footer {
     padding: 20px 0;
     text-align: left;
+    user-select: none;
 }
 h1{
     font-size: 25px;
     position: absolute;
-    color: var(--h1-color);
+    color: var(--blog-span-color);
     margin-left: 5%;
     padding-top: 5px;
 }
@@ -224,7 +221,7 @@ a,p>a{
     color: var(--accent-color);
 }
 a:hover,p>a:hover{
-    color: var(--h1-color);
+    color: var(--primary-color);
 }
 p{
     font-size: 16px;
@@ -297,10 +294,8 @@ section>p,section>ul{
     --tertiary-color-light:#0d1117;
     --accent-color-light: #0d1117;
     --img-color-light:#1990b8;
-    --h1-color-light:#ff4081;
     --blog-color-light:#1990b8;
     --blog-span-color-light:#ffffff;
-    --inpo-color-light:#ffffff;
 
     --background-color-dark: #0d1117;
     --text-color-dark: aliceblue;
@@ -309,10 +304,8 @@ section>p,section>ul{
     --tertiary-color-dark:#FFFFCC;
     --accent-color-dark:#FFFFCC;
     --img-color-dark:#333333;
-    --h1-color-dark:#f0883e;
     --blog-color-dark:#000000;
     --blog-span-color-dark:#13c2c2;
-    --inpo-color-dark:#333333;
 }
 .dark-theme {
     --background-color:var(--background-color-dark);
@@ -322,10 +315,8 @@ section>p,section>ul{
     --tertiary-color:var(--tertiary-color-dark);
     --accent-color:var(--accent-color-dark);
     --img-color:var(--img-color-dark);
-    --h1-color: var(--h1-color-dark);
     --blog-color:var(--blog-color-dark);
     --blog-span-color:var(--blog-span-color-dark);
-    --inpo-color:var(--inpo-color-dark);
 }
 
 .light-theme {
@@ -336,10 +327,8 @@ section>p,section>ul{
     --tertiary-color:var(--tertiary-color-light);
     --accent-color:var(--accent-color-light);
     --img-color:var(--img-color-light);
-    --h1-color:var(--h1-color-light);
     --blog-color:var(--blog-color-light);
     --blog-span-color:var(--blog-span-color-light);
-    --inpo-color:var(--inpo-color-light);
 }
 .light-theme h3 {
     text-shadow: none;
@@ -351,20 +340,17 @@ section>p,section>ul{
 #catalog{
     position: fixed;
     padding-top: 5%;
-    width: 10%;
+    width: 150px;
     border-radius: 2px;
+    z-index: 2;
 }
 #catalog>nav,#catalog>h2{
     cursor: pointer;
 }
 #catalog>nav>p{
-    color: var(--text-color);
     font-weight: bold;
     font-size: 20px;
     padding-left: 5px;
-}
-#catalog nav.active {
-    background-color: var(--h1-color);
 }
 #showNavs {
     position: fixed;
@@ -381,6 +367,7 @@ section>p,section>ul{
     font-size: 1.5em;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 2;
 }
 
 #showNavs:hover {
@@ -478,7 +465,7 @@ nav.visible {
 
 .farea ul {
     list-style: none;
-    padding: 0;
+    padding-left: 0;
 }
 
 .farea ul li {
@@ -488,9 +475,10 @@ nav.visible {
 .farea ul li a {
     text-decoration: none;
     display: flex;
-    align-items: center;
+    justify-content: center;
 }
-.farea ul li a span,.farea p span{
+.farea ul li a span,
+.farea p span{
     font-size: 1.5em;
 }
 .farea ul li a:hover {
@@ -499,7 +487,6 @@ nav.visible {
 }
 .farea-top h2{
     font-size: 20px;
-    text-align: left;
     display: flex;
     align-items: center;
 }

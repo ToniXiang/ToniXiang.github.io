@@ -28,35 +28,6 @@
             <h3 id="student-text"></h3>
         </div>
         <div id="region">
-            <h2>最新作品</h2>
-            <div class="projects">
-                <div class="project">
-                    <img src="Screenshots/p1-1.png" alt="Project 1">
-                    <h3>旅行商問題</h3>
-                    <p>目前還沒有快速的演算法可以解決出唯一且最佳解。為了降低時間複雜度，本範例用 C# 編程實現退火蟻演算法，執行效率快了許多，但執行結果都不一定相同。</p>
-                    <a href="project.html#section1">閱讀更多</a>
-                </div>
-                <div class="project">
-                    <img src="Screenshots/p2-1.png" alt="Project 2">
-                    <h3>簡易的行控中心</h3>
-                    <p>本範例展示了一個簡易的行控中心系統，通過 C# 編程實現了基本的功能模塊，包括列車狀態監控、路線圖可視化和事件應急處理。系統界面友好，操作簡便，適合用於小型交通運輸系統的管理。</p>
-                    <a href="project.html#section2">閱讀更多</a>
-                </div>
-                <div class="project">
-                    <img src="Screenshots/p3-1.png" alt="Project 3">
-                    <h3>設計網路</h3>
-                    <p>網路設計是信息技術領域中的一個重要課題，涉及到如何構建高效、穩定的網路結構，以滿足不同應用場景的需求。設計一個優秀的網路需要考慮多種因素，包括拓撲結構、數據傳輸效率、故障恢復能力等。</p>
-                    <a href="project.html#section3">閱讀更多</a>
-                </div>
-                <div class="project">
-                    <img src="Screenshots/p4-1.png" alt="Project 4">
-                    <h3>摺疊地圖</h3>
-                    <p>這是一個使用 WFC 演算法生成的地圖！它應用了基於規則的擺放方式，以確保每個區塊都符合特定的鄰接條件，而不是單純依靠噪音函數來生成地形。</p>
-                    <a href="project.html#section4">閱讀更多</a>
-                </div>
-            </div>
-        </div>
-        <div id="region">
             <h2>精選圖集</h2>
             <div class="gridcontainer"></div>
             <div class="pagination">
@@ -114,38 +85,6 @@
             padding: 10px;
             position: relative;
             overflow: hidden;
-        }
-        .projects {
-            display: grid;
-            gap: 20px;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        }
-        .project {
-            background-color: var(--inpo-color);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(212, 129, 129, 0.15);
-        }
-
-        .project h3 {
-            margin-top: 0;
-        }
-
-        .project a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: bolder;
-            cursor: pointer;
-        }
-
-        .project a:hover {
-            text-decoration: underline;
-        }
-
-        .project img {
-            max-width: 100%;
-            border-radius: 8px;
-            margin-bottom: 10px;
         }
         svg {
             width: 100%;

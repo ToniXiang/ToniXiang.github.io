@@ -83,37 +83,38 @@ document.addEventListener('DOMContentLoaded',()=>{
             <div class="farea">
                 <h3>導航</h3>
                 <ul>
-                    <li><a href="index.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>主要頁面</a></li>
-                    <li><a href="project.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>作品展示</a></li>
-                    <li><a href="about.html"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>關於我</a></li>
-                    <li><a href="https://github.com/ChenGuoXiang940"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Github</a></li>
+                    <li><a href="index.html">主要頁面</a></li>
+                    <li><a href="project.html">作品展示</a></li>
+                    <li><a href="about.html">關於我</a></li>
+                    <li><a href="https://github.com/ChenGuoXiang940">Github</a></li>
                 </ul>
             </div>
             <div class="farea">
                 <h3>社交媒體</h3>
                 <ul>
-                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Facebook</a></li>
-                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Twitter</a></li>
-                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>LinkedIn</a></li>
-                    <li><a href="#"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Instagram</a></li>
                 </ul>
             </div>
             <div class="farea">
                 <h3>其他資訊</h3>
                 <p>使用工具</p>
                 <ul>
-                    <li><a href="https://code.visualstudio.com/"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>VSCode</a></li>
-                    <li><a href="https://github.com/features/copilot"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>GitHub Copilot</a></li>
-                    <li><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Live Server</a></li>
+                    <li><a href="https://code.visualstudio.com/">VSCode</a></li>
+                    <li><a href="https://github.com/features/copilot">GitHub Copilot</a></li>
+                    <li><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Live Server</a></li>
                 </ul>
                 <p>參考網站</p>
                 <ul>
-                    <li><a href="https://navnav.co"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>All | NavNav+</a></li>
-                    <li><a href="https://bootstrapmade.com"><span class="material-symbols-sharp" id="arrow">arrow_forward_ios</span>Bootstrap Templates</a></li>
+                    <li><a href="https://navnav.co">All | NavNav+</a></li>
+                    <li><a href="https://bootstrapmade.com">Bootstrap Templates</a></li>
                 </ul>
             </div>
         </div>
-        <p class="about">有新的想法會持續更新</p>`;
+        <p class="about">有新的想法會持續更新</p>
+        <p class="about">*目前為過渡版本 可能存在許多問題</p>`;
 });
 // 開啟與關閉的導航欄動畫
 function toggleMenu() {
@@ -219,34 +220,6 @@ function applyTheme(themeName) {
             themeP.textContent='暗色';
         });
         document.getElementById('prismTheme').setAttribute('href', 'prism_light.css');
-    }
-}
-// 點擊後跳到指定的段落
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('#catalog nav');
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id');
-            document.querySelector(`#catalog nav[onclick="toArticle('#${id}')"]`).classList.add('active');
-        } else {
-            const id = entry.target.getAttribute('id');
-            document.querySelector(`#catalog nav[onclick="toArticle('#${id}')"]`).classList.remove('active');
-        }
-    });
-});
-sections.forEach((section) => {
-    observer.observe(section);
-});
-function toArticle(selector) {                
-    const element = document.querySelector(selector);
-    if (element) {
-        const top = element.getBoundingClientRect().top + window.scrollY -70;
-        if(top<0)top=0;
-        window.scrollTo({
-            top: top,
-            behavior: "smooth"
-        });
     }
 }
 // 顯示和隱藏目錄

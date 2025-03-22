@@ -21,17 +21,8 @@
     <div id="catalog">
         <h2>目錄</h2>
         <button id="showNavs"><span class="material-symbols-sharp">chevron_right</span></button>
-        <nav onclick="toArticle('#section1')">
-            <p>旅行商問題</p>
-        </nav>
-        <nav onclick="toArticle('#section2')">
+        <nav onclick="loadArticle('OCC_myproject',event)">
             <p>簡易的行控中心</p>
-        </nav>
-        <nav onclick="toArticle('#section3')">
-            <p>設計網路</p>
-        </nav>
-        <nav onclick="toArticle('#section4')">
-            <p>摺疊地圖</p>
         </nav>
     </div>
     <main>
@@ -40,365 +31,22 @@
             <h3 id="caption"></h3>
             <img class="modal-content" id="img01">
         </div>
-        <article>
-            <section id="section1">
-                <header>
-                    <h2>旅行商問題</h2>
-                    <span class="message-tags">軟體設計</span>
-                    <span class="message-tags">C#</span>
-                    <span class="message-tags">NP問題</span>
-                    <span class="message-tags"><a
-                            href="https://github.com/ChenGuoXiang940/Algorithm/tree/6b44667a3bcf469e8c33ed8b7e4a1fc4addb3b5a/%E5%9B%B0%E9%9B%A3%E5%95%8F%E9%A1%8CNP/%E6%97%85%E9%81%8A%E5%95%86%E5%95%8F%E9%A1%8CTSP"
-                            target="_blank" class="link">儲存庫連結</a></span>
-                </header>
-                <section>
-                    <h3>表單設計</h3>
-                    <div class="flip" onclick="openModal('Screenshots/p1-1.png','Form1')">
-                        <div class="front" style="background-image: url(Screenshots/p1-1.png)"></div>
-                        <div class="back">
-                            <h4>Form1</h4>
-                            <p>這個應用程式的核心功能包括隨機生成代表城市位置的座標（生成路線）、利用退火蟻演算法規劃最佳或次優行進路徑（規劃路線），並實時顯示計算所需的時間（時間顯示）。整體設計高效直觀，適合解決旅行商問題（TSP）類的優化需求。
-                            </p>
-                        </div>
-                    </div>
-                </section>
-                <section>
-                    <h3>問題說明</h3>
-                    <p>旅行商問題（英語：Travelling salesman problem,TSP）是組合
-                        最佳化中的一個NP困難問題,在作業研究和理論電腦科學中非常重要。
-                        問題內容為「給定一系列城市和每對城市之間的距離,求解訪問每一座
-                        城市一次並回到起始城市的最短迴路。」最直接的解法就是把所有可能
-                        的路線都列出來,再比較哪一個路線是最短的。也就是以n個城市來說,會
-                        有n!條路線,找出其中的最短路線就需要O(n!),即所謂階層時間(factorial time)。
-                    </p>
-                    <p>目前還沒有快速的演算法可以解決出唯一且最佳解。為了降低時間複雜度，
-                        本範例用退火蟻演算法，執行效率快了許多，但執行結果都不一定相同。</p>
-                    <h3>退火蟻演算法</h3>
-                    <pre><code class="language-csharp">//初始化
-seq = new int[25];
-seq_f = new int[25];
-double tempterature = 10000;//當前溫度
-double result = 1E9;        //當前最短路徑長度
-double new_energy = 1, old_energy = 0;
-double[,] distance = new double[25, 25];
-//建立圖
-for (int i = 0; i < 25; i++)
-{
-    for(int j = 0; j < 25; j++)
-    {
-        //自己到自己不考慮距離(為零)
-        distance[i, j] = i == j ? 0 : Data.GetDistance(dot[i], dot[j]);
-    }
-}
-//紀錄順序 0~24
-Parallel.For(0, 25, i =>{
-    seq[i] = seq_f[i] = i;
-});
-//使用退火蟻演算法進行迭代，直到溫度足夠低或能量變化足夠小
-while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
-{
-    int iterate = 100;//設定迭帶次數
-    int[] seq_ff = new int[25];//存儲產生的序列
-    while (iterate-- >= 0 && Math.Abs(new_energy - old_energy) > 1E-9)
-    {
-        //生成新的序列
-        Data.generate1(ref seq_ff);
-        //計算新與舊各自的能量
-        new_energy = Data.count_energy(ref seq_ff);
-        old_energy = Data.count_energy(ref seq_f);
-        //Metroplis-Hastings 演算法 (Metropolis-Hastings algorithm)
-        //從複雜的概率分佈中抽取樣本
-        if (Data.metro(old_energy, new_energy, tempterature))
-        {
-            //如果接受，將新生成的序列複製到原序列
-            seq_f = seq_ff.ToArray();
-        }
-    }              
-    new_energy = Data.count_energy(ref seq_f);
-    old_energy = result;
-    if (Data.metro(old_energy, new_energy, tempterature))
-    {
-        seq = seq_f.ToArray();
-        //降低溫度，以便更容易接受新的序列，但不會太快，以免陷入局部最小值
-        tempterature *= 0.998;
-    }
-    else
-    {
-        //稍微降低溫度
-        tempterature *= 0.999;
-    }
-    result = Data.count_energy(ref seq);
-}</code></pre>
-                </section>
-            </section>
-        </article>
-        <article>
-            <section id="section2">
-                <header>
-                    <h2>簡易的行控中心</h2>
-                    <span class="message-tags">軟體設計</span>
-                    <span class="message-tags">模擬</span>
-                    <span class="message-tags">資料庫</span>
-                    <span class="message-tags">C#</span>
-                    <span class="message-tags"><a href="https://github.com/ChenGuoXiang940/NTCUST_OCC_myproject.git"
-                            target="_blank" class="link">儲存庫連結</a></span>
-                </header>
-                <section>
-                    <h3>表單設計</h3>
-                    <div class="img-region">
-                        <div class="flip" onclick="openModal('Screenshots/p2-1.png','Form1')">
-                            <div class="front" style="background-image: url(Screenshots/p2-1.png)"></div>
-                            <div class="back">
-                                <h4>Form1</h4>
-                                <p>這個行控中心系統界面整合了列車狀態監控、路線圖可視化、列車靈活控制、事件應急處理等功能，具有操作直觀、信息全面和響應高效的特點。適合應用於列車運行調度和事件處理中，提升整體管理效率和安全性。
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flip" onclick="openModal('Screenshots/p2-2.png','Form2')">
-                            <div class="front" style="background-image: url(Screenshots/p2-2.png)"></div>
-                            <div class="back">
-                                <h4>Form2</h4>
-                                <p>這是用戶回饋表單，允許用戶提交問題報告、功能建議或使用體驗等回饋信息。表單包括電子郵件欄位、回饋類型選項、具體內容描述，以及是否參與進一步討論或測試新功能的選擇。旨在收集用戶意見，改進系統功能。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <h3>主要功能</h3>
-                    <ul>
-                        <li>使用者可以自行操作列車</li>
-                        <li>時刻掌握當前時間</li>
-                        <li>使用模擬計算來預估列車的當前狀態</li>
-                        <li>路線地圖可視化展示</li>
-                        <li>緊急事件處理</li>
-                        <li>用戶回饋功能</li>
-                        <li>更多功能日後開發(維護和檢修計劃、能源管理連接資料庫)</li>
-                    </ul>
-                    <h3>功能介紹</h3>
-                    <h4>1. 車站狀態</h4>
-                    <p>請選擇車站名稱，可以調整優先序。</p>
-                    <p>時刻表包含將進站的列車名、預估抵達時間、起始站、終點站。</p>
-                    <h4>2. 列車狀態及操作</h4>
-                    <p>請選擇列車名稱，可以調整優先序、更改終點站，但先臨停。</p>
-                    <ul>
-                        <li>列車出站加速度為 2.5 m/s²，維持且不超過 110km/h。</li>
-                        <li>列車進站加速度為 -2.0 m/s²。</li>
-                        <li>「煞車」煞車加速度為 -3.0 m/s² 用於急煞。</li>
-                        <li>「啟動」要開始行駛加速，需要在軌道上。</li>
-                        <li>「發車」等候發車。</li>
-                        <li>「停靠站」在此站不發車，需要先停靠在車站。</li>
-                        <li>車站優先序如果低於列車則不會臨停。</li>
-                    </ul>
-                    <ul>
-                        <li>同方向列車不會在車站同時發車，考慮安全問題。</li>
-                        <li>如果要進站的月台數不足則不會發車，需等待已在進站月台的列車離站。</li>
-                        <li>一個月台有各一個北上和南下可給列車停靠。</li>
-                    </ul>
-                    <h4>3. 路線地圖</h4>
-                    <p>點選車站名可直接更改列車站狀態的車站名。</p>
-                    <p>箭頭顏色說明：</p>
-                    <ul>
-                        <li><span style="color: var(--text-color);">黑色箭頭</span>：無列車在此行駛。</li>
-                        <li><span style="color: orange;">橘色箭頭</span>：有列車要進站或離站。</li>
-                        <li><span style="color: blue;">藍色箭頭</span>：有列車正在此行駛。</li>
-                        <li><span style="color: red;">紅色箭頭</span>：存在安全問題。</li>
-                    </ul>
-                    <h4>4. 事件處理</h4>
-                    <p>選擇事件及列車，勾選聯絡單位，詳細內容可為空。</p>
-                    <p>模擬事件回報功能。</p>
-                </section>
-            </section>
-        </article>
-        <article>
-            <section id="section3">
-                <header>
-                    <h2>設計網路</h2>
-                    <span class="message-tags">packet tracer</span>
-                    <span class="message-tags">計算機網路</span>
-                    <span class="message-tags">期末實作</span>
-                </header>
-                <section>
-                    <h3>設計與功能</h3>
-                    <div class="img-region">
-                        <div class="flip" onclick="openModal('Screenshots/p3-1.png','網路拓樸圖')">
-                            <div class="front" style="background-image: url(Screenshots/p3-1.png)"></div>
-                            <div class="back">
-                                <h4>網路拓樸圖</h4>
-                                <p>請利用 Packet tracer 將網路拓樸畫出並且設定網路.將畫面截圖
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flip" onclick="openModal('Screenshots/p3-2.png','測試連通')">
-                            <div class="front" style="background-image: url(Screenshots/p3-2.png)"></div>
-                            <div class="back">
-                                <h4>測試連通</h4>
-                                <p>以 PC1-PC2, PC3-PC0 Ping 測試連通成功之畫面截圖
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flip" onclick="openModal('Screenshots/p3-3.png','測試連通')">
-                            <div class="front" style="background-image: url(Screenshots/p3-3.png)"></div>
-                            <div class="back">
-                                <h4>測試連通</h4>
-                                <p>PC0 瀏覽器打 www.nutc.edu.學號後兩碼有網頁連通之畫面截圖
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flip" onclick="openModal('Screenshots/p3-4.png','測試連通')">
-                            <div class="front" style="background-image: url(Screenshots/p3-4.png)"></div>
-                            <div class="back">
-                                <h4>測試連通</h4>
-                                <p>PC0 IP configuration 打開可看到自動指定的 IP (DHCP)  
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <h3>問題說明</h3>
-                    <p>假設你是系計中的網路管理人員，你將負責來規劃系上新增的 5 個子網路的分割與設定，電算中心給定以下 5 個子網路位址空間為 140.111.XX.0/24，XX為你的學號後兩碼。此外你需要建立3個應用層服務於 2704 的 1 個 servers (Server1為HTTP/DNS/DHCP server) </p>
-                    <p>該網路包括以下網段： </p>
-                    <ul>
-                        <li>連接到路由器 R1 的R2701  LAN需容納 60 台的 IP 位址，請設定PC1為此網路第 1 個 IP 位址. 預設閘道為最後 1 個 IP 位址</li>
-                        <li>連接到路由器 R1 的R2702  LAN 需容納 20 台的 IP 位址，請設定PC3為此網路第 1 個 IP 位址. 預設閘道為最後 1 個 IP 位址</li>
-                        <li>連接到路由器 R2 的R2703  LAN 需容納 30 台的 IP 位址，請設定PC2為此網路第 1 個 IP 位址. 預設閘道為最後 1 個 IP 位址</li>
-                        <li>連接到路由器 R2 的R2704  LAN 需容納 10 台的 IP 位址，請設定Server -PT為此網路第 1 個IP位址. 預設閘道為最後 1 個 IP 位址. PC0 則由 DHCP 分配剩餘的其中 1 個 IP 位址</li>
-                        <li>路由器 R1 和路由器 R2 之間的WAN1鏈路每一端都需要一個 IP 位址。 </li>
-                    </ul>
-                    <p>其餘設定如下</p>
-                    <ul>
-                        <li>Server 1 DNS/HTTP Server 的 DNS 設定為 www.nutc.edu.學號後兩碼，HTTP 設定 ON。</li>
-                        <li>Server 1 DHCP 給定 10 個有效主機位址設定成 DHCP 動態配置給 PC0。</li>
-                        <li>設定個裝置的網路設定</li>
-                        <li>設定各路由器 R1 與 R2 的靜態路由</li>
-                    </ul>
-                    <h3>https://subnettingpractice.com/vlsm.html</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>網路名稱</th>
-                                <th>網路位址</th>
-                                <th>廣播位址</th>
-                                <th>主機範圍</th>
-                                <th>網路遮罩</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>2701</td>
-                                <td>140.111.69.0</td>
-                                <td>140.111.69.63</td>
-                                <td>140.111.69.1 - 140.111.69.62</td>
-                                <td>255.255.255.192</td>
-                            </tr>
-                            <tr>
-                                <td>2702</td>
-                                <td>140.111.69.64</td>
-                                <td>140.111.69.95</td>
-                                <td>140.111.69.65 - 140.111.69.94</td>
-                                <td>255.255.255.224</td>
-                            </tr>
-                            <tr>
-                                <td>2703</td>
-                                <td>140.111.69.96</td>
-                                <td>140.111.69.127</td>
-                                <td>140.111.69.97 - 140.111.69.126</td>
-                                <td>255.255.255.224</td>
-                            </tr>
-                            <tr>
-                                <td>2704</td>
-                                <td>140.111.69.128</td>
-                                <td>140.111.69.143</td>
-                                <td>140.111.69.129 - 140.111.69.142</td>
-                                <td>255.255.255.240</td>
-                            </tr>
-                            <tr>
-                                <td>WAN1 (R1-R2)</td>
-                                <td>140.111.69.144</td>
-                                <td>140.111.69.147</td>
-                                <td>140.111.69.145 - 140.111.69.146</td>
-                                <td>255.255.255.252</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <h3>命令列網路工具</h3>
-                    <div class="img-region">
-                        <div class="flip" onclick="openModal('Screenshots/p3-5.png','PC1 到 PC2 經過的路由器')">
-                            <div class="front" style="background-image: url(Screenshots/p3-5.png)"></div>
-                            <div class="back">
-                                <h4>PC1 到 PC2 經過的路由器</h4>
-                                <p>用 PC1 的終端輸入>tracert PC2 的網路位址</p>
-                            </div>
-                        </div>
-                        <div class="flip" onclick="openModal('Screenshots/p3-6.png','PC1 目前 TCP/UDP 連接狀況')">
-                            <div class="front" style="background-image: url(Screenshots/p3-6.png)"></div>
-                            <div class="back">
-                                <h4>PC1 目前 TCP/UDP 連接狀況</h4>
-                                <p>用 PC1 的終端輸入>netstat</p>
-                            </div>
-                        </div>
-                        <div class="flip" onclick="openModal('Screenshots/p3-7.png','PC1的實體位址(Physical Address)')">
-                            <div class="front" style="background-image: url(Screenshots/p3-7.png)"></div>
-                            <div class="back">
-                                <h4> PC1 的實體位址(Physical Address)</h4>
-                                <p>用 PC1 的終端輸入>ipconfig /all</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </section>
-        </article>
-        <article>
-            <section id="section4">
-                <header>
-                    <h2>摺疊地圖</h2>
-                    <span class="message-tags">軟體設計</span>
-                    <span class="message-tags">C#</span>
-                    <span class="message-tags">monogame</span>
-                    <span class="message-tags">波函數塌縮</span>
-                    <span class="message-tags"><a
-                            href="https://github.com/ChenGuoXiang940/WFC_myproject.git"
-                            target="_blank" class="link">儲存庫連結</a></span>
-                </header>
-                <section>
-                    <h3>表單設計</h3>
-                        <div class="flip" onclick="openModal('Screenshots/p4-1.png','Form1')">
-                            <div class="front" style="background-image: url(Screenshots/p4-1.png)"></div>
-                            <div class="back">
-                                <h4>Form1</h4>
-                                <p>這張圖的生成方式是透過一組設定相容性規則，例如：草地可以與水相鄰，但不直接鄰近森林，而建築物不能直接放在水上。
-                                </p>
-                            </div>
-                        </div>
-                        <h3>設計與功能</h3>
-                        <p>地圖生成：</p>
-                        <p>定義各種地形和瓦片的類型，如水、草地、森林、道路、房屋等。
-                            用瓦片之間的規則和連接性，確保生成的地圖符合預定的地形規則。
-                            每個瓦片根據周圍環境進行塌縮，最終生成符合規則的地圖。</p>
-                        <p>遊戲控制：</p>
-                        <p>提供重新生成地圖的功能，通過按下 T 鍵來重新開始生成地圖。
-                            顯示生成的地圖和提示信息。</p>
-                        <h3>其他應用</h3>
-                        <p>WFC 演算法的應用範圍非常廣泛，包括但不限於：</p>
-                        <ul>
-                            <li>隨機地圖生成（如遊戲地圖、迷宮、城鎮）</li>
-                            <li>自動關卡設計（如 Rogue-like 遊戲）</li>
-                            <li>紋理合成（如 procedural texture generation）</li>
-                        </ul>
-                        <p>這種技術常被應用在遊戲開發中，用於生成隨機且具有挑戰性的地圖和關卡，提升遊戲的可玩性和重玩性。</p>
-                        <h3>個人想法</h3>
-                        <p>當初(2023冬季)在網路上看到別人的實作影片，就開始對 Wave Function Collapse 有些想法，但礙於當時我的程式水平不足，Python 還沒學，網路上有關的中英資料也看不懂，只好中途而退。
-                            今(2025寒假)我的數學與程式能力有顯著提升，已掌握機率與統計、線代、圖論、離散的基本概念，嘗試理解別人寫 Python 程式轉我熟悉的 C#，並在此基礎上做一些變化。
-                        </p>
-                </section>
-            </section>
+        <article id="articleContent">
+            <div class="default-message">
+                <h2>探索我的作品展示</h2>
+                <p>請選擇目錄中的項目以查看詳細內容。</p>
+                <p>這裡是一些引導或個人心得：</p>
+                <ul>
+                    <li>探索不同的專案，了解我的工作和興趣。</li>
+                    <li>每個專案都有詳細的描述和相關連結。</li>
+                    <li>如果有任何問題或建議，歡迎聯繫我。</li>
+                    <li>目前嘗試以 JSON 來存儲文章數據。</li>
+                </ul>
+            </div>
         </article>
     </main>
     <footer></footer>
     <style>
-        .img-region {
-            display: grid;
-            gap: 20px;
-            position: relative;
-        }
-
         .message-tags {
             border: var(--accent-color) 0.5px solid;
             border-radius: 5px;
@@ -411,122 +59,65 @@ while (tempterature > 1E-9 && Math.Abs(new_energy - old_energy) > 1E-9)
             color: var(--accent-color);
         }
 
-        .flip {
-            position: relative;
-
-            >.front,
-            >.back {
-                display: block;
-                transition-timing-function: cubic-bezier(.175, .885, .32, 1.275);
-                transition-duration: .5s;
-                transition-property: transform, opacity;
-            }
-
-            >.front {
-                transform: rotateY(0deg);
-            }
-
-            >.back {
-                position: absolute;
-                opacity: 0;
-                top: 0px;
-                left: 0px;
-                width: 100%;
-                height: 100%;
-                transform: rotateY(-180deg);
-            }
-
-            &:hover {
-                >.front {
-                    transform: rotateY(180deg);
-                }
-
-                >.back {
-                    opacity: 1;
-                    transform: rotateY(0deg);
-                }
-            }
-
-            &.flip-vertical {
-                >.back {
-                    transform: rotateX(-180deg);
-                }
-
-                &:hover {
-                    >.front {
-                        transform: rotateX(180deg);
-                    }
-
-                    >.back {
-                        transform: rotateX(0deg);
-                    }
-                }
-            }
+        .default-message {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(212, 129, 129, 0.15);
         }
 
-        .flip {
-            position: relative;
+        .default-message h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .default-message p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .default-message ul {
+            padding-left: 20px;
+            text-align: left;
             display: inline-block;
-            margin-right: 2px;
-            margin-bottom: 1em;
-            width: 300px;
-
-            >.front,
-            >.back {
-                display: block;
-                color: white;
-                width: inherit;
-                background-size: cover !important;
-                background-position: center !important;
-                height: 220px;
-                padding: 1em 2em;
-                background: var(--img-color);
-                border-radius: 10px;
-                p {
-                    font-size: 0.9125rem;
-                    line-height: 160%;
-                    color: aliceblue;
-                }
-            }
         }
 
-        .text-shadow {
-            text-shadow: 1px 1px rgba(0, 0, 0, 0.04), 2px 2px rgba(0, 0, 0, 0.04), 3px 3px rgba(0, 0, 0, 0.04), 4px 4px rgba(0, 0, 0, 0.04), 0.125rem 0.125rem rgba(0, 0, 0, 0.04), 6px 6px rgba(0, 0, 0, 0.04), 7px 7px rgba(0, 0, 0, 0.04), 8px 8px rgba(0, 0, 0, 0.04), 9px 9px rgba(0, 0, 0, 0.04), 0.3125rem 0.3125rem rgba(0, 0, 0, 0.04), 11px 11px rgba(0, 0, 0, 0.04), 12px 12px rgba(0, 0, 0, 0.04), 13px 13px rgba(0, 0, 0, 0.04), 14px 14px rgba(0, 0, 0, 0.04), 0.625rem 0.625rem rgba(0, 0, 0, 0.04), 16px 16px rgba(0, 0, 0, 0.04), 17px 17px rgba(0, 0, 0, 0.04), 18px 18px rgba(0, 0, 0, 0.04), 19px 19px rgba(0, 0, 0, 0.04), 1.25rem 1.25rem rgba(0, 0, 0, 0.04);
+        .default-message li {
+            margin-bottom: 5px;
         }
-
-        @media screen and (max-width: 1001px) {
-            .img-region {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media screen and (min-width: 1001px) {
-            .img-region {
-                grid-template-columns: 1fr 1fr;
-            }
+        .active-nav {
+            background-color: var(--primary-color);
         }
     </style>
     <script src="script.js"></script>
     <script src="prism.js"></script>
     <script>
-        // 統計文章字數
-        document.addEventListener("DOMContentLoaded", function () {
-            let articles = document.querySelectorAll('article');
-            articles.forEach(article => {
-                let text = article.textContent;
-                let pElements = article.querySelectorAll('p');
-                let tagsElements = article.querySelectorAll('.tags');
-                if (tagsElements.length == 0) return;
-                let wordCount = 0;
-                pElements.forEach(pElement => {
-                    wordCount += pElement.textContent.length;
-                });
-                let newMessageTags = document.createElement('div');
-                newMessageTags.className = 'message-tags';
-                newMessageTags.textContent = "字數: " + wordCount;
-                tagsElements[0].appendChild(newMessageTags);
+        // 載入文章
+        function loadArticle(articleId,event) {
+            document.querySelectorAll('#catalog nav').forEach(nav => {
+                nav.classList.remove('active-nav');
             });
-        });
+            event.currentTarget.classList.add('active-nav');
+            fetch('project.json')
+                .then(response => response.json())
+                .then(data => {
+                    const article = data.articles[articleId];
+                    const articleContent = document.getElementById('articleContent');
+                    articleContent.innerHTML = `
+                        <header>
+                            <h2>${article.title}</h2>
+                            ${article.tags.map(tag => `<span class="message-tags">${tag}</span>`).join('')}
+                            ${article.repositoryLink ? `<span class="message-tags"><a href="${article.repositoryLink}" target="_blank" class="link">儲存庫連結</a></span>` : ''}
+                        </header>
+                        ${article.sections.map(section => `
+                            <section>
+                                <h3>${section.title}</h3>
+                                <p>${section.content}</p>
+                            </section>
+                        `).join('')}
+                    `;
+                });
+        }
         // article 第一次出現在螢幕而且還要被看到時產生淡入效果
         document.addEventListener("DOMContentLoaded", function () {
             let observer = new IntersectionObserver(function (entries) {
