@@ -2,11 +2,10 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Arial', sans-serif;
 }
 body {
-    font-family: 'Arial', sans-serif;
     background-color: #f4f4f9;
-    color: #333;
     margin: 0;
     padding: 0;
 }
@@ -85,8 +84,7 @@ body>header{
     }
     
     .navigation>nav:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transform: translateY(-5px);
     }
     
     .navigation>nav>span {
@@ -191,7 +189,6 @@ hr {
 footer {
     padding: 20px 0;
     text-align: left;
-    user-select: none;
 }
 h1{
     font-size: 25px;
@@ -258,7 +255,7 @@ section>p,section>ul{
 .cp {
     position: fixed;
     bottom: 0;
-    left: 0;
+    right: 0;
     cursor: pointer;
     padding: 10px;
     color: var(--text-color);
@@ -339,9 +336,12 @@ section>p,section>ul{
 }
 #catalog{
     position: fixed;
-    padding-top: 5%;
-    width: 150px;
-    border-radius: 2px;
+    padding-top: 4em;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
     z-index: 2;
 }
 #catalog>nav,#catalog>h2{
@@ -352,13 +352,17 @@ section>p,section>ul{
     font-size: 20px;
     padding-left: 5px;
 }
+#catalog>nav:hover>p {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
 #showNavs {
     position: fixed;
     display: none;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    background-color: #333;
+    background-color: #555;
     color: #fff;
     border: none;
     border-radius: 0 5px 5px 0;
@@ -392,7 +396,6 @@ nav.visible {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.9);
 }
 .modal-content {
@@ -465,6 +468,7 @@ nav.visible {
 
 .farea ul {
     list-style: none;
+    user-select: none;
     padding-left: 0;
 }
 

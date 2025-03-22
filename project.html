@@ -8,8 +8,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shortcut icon" type="image/x-icon" href="Screenshots\me.png">
     <link id="prismTheme" rel="stylesheet" href="prism_dark.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_drop_up,arrow_forward_ios,chevron_right,contrast,dark_mode,description,group,history,home,light_mode,mail,menu,share" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_drop_up,arrow_forward_ios,chevron_right,contrast,dark_mode,description,group,history,home,light_mode,mail,menu,share" />
 </head>
 
 <body>
@@ -19,10 +18,13 @@
     </div>
     <header class="blogTitle"></header>
     <div id="catalog">
-        <h2>目錄</h2>
+        <h2>這是目錄</h2>
         <button id="showNavs"><span class="material-symbols-sharp">chevron_right</span></button>
         <nav onclick="loadArticle('OCC_myproject',event)">
             <p>簡易的行控中心</p>
+        </nav>
+        <nav onclick="loadArticle('shoppingPlatform',event)">
+            <p>購物平台</p>
         </nav>
     </div>
     <main>
@@ -31,6 +33,10 @@
             <h3 id="caption"></h3>
             <img class="modal-content" id="img01">
         </div>
+        <select id="languageSwitcher">
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+        </select>
         <article id="articleContent">
             <div class="default-message">
                 <h2>探索我的作品展示</h2>
@@ -41,6 +47,7 @@
                     <li>每個專案都有詳細的描述和相關連結。</li>
                     <li>如果有任何問題或建議，歡迎聯繫我。</li>
                     <li>目前嘗試以 JSON 來存儲文章數據。</li>
+                    <li>目前開發中英語言支持。</li>
                 </ul>
             </div>
         </article>
@@ -88,16 +95,45 @@
         .active-nav {
             background-color: var(--primary-color);
         }
+        #languageSwitcher {
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid var(--accent-color);
+            border-radius: 5px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            cursor: pointer;
+        }
     </style>
     <script src="script.js"></script>
     <script src="prism.js"></script>
     <script>
         // 載入文章
-        function loadArticle(articleId,event) {
+        let currentArticleId = '';
+        function loadArticle(articleId, event) {
             document.querySelectorAll('#catalog nav').forEach(nav => {
                 nav.classList.remove('active-nav');
             });
-            event.currentTarget.classList.add('active-nav');
+            if (event) {
+                event.currentTarget.classList.add('active-nav');
+            }
+            currentArticleId = articleId;
+            const selectedLanguage = document.getElementById('languageSwitcher').value;
+            const repositoryLinkText = {
+                en: "Repository Link",
+                zh: "儲存庫連結"
+            };
+            const navs = document.querySelectorAll('#catalog nav');
+            const showNavsButton = document.getElementById('showNavs');
+            const h2 = document.querySelector('#catalog h2');
+            navs.forEach(nav => {
+                nav.classList.add('hidden');
+                nav.classList.remove('visible');
+            });
+            showNavsButton.style.display = 'block';
+            h2.style.display = 'none';
             fetch('project.json')
                 .then(response => response.json())
                 .then(data => {
@@ -105,19 +141,24 @@
                     const articleContent = document.getElementById('articleContent');
                     articleContent.innerHTML = `
                         <header>
-                            <h2>${article.title}</h2>
-                            ${article.tags.map(tag => `<span class="message-tags">${tag}</span>`).join('')}
-                            ${article.repositoryLink ? `<span class="message-tags"><a href="${article.repositoryLink}" target="_blank" class="link">儲存庫連結</a></span>` : ''}
+                            <h2>${article.title[selectedLanguage]}</h2>
+                            ${article.tags[selectedLanguage].map(tag => `<span class="message-tags">${tag}</span>`).join('')}
+                            ${article.repositoryLink ? `<span class="message-tags"><a href="${article.repositoryLink}" target="_blank" class="link">${repositoryLinkText[selectedLanguage]}</a></span>` : ''}
                         </header>
                         ${article.sections.map(section => `
                             <section>
-                                <h3>${section.title}</h3>
-                                <p>${section.content}</p>
+                                <h3>${section.title[selectedLanguage]}</h3>
+                                <p>${section.content[selectedLanguage]}</p>
                             </section>
                         `).join('')}
                     `;
                 });
         }
+        // language switch
+        document.getElementById('languageSwitcher').addEventListener('change', function() {
+            if(currentArticleId==='')return;
+            loadArticle(currentArticleId);
+        });
         // article 第一次出現在螢幕而且還要被看到時產生淡入效果
         document.addEventListener("DOMContentLoaded", function () {
             let observer = new IntersectionObserver(function (entries) {

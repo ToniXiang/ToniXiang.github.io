@@ -6,6 +6,7 @@
     <title>個人網頁</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shortcut icon" href="Screenshots\me.png" type="image/x-icon">
+    <link id="prismTheme" rel="stylesheet" href="prism_dark.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_drop_up,arrow_forward_ios,contrast,dark_mode,description,group,history,home,light_mode,mail,menu,share" />
 </head>
 <body>
@@ -253,7 +254,7 @@
             animateText();
             adjustFontSize();
         });
-        let texts = ["Hi! I'm 陳國翔, a student at NTCUST, Taiwan.", "i am passionate about exploring new ideas."];
+        let texts = ["Hi! I'm a student at NTCUST, Taiwan.", "I'm passionate about exploring new ideas."];
         let aim = 0;
         function animateText() {
             let studentText = document.getElementById('student-text');
@@ -596,6 +597,7 @@
         input.addEventListener('keyup', keyup);
         addPrompt(0);
     </script>
+    <script src="prism.js"></script>
 </body>
 
 </html>

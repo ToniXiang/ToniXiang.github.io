@@ -1,22 +1,99 @@
 {
     "articles": {
         "OCC_myproject": {
-            "title": "簡易的行控中心",
-            "tags": ["軟體設計", "模擬", "資料庫", "C#"],
+            "title": {
+                "en": "Simple Control Center",
+                "zh": "簡易的行控中心"
+            },
+            "tags": {
+                "en": ["Software Design", "Simulation", "Database", "C#"],
+                "zh": ["軟體設計", "模擬", "資料庫", "C#"]
+            },
             "repositoryLink": "https://github.com/ChenGuoXiang940/NTCUST_OCC_myproject.git",
             "sections": [
                 {
-                    "title": "表單設計",
-                    "content": "這個行控中心系統界面整合了列車狀態監控、路線圖可視化、列車靈活控制、事件應急處理等功能，具有操作直觀、信息全面和響應高效的特點。適合應用於列車運行調度和事件處理中，提升整體管理效率和安全性。"
+                    "title": {
+                        "en": "Form Design",
+                        "zh": "表單設計"
+                    },
+                    "content": {
+                        "en": "This control center system interface integrates functions such as train status monitoring, route map visualization, flexible train control, and emergency event handling. It features intuitive operation, comprehensive information, and efficient response. Suitable for application in train operation scheduling and event handling, improving overall management efficiency and safety.",
+                        "zh": "這個行控中心系統界面整合了列車狀態監控、路線圖可視化、列車靈活控制、事件應急處理等功能，具有操作直觀、信息全面和響應高效的特點。適合應用於列車運行調度和事件處理中，提升整體管理效率和安全性。"
+                    }
                 },
                 {
-                    "title": "主要功能",
-                    "content": "<ul><li>使用者可以自行操作列車</li><li>時刻掌握當前時間</li><li>使用模擬計算來預估列車的當前狀態</li><li>路線地圖可視化展示</li><li>緊急事件處理</li><li>用戶回饋功能</li><li>更多功能日後開發(維護和檢修計劃、能源管理連接資料庫)</li></ul>"
+                    "title": {
+                        "en": "Main Functions",
+                        "zh": "主要功能"
+                    },
+                    "content": {
+                        "en": "<ul><li>Users can operate the train themselves</li><li>Always keep track of the current time</li><li>Use simulation calculations to estimate the current status of the train</li><li>Route map visualization</li><li>Emergency event handling</li><li>User feedback function</li><li>More functions to be developed in the future (maintenance and repair plans, energy management connected to the database)</li></ul>",
+                        "zh": "<ul><li>使用者可以自行操作列車</li><li>時刻掌握當前時間</li><li>使用模擬計算來預估列車的當前狀態</li><li>路線地圖可視化展示</li><li>緊急事件處理</li><li>用戶回饋功能</li><li>更多功能日後開發(維護和檢修計劃、能源管理連接資料庫)</li></ul>"
+                    }
                 },
                 {
-                    "title": "功能介紹",
-                    "content":"<h4>1. 車站狀態</h4><p>請選擇車站名稱，可以調整優先序。</p><p>時刻表包含將進站的列車名、預估抵達時間、起始站、終點站。</p><h4>2. 列車狀態及操作</h4><p>請選擇列車名稱，可以調整優先序、更改終點站，但先臨停。</p><ul><li>列車出站加速度為 2.5 m/s²，維持且不超過 110km/h。</li><li>列車進站加速度為 -2.0 m/s²。</li><li>「煞車」煞車加速度為 -3.0 m/s² 用於急煞。</li><li>「啟動」要開始行駛加速，需要在軌道上。</li><li>「發車」等候發車。</li><li>「停靠站」在此站不發車，需要先停靠在車站。</li><li>車站優先序如果低於列車則不會臨停。</li></ul><ul><li>同方向列車不會在車站同時發車，考慮安全問題。</li><li>如果要進站的月台數不足則不會發車，需等待已在進站月台的列車離站。</li><li>一個月台有各一個北上和南下可給列車停靠。</li></ul><h4>3.路線地圖</h4><p>點選車站名可直接更改列車站狀態的車站名。</p><p>箭頭顏色說明：</p><ul><li>黑色箭頭：無列車在此行駛。</li><li>橘色箭頭：有列車要進站或離站。</li><li>藍色箭頭：有列車正在此行駛。</li><li>紅色箭頭：存在安全問題。</li></ul><h4>4. 事件處理</h4><p>選擇事件及列車，勾選聯絡單位，詳細內容可為空。</p><p>模擬事件回報功能。</p>"
+                    "title": {
+                        "en": "Function Introduction",
+                        "zh": "功能介紹"
+                    },
+                    "content": {
+                        "en": "<h4>1. Station Status</h4><p>Please select the station name, and you can adjust the priority.</p><p>The timetable includes the name of the train that will arrive, the estimated arrival time, the starting station, and the terminal station.</p><h4>2. Train Status and Operation</h4><p>Please select the train name, and you can adjust the priority and change the terminal station, but first stop temporarily.</p><ul><li>The train's acceleration when leaving the station is 2.5 m/s², maintaining and not exceeding 110km/h.</li><li>The train's acceleration when entering the station is -2.0 m/s².</li><li>“Brake” braking acceleration is -3.0 m/s² for emergency braking.</li><li>“Start” to start driving acceleration, needs to be on the track.</li><li>“Depart” waiting for departure.</li><li>“Stop at station” does not depart at this station, needs to stop at the station first.</li><li>If the station priority is lower than the train, it will not stop temporarily.</li></ul><ul><li>Trains in the same direction will not depart at the station at the same time, considering safety issues.</li><li>If the number of platforms to enter the station is insufficient, it will not depart, and it needs to wait for the train already at the platform to leave the station.</li><li>Each platform has one northbound and one southbound for trains to stop.</li></ul><h4>3. Route Map</h4><p>Click on the station name to directly change the station name of the train station status.</p><p>Arrow color description:</p><ul><li>Black arrow: No train is running here.</li><li>Orange arrow: A train is about to enter or leave the station.</li><li>Blue arrow: A train is running here.</li><li>Red arrow: There is a safety issue.</li></ul><h4>4. Event Handling</h4><p>Select the event and train, check the contact unit, and the detailed content can be empty.</p><p>Simulate event reporting function.</p>",
+                        "zh": "<h4>1. 車站狀態</h4><p>請選擇車站名稱，可以調整優先序。</p><p>時刻表包含將進站的列車名、預估抵達時間、起始站、終點站。</p><h4>2. 列車狀態及操作</h4><p>請選擇列車名稱，可以調整優先序、更改終點站，但先臨停。</p><ul><li>列車出站加速度為 2.5 m/s²，維持且不超過 110km/h。</li><li>列車進站加速度為 -2.0 m/s²。</li><li>「煞車」煞車加速度為 -3.0 m/s² 用於急煞。</li><li>「啟動」要開始行駛加速，需要在軌道上。</li><li>「發車」等候發車。</li><li>「停靠站」在此站不發車，需要先停靠在車站。</li><li>車站優先序如果低於列車則不會臨停。</li></ul><ul><li>同方向列車不會在車站同時發車，考慮安全問題。</li><li>如果要進站的月台數不足則不會發車，需等待已在進站月台的列車離站。</li><li>一個月台有各一個北上和南下可給列車停靠。</li></ul><h4>3.路線地圖</h4><p>點選車站名可直接更改列車站狀態的車站名。</p><p>箭頭顏色說明：</p><ul><li>黑色箭頭：無列車在此行駛。</li><li>橘色箭頭：有列車要進站或離站。</li><li>藍色箭頭：有列車正在此行駛。</li><li>紅色箭頭：存在安全問題。</li></ul><h4>4. 事件處理</h4><p>選擇事件及列車，勾選聯絡單位，詳細內容可為空。</p><p>模擬事件回報功能。</p>"
+                    }
                 }
+            ]
+        },
+        "shoppingPlatform": {
+        "title": {
+            "en": "Shopping Platform",
+            "zh": "購物平台"
+        },
+        "tags": {
+            "en": ["Software Design", "Flutter", "Dart", "Cross-platform"],
+            "zh": ["軟體設計", "Flutter", "Dart", "跨平台"]
+        },
+        "repositoryLink": "https://github.com/ChenGuoXiang940/MyApp.git",
+        "sections": [
+            {
+                "title": {
+                    "en": "Registration and Login Page",
+                    "zh": "註冊與登入頁面"
+                },
+                "content": {
+                    "en": "<ul><li>Users can create an account through the registration page (simulation only, no storage).</li><li>The login page allows users to enter their account and password to enter the main screen (no backend verification required).</li></ul>",
+                    "zh": "<ul><li>使用者可透過註冊頁面創建帳號（僅模擬，不需儲存）</li><li>登入頁面可讓使用者輸入帳號密碼並進入主畫面（不需後端驗證）</li></ul>"
+                }
+            },
+            {
+                "title": {
+                    "en": "Main Screen (Product List)",
+                    "zh": "主畫面（商品列表）"
+                },
+                "content": {
+                    "en": "<ul><li>Displays multiple products, including name, image, and price.</li><li>Provides an 'Add to Cart' button to add products to the shopping cart.</li><li>The UI should clearly display the products and consider responsive design.</li></ul>",
+                    "zh": "<ul><li>顯示多個商品，包含名稱、圖片、價格</li><li>提供「加入購物車」按鈕，可將商品加入購物車</li><li>UI 需清楚展示商品，並考慮響應式設計</li></ul>"
+                }
+            },
+            {
+                "title": {
+                    "en": "Shopping Cart Page",
+                    "zh": "購物車頁面"
+                },
+                "content": {
+                    "en": "<ul><li>Displays the list of products added to the shopping cart by the user.</li><li>Shows the total price.</li><li>Allows users to delete products from the shopping cart.</li><li>Provides a 'Checkout' button (no actual payment required).</li></ul>",
+                    "zh": "<ul><li>顯示用戶已加入購物車的商品列表</li><li>顯示總價</li><li>允許用戶刪除購物車內的商品</li><li>提供「結帳」按鈕（不需實際付款）</li></ul>"
+                }
+            },
+            {
+                "title": {
+                    "en": "Bonus Features (Optional)",
+                    "zh": "加分項目（選做）"
+                },
+                "content": {
+                    "en": "<ul><li>Beautiful UI, using Card or GridView to display products.</li><li>Products can be categorized (e.g., electronics, clothing, etc.).</li><li>Support for Light Mode / Dark Mode switching.</li><li>Add simple animation effects to enhance user experience.</li><li>Product detail page: click on the product to enter the detailed information page (including product description, reviews, specifications, etc.).</li><li>Support for both Chinese and English languages.</li></ul>",
+                    "zh": "<ul><li>UI 美觀，使用 Card 或 GridView 顯示商品</li><li>商品可分類（如電子產品、服裝等）</li><li>支援 Light Mode / Dark Mode 切換</li><li>加入簡單的動畫效果提升用戶體驗</li><li>商品詳情頁面：點擊商品可進入詳細資訊頁面（包含商品描述、評論、規格等）</li><li>中英語言支持</li></ul>"
+                }
+            }
             ]
         }
     }
