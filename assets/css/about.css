@@ -1,0 +1,45 @@
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.info-table th, .info-table td {
+    border: 1px solid rgba(212, 129, 129, 0.15);
+    padding: 8px;
+    word-wrap: break-word;
+    max-width: 200px;
+}
+
+.info-table th {
+    text-align: left;
+    font-weight: bold;
+}
+
+.info-table td {
+    text-align: left;
+}
+
+.info-table th, .info-table td p {
+    margin: 0;
+}
+#mail{
+    font-size: 1em;
+}
+
+#area{
+    margin: 10px;
+    position: relative;
+    flex-direction: column;
+}
+
+.stats {
+    width: 100%;
+    height: auto;
+}
+.bracket{
+    font-size: 0.9em;
+}
+.bracket:hover{
+    color: var(--primary-color);
+}

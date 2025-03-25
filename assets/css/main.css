@@ -1,0 +1,48 @@
+.main-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.main-image:hover{
+    transform: scale(1.05);
+}
+
+#department-title {
+    font-size: 36px;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    text-align:center;
+    color: aliceblue;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+#student-text{
+    text-align: center;
+    padding-top: 5%;
+}
+#caption {
+    top: 0;
+    text-align: center;
+    z-index: 1000;
+    position: relative;
+}
+
+.no-hover-effect #detail:hover::before {
+    display: none;
+}
+.no-photo {
+    display: flex;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    background-color:var(--img-color);
+    text-align: center;
+}
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>個人網頁</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="shortcut icon" type="image/x-icon" href="Screenshots\me.png">
-    <link id="prismTheme" rel="stylesheet" href="prism_dark.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/me.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_drop_up,arrow_forward_ios,chevron_right,contrast,dark_mode,description,group,history,home,light_mode,mail,menu,share" />
+    <link rel="stylesheet" href="assets/css/project.css">
 </head>
 
 <body>
@@ -31,7 +31,7 @@
         <div id="myModal" class="modal">
             <span class="close">&times;</span>
             <h3 id="caption"></h3>
-            <img class="modal-content" id="img01">
+            <img class="modal-content" id="img01" alt="Modal Image">
         </div>
         <select id="languageSwitcher">
             <option value="en">English</option>
@@ -46,153 +46,12 @@
                     <li>探索不同的專案，了解我的工作和興趣。</li>
                     <li>每個專案都有詳細的描述和相關連結。</li>
                     <li>如果有任何問題或建議，歡迎聯繫我。</li>
-                    <li><span class="highlight">目前嘗試以 JSON 來存儲文章數據。</span></li>
-                    <li><span class="highlight">目前正在開發中英語言支持。</span></li>
+                    <li><span class="highlight">支持中英語言。</span></li>
                 </ul>
             </div>
         </article>
     </main>
     <footer></footer>
-    <style>
-        .centered-image {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 70%;
-        }
-        .message-tags {
-            border: var(--accent-color) 0.5px solid;
-            border-radius: 5px;
-            padding: 4px 8px;
-            font-size: 13px;
-            line-height: 14px;
-            border-radius: 4px;
-            margin: 8px 0 0 8px;
-            display: inline-block;
-            color: var(--accent-color);
-        }
-
-        .default-message {
-            text-align: center;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(212, 129, 129, 0.15);
-        }
-
-        .default-message h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .default-message p {
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        .default-message ul {
-            padding-left: 20px;
-            text-align: left;
-            display: inline-block;
-        }
-
-        .default-message li {
-            margin-bottom: 5px;
-        }
-        #languageSwitcher {
-            display: block;
-            margin: 20px auto;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid var(--accent-color);
-            border-radius: 5px;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            cursor: pointer;
-        }
-    </style>
-    <script src="script.js"></script>
-    <script src="prism.js"></script>
-    <script>
-        // 載入文章
-        let currentArticleId = '';
-        function loadArticle(articleId, event) {
-            currentArticleId = articleId;
-            const selectedLanguage = document.getElementById('languageSwitcher').value;
-            const repositoryLinkText = {
-                en: "Repository Link",
-                zh: "儲存庫連結"
-            };
-            const navs = document.querySelectorAll('#catalog nav');
-            const showNavsButton = document.getElementById('showNavs');
-            const h2 = document.querySelector('#catalog h2');
-            navs.forEach(nav => {
-                nav.classList.add('hidden');
-                nav.classList.remove('visible');
-            });
-            showNavsButton.style.display = 'block';
-            h2.style.display = 'none';
-            fetch('project.json')
-                .then(response => response.json())
-                .then(data => {
-                    const article = data.articles[articleId];
-                    const articleContent = document.getElementById('articleContent');
-                    articleContent.innerHTML = `
-                        <header>
-                            <h2>${article.title[selectedLanguage]}</h2>
-                            ${article.tags[selectedLanguage].map(tag => `<span class="message-tags">${tag}</span>`).join('')}
-                            ${article.repositoryLink ? `<span class="message-tags"><a href="${article.repositoryLink}" target="_blank" class="link">${repositoryLinkText[selectedLanguage]}</a></span>` : ''}
-                        </header>
-                        ${article.sections.map(section => `
-                            <section>
-                                <h3>${section.title[selectedLanguage]}</h3>
-                                <p>${section.content[selectedLanguage]}</p>
-                            </section>
-                        `).join('')}
-                    `;
-                });
-        }
-        // 顯示和隱藏目錄
-        document.addEventListener('DOMContentLoaded', () => {
-            const h2 = document.querySelector('#catalog h2');
-            const showNavsButton = document.getElementById('showNavs');
-            const navs = document.querySelectorAll('#catalog nav');
-            if(h2&&showNavsButton&&navs){
-                h2.addEventListener('click', () => {
-                    navs.forEach(nav => {
-                        nav.classList.add('hidden');
-                        nav.classList.remove('visible');
-                    });
-                    showNavsButton.style.display = 'block';
-                    h2.style.display='none';
-                });
-            
-                showNavsButton.addEventListener('click', () => {
-                    navs.forEach(nav => {
-                        nav.classList.add('visible');
-                        nav.classList.remove('hidden');
-                    });
-                    showNavsButton.style.display = 'none';
-                    h2.style.display='block';
-                });
-            }
-        });
-        // 中與英的語言選擇
-        document.getElementById('languageSwitcher').addEventListener('change', function() {
-            if(currentArticleId==='')return;
-            loadArticle(currentArticleId);
-        });
-        // article 第一次出現在螢幕而且還要被看到時產生淡入效果
-        document.addEventListener("DOMContentLoaded", function () {
-            let observer = new IntersectionObserver(function (entries) {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("fadeIn");
-                    }
-                });
-            });
-            document.querySelectorAll("article").forEach((article) => {
-                observer.observe(article);
-            });
-        });
-    </script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/project.js"></script>
 </body>
