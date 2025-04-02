@@ -398,10 +398,12 @@ nav.visible {
     background-color: rgba(0,0,0,0.9);
 }
 .modal-content {
-    width: 100%;
-    height: auto;
     max-width: 600px;
     max-height: 400px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .close {
     position: absolute;

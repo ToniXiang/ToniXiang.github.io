@@ -119,6 +119,7 @@ function loadNavigationAndFooter() {
                 </ul>
             </div>
         </div>
+        <p class="about">© 2025 個人網頁. All rights reserved.</p>
         <p class="about">有新的想法會持續更新</p>`;
 }
 //  如果不在最頂就顯示"往上的標誌" 如果被按下就滑動到最頂

@@ -60,8 +60,8 @@
                     "zh": "註冊與登入頁面"
                 },
                 "content": {
-                    "en": "<ul><li>Users can create an account through the registration page (simulation only, no storage).</li><li>The login page allows users to enter their account and password to enter the main screen (no backend verification required).</li></ul>",
-                    "zh": "<ul><li>使用者可透過註冊頁面創建帳號（僅模擬，不需儲存）</li><li>登入頁面可讓使用者輸入帳號密碼並進入主畫面（不需後端驗證）</li></ul>"
+                    "en": "<ul><li>Users can create an account through the registration page (simulation only, no storage).</li><li>The login page allows users to enter their account and password to enter the main screen (no backend verification required).</li></ul><img src='assets/images/p2-1.png' alt='Sign' class='centered-image' onclick=\"openModal('assets/images/p2-1.png', 'Sign')\">",
+                    "zh": "<ul><li>使用者可透過註冊頁面創建帳號（僅模擬，不需儲存）</li><li>登入頁面可讓使用者輸入帳號密碼並進入主畫面（不需後端驗證）</li></ul><img src='assets/images/p2-1.png' alt='登入' class='centered-image' onclick=\"openModal('assets/images/p2-1.png', '登入')\">"
                 }
             },
             {
@@ -70,8 +70,8 @@
                     "zh": "主畫面（商品列表）"
                 },
                 "content": {
-                    "en": "<ul><li>Displays multiple products, including name, image, and price.</li><li>Provides an 'Add to Cart' button to add products to the shopping cart.</li><li>The UI should clearly display the products and consider responsive design.</li></ul>",
-                    "zh": "<ul><li>顯示多個商品，包含名稱、圖片、價格</li><li>提供「加入購物車」按鈕，可將商品加入購物車</li><li>UI 需清楚展示商品，並考慮響應式設計</li></ul>"
+                    "en": "<ul><li>Displays multiple products, including name, image, and price.</li><li>Provides an 'Add to Cart' button to add products to the shopping cart.</li><li>The UI should clearly display the products and consider responsive design.</li></ul><img src='assets/images/p2-2.png' alt='主頁' class='centered-image' onclick=\"openModal('assets/images/p2-2.png', 'HomePage')\">",
+                    "zh": "<ul><li>顯示多個商品，包含名稱、圖片、價格</li><li>提供「加入購物車」按鈕，可將商品加入購物車</li><li>UI 需清楚展示商品，並考慮響應式設計</li></ul><img src='assets/images/p2-2.png' alt='主頁' class='centered-image' onclick=\"openModal('assets/images/p2-2.png', '主頁')\">"
                 }
             },
             {
