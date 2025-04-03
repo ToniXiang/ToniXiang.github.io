@@ -87,12 +87,7 @@ body>header{
     }
     
     .navigation>nav>span {
-        width: 60px;
-        margin-right: 12px;
-        color: aliceblue;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display:none;
     }
     
     .navigation>nav>p {
@@ -122,10 +117,9 @@ body>header{
         display: none;
     }
     .navigation>nav{
-        display:inline-block;
+        display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-right: 10px;
         cursor: pointer;
         position: relative;
     }
@@ -146,18 +140,16 @@ body>header{
     }
     .navigation>nav>span,.menu>span{
         height: 100%;
-        width: 30px;
-        padding-top: 5%;
+        width: 20px;
+        padding-top: 2%;
         float: left;
         margin-right: 10px;
         color: var(--blog-span-color);
     }
     .navigation>nav>p{
-        font-size: 15px;
-        font-weight: 400;
         color: var(--blog-span-color);
         padding: 0 40px;
-        padding-top: 5%;
+        padding-top: 2%;
     }
 }
 article {
@@ -170,15 +162,9 @@ article {
     box-shadow: 0 0 20px rgba(212, 129, 129, 0.15);
     transition: background-color 2s;
     border-radius: 5px 5px 0 0;
-    opacity: 0;
-    transition: opacity 2s;
     margin-left: 2%;
     margin-right: 2%;
     z-index: 1;
-}
-
-article.fadeIn {
-    opacity: 1;
 }
 hr {
     border-top: 1px solid rgba(0, 0, 0.2);
@@ -216,10 +202,11 @@ h4{
     text-align: center;
 }
 p{
+    display: flex;
     font-size: 16px;
+    gap: 8px;
+    margin: 5px 0;
     line-height: 1.6;
-    text-align: justify;
-    margin-bottom: 10px;
     color: var(--text-color);
 }
 span>a{
@@ -229,11 +216,11 @@ section>p,section>ul{
     margin-left: 20px;
     margin-right: 20px;
 }
-
-.about {
-    color: var(--text-color);
-    padding: 2px 0;
-    text-align: center;
+.footer-bottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
 }
 #background {
     position: fixed;
@@ -270,13 +257,6 @@ section>p,section>ul{
 .cp.hide {
     opacity: 0;
     transform: translateY(100%);
-}
-.img-photo {
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 10px;
-    display: none;
 }
 :root {
     --background-color-light: #ffffff;
@@ -398,8 +378,7 @@ nav.visible {
     background-color: rgba(0,0,0,0.9);
 }
 .modal-content {
-    max-width: 600px;
-    max-height: 400px;
+    max-width: 80vh;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -434,11 +413,6 @@ nav.visible {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-#mail,#arrow {
-    width: 25px;
-    height: 25px;
-    vertical-align: text-top;
-}
 .footer-content {
     display: flex;
     justify-content: space-around;
@@ -451,13 +425,39 @@ nav.visible {
     min-width: 200px;
     margin: 10px;
 }
-.farea-top{
+.footer-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+}
+.farea-top {
     flex: 1;
     min-width: 200px;
     margin: 20px;
     padding: 20px 20px;
     box-shadow: 0 0 20px rgba(212, 129, 129, 0.15);
     border-radius: 10px;
+    background: url('../images/starbg.png');
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: right center;
+    position: relative;
+    overflow: hidden;
+}
+.contact span,
+.location span {
+    display: inline-flex;
+    vertical-align: text-top;
+    align-items: center;
+}
+.contact {
+    color: var(--text-color);
+    text-decoration: none;
+    display: flex;
+    gap: 8px;
+    margin: 5px 0;
+    line-height: 1.6;
 }
 .farea p,
 .farea ul {
@@ -487,7 +487,7 @@ nav.visible {
     font-size: 1.5em;
 }
 .farea ul li a:hover {
-    color: #13c2c2;
+    color: var(--primary-color);
     text-decoration: underline;
 }
 .farea-top h2{
@@ -496,7 +496,7 @@ nav.visible {
     align-items: center;
 }
 .farea h3{
-    border-bottom: 2px solid var(--primary-color);
+    border-bottom: 2px solid var(--text-color);
     padding-bottom: 20px;
     margin-bottom: 20px;
 }

@@ -23,15 +23,6 @@
 .info-table th, .info-table td p {
     margin: 0;
 }
-#mail{
-    font-size: 1em;
-}
-
-#area{
-    margin: 10px;
-    position: relative;
-    flex-direction: column;
-}
 
 .stats {
     width: 100%;

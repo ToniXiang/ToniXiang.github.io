@@ -20,8 +20,8 @@
     position: absolute;
 }
 #student-text{
-    text-align: center;
     padding-top: 5%;
+    justify-content: center;
 }
 #caption {
     top: 0;

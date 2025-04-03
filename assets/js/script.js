@@ -81,10 +81,10 @@ function loadNavigationAndFooter() {
         <hr>
         <div class="footer-content">
             <div class="farea farea-top">
-                <h2><img src="assets/images/me.png" class="footer-img">個人網頁</h2>
-                <p>作者 陳國翔</p>
-                <p><span class="material-symbols-sharp" id="mail">mail</span>s1411232069@ad1.nutc.edu.tw</p>
-                <p><span class="material-symbols-sharp" id="mail">home</span>Taiwan,Taichung</p>
+                <h2><img src="assets/images/me.png" class="footer-img" alt="個人網頁 Logo">個人網頁</h2>
+                <p class="author">作者：<strong>陳國翔</strong></p>
+                <a class="contact" href="mailto:s1411232069@ad1.nutc.edu.tw"><span class="material-symbols-sharp">mail</span>s1411232069@ad1.nutc.edu.tw</a>
+                <p class="location"><span class="material-symbols-sharp">home</span>Taiwan, Taichung</p>
             </div>
             <div class="farea">
                 <h3>導航</h3>
@@ -119,8 +119,10 @@ function loadNavigationAndFooter() {
                 </ul>
             </div>
         </div>
-        <p class="about">© 2025 個人網頁. All rights reserved.</p>
-        <p class="about">有新的想法會持續更新</p>`;
+        <div class="footer-bottom">
+            <p>© 2025 個人網頁. All rights reserved.</p>
+            <p><span class="highlight">有新的想法會持續更新</span></p>
+        </div>`;
 }
 //  如果不在最頂就顯示"往上的標誌" 如果被按下就滑動到最頂
 function initializeBackToTopButton() {
