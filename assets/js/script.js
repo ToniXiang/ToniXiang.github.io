@@ -75,7 +75,7 @@ function loadNavigationAndFooter() {
             </nav>
         </div>
         <div class="menu" onclick="toggleMenu()">
-            <span class="material-symbols-sharp" style="color:var(--img-color-light)">menu</span>
+            <span class="material-symbols-sharp">menu</span>
         </div>`;
     foot.innerHTML = `
         <hr>
@@ -146,15 +146,14 @@ function initializeBackToTopButton() {
 // 開啟與關閉的導航欄動畫
 function toggleMenu() {
     const Navs = document.querySelectorAll('.navigation');
+    const blogTitle = document.querySelector('.blogTitle');
     const h1 = document.querySelector('.blogTitle h1');
     const menuIcon = document.querySelector('.menu span.material-symbols-sharp');
     if (window.getComputedStyle(h1).display === 'none'){
         h1.style.display = 'block';
-        menuIcon.style.color = 'var(--blog-span-color)';
     }
     else{
         h1.style.display = 'none';
-        menuIcon.style.color = 'var(--img-color-light)';
     }
     Navs.forEach((Nav)=>{
         if (window.getComputedStyle(Nav).display !== 'none') {
@@ -163,6 +162,13 @@ function toggleMenu() {
             Nav.style.display = 'flex';
         }
     });
+    if (menuIcon.textContent === 'menu') {
+        blogTitle.classList.add('show');
+        menuIcon.textContent = 'close';
+    } else {
+        blogTitle.classList.remove('show');
+        menuIcon.textContent = 'menu';
+    }
 }
 // 點擊後跳轉頁面
 function redirectToPage(url) {
@@ -193,44 +199,21 @@ document.addEventListener('DOMContentLoaded', () => {
         applyTheme(savedTheme);
     }
 });
-// 切換 github-readme-stats 主題
-function setStats(action) {
-    document.querySelectorAll('.stats').forEach(item => {
-        let src = item.getAttribute('src');
-        if (action==="add"&&!src.includes('tokyonight')) {
-            src = `${src}&theme=tokyonight`;
-        }
-        else if(action==="remove"&&src.includes('tokyonight')){
-            src = src.replace('&theme=tokyonight', '');
-        }
-        item.setAttribute('src', src);
-    });
-}
 // 切換主題
 function applyTheme(themeName) {
     document.body.className = themeName;
     const themeIcons = document.querySelectorAll('#theme-icon');
-    const themePs = document.querySelectorAll('#theme-p');
-    const prismTheme = document.getElementById('prismTheme');
-    
+    const themePs = document.querySelectorAll('#theme-p');    
     if (document.body.classList.contains('dark-theme')) {
-        setStats("add");
         themePs.forEach(themeP => {
             themeIcons.forEach(themeIcon => themeIcon.textContent = 'light_mode');
             themeP.textContent = '亮色';
         });
-        if (prismTheme) {
-            prismTheme.setAttribute('href', 'prism_dark.css');
-        }
     } else {
-        setStats("remove");
         themeIcons.forEach(themeIcon => themeIcon.textContent = 'dark_mode');
         themePs.forEach(themeP => {
             themeP.textContent = '暗色';
         });
-        if (prismTheme) {
-            prismTheme.setAttribute('href', 'prism_light.css');
-        }
     }
 }
 // 圖片點擊後顯示它的大圖
