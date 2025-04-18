@@ -56,3 +56,23 @@
 .info-value {
     flex-grow: 1;
 }
+.tab-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.tab-button {
+    background-color:var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+.tab-button:hover {
+    background-color: var(--primary-color);
+}

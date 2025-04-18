@@ -53,35 +53,31 @@ function loadNavigationAndFooter() {
     const left = index - 1 < 0 ? 2 : index - 1;
     const right = index + 1 > 2 ? 0 : index + 1;
     const foot = document.querySelector('footer');
+    const h1 = document.querySelector('h1');
+    h1.innerHTML=`${navnames[index]}`;
     const blogTitle = document.querySelector('.blogTitle');
     blogTitle.innerHTML = `
-        <h1>${navnames[index]}</h1>
-        <div class="navigation">
-            <nav onclick="redirectToPage('${names[left]}.html')">
-                <span class="material-symbols-sharp">${icons[left]}</span>
-                <p>${navnames[left]}</p>
-            </nav>
-            <nav onclick="redirectToPage('${names[right]}.html')">
-                <span class="material-symbols-sharp">${icons[right]}</span>
-                <p>${navnames[right]}</p>
-            </nav>
-            <nav onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
-                <span class="material-symbols-sharp">share</span>
-                <p>Github</p>
-            </nav>
-            <nav onclick="toggleTheme()">
-                <span class="material-symbols-sharp" id="theme-icon">light_mode</span>
-                <p id="theme-p">亮色</p>
-            </nav>
-        </div>
-        <div class="menu" onclick="toggleMenu()">
-            <span class="material-symbols-sharp">menu</span>
-        </div>`;
+        <nav onclick="redirectToPage('${names[left]}.html')">
+            <span class="material-symbols-sharp">${icons[left]}</span>
+            <p>${navnames[left]}</p>
+        </nav>
+        <nav onclick="redirectToPage('${names[right]}.html')">
+            <span class="material-symbols-sharp">${icons[right]}</span>
+            <p>${navnames[right]}</p>
+        </nav>
+        <nav onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
+            <span class="material-symbols-sharp">share</span>
+            <p>Github</p>
+        </nav>
+        `;
     foot.innerHTML = `
         <hr>
         <div class="footer-content">
             <div class="farea farea-top">
-                <h2><img src="assets/images/me.png" class="footer-img" alt="個人網頁 Logo">個人網頁</h2>
+                <div class="footer-logo">
+                    <img src="assets/images/me.png" class="footer-img" alt="個人網頁 Logo">
+                    <h2>個人網頁</h2>
+                </div>
                 <p class="author">作者：<strong>陳國翔</strong></p>
                 <a class="contact" href="mailto:s1411232069@ad1.nutc.edu.tw"><span class="material-symbols-sharp">mail</span>s1411232069@ad1.nutc.edu.tw</a>
                 <p class="location"><span class="material-symbols-sharp">home</span>Taiwan, Taichung</p>
@@ -145,23 +141,9 @@ function initializeBackToTopButton() {
 }
 // 開啟與關閉的導航欄動畫
 function toggleMenu() {
-    const Navs = document.querySelectorAll('.navigation');
     const blogTitle = document.querySelector('.blogTitle');
-    const h1 = document.querySelector('.blogTitle h1');
     const menuIcon = document.querySelector('.menu span.material-symbols-sharp');
-    if (window.getComputedStyle(h1).display === 'none'){
-        h1.style.display = 'block';
-    }
-    else{
-        h1.style.display = 'none';
-    }
-    Navs.forEach((Nav)=>{
-        if (window.getComputedStyle(Nav).display !== 'none') {
-            Nav.style.display = 'none';
-        } else {
-            Nav.style.display = 'flex';
-        }
-    });
+    blogTitle.classList.toggle('show');
     if (menuIcon.textContent === 'menu') {
         blogTitle.classList.add('show');
         menuIcon.textContent = 'close';
@@ -202,18 +184,11 @@ document.addEventListener('DOMContentLoaded', () => {
 // 切換主題
 function applyTheme(themeName) {
     document.body.className = themeName;
-    const themeIcons = document.querySelectorAll('#theme-icon');
-    const themePs = document.querySelectorAll('#theme-p');    
+    const themeIcons = document.querySelectorAll('#theme-icon'); 
     if (document.body.classList.contains('dark-theme')) {
-        themePs.forEach(themeP => {
-            themeIcons.forEach(themeIcon => themeIcon.textContent = 'light_mode');
-            themeP.textContent = '亮色';
-        });
+        themeIcons.forEach(themeIcon => themeIcon.textContent = 'light_mode');
     } else {
         themeIcons.forEach(themeIcon => themeIcon.textContent = 'dark_mode');
-        themePs.forEach(themeP => {
-            themeP.textContent = '暗色';
-        });
     }
 }
 // 圖片點擊後顯示它的大圖

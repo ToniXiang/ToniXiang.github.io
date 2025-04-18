@@ -46,10 +46,6 @@
     height: auto;
     display: block;
 }
-.table-container {
-    max-height: 400px;
-    overflow-y: auto;
-}
 
 .skeleton-row td {
     height: 40px;

@@ -1,9 +1,9 @@
 .centered-image {
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
+    display: block;
     max-width:70%;
     max-height:40vh;
+    margin: 20px auto;
+    cursor: pointer;
 }
 .message-tags {
     border: var(--accent-color) 0.5px solid;
@@ -20,8 +20,7 @@
 .default-message {
     text-align: center;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(212, 129, 129, 0.15);
+    margin: 0 auto;
 }
 
 .default-message h2 {
@@ -53,4 +52,30 @@
     background-color: var(--background-color);
     color: var(--text-color);
     cursor: pointer;
+}
+#catalog{
+    position: fixed;
+    padding-top: 4em;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+    z-index: 2;
+}
+#dynamicNavs>nav,#catalog>h2{
+    cursor: pointer;
+}
+#dynamicNavs>nav>p{
+    font-weight: 400;
+    font-size: 20px;
+    padding-left: 5px;
+    color: var(--text-color);
+}
+#dynamicNavs>nav{
+    background-color:#009879;
+}
+#dynamicNavs>nav:hover>p {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
 }

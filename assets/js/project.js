@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    displayCatalog();
-    displayArticle();
+    checkLanguage();
 });
 // 載入文章
 let currentArticleId = '';
@@ -11,7 +10,7 @@ function loadArticle(articleId, event) {
         en: "Repository Link",
         zh: "儲存庫連結"
     };
-    const navs = document.querySelectorAll('#catalog nav');
+    const navs = document.querySelectorAll('#dynamicNavs nav');
     const showNavsButton = document.getElementById('showNavs');
     const h2 = document.querySelector('#catalog h2');
     navs.forEach(nav => {
@@ -44,7 +43,7 @@ function loadArticle(articleId, event) {
 function displayCatalog(){
     const h2 = document.querySelector('#catalog h2');
     const showNavsButton = document.getElementById('showNavs');
-    const navs = document.querySelectorAll('#catalog nav');
+    const navs = document.querySelectorAll('#dynamicNavs nav');
     if(h2&&showNavsButton&&navs){
         h2.addEventListener('click', () => {
             navs.forEach(nav => {
@@ -65,21 +64,83 @@ function displayCatalog(){
         });
     }
 }
+// 目錄生成
+const articles = [
+    { id: 'OCC_myproject', title: { en: 'Simple Control Center', zh: '簡易的行控中心' } },
+    { id: 'shoppingPlatform', title: { en: 'Shopping Platform', zh: '購物平台' } }
+];
+function generateCatalog() {
+    const catalog = document.getElementById('catalog');
+    const navContainer = document.createElement('div');
+    navContainer.id = 'dynamicNavs';
+    const existingNavs = document.getElementById('dynamicNavs');
+    if (existingNavs) {
+        existingNavs.remove();
+    }
+    const selectedLanguage = document.getElementById('languageSwitcher').value;
+    articles.forEach(article => {
+        const nav = document.createElement('nav');
+        nav.setAttribute('onclick', `loadArticle('${article.id}', event)`);
+        nav.innerHTML = `<p>${article.title[selectedLanguage]}</p>`;
+        navContainer.appendChild(nav);
+    });
+    catalog.appendChild(navContainer);
+}
+// 頁面加載時檢查語言選擇
+function checkLanguage(){
+    const savedLanguage = localStorage.getItem('selectedLanguage');
+    const languageSwitcher = document.getElementById('languageSwitcher');
+    if (savedLanguage) {
+        languageSwitcher.value = savedLanguage;
+    }
+    generateCatalog();
+    displayCatalog();
+    setDefalutMsg(savedLanguage);
+}
+
 // 中與英的語言選擇
+const translations = {
+    en: {
+        catalogTitle: 'Catalog',
+        defaultMessage: 'Explore my project showcase',
+        guide: [
+            'Explore different projects to understand my work and interests',
+            'Each project has detailed descriptions and related links',
+            'Feel free to contact me with any questions or suggestions',
+            'Supports English and Chinese'
+        ]
+    },
+    zh: {
+        catalogTitle: '目錄',
+        defaultMessage: '探索我的作品展示',
+        guide: [
+            '探索不同的專案，了解我的工作和興趣',
+            '每個專案都有詳細的描述和相關連結',
+            '如果有任何問題或建議，歡迎聯繫我',
+            '支持中英語言'
+        ]
+    }
+};
 document.getElementById('languageSwitcher').addEventListener('change', function() {
-    if(currentArticleId==='')return;
+    const selectedLanguage = this.value;
+    localStorage.setItem('selectedLanguage', selectedLanguage);
+    document.querySelector('#catalog h2').textContent = translations[selectedLanguage].catalogTitle;
+    generateCatalog();
+    displayCatalog();
+    if (currentArticleId === ''){
+        setDefalutMsg(selectedLanguage);
+        return;
+    }
     loadArticle(currentArticleId);
 });
-// article 第一次出現在螢幕而且還要被看到時產生淡入效果
-function displayArticle(){
-    let observer = new IntersectionObserver(function (entries) {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("fadeIn");
-            }
-        });
-    });
-    document.querySelectorAll("article").forEach((article) => {
-        observer.observe(article);
+// Project 預設的介紹訊息
+function setDefalutMsg(Language){
+    document.querySelector('.default-message h2').textContent = translations[Language].defaultMessage;
+    const guideList = document.querySelector('.default-message ul');
+    guideList.innerHTML = ''; // 清空列表
+    translations[Language].guide.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        guideList.appendChild(li);
     });
 }
