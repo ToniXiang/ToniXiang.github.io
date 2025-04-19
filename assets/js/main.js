@@ -12,7 +12,7 @@ fetch(apiUrl)
                 day: '2-digit'
             });
             row.innerHTML = `
-                <td><a href="${repo.html_url}" target="_blank">${repo.name}</a></td>
+                <td><a href="${repo.html_url}" target="_blank">${repo.name.replace(/_/g, ' ')}</a></td>
                 <td>${repo.description || '沒有任何描述'}</td>
                 <td>${updatedDate}</td>
             `;

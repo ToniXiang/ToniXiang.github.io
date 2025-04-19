@@ -88,14 +88,17 @@ function generateCatalog() {
 }
 // 頁面加載時檢查語言選擇
 function checkLanguage(){
-    const savedLanguage = localStorage.getItem('selectedLanguage');
+    let savedLanguage = localStorage.getItem('selectedLanguage');
     const languageSwitcher = document.getElementById('languageSwitcher');
     if (savedLanguage) {
         languageSwitcher.value = savedLanguage;
     }
+    else{
+        languageSwitcher.value = 'en';
+    }
     generateCatalog();
     displayCatalog();
-    setDefalutMsg(savedLanguage);
+    setDefalutMsg();
 }
 
 // 中與英的語言選擇
@@ -128,13 +131,14 @@ document.getElementById('languageSwitcher').addEventListener('change', function(
     generateCatalog();
     displayCatalog();
     if (currentArticleId === ''){
-        setDefalutMsg(selectedLanguage);
+        setDefalutMsg();
         return;
     }
     loadArticle(currentArticleId);
 });
 // Project 預設的介紹訊息
-function setDefalutMsg(Language){
+function setDefalutMsg(){
+    const Language = document.getElementById('languageSwitcher').value;
     document.querySelector('.default-message h2').textContent = translations[Language].defaultMessage;
     const guideList = document.querySelector('.default-message ul');
     guideList.innerHTML = ''; // 清空列表

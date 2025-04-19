@@ -5,6 +5,36 @@
     margin: 20px auto;
     cursor: pointer;
 }
+#showNavs {
+    position: fixed;
+    display: none;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.5em;
+    box-shadow: 0 0 20px rgba(212, 129, 129, 0.15);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 2;
+}
+
+#showNavs:hover {
+    background-color: #555;
+    transform: translateY(-50%) scale(1.1);
+}
+nav.hidden {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+nav.visible {
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+}
 .message-tags {
     border: var(--accent-color) 0.5px solid;
     border-radius: 5px;

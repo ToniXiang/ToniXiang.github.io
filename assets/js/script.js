@@ -57,17 +57,29 @@ function loadNavigationAndFooter() {
     h1.innerHTML=`${navnames[index]}`;
     const blogTitle = document.querySelector('.blogTitle');
     blogTitle.innerHTML = `
-        <nav onclick="redirectToPage('${names[left]}.html')">
-            <span class="material-symbols-sharp">${icons[left]}</span>
+        <nav class="nav-item" onclick="redirectToPage('${names[left]}.html')">
+            <div class="nav-icon">
+                <span class="material-symbols-sharp">${icons[left]}</span>
+            </div>
+            <div class="nav-text">
             <p>${navnames[left]}</p>
+            </div>
         </nav>
-        <nav onclick="redirectToPage('${names[right]}.html')">
-            <span class="material-symbols-sharp">${icons[right]}</span>
-            <p>${navnames[right]}</p>
+        <nav class="nav-item" onclick="redirectToPage('${names[right]}.html')">
+            <div class="nav-icon">
+                <span class="material-symbols-sharp">${icons[right]}</span>
+            </div>
+            <div class="nav-text">
+                <p>${navnames[right]}</p>
+            </div>
         </nav>
-        <nav onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
-            <span class="material-symbols-sharp">share</span>
-            <p>Github</p>
+        <nav class="nav-item" onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
+            <div class="nav-icon">
+                <span class="material-symbols-sharp">share</span>
+            </div>
+            <div class="nav-text">
+                <p>Github</p>
+            </div>
         </nav>
         `;
     foot.innerHTML = `
