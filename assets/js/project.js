@@ -67,7 +67,8 @@ function displayCatalog(){
 // 目錄生成
 const articles = [
     { id: 'OCC_myproject', title: { en: 'Simple Control Center', zh: '簡易的行控中心' } },
-    { id: 'shoppingPlatform', title: { en: 'Shopping Platform', zh: '購物平台' } }
+    { id: 'shoppingPlatform', title: { en: 'Shopping Platform', zh: '購物平台' } },
+    { id: 'realTimeVoiceTranslationApp', title: { en: 'Real-Time Voice Translation Application', zh: '即時語音翻譯應用程式' } }
 ];
 function generateCatalog() {
     const catalog = document.getElementById('catalog');

@@ -3,6 +3,7 @@
     height: auto;
     display: block;
     transition: transform 0.3s ease-in-out;
+    border-radius: 5px 5px 5px 5px;
 }
 
 .main-image:hover{
@@ -51,15 +52,23 @@
     height: 40px;
     width: 100%;
 }
-#repo-table tr:nth-child(odd) {
-    background-color: var(--odd-row-color);
+#repo-table {
+    border-collapse: collapse;
+    width: 100%;
 }
-#repo-table tr:nth-child(even) {
-    background-color: var(--even-row-color);
+
+#repo-table th, #repo-table td {
+    padding: 8px;
+    text-align: left;
 }
-a {
-    text-decoration: none;
+
+#repo-table tr {
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--text-color);
 }
-td>a:hover{
+#repo-table tr:last-child {
+    border-bottom: none;
+}
+td a {
     text-decoration: underline;
 }

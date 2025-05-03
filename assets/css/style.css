@@ -366,10 +366,10 @@ section>p,section>ul{
     min-width: 200px;
     margin: 20px;
     padding: 20px 20px;
-    box-shadow: 0 0 20px rgba(212, 129, 129, 0.15);
+    box-shadow: 0 1px 2px var(--primary-color);
+    background: linear-gradient(to bottom, var(--primary-color), #fad0c4);
     border-radius: 10px;
-    background: url('../images/starbg.png');
-    background-size: 50%;
+    background-size: 10%;
     background-repeat: no-repeat;
     background-position: right center;
     position: relative;
@@ -450,7 +450,7 @@ table {
     table-layout: auto;
 }
 .table-container {
-    max-height: 400px;
+    max-height: 800px;
     overflow-y: auto;
 }
 th,
@@ -476,4 +476,29 @@ td a:hover{
 .highlight {
     background-color: #009879;
     font-weight: bold;
+}
+#notificationBar{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--img-color);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#closeBar{
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 5px 40px;
+    margin-right: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+#closeBar:hover {
+    background-color: var(--primary-color);
 }

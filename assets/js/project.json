@@ -6,8 +6,8 @@
                 "zh": "簡易的行控中心"
             },
             "tags": {
-                "en": ["Software Design", "Simulation", "Database", "C#"],
-                "zh": ["軟體設計", "模擬", "資料庫", "C#"]
+                "en": ["Simulation", "Database","Windows Forms"],
+                "zh": [ "模擬", "資料庫","Windows Forms"]
             },
             "repositoryLink": "https://github.com/ChenGuoXiang940/NTCUST_OCC_myproject.git",
             "sections": [
@@ -17,8 +17,8 @@
                         "zh": "表單設計"
                     },
                     "content": {
-                        "en": "<p>This control center system interface integrates functions such as train status monitoring, route map visualization, flexible train control, and emergency event handling. It features intuitive operation, comprehensive information, and efficient response. Suitable for application in train operation scheduling and event handling, improving overall management efficiency and safety.</p><img src='assets/images/p1-1.png' alt='表單設計圖片' class='centered-image' onclick=\"openModal('assets/images/p1-1.png', 'Form Design Image')\">",
-                        "zh": "<p>這個行控中心系統界面整合了列車狀態監控、路線圖可視化、列車靈活控制、事件應急處理等功能，具有操作直觀、信息全面和響應高效的特點。適合應用於列車運行調度和事件處理中，提升整體管理效率和安全性。</p><img src='assets/images/p1-1.png' alt='表單設計圖片' class='centered-image' onclick=\"openModal('assets/images/p1-1.png', '表單設計')\">"
+                        "en": "<p>This control center system interface integrates functions such as train status monitoring, route map visualization, flexible train control, and emergency event handling. It features intuitive operation, comprehensive information, and efficient response. Suitable for application in train operation scheduling and event handling, improving overall management efficiency and safety.</p><img src='assets/images/p1-1.png' alt='OCC' class='centered-image' onclick=\"openModal('assets/images/p1-1.png', 'OCC')\">",
+                        "zh": "<p>這個行控中心系統界面整合了列車狀態監控、路線圖可視化、列車靈活控制、事件應急處理等功能，具有操作直觀、信息全面和響應高效的特點。適合應用於列車運行調度和事件處理中，提升整體管理效率和安全性。</p><img src='assets/images/p1-1.png' alt='行控中心' class='centered-image' onclick=\"openModal('assets/images/p1-1.png', '行控中心')\">"
                     }
                 },
                 {
@@ -43,16 +43,16 @@
                 }
             ]
         },
-        "shoppingPlatform": {
+    "shoppingPlatform": {
         "title": {
             "en": "Shopping Platform",
             "zh": "購物平台"
         },
         "tags": {
-            "en": ["Software Design", "Flutter", "Dart", "Cross-platform"],
-            "zh": ["軟體設計", "Flutter", "Dart", "跨平台"]
+            "en": ["Flutter","Django","Database","render"],
+            "zh": ["Flutter","Django","資料庫","render"]
         },
-        "repositoryLink": "https://github.com/ChenGuoXiang940/MyApp.git",
+        "repositoryLink": "https://github.com/ChenGuoXiang940/SC2_myproject.git",
         "sections": [
             {
                 "title": {
@@ -60,8 +60,8 @@
                     "zh": "註冊與登入頁面"
                 },
                 "content": {
-                    "en": "<ul><li>Users can create an account through the registration page (simulation only, no storage).</li><li>The login page allows users to enter their account and password to enter the main screen (no backend verification required).</li></ul><img src='assets/images/p2-1.png' alt='LoginPage' class='centered-image' onclick=\"openModal('assets/images/p2-1.png', 'LoginPage')\">",
-                    "zh": "<ul><li>使用者可透過註冊頁面創建帳號（僅模擬，不需儲存）</li><li>登入頁面可讓使用者輸入帳號密碼並進入主畫面（不需後端驗證）</li></ul><img src='assets/images/p2-1.png' alt='登入' class='centered-image' onclick=\"openModal('assets/images/p2-1.png', '登入')\">"
+                    "en": "<ul><li>Users can create an account through the registration page (simulation only, no storage).</li><li>The login page allows users to enter their account and password to enter the main screen (no backend verification required).</li></ul><img src='assets/images/p2-1.jpg' alt='LoginPage' class='centered-image' onclick=\"openModal('assets/images/p2-1.jpg', 'LoginPage')\">",
+                    "zh": "<ul><li>使用者可透過註冊頁面創建帳號</li><li>登入頁面可讓使用者輸入帳號密碼並進入主畫面</li></ul><img src='assets/images/p2-1.jpg' alt='登入' class='centered-image' onclick=\"openModal('assets/images/p2-1.jpg', '登入')\">"
                 }
             },
             {
@@ -70,8 +70,8 @@
                     "zh": "主畫面（商品列表）"
                 },
                 "content": {
-                    "en": "<ul><li>Displays multiple products, including name, image, and price.</li><li>Provides an 'Add to Cart' button to add products to the shopping cart.</li><li>The UI should clearly display the products and consider responsive design.</li></ul><img src='assets/images/p2-2.png' alt='主頁' class='centered-image' onclick=\"openModal('assets/images/p2-2.png', 'HomePage')\">",
-                    "zh": "<ul><li>顯示多個商品，包含名稱、圖片、價格</li><li>提供「加入購物車」按鈕，可將商品加入購物車</li><li>UI 需清楚展示商品，並考慮響應式設計</li></ul><img src='assets/images/p2-2.png' alt='主頁' class='centered-image' onclick=\"openModal('assets/images/p2-2.png', '主頁')\">"
+                    "en": "<ul><li>Displays multiple products, including name, image, and price.</li><li>Provides an 'Add to Cart' button to add products to the shopping cart.</li><li>The UI should clearly display the products and consider responsive design.</li></ul><img src='assets/images/p2-3.jpg' alt='Sidebar' class='centered-image' onclick=\"openModal('assets/images/p2-3.jpg', 'Sidebar')\"><img src='assets/images/p2-2.jpg' alt='Product List' class='centered-image' onclick=\"openModal('assets/images/p2-2.jpg', 'Product List')\">",
+                    "zh": "<ul><li>顯示多個商品，包含名稱、圖片、價格</li><li>提供「加入購物車」按鈕，可將商品加入購物車</li><li>UI 需清楚展示商品，並考慮響應式設計</li></ul><img src='assets/images/p2-3.jpg' alt='側邊欄' class='centered-image' onclick=\"openModal('assets/images/p2-3.jpg', '側邊欄')\"><img src='assets/images/p2-2.jpg' alt='商品列' class='centered-image' onclick=\"openModal('assets/images/p2-2.jpg', '商品列')\">"
                 }
             },
             {
@@ -80,21 +80,74 @@
                     "zh": "購物車頁面"
                 },
                 "content": {
-                    "en": "<ul><li>Displays the list of products added to the shopping cart by the user.</li><li>Shows the total price.</li><li>Allows users to delete products from the shopping cart.</li><li>Provides a 'Checkout' button (no actual payment required).</li></ul>",
-                    "zh": "<ul><li>顯示用戶已加入購物車的商品列表</li><li>顯示總價</li><li>允許用戶刪除購物車內的商品</li><li>提供「結帳」按鈕（不需實際付款）</li></ul>"
+                    "en": "<ul><li>Displays the list of products added to the shopping cart by the user.</li><li>Shows the total price.</li><li>Allows users to delete products from the shopping cart.</li><li>Provides a 'Checkout' button (no actual payment required).</li></ul><img src='assets/images/p2-4.jpg' alt='Shopping Cart' class='centered-image' onclick=\"openModal('assets/images/p2-4.jpg', 'Shopping Cart')\">",
+                    "zh": "<ul><li>顯示用戶已加入購物車的商品列表</li><li>顯示總價</li><li>允許用戶刪除購物車內的商品</li><li>提供「結帳」按鈕（不需實際付款）</li></ul><img src='assets/images/p2-4.jpg' alt='購物車' class='centered-image' onclick=\"openModal('assets/images/p2-4.jpg', '購物車')\">"
                 }
             },
             {
                 "title": {
-                    "en": "Bonus Features (Optional)",
-                    "zh": "加分項目（選做）"
+                    "en": "Backend Status",
+                    "zh": "後端運行狀態"
                 },
                 "content": {
-                    "en": "<ul><li>Beautiful UI, using Card or GridView to display products.</li><li>Products can be categorized (e.g., electronics, clothing, etc.).</li><li>Support for Light Mode / Dark Mode switching.</li><li>Add simple animation effects to enhance user experience.</li><li>Product detail page: click on the product to enter the detailed information page (including product description, reviews, specifications, etc.).</li><li>Support for both Chinese and English languages.</li></ul>",
-                    "zh": "<ul><li>UI 美觀，使用 Card 或 GridView 顯示商品</li><li>商品可分類（如電子產品、服裝等）</li><li>支援 Light Mode / Dark Mode 切換</li><li>加入簡單的動畫效果提升用戶體驗</li><li>商品詳情頁面：點擊商品可進入詳細資訊頁面（包含商品描述、評論、規格等）</li><li>中英語言支持</li></ul>"
+                    "en": "<ul></ul><img src='assets/images/p2-5.png' alt='Backend' class='centered-image' onclick=\"openModal('assets/images/p2-5.png', 'Backend')\">",
+                    "zh": "<ul></ul><img src='assets/images/p2-5.png' alt='後端' class='centered-image' onclick=\"openModal('assets/images/p2-5.png', '後端')\">"
                 }
+            },
+            {
+                "title": {
+                        "en": "Introduction",
+                        "zh": "介紹"
+                    },
+                    "content": {
+                        "en": "For the UI, I chose Flutter's responsive design to ensure a good presentation on different devices. The backend uses Django REST Framework to build APIs and communicates data through HTTP libraries. PostgreSQL provides a stable data storage structure, making it easy to manage user data and product information. During deployment, Render's platform simplified the process, especially with its robust support for Django + PostgreSQL, allowing me to quickly bring the backend online. The compiled results of Flutter Web can also be directly deployed on Render. Challenges encountered included configuring plugins, generating requirements.txt, and setting environment variables. These issues, while time-consuming, deepened my understanding of full-stack architecture and debugging processes. In summary, this project integrates technologies and enhances practical skills, not only familiarizing me with Flutter and Django integration but also giving me a clear grasp of the complete process of cloud deployment and data flow.",
+                        "zh": "UI 部分我選擇 Flutter 的響應式設計來確保在不同裝置上皆能良好呈現。Django 的後端使用 Django REST Framework 架設 API，並透過 HTTP 套件進行資料互通。PostgreSQL 則提供穩定的資料儲存結構，方便管理使用者資料與商品資訊。在部署階段，Render 的平台簡化了部署流程，尤其是對 Django + PostgreSQL 的支援完善，使我能快速將後端上線；而 Flutter Web 的編譯成果也能直接部署在 Render。過程中遇到的一些挑戰包括配置插件、生成 requirements.txt 及設定環境變數 。這些問題雖然困住我許久，但也加深了我對於全端架構與除錯流程的理解。總結來說，這是一個整合技術、強化實作能力的專案，不僅讓我熟悉了 Flutter 與 Django 的整合方式，也讓我對雲端部署與資料流的完整流程有了清晰的掌握。"
+                    }
             }
+            ]
+        },
+        "realTimeVoiceTranslationApp": {
+            "title": {
+                "en": "Real-Time Voice Translation Application",
+                "zh": "即時語音翻譯應用程式"
+            },
+            "tags": {
+                "en": [ "LLM", "Flutter", "Django", "Database"],
+                "zh": [ "大型語言模型", "Flutter", "Django", "資料庫"]
+            },
+            "repositoryLink": "#",
+            "sections": [
+                {
+                    "title": {
+                        "en": "Main Functions",
+                        "zh": "主要功能"
+                    },
+                    "content": {
+                        "en": "<ul><li>Dynamic Cultural Context Adaptation</li><li>Integrated Language Learning Mode</li><li>Visual and Environmental Context Integration</li><li>Real-Time Translation and Automatic Note Summarization</li><li>Contextual Vocabulary Library and Interactive Definitions</li><li>Interactive Q&A Mode</li></ul>",
+                        "zh": "<ul><li>動態文化情境適應</li><li>整合語言學習模式</li><li>視覺與環境上下文整合</li><li>即時翻譯與自動筆記摘要</li><li>語境詞彙庫與互動定義</li><li>互動式問答模式</li></ul>"
+                    }
+                },
+                {
+                    "title": {
+                        "en": "Learning Target",
+                        "zh": "學習目標"
+                    },
+                    "content": {
+                        "en": "<ul><li>Practice creating simple UI components (input/output, buttons, lists, etc.)</li><li>Learn and practice Flutter Widgets like StatelessWidget and StatefulWidget</li><li>Understand state management (Provider, Riverpod, Bloc, etc.)</li><li>Develop backend services using Django and integrate with MySQL</li><li>Implement HTTP requests for push notifications</li><li>Build a complete application with navigation, multi-screen layouts, and animations</li></ul>",
+                        "zh": "<ul><li>練習創建簡單的 UI 元件（輸入輸出、按鈕、列表等）</li><li>學習並練習 Flutter Widgets，如 StatelessWidget 和 StatefulWidget</li><li>理解狀態管理（Provider、Riverpod、Bloc 等）</li><li>開發後端服務（使用 Django）並與 MySQL 整合</li><li>實現 HTTP 請求的推送通知</li><li>構建具有導航、多屏佈局和動畫的完整應用程式</li></ul>"
+                    }
+                },
+                {
+                    "title": {
+                        "en": "Introduction",
+                        "zh": "介紹"
+                    },
+                    "content": {
+                        "en": "In my graduation project with my team members, I was mainly responsible for cross-platform front-end development (using Flutter) and backend data storage and management (using MySQL). Both were skills I started self-learning in recent months, beginning with small projects and documenting my progress in OneNote (content is incomplete and will not be made public for now). By the time I officially started the project in my junior year, I had the ability to elevate software design to a whole new level.",
+                        "zh": "在我與組員的畢業專題中，我主要負責前端跨平台開發（使用 Flutter）以及後端資料儲存與管理（使用 MySQL）。兩者都是我近幾個月才開始自學，從小項目開始著手，幾乎會以 OneNote 筆記做紀錄(內容不齊全，暫時不會公開)。等到大三真正開始做專題，我會有能力把軟體設計提高到更不一樣的境界。"
+                    }
+                }
             ]
         }
     }
-}
+}   

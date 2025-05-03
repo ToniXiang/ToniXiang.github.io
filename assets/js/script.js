@@ -3,6 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
     loadDefaultTheme();
     loadNavigationAndFooter();
     initializeBackToTopButton();
+    // localStorage.removeItem('notificationDismissed'); // 測試用
+    const isNotificationDismissed = localStorage.getItem('notificationDismissed');
+    if (!isNotificationDismissed) {
+        showNotificationBar();
+    }
 });
 // Loading 加載照片的動畫
 function initializeLoadingScreens() {
@@ -35,6 +40,24 @@ function loadDefaultTheme() {
         const defaultTheme = 'dark-theme';
         applyTheme(defaultTheme);
     }
+}
+// 頁尾提示
+function showNotificationBar() {
+    const notificationBar = document.createElement('div');
+    notificationBar.id = 'notificationBar';
+    const message = document.createElement('span');
+    message.textContent = '有新的想法會持續更新';
+    message.style.flex = '1';
+    const closeButton = document.createElement('button');
+    closeButton.textContent = '知道了';
+    closeButton.id='closeBar';
+    closeButton.addEventListener('click', () => {
+        localStorage.setItem('notificationDismissed', 'true');
+        notificationBar.remove();
+    });
+    notificationBar.appendChild(message);
+    notificationBar.appendChild(closeButton);
+    document.body.appendChild(notificationBar);
 }
 // 載入時加導覽欄和頁尾的資訊
 function loadNavigationAndFooter() {
@@ -129,7 +152,6 @@ function loadNavigationAndFooter() {
         </div>
         <div class="footer-bottom">
             <p>© 2025 個人網頁. All rights reserved.</p>
-            <p><span class="highlight">有新的想法會持續更新</span></p>
         </div>`;
 }
 //  如果不在最頂就顯示"往上的標誌" 如果被按下就滑動到最頂
