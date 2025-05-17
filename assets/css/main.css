@@ -72,6 +72,11 @@
         text-align: center;
         align-self: center;
         transform: translateX(0);
+        padding: 20px 5vw;
+        min-width: 0;
+        max-width: 98vw;
+        width: 100%;
+        box-sizing: border-box;
     }
 }
 .language-cards {

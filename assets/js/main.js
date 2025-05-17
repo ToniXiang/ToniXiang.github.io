@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // localStorage.removeItem('snowStart'); // 測試用
     toggleSnow();
     transformArticle();
 });
@@ -39,7 +40,6 @@ function createSnowflake() {
 function getRandomNumber(n) {
   return Math.floor(Math.random() * n) + 1;
 }
-let snowPaused = localStorage.getItem('snowPaused') === 'true';
 let snowInterval = null;
 function startSnow() {
     if (!snowInterval) {
@@ -51,8 +51,9 @@ function stopSnow() {
     snowInterval = null;
 }
 function toggleSnow() {
+    let snowStart = localStorage.getItem('snowStart');
     const btn = document.getElementById('toggleSnow');
-    if (snowPaused) {
+    if (!snowStart) {
         btn.textContent = '繼續雪花';
         stopSnow();
     } else {
@@ -60,9 +61,9 @@ function toggleSnow() {
         startSnow();
     }
     btn.addEventListener('click', function() {
-        snowPaused = !snowPaused;
-        localStorage.setItem('snowPaused', snowPaused);
-        if (snowPaused) {
+        snowStart = !snowStart;
+        localStorage.setItem('snowStart', snowStart);
+        if (!snowStart) {
             stopSnow();
             this.textContent = '繼續雪花';
         } else {
