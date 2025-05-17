@@ -1,9 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
     checkLanguage();
 });
+// 獲取我 GitHub 上的項目
+const apiUrl = `https://api.github.com/users/ChenGuoXiang940/repos`;
+fetch(apiUrl)
+    .then(response => response.json())
+    .then(repos => {
+        let repoList = document.getElementById("repo-list");
+        let i = 0;
+        function addRepo() {
+            if (i >= repos.length) return;
+            let repo = repos[i];
+            let row = document.createElement("tr");
+            let updatedDate = new Date(repo.updated_at).toLocaleDateString('zh-Hant-TW', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+            });
+            row.innerHTML = `
+                <td><a href="${repo.html_url}" target="_blank">${repo.name.replace(/_/g, ' ')}</a></td>
+                <td>${repo.description || '沒有任何描述'}</td>
+                <td>${updatedDate}</td>
+            `;
+            repoList.appendChild(row);
+            i++;
+            if (i < repos.length) {
+                setTimeout(addRepo, 500);
+            }
+        }
+        addRepo();
+    })
+    .catch(error => console.error("Error fetching GitHub repos:", error));
 // 載入文章
 let currentArticleId = '';
 function loadArticle(articleId, event) {
+    window.scrollTo(0, 0);
     currentArticleId = articleId;
     const selectedLanguage = document.getElementById('languageSwitcher').value;
     const repositoryLinkText = {
@@ -111,7 +142,6 @@ const translations = {
             'Explore different projects to understand my work and interests',
             'Each project has detailed descriptions and related links',
             'Feel free to contact me with any questions or suggestions',
-            'Supports English and Chinese'
         ]
     },
     zh: {
@@ -121,7 +151,6 @@ const translations = {
             '探索不同的專案，了解我的工作和興趣',
             '每個專案都有詳細的描述和相關連結',
             '如果有任何問題或建議，歡迎聯繫我',
-            '支持中英語言'
         ]
     }
 };

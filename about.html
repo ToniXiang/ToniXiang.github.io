@@ -14,19 +14,15 @@
     <div class="cp" id="backToTop">
         <span class="material-symbols-sharp">arrow_drop_up</span>
     </div>
-    <h1></h1>
     <header class="blogTitle"></header>
-    <div class="theme" onclick="toggleTheme()" aria-label="切換主題">
-        <span class="material-symbols-sharp" id="theme-icon">light_mode</span>
-    </div>
     <div class="menu" onclick="toggleMenu()" aria-label="打開選單">
         <span class="material-symbols-sharp">menu</span>
     </div>
     <main>
         <div class="tab-container">
-            <button class="tab-button" onclick="showTab('resume')">簡歷</button>
-            <button class="tab-button" onclick="showTab('goals')">目標</button>
-            <button class="tab-button" onclick="showTab('jobs')">工作</button>
+            <button class="tab-button active" onclick="showTab('resume', event)">簡歷</button>
+            <button class="tab-button" onclick="showTab('goals', event)">目標</button>
+            <button class="tab-button" onclick="showTab('jobs', event)">工作</button>
         </div>
         <article id="resume" class="tab-content">
             <div class="info-section">
@@ -39,27 +35,30 @@
                     <span class="info-value">男</span>
                 </div>
             </div>
+            <hr class="info-divider">
             <div class="info-section">
                 <div class="info-item">
                     <span class="info-label">經歷</span>
-                    <span class="info-value">參加111年全國技藝競賽軟體設計職種(高中)</span>
+                    <span class="info-value">參加111年全國技藝競賽軟體設計職種<span class="edu-tag">高中</span></span>
                 </div>
             </div>
+            <hr class="info-divider">
             <div class="info-section">
                 <div class="info-item">
                     <span class="info-label">證照</span>
                     <span class="info-value">
-                        <p>軟體設計丙級(高中)</p>
-                        <p>CPE 進階級 語言C/C++(大學)</p>
+                        <p>軟體設計丙級<span class="edu-tag">高中</span></p>
+                        <p>CPE 進階級 語言C/C++ 排名 8.2%<span class="edu-tag">大學</span></p>
                     </span>
                 </div>
             </div>
+            <hr class="info-divider">
             <div class="info-section">
                 <div class="info-item">
                     <span class="info-label">學歷</span>
                     <span class="info-value">
                         <p>國立龍潭高級中學 電子科</p>
-                        <p>國立臺中科技大學 資訊工程系(大二 就學中)</p>
+                        <p>國立臺中科技大學 資訊工程系<span class="edu-tag">大二 就學中</span></p>
                     </span>
                 </div>
             </div>

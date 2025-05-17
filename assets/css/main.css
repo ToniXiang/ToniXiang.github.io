@@ -2,73 +2,146 @@
     width: 100%;
     height: auto;
     display: block;
+    padding-top:5px;
     transition: transform 0.3s ease-in-out;
     border-radius: 5px 5px 5px 5px;
-}
-
-.main-image:hover{
-    transform: scale(1.05);
-}
-
-#department-title {
-    font-size: 36px;
-    font-weight: bold;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    text-align:center;
-    color: aliceblue;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-}
-#student-text{
-    padding-top: 5%;
-    justify-content: center;
-}
-#caption {
-    top: 0;
-    text-align: center;
-    z-index: 1000;
-    position: relative;
-}
-
-.no-hover-effect #detail:hover::before {
-    display: none;
-}
-.no-photo {
-    display: flex;
-    align-items: center;
-    width: 200px;
-    height: 200px;
-    background-color:var(--img-color);
-    text-align: center;
 }
 .image-container img {
     width: 100%;
     height: auto;
     display: block;
 }
-
-.skeleton-row td {
-    height: 40px;
-    width: 100%;
-}
-#repo-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-#repo-table th, #repo-table td {
-    padding: 8px;
-    text-align: left;
-}
-
-#repo-table tr {
+#toggleSnow {
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid var(--accent-color);
+    border-radius: 5px;
     background-color: var(--background-color);
-    border-bottom: 1px solid var(--text-color);
+    color: var(--text-color);
+    cursor: pointer;
+    outline: none;
 }
-#repo-table tr:last-child {
-    border-bottom: none;
+.regin{
+    padding-left: 20px;
 }
-td a {
-    text-decoration: underline;
+.learning-progress {
+    margin: 40px 0;
+    padding: 32px 0;
+}
+.year-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 24px;
+    color: var(--text-color);
+}
+
+.year-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 32px 40px;
+    min-width: 220px;
+    min-height: 180px;
+    max-width: 420px;
+    text-align: left;
+    width: 100%;
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(.4,0,.2,1);
+}
+.year-card.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+.year-card ul li {
+    font-size: 16px;
+}
+.year-card:nth-child(even) {
+    text-align: right;
+    align-self: flex-end;
+    transform: translateX(40px);
+}
+.year-card.visible:nth-child(even) {
+    transform: translateX(0);
+}
+@media screen and (max-width: 900px) {
+    .year-card,
+    .year-card:nth-child(even) {
+        text-align: center;
+        align-self: center;
+        transform: translateX(0);
+    }
+}
+.language-cards {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+}
+
+.lang-card {
+    border-radius: 1.2rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 2rem 1.5rem;
+    width: 220px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(.4,0,.2,1);
+}
+.lang-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.lang-card:hover {
+    transform: translateY(-8px) scale(1.04);
+}
+.lang-card img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+}
+
+.lang-card h3 {
+    margin: 0.5rem 0 0.7rem 0;
+    font-size: 1.3rem;
+    color: var(--text-color);
+}
+
+.lang-card p {
+    color: var(--text-color);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.lang-card.cpp { border-top: 4px solid #00599C; }
+.lang-card.csharp { border-top: 4px solid #68217A; }
+.lang-card.python { border-top: 4px solid #3776AB; }
+.lang-card.dart { border-top: 4px solid #0175C2; }
+.lang-card.javascript { border-top: 4px solid #F7DF1E; }
+.lang-card.html { border-top: 4px solid #E34F26; }
+.lang-card.sql { border-top: 4px solid #E34F26; }
+
+.snowflake {
+    position: absolute;
+    top: -30px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 8px #fff, 0 0 2px #aaf;
+    z-index: 10;    
+    animation-name: snow-fall;
+    animation-timing-function: linear;
+}
+
+@keyframes snow-fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
 }

@@ -1,33 +1,4 @@
-.info-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-}
 
-.info-table th, .info-table td {
-    border: 1px solid rgba(212, 129, 129, 0.15);
-    padding: 8px;
-    word-wrap: break-word;
-    max-width: 200px;
-}
-
-.info-table th {
-    text-align: left;
-    font-weight: bold;
-}
-
-.info-table td {
-    text-align: left;
-}
-
-.info-table th, .info-table td p {
-    margin: 0;
-}
-
-.stats {
-    width: 100%;
-    height: auto;
-}
 .bracket{
     font-size: 0.9em;
 }
@@ -37,11 +8,15 @@
 .info-section {
     margin-bottom: 20px;
     padding: 10px;
-    border: 1px solid rgba(212, 129, 129, 0.15);
     border-radius: 5px;
-    background-color: var(--background-color);
 }
-
+.info-divider {
+    width: 94%;
+    margin: 24px auto;
+    border: none;
+    border-top: 2px solid #ccc;
+    opacity: 0.7;
+}
 .info-item {
     display: flex;
     margin-bottom: 10px;
@@ -75,4 +50,20 @@
 }
 .tab-button:hover {
     background-color: var(--primary-color);
+}
+.tab-button.active {
+    border: 4px solid var(--primary-color);
+}
+.edu-tag {
+    display: inline-block;
+    background: #e0f7fa;
+    color: #00796b;
+    border-radius: 8px;
+    padding: 2px 8px;
+    font-size: 0.95em;
+    margin-left: 4px;
+    margin-right: 4px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: 1px solid #b2ebf2;
 }

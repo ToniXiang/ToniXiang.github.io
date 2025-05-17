@@ -16,11 +16,7 @@
     <div class="cp" id="backToTop">
         <span class="material-symbols-sharp">arrow_drop_up</span>
     </div>
-    <h1></h1>
     <header class="blogTitle"></header>
-    <div class="theme" onclick="toggleTheme()" aria-label="切換主題">
-        <span class="material-symbols-sharp" id="theme-icon">light_mode</span>
-    </div>
     <div class="menu" onclick="toggleMenu()" aria-label="打開選單">
         <span class="material-symbols-sharp">menu</span>
     </div>
@@ -43,6 +39,18 @@
                 <h2></h2>
                 <p></p>
                 <ul></ul>
+            </div>
+            <div class="table-container">
+                <table id="repo-table" class="info-table">
+                    <thead>
+                        <tr>
+                            <th>庫名</th>
+                            <th>簡介</th>
+                            <th>最後更新</th>
+                        </tr>
+                    </thead>
+                    <tbody id="repo-list"></tbody>
+                </table>
             </div>
         </article>
     </main>

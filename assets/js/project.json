@@ -60,8 +60,8 @@
                     "zh": "註冊與登入頁面"
                 },
                 "content": {
-                    "en": "<ul><li>Users can create an account through the registration page (simulation only, no storage).</li><li>The login page allows users to enter their account and password to enter the main screen (no backend verification required).</li></ul><img src='assets/images/p2-1.jpg' alt='LoginPage' class='centered-image' onclick=\"openModal('assets/images/p2-1.jpg', 'LoginPage')\">",
-                    "zh": "<ul><li>使用者可透過註冊頁面創建帳號</li><li>登入頁面可讓使用者輸入帳號密碼並進入主畫面</li></ul><img src='assets/images/p2-1.jpg' alt='登入' class='centered-image' onclick=\"openModal('assets/images/p2-1.jpg', '登入')\">"
+                    "en": "<ul><li>Users can create an account through the registration page (simulation only, no storage).</li><li>The login page allows users to enter their account and password to enter the main screen (no backend verification required).</li></ul><img src='assets/images/p2-1.png' alt='LoginPage' class='centered-image' onclick=\"openModal('assets/images/p2-1.png', 'LoginPage')\">",
+                    "zh": "<ul><li>使用者可透過註冊頁面創建帳號</li><li>登入頁面可讓使用者輸入帳號密碼並進入主畫面</li></ul><img src='assets/images/p2-1.png' alt='登入' class='centered-image' onclick=\"openModal('assets/images/p2-1.png', '登入')\">"
                 }
             },
             {
@@ -70,18 +70,18 @@
                     "zh": "主畫面（商品列表）"
                 },
                 "content": {
-                    "en": "<ul><li>Displays multiple products, including name, image, and price.</li><li>Provides an 'Add to Cart' button to add products to the shopping cart.</li><li>The UI should clearly display the products and consider responsive design.</li></ul><img src='assets/images/p2-3.jpg' alt='Sidebar' class='centered-image' onclick=\"openModal('assets/images/p2-3.jpg', 'Sidebar')\"><img src='assets/images/p2-2.jpg' alt='Product List' class='centered-image' onclick=\"openModal('assets/images/p2-2.jpg', 'Product List')\">",
-                    "zh": "<ul><li>顯示多個商品，包含名稱、圖片、價格</li><li>提供「加入購物車」按鈕，可將商品加入購物車</li><li>UI 需清楚展示商品，並考慮響應式設計</li></ul><img src='assets/images/p2-3.jpg' alt='側邊欄' class='centered-image' onclick=\"openModal('assets/images/p2-3.jpg', '側邊欄')\"><img src='assets/images/p2-2.jpg' alt='商品列' class='centered-image' onclick=\"openModal('assets/images/p2-2.jpg', '商品列')\">"
+                    "en": "<ul><li>Displays multiple products, including name, image, and price.</li><li>Provides an 'Add to Cart' button to add products to the shopping cart.</li><li>The UI should clearly display the products and consider responsive design.</li></ul><img src='assets/images/p2-3.png' alt='Sidebar' class='centered-image' onclick=\"openModal('assets/images/p2-3.png', 'Sidebar')\"><img src='assets/images/p2-2.png' alt='Product List' class='centered-image' onclick=\"openModal('assets/images/p2-2.png', 'Product List')\">",
+                    "zh": "<ul><li>顯示多個商品，包含名稱、圖片、價格</li><li>提供「加入購物車」按鈕，可將商品加入購物車</li><li>UI 需清楚展示商品，並考慮響應式設計</li></ul><img src='assets/images/p2-3.png' alt='側邊欄' class='centered-image' onclick=\"openModal('assets/images/p2-3.png', '側邊欄')\"><img src='assets/images/p2-2.png' alt='商品列' class='centered-image' onclick=\"openModal('assets/images/p2-2.png', '商品列')\">"
                 }
             },
             {
-                "title": {
-                    "en": "Shopping Cart Page",
-                    "zh": "購物車頁面"
+                "title":{
+                    "en":"Setting",
+                    "zh":"設定"
                 },
-                "content": {
-                    "en": "<ul><li>Displays the list of products added to the shopping cart by the user.</li><li>Shows the total price.</li><li>Allows users to delete products from the shopping cart.</li><li>Provides a 'Checkout' button (no actual payment required).</li></ul><img src='assets/images/p2-4.jpg' alt='Shopping Cart' class='centered-image' onclick=\"openModal('assets/images/p2-4.jpg', 'Shopping Cart')\">",
-                    "zh": "<ul><li>顯示用戶已加入購物車的商品列表</li><li>顯示總價</li><li>允許用戶刪除購物車內的商品</li><li>提供「結帳」按鈕（不需實際付款）</li></ul><img src='assets/images/p2-4.jpg' alt='購物車' class='centered-image' onclick=\"openModal('assets/images/p2-4.jpg', '購物車')\">"
+                "content":{
+                    "en":"<img src='assets/images/p2-4.png' alt=Setting' class='centered-image' onclick=\"openModal('assets/images/p2-4.png', 'Setting')\">",
+                    "zh":"<img src='assets/images/p2-4.png' alt='設定' class='centered-image' onclick=\"openModal('assets/images/p2-4.png', '設定')\""
                 }
             },
             {
@@ -90,8 +90,8 @@
                     "zh": "後端運行狀態"
                 },
                 "content": {
-                    "en": "<ul></ul><img src='assets/images/p2-5.png' alt='Backend' class='centered-image' onclick=\"openModal('assets/images/p2-5.png', 'Backend')\">",
-                    "zh": "<ul></ul><img src='assets/images/p2-5.png' alt='後端' class='centered-image' onclick=\"openModal('assets/images/p2-5.png', '後端')\">"
+                    "en": "<img src='assets/images/p2-5.png' alt='Backend' class='centered-image' onclick=\"openModal('assets/images/p2-5.png', 'Backend')\">",
+                    "zh": "<img src='assets/images/p2-5.png' alt='後端' class='centered-image' onclick=\"openModal('assets/images/p2-5.png', '後端')\">"
                 }
             },
             {
@@ -144,7 +144,7 @@
                     },
                     "content": {
                         "en": "In my graduation project with my team members, I was mainly responsible for cross-platform front-end development (using Flutter) and backend data storage and management (using MySQL). Both were skills I started self-learning in recent months, beginning with small projects and documenting my progress in OneNote (content is incomplete and will not be made public for now). By the time I officially started the project in my junior year, I had the ability to elevate software design to a whole new level.",
-                        "zh": "在我與組員的畢業專題中，我主要負責前端跨平台開發（使用 Flutter）以及後端資料儲存與管理（使用 MySQL）。兩者都是我近幾個月才開始自學，從小項目開始著手，幾乎會以 OneNote 筆記做紀錄(內容不齊全，暫時不會公開)。等到大三真正開始做專題，我會有能力把軟體設計提高到更不一樣的境界。"
+                        "zh": "在我與組員的畢業專題中，我主要負責前端跨平台開發（使用 Flutter）以及後端資料儲存與管理（使用 MySQL）。兩者都是我近幾個月才開始自學，從小項目開始著手，幾乎會以 OneNote 筆記做紀錄(內容不齊全，暫時不會公開)。等到大三真正開始做專題，我會有能力把軟體設計提高到更不一樣的境界。深度學習實作上有困難，之後有可能會改題目。"
                     }
                 }
             ]

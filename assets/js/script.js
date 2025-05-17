@@ -61,39 +61,32 @@ function showNotificationBar() {
 }
 // 載入時加導覽欄和頁尾的資訊
 function loadNavigationAndFooter() {
-    function getPageName() {
-        const path = window.location.pathname;
-        const page = path.split("/").pop();
-        const pageName = page.split(".")[0];
-        return pageName;
-    }
-
-    const names = ['index', 'project', 'about'];
-    const navnames = ['主要頁面', '作品展示', '關於我'];
-    const icons = ['home', 'description', 'group'];
-    let index = names.indexOf(getPageName());
-    if (index === -1) index = 0;
-    const left = index - 1 < 0 ? 2 : index - 1;
-    const right = index + 1 > 2 ? 0 : index + 1;
-    const foot = document.querySelector('footer');
-    const h1 = document.querySelector('h1');
-    h1.innerHTML=`${navnames[index]}`;
     const blogTitle = document.querySelector('.blogTitle');
+    const foot = document.querySelector('footer');
+    const currentPage = window.location.pathname.split('/').pop().replace('.html', '');
     blogTitle.innerHTML = `
-        <nav class="nav-item" onclick="redirectToPage('${names[left]}.html')">
+        <nav class="nav-item${currentPage === 'index' ? ' active' : ''}" onclick="redirectToPage('index.html')">
             <div class="nav-icon">
-                <span class="material-symbols-sharp">${icons[left]}</span>
+                <span class="material-symbols-sharp">home</span>
             </div>
             <div class="nav-text">
-            <p>${navnames[left]}</p>
+                <p>主要頁面</p>
             </div>
         </nav>
-        <nav class="nav-item" onclick="redirectToPage('${names[right]}.html')">
+        <nav class="nav-item${currentPage === 'project' ? ' active' : ''}" onclick="redirectToPage('project.html')">
             <div class="nav-icon">
-                <span class="material-symbols-sharp">${icons[right]}</span>
+                <span class="material-symbols-sharp">description</span>
             </div>
             <div class="nav-text">
-                <p>${navnames[right]}</p>
+                <p>作品展示</p>
+            </div>
+        </nav>
+        <nav class="nav-item${currentPage === 'about' ? ' active' : ''}" onclick="redirectToPage('about.html')">
+            <div class="nav-icon">
+                <span class="material-symbols-sharp">group</span>
+            </div>
+            <div class="nav-text">
+                <p>關於我</p>
             </div>
         </nav>
         <nav class="nav-item" onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
@@ -102,6 +95,14 @@ function loadNavigationAndFooter() {
             </div>
             <div class="nav-text">
                 <p>Github</p>
+            </div>
+        </nav>
+        <nav class="nav-item theme" onclick="toggleTheme()" aria-label="切換主題">
+            <div class="nav-icon">
+                <span class="material-symbols-sharp" id="theme-icon">light_mode</span>
+            </div>
+            <div class="nav-text">
+                <p>切換主題</p>
             </div>
         </nav>
         `;
@@ -114,7 +115,7 @@ function loadNavigationAndFooter() {
                     <h2>個人網頁</h2>
                 </div>
                 <p class="author">作者：<strong>陳國翔</strong></p>
-                <a class="contact" href="mailto:s1411232069@ad1.nutc.edu.tw"><span class="material-symbols-sharp">mail</span>s1411232069@ad1.nutc.edu.tw</a>
+                <a class="contact"><span class="material-symbols-sharp">mail</span>s1411232069@ad1.nutc.edu.tw</a>
                 <p class="location"><span class="material-symbols-sharp">home</span>Taiwan, Taichung</p>
             </div>
             <div class="farea">
@@ -149,9 +150,6 @@ function loadNavigationAndFooter() {
                     <li><a href="https://bootstrapmade.com">Bootstrap Templates</a></li>
                 </ul>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 個人網頁. All rights reserved.</p>
         </div>`;
 }
 //  如果不在最頂就顯示"往上的標誌" 如果被按下就滑動到最頂
