@@ -114,9 +114,8 @@ function loadNavigationAndFooter() {
                     <img src="assets/images/me.png" class="footer-img" alt="個人網頁 Logo">
                     <h2>個人網頁</h2>
                 </div>
-                <p class="author">作者：<strong>陳國翔</strong></p>
-                <a class="contact"><span class="material-symbols-sharp">mail</span>s1411232069@ad1.nutc.edu.tw</a>
-                <p class="location"><span class="material-symbols-sharp">home</span>Taiwan, Taichung</p>
+                <p class="author">維護人：<strong>陳國翔</strong></p>
+                <p>Hi! I'm a student at NTCUST, Taiwan.</p>
             </div>
             <div class="farea">
                 <h3>導航</h3>
