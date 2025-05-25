@@ -234,6 +234,7 @@ section>p,section>ul{
     --accent-color-light: #0d1117;
     --img-color-light:#1990b8;
     --menu-color-light:#000;
+    --a-color-light: #0056b3;
 
     --background-color-dark: #0d1117;
     --text-color-dark: aliceblue;
@@ -243,6 +244,7 @@ section>p,section>ul{
     --accent-color-dark:#FFFFCC;
     --img-color-dark:#333333;
     --menu-color-dark:#fff;
+    --a-color-dark: #FFFFCC;
 }
 .dark-theme {
     --background-color:var(--background-color-dark);
@@ -253,6 +255,7 @@ section>p,section>ul{
     --accent-color:var(--accent-color-dark);
     --img-color:var(--img-color-dark);
     --menu-color:var(--menu-color-dark);
+    --a-color:var(--a-color-dark);
 }
 
 .light-theme {
@@ -264,6 +267,7 @@ section>p,section>ul{
     --accent-color:var(--accent-color-light);
     --img-color:var(--img-color-light);
     --menu-color:var(--menu-color-light);
+    --a-color:var(--a-color-light);
 }
 .light-theme h3 {
     text-shadow: none;

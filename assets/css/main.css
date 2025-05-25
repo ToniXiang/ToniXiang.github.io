@@ -55,8 +55,12 @@
     opacity: 1;
     transform: translateX(0);
 }
-.year-card ul li {
-    font-size: 16px;
+.year-card ul{
+    margin: 0;
+    padding: 0;
+}
+.year-card ul li a{
+    color: var(--a-color);
 }
 .year-card:nth-child(even) {
     text-align: right;

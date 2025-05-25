@@ -89,14 +89,6 @@ function loadNavigationAndFooter() {
                 <p>關於我</p>
             </div>
         </nav>
-        <nav class="nav-item" onclick="window.open('https://github.com/ChenGuoXiang940', '_blank')">
-            <div class="nav-icon">
-                <span class="material-symbols-sharp">share</span>
-            </div>
-            <div class="nav-text">
-                <p>Github</p>
-            </div>
-        </nav>
         <nav class="nav-item theme" onclick="toggleTheme()" aria-label="切換主題">
             <div class="nav-icon">
                 <span class="material-symbols-sharp" id="theme-icon">light_mode</span>
@@ -123,27 +115,18 @@ function loadNavigationAndFooter() {
                     <li><a href="index.html">主要頁面</a></li>
                     <li><a href="project.html">作品展示</a></li>
                     <li><a href="about.html">關於我</a></li>
-                    <li><a href="https://github.com/ChenGuoXiang940">Github</a></li>
                 </ul>
             </div>
             <div class="farea">
-                <h3>社交媒體</h3>
-                <ul>
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                    <li><a href="#">Instagram</a></li>
-                </ul>
-            </div>
-            <div class="farea">
-                <h3>其他資訊</h3>
-                <p>使用工具</p>
+                <h3>使用工具</h3>
                 <ul>
                     <li><a href="https://code.visualstudio.com/">VSCode</a></li>
                     <li><a href="https://github.com/features/copilot">GitHub Copilot</a></li>
                     <li><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Live Server</a></li>
                 </ul>
-                <p>參考網站</p>
+            </div>
+            <div class="farea">
+                <h3>參考網站</h3>
                 <ul>
                     <li><a href="https://navnav.co">All | NavNav+</a></li>
                     <li><a href="https://bootstrapmade.com">Bootstrap Templates</a></li>
