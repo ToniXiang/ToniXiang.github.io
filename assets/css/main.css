@@ -135,7 +135,7 @@
 .lang-card.sql { border-top: 4px solid #E34F26; }
 
 .snowflake {
-    position: absolute;
+    position: fixed;
     top: -30px;
     background: white;
     border-radius: 50%;
@@ -144,6 +144,11 @@
     z-index: 10;    
     animation-name: snow-fall;
     animation-timing-function: linear;
+    pointer-events: none;
+    z-index: 9999;
+    animation-duration: 5s;
+    animation-iteration-count: infinite; 
+    will-change: transform, opacity;
 }
 
 @keyframes snow-fall {
@@ -152,5 +157,6 @@
     }
     100% {
         transform: translateY(100vh) rotate(360deg);
+        opacity: 0.5;
     }
 }

@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     toggleSnow();
     transformArticle();
 });
-//
+//  新增文章卡片淡入效果
 function transformArticle() {
     document.querySelectorAll('.year-card').forEach(card => {
         observer.observe(card);
@@ -28,14 +28,18 @@ function createSnowflake() {
     const size = Math.random() * 14 + 8;
     snowflake.style.width = size + 'px';
     snowflake.style.height = size + 'px';
-    snowflake.style.opacity = Math.random() * 0.5 + 0.5;
+    snowflake.style.opacity = Math.random() * 0.5 + 0.2;
     snowflake.style.transform = `rotate(${Math.random() * 360}deg)`;
     snowflake.style.animationDuration = (Math.random() * 2 + 3) + 's';
     snowflake.style.animationDelay = Math.random() * 2 + 's';
+    snowflake.style.backgroundColor = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.5})`;
+    snowflake.style.boxShadow = `0 0 ${size / 2}px rgba(255, 255, 255, ${Math.random() * 0.5 + 0.5})`;
+    snowflake.style.borderRadius = '50%';
+    snowflake.style.position = 'fixed';
     document.getElementById('snowflakes').appendChild(snowflake);
     setTimeout(() => {
         snowflake.remove();
-    }, 6000);
+    }, 7000);
 }
 function getRandomNumber(n) {
   return Math.floor(Math.random() * n) + 1;
@@ -43,7 +47,7 @@ function getRandomNumber(n) {
 let snowInterval = null;
 function startSnow() {
     if (!snowInterval) {
-        snowInterval = setInterval(createSnowflake, 120);
+        snowInterval = setInterval(createSnowflake, 200);
     }
 }
 function stopSnow() {
@@ -51,8 +55,9 @@ function stopSnow() {
     snowInterval = null;
 }
 function toggleSnow() {
-    let snowStart = localStorage.getItem('snowStart');
+    let snowStart = localStorage.getItem('snowStart') === 'true';
     const btn = document.getElementById('toggleSnow');
+    snowInterval = null;
     if (!snowStart) {
         btn.textContent = '繼續雪花';
         stopSnow();
@@ -64,11 +69,11 @@ function toggleSnow() {
         snowStart = !snowStart;
         localStorage.setItem('snowStart', snowStart);
         if (!snowStart) {
-            stopSnow();
             this.textContent = '繼續雪花';
+            stopSnow();
         } else {
-            startSnow();
             this.textContent = '暫停雪花';
+            startSnow();
         }
     });
 }
