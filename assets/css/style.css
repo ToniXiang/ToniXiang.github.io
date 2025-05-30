@@ -27,7 +27,7 @@ body>main{
     user-select: none;
     top: 0; 
     right: 0; 
-    background: linear-gradient(135deg, #009879, #005f5f);
+    background: linear-gradient(135deg, #0056b3);
     transition: transform 0.5s ease-in-out;
     transform: translateX(100vw);
 }
@@ -48,9 +48,24 @@ body>main{
     cursor: pointer;
 }
 .nav-item.active {
-    border: 2px solid #00796b;
-    border-radius: 8px;
+    position: relative;
+    border:none;
     background: rgba(33,150,243,0.08);
+}
+.nav-item.active::before,
+.nav-item.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 5px;
+    height: 50%;
+    background-color: #00796b;
+}
+.nav-item.active::before {
+    top: 0;
+}
+.nav-item.active::after {
+    bottom: 0;
 }
 .nav-item:hover {
     background-color: #cccccc;

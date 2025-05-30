@@ -125,14 +125,15 @@
     font-size: 1rem;
     margin: 0;
 }
-
-.lang-card.cpp { border-top: 4px solid #00599C; }
-.lang-card.csharp { border-top: 4px solid #68217A; }
-.lang-card.python { border-top: 4px solid #3776AB; }
-.lang-card.dart { border-top: 4px solid #0175C2; }
-.lang-card.javascript { border-top: 4px solid #F7DF1E; }
-.lang-card.html { border-top: 4px solid #E34F26; }
-.lang-card.sql { border-top: 4px solid #E34F26; }
+.lang-card.java { border-top: 4px solid #FF5733; }
+.lang-card.c { border-top: 4px solid #33FF57; } 
+.lang-card.cpp { border-top: 4px solid #33FF57; }
+.lang-card.csharp { border-top: 4px solid #5733FF; }
+.lang-card.python { border-top: 4px solid #FFC300; }
+.lang-card.dart { border-top: 4px solid #33C3FF; }
+.lang-card.javascript { border-top: 4px solid #FF33A6; }
+.lang-card.html { border-top: 4px solid #FF5733; } 
+.lang-card.sql { border-top: 4px solid #FFC300; }
 
 .snowflake {
     position: fixed;

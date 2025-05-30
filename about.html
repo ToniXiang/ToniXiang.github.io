@@ -19,11 +19,6 @@
         <span class="material-symbols-sharp">menu</span>
     </div>
     <main>
-        <div class="tab-container">
-            <button class="tab-button active" onclick="showTab('resume', event)">簡歷</button>
-            <button class="tab-button" onclick="showTab('goals', event)">目標</button>
-            <button class="tab-button" onclick="showTab('jobs', event)">工作</button>
-        </div>
         <article id="resume" class="tab-content">
             <div class="info-section">
                 <div class="info-item">
@@ -168,6 +163,10 @@
                 </table>
             </div> 
         </article>
+        <div class="tab-navigation">
+            <button id="prevTab" class="nav-button" onclick="navigateTab(-1)">← <span id="prevTabName"></span></button>
+            <button id="nextTab" class="nav-button" onclick="navigateTab(1)"><span id="nextTabName"></span> →</button>
+        </div>
     </main>
     <footer></footer>
     <script src="assets/js/script.js" defer></script>

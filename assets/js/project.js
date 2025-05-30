@@ -7,10 +7,7 @@ fetch(apiUrl)
     .then(response => response.json())
     .then(repos => {
         let repoList = document.getElementById("repo-list");
-        let i = 0;
-        function addRepo() {
-            if (i >= repos.length) return;
-            let repo = repos[i];
+        repos.forEach(repo => {
             let row = document.createElement("tr");
             let updatedDate = new Date(repo.updated_at).toLocaleDateString('zh-Hant-TW', {
                 year: 'numeric',
@@ -23,12 +20,7 @@ fetch(apiUrl)
                 <td>${updatedDate}</td>
             `;
             repoList.appendChild(row);
-            i++;
-            if (i < repos.length) {
-                setTimeout(addRepo, 500);
-            }
-        }
-        addRepo();
+        });
     })
     .catch(error => console.error("Error fetching GitHub repos:", error));
 // 載入文章
@@ -76,6 +68,13 @@ function displayCatalog(){
     const showNavsButton = document.getElementById('showNavs');
     const navs = document.querySelectorAll('#dynamicNavs nav');
     if(h2&&showNavsButton&&navs){
+        navs.forEach(nav => {
+            nav.classList.add('hidden');
+            nav.classList.remove('visible');
+        });
+        showNavsButton.style.display = 'block';
+        h2.style.display = 'none';
+
         h2.addEventListener('click', () => {
             navs.forEach(nav => {
                 nav.classList.add('hidden');
