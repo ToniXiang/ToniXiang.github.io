@@ -104,30 +104,18 @@
         box-sizing: border-box;
     }
 }
-@media (max-width: 768px) {
-    .language-cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .lang-card {
-        width: 100%;
-        margin: 0 auto;
-        width: 150px;
-    }
-}
-@media screen and (min-width: 769px){
-    .language-cards {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .lang-card {
-        width: 220px;
-    }
-}
 .language-cards {
-    display: grid;
-    gap: 10px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .lang-card {
+    flex: 1 1 calc(33.33% - 20px);
+    max-width: 300px;
+    box-sizing: border-box;
     border-radius: 1.2rem;
     box-shadow: 0 4px 24px rgba(0,0,0,0.08);
     padding: 2rem 1.5rem;
