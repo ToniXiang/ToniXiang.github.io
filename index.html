@@ -24,17 +24,16 @@
             <h3 id="caption"></h3>
             <img class="modal-content" id="img01" alt="Modal Image">
         </div>
-        <div class="image-container">
-            <img class="main-image" src="assets/images/bodybg.jpg" alt="main-image">
+        <img class="main-image" src="assets/images/bodybg.jpg" alt="main-image">
+        <div class="regin" onclick="toggleRegin()">
+            <div class="regin-content">
+                <p>歡迎來到我的個人網頁！這裡記錄了我的學習歷程、專案作品與個人發展。</p>
+                <button id="toggleSnow">暫停雪花</button>
+            </div>   
+            <div class="welcome-message" style="display: none;">ChenGuoXiang</div>
         </div>
         <div id="snowflakes"></div>
-        <div class="regin">
-            <h2>歡迎來到我的個人網頁！</h2>
-            <p>這裡記錄了我的學習歷程、專案作品與個人發展。</p>
-            <button id="toggleSnow">暫停雪花</button>
-        </div>
         <section class="learning-progress">
-            <h2>自己的學習</h2>
             <div class="year-cards">
                 <div class="year-card">
                     <h3>2023年</h3>
@@ -63,7 +62,6 @@
                 </div>
             </div>
         </section>
-        <h2>語言工具</h2>
         <div class="language-cards">
             <div class="lang-card c">
                 <img src="https://simpleicons.org/icons/c.svg" alt="C++">

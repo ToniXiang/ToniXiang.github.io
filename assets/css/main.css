@@ -1,15 +1,18 @@
 .main-image {
     width: 100%;
-    height: auto;
-    display: block;
-    padding-top:5px;
-    transition: transform 0.3s ease-in-out;
-    border-radius: 5px 5px 5px 5px;
+    height: 100%;
+    object-fit: cover;
+    animation: fadeInFromTop 1.5s ease-in-out;
 }
-.image-container img {
-    width: 100%;
-    height: auto;
-    display: block;
+@keyframes fadeInFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 #toggleSnow {
     display: block;
@@ -24,7 +27,20 @@
     outline: none;
 }
 .regin{
-    padding-left: 20px;
+    position: relative;
+    background: #007BFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+    animation: fadeInFromTop 1.5s ease-in-out;
+    cursor: pointer;
+}
+.welcome-message{
+    font-size: 1.5rem;
+    color: var(--text-color);
 }
 .learning-progress {
     margin: 40px 0;
@@ -50,6 +66,11 @@
     opacity: 0;
     transform: translateX(-40px);
     transition: opacity 0.8s ease, transform 0.8s cubic-bezier(.4,0,.2,1);
+}
+.year-card h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
 }
 .year-card.visible {
     opacity: 1;
@@ -83,19 +104,33 @@
         box-sizing: border-box;
     }
 }
+@media (max-width: 768px) {
+    .language-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .lang-card {
+        width: 100%;
+        margin: 0 auto;
+        width: 150px;
+    }
+}
+@media screen and (min-width: 769px){
+    .language-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .lang-card {
+        width: 220px;
+    }
+}
 .language-cards {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 2rem 0;
+    display: grid;
+    gap: 10px;
 }
 
 .lang-card {
     border-radius: 1.2rem;
     box-shadow: 0 4px 24px rgba(0,0,0,0.08);
     padding: 2rem 1.5rem;
-    width: 220px;
     text-align: center;
     opacity: 0;
     transform: translateY(40px);

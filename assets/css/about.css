@@ -31,19 +31,6 @@
 .info-value {
     flex-grow: 1;
 }
-.edu-tag {
-    display: inline-block;
-    background: #e0f7fa;
-    color: #00796b;
-    border-radius: 8px;
-    padding: 2px 8px;
-    font-size: 0.95em;
-    margin-left: 4px;
-    margin-right: 4px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    border: 1px solid #b2ebf2;
-}
 .tab-navigation {
     position: relative;
     width: 100%;

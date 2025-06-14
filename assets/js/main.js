@@ -3,6 +3,19 @@ document.addEventListener("DOMContentLoaded", function() {
     toggleSnow();
     transformArticle();
 });
+// 下拉選單功能
+function toggleRegin() {
+    const reginContent = document.querySelector('.regin-content');
+    const welcomeMessage = document.querySelector('.welcome-message');
+
+    if (reginContent.style.display === 'none') {
+        reginContent.style.display = 'block';
+        welcomeMessage.style.display = 'none';
+    } else {
+        reginContent.style.display = 'none';
+        welcomeMessage.style.display = 'block';
+    }
+}
 //  新增文章卡片淡入效果
 function transformArticle() {
     document.querySelectorAll('.year-card').forEach(card => {
