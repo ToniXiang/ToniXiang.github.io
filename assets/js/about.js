@@ -1,35 +1,85 @@
-document.addEventListener('DOMContentLoaded', () => {
-    navigateTab(0); // 顯示第一個 Tab
+document.addEventListener('DOMContentLoaded', function() {
+    initDynamicNav();
+    initResumeCard();
 });
-// 顯示 article
-function showTab(tabId,event) {
-    document.querySelectorAll('.tab-content').forEach(tab => {
-        tab.style.display = 'none';
+// 初始化動態導航
+function initDynamicNav() {
+    const navItems = document.querySelectorAll('.nav-item');
+    const sections = document.querySelectorAll('article[id]');
+    
+    function smoothScrollTo(target) {
+        const targetElement = document.getElementById(target);
+        if (targetElement) {
+            const offsetTop = targetElement.offsetTop - 100;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    }
+    
+    function updateActiveNav(target) {
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('data-target') === target) {
+                item.classList.add('active');
+            }
+        });
+    }
+    
+    navItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = this.getAttribute('data-target');
+            updateActiveNav(target);
+            smoothScrollTo(target);
+        });
     });
-    const activeTab = document.getElementById(tabId);
-    if (activeTab) {
-        activeTab.style.display = 'block';
-    }
-}
-// 控制按鈕
-const tabs = ['resume', 'goals', 'jobs'];
-const tabNames = { resume: '簡歷', goals: '目標', jobs: '工作' };
-let currentTabIndex = 0;
-
-function navigateTab(direction) {
-    currentTabIndex += direction;
-    if (currentTabIndex < 0) {
-        currentTabIndex = 0;
-    } else if (currentTabIndex >= tabs.length) {
-        currentTabIndex = tabs.length - 1;
-    }
-    showTab(tabs[currentTabIndex]);
-    const tabNames = { resume: '簡歷', goals: '目標', jobs: '工作' };
-    const prevTabName = document.getElementById('prevTabName');
-    const nextTabName = document.getElementById('nextTabName');
-    prevTabName.textContent = currentTabIndex > 0 ? tabNames[tabs[currentTabIndex - 1]] : '';
-    nextTabName.textContent = currentTabIndex < tabs.length - 1 ? tabNames[tabs[currentTabIndex + 1]] : '';
-    document.getElementById('prevTab').style.display = currentTabIndex === 0 ? 'none' : 'block';
-    document.getElementById('nextTab').style.display = currentTabIndex === tabs.length - 1 ? 'none' : 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+    
+    let isScrolling = false;
+    window.addEventListener('scroll', function() {
+        if (!isScrolling) {
+            window.requestAnimationFrame(function() {
+                const scrollPosition = window.scrollY + 150;
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                if (currentSection) {
+                    updateActiveNav(currentSection);
+                }
+                
+                isScrolling = false;
+            });
+        }
+        isScrolling = true;
+    });
+};
+// 初始化簡歷卡片動畫
+function initResumeCard() {
+    const resumeCards = document.querySelectorAll('.resume-card');
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationDelay = '0.1s';
+                entry.target.classList.add('animate-in');
+            }
+        });
+    }, observerOptions);
+    
+    resumeCards.forEach(card => {
+        observer.observe(card);
+    });
+};

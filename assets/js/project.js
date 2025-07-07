@@ -1,28 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     checkLanguage();
 });
-// 獲取我 GitHub 上的項目
-const apiUrl = `https://api.github.com/users/ChenGuoXiang940/repos`;
-fetch(apiUrl)
-    .then(response => response.json())
-    .then(repos => {
-        let repoList = document.getElementById("repo-list");
-        repos.forEach(repo => {
-            let row = document.createElement("tr");
-            let updatedDate = new Date(repo.updated_at).toLocaleDateString('zh-Hant-TW', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit'
-            });
-            row.innerHTML = `
-                <td><a href="${repo.html_url}" target="_blank">${repo.name.replace(/_/g, ' ')}</a></td>
-                <td>${repo.description || '沒有任何描述'}</td>
-                <td>${updatedDate}</td>
-            `;
-            repoList.appendChild(row);
-        });
-    })
-    .catch(error => console.error("Error fetching GitHub repos:", error));
 // 載入文章
 let currentArticleId = '';
 function loadArticle(articleId, event) {
@@ -36,6 +14,9 @@ function loadArticle(articleId, event) {
     const navs = document.querySelectorAll('#dynamicNavs nav');
     const showNavsButton = document.getElementById('showNavs');
     const h2 = document.querySelector('#catalog h2');
+    const catalog = document.getElementById('catalog');
+    catalog.classList.add('hidden');
+    catalog.classList.remove('visible');
     navs.forEach(nav => {
         nav.classList.add('hidden');
         nav.classList.remove('visible');
@@ -47,7 +28,8 @@ function loadArticle(articleId, event) {
         .then(data => {
             const article = data.articles[articleId];
             const articleContent = document.getElementById('articleContent');
-            articleContent.innerHTML = `
+            
+            let articleHTML = `
                 <header>
                     <h2>${article.title[selectedLanguage]}</h2>
                     ${article.tags[selectedLanguage].map(tag => `<span class="message-tags">${tag}</span>`).join('')}
@@ -56,18 +38,77 @@ function loadArticle(articleId, event) {
                 ${article.sections.map(section => `
                     <section>
                         <h3>${section.title[selectedLanguage]}</h3>
-                        <p>${section.content[selectedLanguage]}</p>
+                        <div>${section.content[selectedLanguage]}</div>
                     </section>
                 `).join('')}
             `;
+            articleContent.innerHTML = articleHTML;
+            // 如果是 GitHub 儲存庫文章，載入表格
+            if (articleId === 'github-repos') {
+                loadGitHubRepos();
+            }
         });
 }
+
+// 載入 GitHub 儲存庫表格
+function loadGitHubRepos() {
+    const selectedLanguage = document.getElementById('languageSwitcher').value;
+    const tableContainer = document.querySelector('.github-table-container');
+    const tableHTML = `
+        <div class="table-container">
+            <table id="repo-table" class="info-table">
+                <thead>
+                    <tr>
+                        <th>${selectedLanguage === 'en' ? 'Repository Name' : '庫名'}</th>
+                        <th>${selectedLanguage === 'en' ? 'Description' : '簡介'}</th>
+                        <th>${selectedLanguage === 'en' ? 'Last Updated' : '最後更新'}</th>
+                    </tr>
+                </thead>
+                <tbody id="repo-list"></tbody>
+            </table>
+        </div>
+    `;
+    tableContainer.innerHTML = tableHTML;
+    // 載入 GitHub 儲存庫資料
+    fetchGitHubRepos();
+}
+
+// 獲取 GitHub 儲存庫資料
+function fetchGitHubRepos() {
+    const apiUrl = `https://api.github.com/users/ChenGuoXiang940/repos`;
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(repos => {
+            let repoList = document.getElementById("repo-list");
+            repoList.innerHTML = ''; // 清空現有內容
+            repos.forEach(repo => {
+                let row = document.createElement("tr");
+                let updatedDate = new Date(repo.updated_at).toLocaleDateString('zh-Hant-TW', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit'
+                });
+                row.innerHTML = `
+                    <td><a href="${repo.html_url}" target="_blank">${repo.name.replace(/_/g, ' ')}</a></td>
+                    <td>${repo.description || '沒有任何描述'}</td>
+                    <td>${updatedDate}</td>
+                `;
+                repoList.appendChild(row);
+            });
+        })
+        .catch(error => console.error("Error fetching GitHub repos:", error));
+}
 // 顯示和隱藏目錄
+let catalogEventListenersAdded = false;
 function displayCatalog(){
     const h2 = document.querySelector('#catalog h2');
     const showNavsButton = document.getElementById('showNavs');
     const navs = document.querySelectorAll('#dynamicNavs nav');
-    if(h2&&showNavsButton&&navs){
+    const catalog = document.getElementById('catalog');
+    
+    if(h2&&showNavsButton&&navs&&catalog){
+        catalog.classList.add('hidden');
+        catalog.classList.remove('visible');
         navs.forEach(nav => {
             nav.classList.add('hidden');
             nav.classList.remove('visible');
@@ -75,30 +116,40 @@ function displayCatalog(){
         showNavsButton.style.display = 'block';
         h2.style.display = 'none';
 
-        h2.addEventListener('click', () => {
-            navs.forEach(nav => {
-                nav.classList.add('hidden');
-                nav.classList.remove('visible');
+        // 只在第一次執行時綁定事件監聽器
+        if (!catalogEventListenersAdded) {
+            h2.addEventListener('click', () => {
+                catalog.classList.add('hidden');
+                catalog.classList.remove('visible');
+                navs.forEach(nav => {
+                    nav.classList.add('hidden');
+                    nav.classList.remove('visible');
+                });
+                showNavsButton.style.display = 'block';
+                h2.style.display='none';
             });
-            showNavsButton.style.display = 'block';
-            h2.style.display='none';
-        });
-    
-        showNavsButton.addEventListener('click', () => {
-            navs.forEach(nav => {
-                nav.classList.add('visible');
-                nav.classList.remove('hidden');
+        
+            showNavsButton.addEventListener('click', () => {
+                catalog.classList.add('visible');
+                catalog.classList.remove('hidden');
+                navs.forEach(nav => {
+                    nav.classList.add('visible');
+                    nav.classList.remove('hidden');
+                });
+                showNavsButton.style.display = 'none';
+                h2.style.display='block';
             });
-            showNavsButton.style.display = 'none';
-            h2.style.display='block';
-        });
+            
+            catalogEventListenersAdded = true;
+        }
     }
 }
 // 目錄生成
 const articles = [
+    { id: 'home', title: { en: 'Welcome to My Project Showcase', zh: '歡迎來到我的專案展示' } },
     { id: 'OCC_myproject', title: { en: 'Simple Control Center', zh: '簡易的行控中心' } },
     { id: 'shoppingPlatform', title: { en: 'Shopping Platform', zh: '購物平台' } },
-    { id: 'realTimeVoiceTranslationApp', title: { en: 'Real-Time Voice Translation Application', zh: '即時語音翻譯應用程式' } }
+    { id: 'github-repos', title: { en: 'My GitHub Repositories', zh: '我的 GitHub 儲存庫' } }
 ];
 function generateCatalog() {
     const catalog = document.getElementById('catalog');
@@ -129,28 +180,16 @@ function checkLanguage(){
     }
     generateCatalog();
     displayCatalog();
-    setDefalutMsg();
+    loadArticle('home');
 }
 
 // 中與英的語言選擇
 const translations = {
     en: {
-        catalogTitle: 'Catalog',
-        defaultMessage: 'Explore my project showcase',
-        guide: [
-            'Explore different projects to understand my work and interests',
-            'Each project has detailed descriptions and related links',
-            'Feel free to contact me with any questions or suggestions',
-        ]
+        catalogTitle: 'Catalog'
     },
     zh: {
-        catalogTitle: '目錄',
-        defaultMessage: '探索我的作品展示',
-        guide: [
-            '探索不同的專案，了解我的工作和興趣',
-            '每個專案都有詳細的描述和相關連結',
-            '如果有任何問題或建議，歡迎聯繫我',
-        ]
+        catalogTitle: '目錄'
     }
 };
 document.getElementById('languageSwitcher').addEventListener('change', function() {
@@ -160,20 +199,8 @@ document.getElementById('languageSwitcher').addEventListener('change', function(
     generateCatalog();
     displayCatalog();
     if (currentArticleId === ''){
-        setDefalutMsg();
+        loadArticle('home');
         return;
     }
     loadArticle(currentArticleId);
 });
-// Project 預設的介紹訊息
-function setDefalutMsg(){
-    const Language = document.getElementById('languageSwitcher').value;
-    document.querySelector('.default-message h2').textContent = translations[Language].defaultMessage;
-    const guideList = document.querySelector('.default-message ul');
-    guideList.innerHTML = ''; // 清空列表
-    translations[Language].guide.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = item;
-        guideList.appendChild(li);
-    });
-}

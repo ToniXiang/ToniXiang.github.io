@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadDefaultTheme();
     loadNavigationAndFooter();
     initializeBackToTopButton();
+    initializeModalEvents();
     // localStorage.removeItem('notificationDismissed'); // 測試用
     const isNotificationDismissed = localStorage.getItem('notificationDismissed');
     if (!isNotificationDismissed) {
@@ -99,38 +100,53 @@ function loadNavigationAndFooter() {
         </nav>
         `;
     foot.innerHTML = `
-        <hr>
         <div class="footer-content">
-            <div class="farea farea-top">
-                <div class="footer-logo">
-                    <img src="assets/images/me.png" class="footer-img" alt="個人網頁 Logo">
-                    <h2>個人網頁</h2>
+            <div class="footer-main">
+                <div class="farea farea-brand">
+                    <div class="footer-logo">
+                        <img src="assets/images/me.png" class="footer-img" alt="個人網頁 Logo">
+                        <div class="brand-info">
+                            <h2>陳國翔</h2>
+                            <p class="brand-subtitle">個人網頁</p>
+                        </div>
+                    </div>
+                    <p class="author-description">
+                        Hi! I'm a student at NTCUST, Taiwan.
+                    </p>
+                    <p class="author-description">
+                        熱愛程式設計，持續學習新技術
+                    </p>
+                    <div class="social-links">
+                        <a href="https://github.com/ChenGuoXiang940" target="_blank" aria-label="GitHub" title="ChenGuoXiang940">GitHub</a>
+                        <a href="mailto:chen199940@example.com" aria-label="Email" title="chen199940@example.com">Email</a>
+                    </div>
                 </div>
-                <p class="author">維護人：<strong>陳國翔</strong></p>
-                <p>Hi! I'm a student at NTCUST, Taiwan.</p>
+                <div class="farea farea-nav">
+                    <h3>網站導航</h3>
+                    <ul>
+                        <li><a href="index.html">主要頁面</a></li>
+                        <li><a href="project.html">作品展示</a></li>
+                        <li><a href="about.html">關於我</a></li>
+                    </ul>
+                </div>
+                <div class="farea farea-tools">
+                    <h3>開發工具</h3>
+                    <ul>
+                        <li><a href="https://code.visualstudio.com/" target="_blank">VSCode</a></li>
+                        <li><a href="https://github.com/features/copilot" target="_blank">GitHub Copilot</a></li>
+                        <li><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer" target="_blank">Live Server</a></li>
+                    </ul>
+                </div>
+                <div class="farea farea-resources">
+                    <h3>參考資源</h3>
+                    <ul>
+                        <li><a href="https://navnav.co" target="_blank">NavNav+</a></li>
+                        <li><a href="https://bootstrapmade.com" target="_blank">Bootstrap Templates</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="farea">
-                <h3>導航</h3>
-                <ul>
-                    <li><a href="index.html">主要頁面</a></li>
-                    <li><a href="project.html">作品展示</a></li>
-                    <li><a href="about.html">關於我</a></li>
-                </ul>
-            </div>
-            <div class="farea">
-                <h3>使用工具</h3>
-                <ul>
-                    <li><a href="https://code.visualstudio.com/">VSCode</a></li>
-                    <li><a href="https://github.com/features/copilot">GitHub Copilot</a></li>
-                    <li><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Live Server</a></li>
-                </ul>
-            </div>
-            <div class="farea">
-                <h3>參考網站</h3>
-                <ul>
-                    <li><a href="https://navnav.co">All | NavNav+</a></li>
-                    <li><a href="https://bootstrapmade.com">Bootstrap Templates</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <p>© ${new Date().getFullYear()} 持續更新中<span class="dots-animation">...</span></p>
             </div>
         </div>`;
 }
@@ -205,22 +221,95 @@ function applyTheme(themeName) {
         themeIcons.forEach(themeIcon => themeIcon.textContent = 'dark_mode');
     }
 }
-// 圖片點擊後顯示它的大圖
-function openModal(imgSrc,imgName) {
-    var modal = document.getElementById("myModal");
-    var modalImg = document.getElementById("img01");
-    var captionText = document.getElementById("caption");
+// 點擊圖片後顯示它的大圖
+function openModal(imgSrc, imgName) {
+    const modal = document.getElementById("myModal");
+    const modalImg = document.getElementById("img01");
+    const captionText = document.getElementById("caption");
+    
     modal.style.display = "block";
     modalImg.src = imgSrc;
     captionText.textContent = imgName;
     document.body.classList.add("no-hover-effect");
+    
+    document.body.style.overflow = 'hidden';
+    
+    document.addEventListener('keydown', handleModalKeydown);
 }
-// 大圖中用來關閉的按鍵
-var span = document.getElementsByClassName("close")[0];
-if(span){
-    span.onclick = function() {
-        var modal = document.getElementById("myModal");
-        modal.style.display = "none";
-        document.body.classList.remove("no-hover-effect");
+
+// 關閉模態框
+function closeModal() {
+    const modal = document.getElementById("myModal");
+    modal.style.display = "none";
+    document.body.classList.remove("no-hover-effect");
+    document.body.style.overflow = 'auto';
+    document.removeEventListener('keydown', handleModalKeydown);
+}
+
+// 處理模態框的鍵盤事件
+function handleModalKeydown(event) {
+    if (event.key === 'Escape') {
+        closeModal();
     }
+}
+// 下載圖片
+function downloadImage() {
+    const modalImg = document.getElementById("img01");
+    const captionText = document.getElementById("caption");
+    const imgSrc = modalImg.src;
+    const imgName = captionText.textContent || 'image';
+    
+    const link = document.createElement('a');
+    link.href = imgSrc;
+    link.download = imgName;
+    link.click();
+}
+
+// 顯示提示訊息
+function showToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    toast.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        z-index: 1002;
+        animation: toastFadeIn 0.3s ease-out;
+    `;
+    
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.style.animation = 'toastFadeOut 0.3s ease-out';
+        setTimeout(() => {
+            document.body.removeChild(toast);
+        }, 300);
+    }, 3000);
+}
+
+// 初始化模態框事件監聽
+function initializeModalEvents() {
+    const closeBtn = document.querySelector('.modal-close');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+    const modalOverlay = document.querySelector('.modal-overlay');
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', closeModal);
+    }
+    const downloadBtn = document.getElementById('downloadBtn');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', downloadImage);
+    }
+}
+
+// 為關閉按鈕添加點擊事件
+const span = document.getElementsByClassName("close")[0];
+if (span) {
+    span.onclick = closeModal;
 }

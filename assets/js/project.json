@@ -70,8 +70,8 @@
                     "zh": "主畫面（商品列表）"
                 },
                 "content": {
-                    "en": "<ul><li>Displays multiple products, including name, image, and price.</li><li>Provides an 'Add to Cart' button to add products to the shopping cart.</li><li>The UI should clearly display the products and consider responsive design.</li></ul><img src='assets/images/p2-3.png' alt='Sidebar' class='centered-image' onclick=\"openModal('assets/images/p2-3.png', 'Sidebar')\"><img src='assets/images/p2-2.png' alt='Product List' class='centered-image' onclick=\"openModal('assets/images/p2-2.png', 'Product List')\">",
-                    "zh": "<ul><li>顯示多個商品，包含名稱、圖片、價格</li><li>提供「加入購物車」按鈕，可將商品加入購物車</li><li>UI 需清楚展示商品，並考慮響應式設計</li></ul><img src='assets/images/p2-3.png' alt='側邊欄' class='centered-image' onclick=\"openModal('assets/images/p2-3.png', '側邊欄')\"><img src='assets/images/p2-2.png' alt='商品列' class='centered-image' onclick=\"openModal('assets/images/p2-2.png', '商品列')\">"
+                    "en": "<ul><li>Displays multiple products, including name, image, and price.</li><li>Provides an 'Add to Cart' button to add products to the shopping cart.</li><li>The UI should clearly display the products and consider responsive design.</li></ul><img src='assets/images/p2-2.png' alt='Product List' class='centered-image' onclick=\"openModal('assets/images/p2-2.png', 'Product List')\">",
+                    "zh": "<ul><li>顯示多個商品，包含名稱、圖片、價格</li><li>提供「加入購物車」按鈕，可將商品加入購物車</li><li>UI 需清楚展示商品，並考慮響應式設計</li></ul><img src='assets/images/p2-2.png' alt='商品列' class='centered-image' onclick=\"openModal('assets/images/p2-2.png', '商品列')\">"
                 }
             },
             {
@@ -80,8 +80,8 @@
                     "zh":"設定"
                 },
                 "content":{
-                    "en":"<img src='assets/images/p2-4.png' alt=Setting' class='centered-image' onclick=\"openModal('assets/images/p2-4.png', 'Setting')\">",
-                    "zh":"<img src='assets/images/p2-4.png' alt='設定' class='centered-image' onclick=\"openModal('assets/images/p2-4.png', '設定')\""
+                    "en":"<img src='assets/images/p2-3.png' alt=Setting' class='centered-image' onclick=\"openModal('assets/images/p2-3.png', 'Setting')\">",
+                    "zh":"<img src='assets/images/p2-3.png' alt='設定' class='centered-image' onclick=\"openModal('assets/images/p2-3.png', '設定')\""
                 }
             },
             {
@@ -90,8 +90,8 @@
                     "zh": "後端運行狀態"
                 },
                 "content": {
-                    "en": "<img src='assets/images/p2-5.png' alt='Backend' class='centered-image' onclick=\"openModal('assets/images/p2-5.png', 'Backend')\">",
-                    "zh": "<img src='assets/images/p2-5.png' alt='後端' class='centered-image' onclick=\"openModal('assets/images/p2-5.png', '後端')\">"
+                    "en": "<img src='assets/images/p2-4.png' alt='Backend' class='centered-image' onclick=\"openModal('assets/images/p2-4.png', 'Backend')\">",
+                    "zh": "<img src='assets/images/p2-4.png' alt='後端' class='centered-image' onclick=\"openModal('assets/images/p2-4.png', '後端')\">"
                 }
             },
             {
@@ -106,45 +106,56 @@
             }
             ]
         },
-        "realTimeVoiceTranslationApp": {
+        "home": {
             "title": {
-                "en": "Real-Time Voice Translation Application",
-                "zh": "即時語音翻譯應用程式"
+                "en": "Welcome to My Project Showcase",
+                "zh": "歡迎來到我的專案展示"
             },
             "tags": {
-                "en": [ "LLM", "Flutter", "Django", "Database"],
-                "zh": [ "大型語言模型", "Flutter", "Django", "資料庫"]
+                "en": ["Portfolio", "Projects", "Development"],
+                "zh": ["作品集", "專案", "開發"]
             },
-            "repositoryLink": "#",
             "sections": [
                 {
                     "title": {
-                        "en": "Main Functions",
-                        "zh": "主要功能"
+                        "en": "About This Portfolio",
+                        "zh": "關於這個作品集"
                     },
                     "content": {
-                        "en": "<ul><li>Dynamic Cultural Context Adaptation</li><li>Integrated Language Learning Mode</li><li>Visual and Environmental Context Integration</li><li>Real-Time Translation and Automatic Note Summarization</li><li>Contextual Vocabulary Library and Interactive Definitions</li><li>Interactive Q&A Mode</li></ul>",
-                        "zh": "<ul><li>動態文化情境適應</li><li>整合語言學習模式</li><li>視覺與環境上下文整合</li><li>即時翻譯與自動筆記摘要</li><li>語境詞彙庫與互動定義</li><li>互動式問答模式</li></ul>"
+                        "en": "<p>Welcome to my project showcase! This is where I share my development journey and technical achievements. Each project represents a unique challenge and learning experience that has shaped my skills as a developer.</p><p>Here you can explore different projects to understand my work and interests. Each project includes detailed descriptions, technical specifications, and links to repositories where available.</p>",
+                        "zh": "<p>歡迎來到我的專案展示！這裡是我分享開發歷程和技術成就的地方。每個專案都代表著獨特的挑戰和學習經驗，塑造了我作為開發者的技能。</p><p>您可以在這裡探索不同的專案，了解我的工作和興趣。每個專案都包含詳細的描述、技術規格，以及可用的儲存庫連結。</p>"
                     }
                 },
                 {
                     "title": {
-                        "en": "Learning Target",
-                        "zh": "學習目標"
+                        "en": "Navigation Guide",
+                        "zh": "導航指南"
                     },
                     "content": {
-                        "en": "<ul><li>Practice creating simple UI components (input/output, buttons, lists, etc.)</li><li>Learn and practice Flutter Widgets like StatelessWidget and StatefulWidget</li><li>Understand state management (Provider, Riverpod, Bloc, etc.)</li><li>Develop backend services using Django and integrate with MySQL</li><li>Implement HTTP requests for push notifications</li><li>Build a complete application with navigation, multi-screen layouts, and animations</li></ul>",
-                        "zh": "<ul><li>練習創建簡單的 UI 元件（輸入輸出、按鈕、列表等）</li><li>學習並練習 Flutter Widgets，如 StatelessWidget 和 StatefulWidget</li><li>理解狀態管理（Provider、Riverpod、Bloc 等）</li><li>開發後端服務（使用 Django）並與 MySQL 整合</li><li>實現 HTTP 請求的推送通知</li><li>構建具有導航、多屏佈局和動畫的完整應用程式</li></ul>"
+                        "en": "<ul><li>Use the catalog button on the left to browse different projects and sections</li><li>Click on any project title to view detailed information</li><li>Each project includes technical details, screenshots, and repository links</li><li>Feel free to contact me if you have any questions or suggestions</li></ul>",
+                        "zh": "<ul><li>使用左側的目錄按鈕瀏覽不同的專案和章節</li><li>點擊任何專案標題以查看詳細資訊</li><li>每個專案都包含技術細節、截圖和儲存庫連結</li><li>如果有任何問題或建議，歡迎聯繫我</li></ul>"
                     }
-                },
+                }
+            ]
+        },
+        "github-repos": {
+            "title": {
+                "en": "My GitHub Repositories",
+                "zh": "我的 GitHub 儲存庫"
+            },
+            "tags": {
+                "en": ["GitHub", "Open Source", "Code"],
+                "zh": ["GitHub", "開源", "程式碼"]
+            },
+            "sections": [
                 {
                     "title": {
-                        "en": "Introduction",
-                        "zh": "介紹"
+                        "en": "Repository Overview",
+                        "zh": "儲存庫概覽"
                     },
                     "content": {
-                        "en": "In my graduation project with my team members, I was mainly responsible for cross-platform front-end development (using Flutter) and backend data storage and management (using MySQL). Both were skills I started self-learning in recent months, beginning with small projects and documenting my progress in OneNote (content is incomplete and will not be made public for now). By the time I officially started the project in my junior year, I had the ability to elevate software design to a whole new level.",
-                        "zh": "在我與組員的畢業專題中，我主要負責前端跨平台開發（使用 Flutter）以及後端資料儲存與管理（使用 MySQL）。兩者都是我近幾個月才開始自學，從小項目開始著手，幾乎會以 OneNote 筆記做紀錄(內容不齊全，暫時不會公開)。等到大三真正開始做專題，我會有能力把軟體設計提高到更不一樣的境界。"
+                        "en": "<p>Below is a comprehensive list of my GitHub repositories. Each repository represents different aspects of my development work, from personal projects to experimental code and learning exercises.</p><div class='github-table-container'></div>",
+                        "zh": "<p>以下是我的 GitHub 儲存庫的完整列表。每個儲存庫代表我開發工作的不同方面，從個人專案到實驗性程式碼和學習練習。</p><div class='github-table-container'></div>"
                     }
                 }
             ]

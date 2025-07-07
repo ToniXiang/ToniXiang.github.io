@@ -7,25 +7,40 @@
 }
 #showNavs {
     position: fixed;
-    display: none;
+    display: block;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: #fff;
     border: none;
-    border-radius: 0 5px 5px 0;
-    padding: 5px 8px;
+    border-radius: 0 12px 12px 0;
+    padding: 12px 15px;
     cursor: pointer;
-    font-size: 1.0em;
-    box-shadow: 0 0 20px rgba(212, 129, 129, 0.15);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    z-index: 2;
+    font-size: 1.1em;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 #showNavs:hover {
-    background-color: #555;
-    transform: translateY(-50%) scale(1.1);
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    transform: translateY(-50%) scale(1.1) translateX(5px);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
+}
+
+#showNavs:active {
+    transform: translateY(-50%) scale(0.95) translateX(5px);
+}
+
+#showNavs span {
+    transition: transform 0.3s ease;
+}
+
+#showNavs:hover span {
+    transform: scale(1.2);
 }
 nav.hidden {
     transform: translateX(-100%);
@@ -47,31 +62,241 @@ nav.visible {
     color: var(--accent-color);
 }
 
+#catalog{
+    position: fixed;
+    padding-top: 4em;
+    left: 0;
+    width: 240px;
+    height: auto;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+    z-index: 2;
+    overflow-y: visible;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(15px);
+    border-radius: 0 15px 15px 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    padding-left: 20px;
+    padding-right: 20px;
+    /* 預設隱藏 catalog */
+    transform: translateX(-100%);
+}
+
+#catalog.visible {
+    transform: translateX(0);
+}
+
+#catalog.hidden {
+    transform: translateX(-100%);
+}
+
+#catalog h2 {
+    color: var(--primary-color);
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+#catalog h2:hover {
+    color: var(--accent-color);
+    transform: translateX(5px);
+}
+
+#catalog h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+    transform: none !important;
+    animation: none !important;
+}
+
+#catalog h2:hover::after {
+    width: 100%;
+}
+
+#dynamicNavs>nav,#catalog>h2{
+    cursor: pointer;
+}
+
+#dynamicNavs>nav>p{
+    font-weight: 500;
+    padding: 12px 15px;
+    color: var(--text-color);
+    margin: 0;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    position: relative;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+#dynamicNavs>nav{
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin-bottom: 8px;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+#dynamicNavs>nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+#dynamicNavs>nav:hover::before {
+    left: 100%;
+}
+
+#dynamicNavs>nav:hover {
+    transform: translateX(8px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border-color: var(--accent-color);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+}
+
+#dynamicNavs>nav:hover>p {
+    color: var(--accent-color);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#dynamicNavs>nav:active {
+    transform: translateX(8px) scale(0.98);
+}
+
+#articleContent {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--background-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+#articleContent:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.table-container {
+    margin-top: 2rem;
+    overflow-x: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#repo-table {
+    border-collapse: collapse;
+    width: 100%;
+    min-height: 500px;
+    background: var(--background-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#repo-table th {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    padding: 1rem;
+    text-align: left;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+#repo-table td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+#repo-table tr:hover td {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+#repo-table tr:last-child td {
+    border-bottom: none;
+}
+
+#repo-table td a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+#repo-table td a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+#repo-table td a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+#repo-table td a:hover::after {
+    width: 100%;
+}
+
 .default-message {
     text-align: center;
-    padding: 20px;
+    padding: 3rem 2rem;
     margin: 0 auto;
-}
-
-.default-message h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.default-message p {
-    font-size: 16px;
-    margin-bottom: 10px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
 }
 
 .default-message ul {
     padding-left: 20px;
     text-align: left;
     display: inline-block;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 6px;
+    padding: 1rem 2rem;
+    border-left: 4px solid var(--accent-color);
 }
 
 .default-message li {
-    margin-bottom: 5px;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    position: relative;
+    padding-left: 0;
 }
+
 #languageSwitcher {
     display: block;
     margin: 20px auto;
@@ -83,51 +308,192 @@ nav.visible {
     color: var(--text-color);
     cursor: pointer;
 }
-#catalog{
-    position: fixed;
-    padding-top: 4em;
-    left: 0;
-    width: 200px;
-    height: auto;
-    overflow-y: auto;
-    transition: transform 0.3s ease;
-    z-index: 2;
-    overflow-y: visible;
+#languageSwitcher:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
 }
-#dynamicNavs>nav,#catalog>h2{
-    cursor: pointer;
+
+@media (max-width: 768px) {
+    #articleContent {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .default-message {
+        padding: 2rem 1rem;
+    }
+    
+    .default-message h2 {
+        font-size: 1.5rem;
+    }
+    
+    .default-message p {
+        font-size: 1rem;
+    }
+    
+    #repo-table th,
+    #repo-table td {
+        padding: 0.8rem 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .table-container {
+        margin-top: 1rem;
+    }
+    
+    #catalog {
+        width: 200px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    #catalog h2 {
+        font-size: 1.2em;
+    }
+    
+    #dynamicNavs>nav>p {
+        font-size: 0.85em;
+        padding: 10px 12px;
+    }
+    
+    #showNavs {
+        padding: 10px 12px;
+        font-size: 1em;
+    }
 }
-#dynamicNavs>nav>p{
-    font-weight: 400;
-    padding-left: 5px;
-    color:white;
+
+@media (max-width: 480px) {
+    #catalog {
+        width: 180px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    #catalog h2 {
+        font-size: 1.1em;
+    }
+    
+    #dynamicNavs>nav>p {
+        font-size: 0.8em;
+        padding: 8px 10px;
+    }
+    
+    #showNavs {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
 }
-#dynamicNavs>nav{
-    background-color:#009879;
-    font-size: 10px;
+
+.loading-skeleton {
+    animation: skeleton-loading 1.5s infinite alternate;
 }
-#dynamicNavs>nav:hover>p {
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+    100% {
+        background-color: rgba(255, 255, 255, 0.15);
+    }
 }
-#repo-table {
+
+.table-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: rgba(95, 108, 175, 0.1);
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+/* Catalog entrance animations */
+@keyframes catalogSlideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes navItemSlideIn {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+#catalog.visible {
+    transform: translateX(0);
+    animation: catalogSlideIn 0.5s ease-out;
+}
+
+#catalog.hidden {
+    transform: translateX(-100%);
+}
+
+#dynamicNavs>nav {
+    animation: navItemSlideIn 0.3s ease-out;
+    animation-fill-mode: both;
+}
+
+#dynamicNavs>nav:nth-child(1) { animation-delay: 0.1s; }
+#dynamicNavs>nav:nth-child(2) { animation-delay: 0.2s; }
+#dynamicNavs>nav:nth-child(3) { animation-delay: 0.3s; }
+#dynamicNavs>nav:nth-child(4) { animation-delay: 0.4s; }
+#dynamicNavs>nav:nth-child(5) { animation-delay: 0.5s; }
+
+#catalog::-webkit-scrollbar {
+    width: 6px;
+}
+
+#catalog::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+#catalog::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 3px;
+    opacity: 0.7;
+}
+
+#catalog::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+    opacity: 1;
+}
+
+.github-table-container {
+    margin-top: 2rem;
+}
+
+.github-table-container .table-container {
+    margin-top: 1rem;
+    overflow-x: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.github-table-container #repo-table {
     border-collapse: collapse;
     width: 100%;
     min-height: 500px;
-}
-
-#repo-table th, #repo-table td {
-    padding: 8px;
-    text-align: left;
-}
-
-#repo-table tr {
-    background-color: var(--background-color);
-    border-bottom: 1px solid var(--text-color);
-}
-#repo-table tr:last-child {
-    border-bottom: none;
-}
-td a {
-    text-decoration: underline;
+    background: var(--background-color);
+    border-radius: 8px;
+    overflow: hidden;
 }

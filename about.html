@@ -6,7 +6,7 @@
     <title>個人網頁</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="shortcut icon" href="assets/images/me.png" type="image/x-icon">
-    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_drop_up,arrow_forward_ios,close,contrast,dark_mode,description,group,history,home,light_mode,menu,share" />
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_drop_up,arrow_forward_ios,close,contrast,dark_mode,description,email,flag,group,history,home,light_mode,menu,person,share,work" />
     <link rel="stylesheet" href="assets/css/about.css">
 </head>
 <body>
@@ -18,155 +18,165 @@
     <div class="menu" onclick="toggleMenu()" aria-label="打開選單">
         <span class="material-symbols-sharp">menu</span>
     </div>
+    <!-- 快速導航欄 -->
+    <nav class="quick-nav">
+        <div class="quick-nav-container">
+            <a href="#resume" class="nav-item active" data-target="resume">
+                <span class="material-symbols-sharp">person</span>
+                <span>個人履歷</span>
+            </a>
+            <a href="#goals" class="nav-item" data-target="goals">
+                <span class="material-symbols-sharp">flag</span>
+                <span>職涯目標</span>
+            </a>
+            <a href="#jobs" class="nav-item" data-target="jobs">
+                <span class="material-symbols-sharp">work</span>
+                <span>職業選擇</span>
+            </a>
+        </div>
+    </nav>
+    
     <main>
         <article id="resume" class="tab-content">
-            <div class="info-section">
-                <div class="info-item">
-                    <span class="info-label">姓名</span>
-                    <span class="info-value">陳國翔</span>
+            <h2 class="section-title">個人履歷</h2>
+            <div class="resume-card">
+                <div class="card-header">
+                    <h3>基本資料</h3>
                 </div>
-                <div class="info-item">
-                    <span class="info-label">性別</span>
-                    <span class="info-value">男</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">電子郵件一</span>
-                    <span class="info-value">chen199940@gmail.com</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">電子郵件二</span>
-                    <span class="info-value">s1411232069@ad1.nutc.edu.tw</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">地區</span>
-                    <span class="info-value">台灣,台中市</span>
-                </div>
-            </div>
-            <hr class="info-divider">
-            <div class="info-section">
-                <div class="info-item">
-                    <span class="info-label">競賽</span>
-                    <span class="info-value">參加111年全國技藝競賽軟體設計職種</span>
-                </div>
-            </div>
-            <hr class="info-divider">
-            <div class="info-section">
-                <div class="info-item">
-                    <span class="info-label">證照</span>
-                    <span class="info-value">
-                        <p>軟體設計丙級</p>
-                        <p>CPE 進階級 語言C/C++ 排名 8.2%</p>
-                        <p>RISC-V 嵌入式系統「晶心開發系統技術能力分級檢定」高級檢定證照</p>
-                    </span>
+                <div class="card-content">
+                    <div class="resume-grid">
+                        <div class="resume-item">
+                            <strong>陳國翔</strong>
+                            <span class="resume-label">姓名</span>
+                        </div>
+                        <div class="resume-item">
+                            <strong>男</strong>
+                            <span class="resume-label">性別</span>
+                        </div>
+                        <div class="resume-item">
+                            <strong>台灣,台中市</strong>
+                            <span class="resume-label">地區</span>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="material-symbols-sharp">email</span>
+                            <span>chen199940@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="material-symbols-sharp">email</span>
+                            <span>s1411232069@ad1.nutc.edu.tw</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <hr class="info-divider">
-            <div class="info-section">
-                <div class="info-item">
-                    <span class="info-label">學歷</span>
-                    <span class="info-value">
-                        <p>國立龍潭高級中學 電子科</p>
-                        <p>國立臺中科技大學 資訊工程系(就學中)</p>
-                    </span>
+            <div class="resume-card">
+                <div class="card-header">
+                    <h3>學歷</h3>
+                </div>
+                <div class="card-content">
+                    <div class="education-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content" title="四技 就學中">
+                                <h4>國立臺中科技大學</h4>
+                                <p>資訊工程系</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content" title="已畢業">
+                                <h4>國立龍潭高級中學</h4>
+                                <p>電子科</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="resume-card">
+                <div class="card-header">
+                    <h3>競賽與證照</h3>
+                </div>
+                <div class="card-content">
+                    <div class="achievement-section">
+                        <h4>競賽成果</h4>
+                        <div class="achievement-item">
+                            <span class="achievement-badge">競賽</span>
+                            <span>參加111年全國技藝競賽軟體設計職種</span>
+                        </div>
+                    </div>
+                    <div class="achievement-section">
+                        <h4>專業證照</h4>
+                        <div class="achievement-item">
+                            <span class="achievement-badge">軟體</span>
+                            <span>軟體設計丙級</span>
+                        </div>
+                        <div class="achievement-item">
+                            <span class="achievement-badge">程式</span>
+                            <span>CPE 進階級 語言C/C++ 排名 8.2%</span>
+                        </div>
+                        <div class="achievement-item">
+                            <span class="achievement-badge">嵌入式</span>
+                            <span>RISC-V 嵌入式系統「晶心開發系統技術能力分級檢定」高級檢定證照</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </article>
-        <article id="goals" class="tab-content" style="display: none;">
+        <article id="goals" class="tab-content">
+            <h2 class="section-title">職涯目標</h2>
             <div class="table-container">
-                <table border="1">
+                <table>
                     <tr>
-                        <th>階段</th>
+                        <th>時間</th>
                         <th>目標</th>
                     </tr>
                     <tr>
-                        <td rowspan="6">短期目標<p class="bracket">(大學一年級)</p>
-                        </td>
-                        <td>增強學校所學專業知識能力</td>
+                        <td>大學一年級</td>
+                        <td>增強學校所學專業知識能力、精進自己所學的程式演算法、自學網頁設計(Html、CSS、JavaScript)、準備大學程式能力檢定(CPE)，嘗試實做歷屆考題、背好單字，練聽力，英文要進步、希望各科不要被當 All Pass</td>
                     </tr>
                     <tr>
-                        <td>精進自己所學的程式演算法</td>
+                        <td>大學二~四年級</td>
+                        <td>Github上傳程式、做各種專題、考多益(TOEIC)，希望能從原本350進步到500以上、考汽車及機車駕照、考大學程式能力檢定(CPE)，希望至少能做三題、爭取在業界實習軟體相關職務經驗</td>
                     </tr>
                     <tr>
-                        <td>自學網頁設計(Html、CSS、JavaScript)</td>
-                    </tr>
-                    <tr>
-                        <td>準備大學程式能力檢定(CPE)，嘗試實做歷屆考題</td>
-                    </tr>
-                    <tr>
-                        <td>背好單字，練聽力，英文要進步</td>
-                    </tr>
-                    <tr>
-                        <td>希望各科不要被當 All Pass</td>
-                    </tr>
-                    <tr>
-                        <td rowspan="5">中期目標<p class="bracket">（大學二年級~大學四年級）</p>
-                        </td>
-                        <td>Github上傳程式、做各種專題</td>
-                    </tr>
-                    <tr>
-                        <td>考多益(TOEIC)，希望能從原本350進步到500以上</td>
-                    </tr>
-                    <tr>
-                        <td>考汽車及機車駕照</td>
-                    </tr>
-                    <tr>
-                        <td>考大學程式能力檢定(CPE)，希望至少能做三題</td>
-                    </tr>
-                    <tr>
-                        <td>爭取在業界實習軟體相關職務經驗</td>
-                    </tr>
-                    <tr>
-                        <td rowspan="3">長期目標<p class="bracket">（畢業後）</p>
-                        </td>
-                        <td>沒有打算念研究所，想儘早出社會工作</td>
-                    </tr>
-                    <tr>
-                        <td>在國內任何需要軟體或韌體開發的職務上工作</td>
-                    </tr>
-                    <tr>
-                        <td>好好過生活</td>
+                        <td>畢業以後</td>
+                        <td>沒有打算念研究所，想儘早出社會工作、在國內任何需要軟體或韌體開發的職務上工作、好好過生活</td>
                     </tr>
                 </table>
             </div>
         </article>
-        <article id="jobs" class="tab-content" style="display: none;">
+        <article id="jobs" class="tab-content">
+            <h2 class="section-title">職業選擇</h2>
             <div class="table-container">
                 <table>
                     <tr>
-                        <th>選擇</th>
-                        <th>行業/職位</th>
+                        <th>職位</th>
                         <th>工作內容</th>
-                        <th>相關證照/技能 (硬實力)</th>
-                        <th>所需特質 (軟實力)</th>
+                        <th title="硬實力">相關證照/技能</th>
+                        <th title="軟實力">所需特質</th>
                     </tr>
                     <tr>
-                        <td>第一選擇</td>
                         <td>軟體設計工程師</td>
                         <td>開發與維護各類應用程式，專注於軟體架構與演算法最佳化，確保系統穩定性與可擴展性。持續學習新技術，優化自研軟體並保持長期維護。</td>
                         <td>C#、Flutter、Dart、Python、軟體開發、演算法設計、系統架構</td>
                         <td>喜愛探索新技術，熱衷演算法與軟體工程</td>
                     </tr>
                     <tr>
-                        <td>第二選擇</td>
                         <td>Internet程式設計師</td>
                         <td>負責網站前後端開發，打造高效、安全且具良好使用者體驗的網頁應用。專注於網站架構設計、前端互動、資料庫管理及資安防護。</td>
                         <td>HTML、CSS、JavaScript、jQuery、Git、資料庫管理、SQL、網路安全、Django</td>
                         <td>注重網站美觀與可讀性，關心資安，追求最佳用戶體驗</td>
                     </tr>
                     <tr>
-                        <td>第三選擇</td>
                         <td>韌體設計工程師</td>
-                        <td>負責微控制器（MCU）韌體開發、測試與量產維護，確保進度、品質與成本的平衡。開發多執行緒程式，實現軟硬體協同運作，確保電路與系統間的數據傳輸。</td>
+                        <td>負責微控制器韌體開發、測試與量產維護，確保進度、品質與成本的平衡。開發多執行緒程式，實現軟硬體協同運作，確保電路與系統間的數據傳輸。</td>
                         <td>C/C++、MCU、韌體開發、多執行緒程式設計、組合語言</td>
                         <td>動手實作，會軟硬整合，熱衷提升系統效能</td>
                     </tr>
                 </table>
             </div> 
         </article>
-        <div class="tab-navigation">
-            <button id="prevTab" class="nav-button" onclick="navigateTab(-1)">← <span id="prevTabName"></span></button>
-            <button id="nextTab" class="nav-button" onclick="navigateTab(1)"><span id="nextTabName"></span> →</button>
-        </div>
     </main>
     <footer></footer>
     <script src="assets/js/script.js" defer></script>

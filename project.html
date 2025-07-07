@@ -7,7 +7,7 @@
     <title>個人網頁</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/me.png">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_drop_up,arrow_forward_ios,chevron_right,close,contrast,dark_mode,description,group,history,home,light_mode,menu,share" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_drop_up,arrow_forward_ios,chevron_right,close,contrast,dark_mode,description,download,group,history,home,light_mode,menu" />
     <link rel="stylesheet" href="assets/css/project.css">
 </head>
 
@@ -20,38 +20,36 @@
     <div class="menu" onclick="toggleMenu()" aria-label="打開選單">
         <span class="material-symbols-sharp">menu</span>
     </div>
+    <button id="showNavs"><span class="material-symbols-sharp">chevron_right</span></button>
     <aside id="catalog">
         <h2>目錄</h2>
-        <button id="showNavs"><span class="material-symbols-sharp">chevron_right</span></button>
     </aside>
     <main>
         <div id="myModal" class="modal">
-            <span class="close">&times;</span>
-            <h3 id="caption"></h3>
-            <img class="modal-content" id="img01" alt="Modal Image">
+            <div class="modal-overlay"></div>
+            <div class="modal-container">
+                <div class="modal-header">
+                    <h3 id="caption" class="modal-title"></h3>
+                    <button class="modal-close" aria-label="關閉圖片">
+                        <span class="material-symbols-sharp">close</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img class="modal-content" id="img01" alt="Modal Image">
+                </div>
+                <div class="modal-controls">
+                    <button class="modal-control-btn" id="downloadBtn" aria-label="下載圖片">
+                        <span class="material-symbols-sharp">download</span>
+                    </button>
+                </div>
+            </div>
         </div>
         <select id="languageSwitcher">
             <option value="en">English</option>
             <option value="zh">中文</option>
         </select>
         <article id="articleContent">
-            <div class="default-message">
-                <h2></h2>
-                <p></p>
-                <ul></ul>
-            </div>
-            <div class="table-container">
-                <table id="repo-table" class="info-table">
-                    <thead>
-                        <tr>
-                            <th>庫名</th>
-                            <th>簡介</th>
-                            <th>最後更新</th>
-                        </tr>
-                    </thead>
-                    <tbody id="repo-list"></tbody>
-                </table>
-            </div>
+            <!-- 文章內容將透過 JavaScript 動態載入 -->
         </article>
     </main>
     <footer></footer>

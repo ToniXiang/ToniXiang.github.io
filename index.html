@@ -6,7 +6,7 @@
     <title>個人網頁</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="shortcut icon" href="assets/images/me.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_drop_up,arrow_forward_ios,close,contrast,dark_mode,description,group,history,home,light_mode,menu,share" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_drop_up,arrow_forward_ios,close,contrast,dark_mode,description,download,group,history,home,light_mode,menu" />
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
@@ -20,93 +20,229 @@
     </div>
     <main>
         <div id="myModal" class="modal">
-            <span class="close">&times;</span>  
-            <h3 id="caption"></h3>
-            <img class="modal-content" id="img01" alt="Modal Image">
+            <div class="modal-overlay"></div>
+            <div class="modal-container">
+                <div class="modal-header">
+                    <h3 id="caption" class="modal-title"></h3>
+                    <button class="modal-close" aria-label="關閉圖片">
+                        <span class="material-symbols-sharp">close</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img class="modal-content" id="img01" alt="Modal Image">
+                </div>
+                <div class="modal-controls">
+                    <button class="modal-control-btn" id="downloadBtn" aria-label="下載圖片">
+                        <span class="material-symbols-sharp">download</span>
+                    </button>
+                </div>
+            </div>
         </div>
-        <img class="main-image" src="assets/images/bodybg.jpg" alt="main-image">
-        <div class="regin" onclick="toggleRegin()">
-            <div class="regin-content">
-                <p>歡迎來到我的個人網頁！這裡記錄了我的學習歷程、專案作品與個人發展。</p>
-                <button id="toggleSnow">暫停雪花</button>
-            </div>   
-            <div class="welcome-message" style="display: none;">ChenGuoXiang</div>
+        <div class="hero-section">
+            <img class="main-image" src="assets/images/bodybg.jpg" alt="main-image" onclick="openModal('assets/images/bodybg.jpg', '主頁')">
+            <div class="hero-card">
+                <div class="hero-content">
+                    <div class="hero-icon">
+                    </div>
+                    <h1 class="hero-title">歡迎來到我的個人網頁</h1>
+                    <p class="hero-description">這裡記錄了我的學習歷程、專案作品與個人發展。探索我的程式設計之旅，了解我的技術能力與成長軌跡。</p>
+                    <div class="hero-actions">
+                        <button id="toggleSnow" class="snow-toggle-btn" title="畫面顯示雪花特效 暫停需等待幾秒鐘">
+                            <span class="btn-icon">❄️</span>
+                            <span class="btn-text">暫停雪花</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="snowflakes"></div>
+        <h2 title="時間表示當年度初次學習或達成的目標">✨時間軸</h2>
         <section class="learning-progress">
             <div class="year-cards">
                 <div class="year-card">
                     <h3>2023年</h3>
                     <ul>
-                        <li>重新接觸程式設計，學習 Python 與 Java，完成基礎專案。</li>
-                        <li>撰寫各類程式設計競賽題目，強化邏輯思維與解題能力。</li>
-                        <li>自學資料結構與演算法，練習 <a href="https://leetcode.com/u/chen199940/">LeetCode</a>、<a href="https://zerojudge.tw/UserStatistic?id=179887">ZeroJudge</a> 等線上題庫，各約 200 題。</li>
-                        <li>開始使用 Git 進行版本控制，學習團隊協作流程。</li>
+                        <li><span class="list-icon">🚀</span>重新接觸程式設計，學習 Python 與 Java，完成基礎專案。</li>
+                        <li><span class="list-icon">🏆</span>撰寫各類程式設計競賽題目，強化邏輯思維與解題能力。</li>
+                        <li><span class="list-icon">📚</span>自學資料結構與演算法，練習 <a href="https://leetcode.com/u/chen199940/">LeetCode</a>、<a href="https://zerojudge.tw/UserStatistic?id=179887">ZeroJudge</a> 等線上題庫，各約 200 題。</li>
+                        <li><span class="list-icon">🔧</span>開始使用 Git 進行版本控制，學習團隊協作流程。</li>
                     </ul>
                 </div>
                 <div class="year-card">
                     <h3>2024年</h3>
                     <ul>
-                        <li>嘗試撰寫 C# MonoGame 小型 2D 遊戲與 JavaScript 的外掛腳本，提升實作能力。</li>
-                        <li>前端技術：深入掌握 HTML5、CSS3 與 JavaScript，熟悉 DOM 操作、事件驅動與響應式佈局。</li>
-                        <li>網路通訊與後端入門：學習 HTTP 協議與 RESTful API 設計原則。</li>
+                        <li><span class="list-icon">🎮</span>嘗試撰寫 C# MonoGame 小型 2D 遊戲與 JavaScript 的外掛腳本，提升實作能力。</li>
+                        <li><span class="list-icon">💻</span>前端技術：深入掌握 HTML5、CSS3 與 JavaScript，熟悉 DOM 操作、事件驅動與響應式佈局。</li>
+                        <li><span class="list-icon">🌐</span>網路通訊與後端入門：學習 HTTP 協議與 RESTful API 設計原則。</li>
                     </ul>
                 </div>
                 <div class="year-card">
                     <h3>2025年</h3>
                     <ul>
-                        <li>專業證照與能力檢定：參加大學程式能力考試並取得高分，通過資訊領域專業證照。</li>
-                        <li>Django 後端開發：使用 Django 框架編寫 RESTful API，結合 PostgreSQL，並部署至雲端（render），設定自動化測試與 CI/CD。</li>
-                        <li>個人作品發表：在 <a href="https://github.com/ChenGuoXiang940">GitHub</a> 建立專案倉庫，撰寫 README 與技術文件，將程式碼至公開平台，並撰寫靜態網頁分享開發心得。</li>
+                        <li><span class="list-icon">🏅</span>專業證照與能力檢定：參加大學程式能力考試並取得高分，通過資訊領域專業證照。</li>
+                        <li><span class="list-icon">⚡</span>Django 後端開發：使用 Django 框架編寫 RESTful API，結合 PostgreSQL，並部署至雲端（render），設定自動化測試與 CI/CD。</li>
+                        <li><span class="list-icon">📖</span>個人作品發表：在 <a href="https://github.com/ChenGuoXiang940">GitHub</a> 建立專案倉庫，撰寫 README 與技術文件，將程式碼至公開平台，並撰寫靜態網頁分享開發心得。</li>
                     </ul>
                 </div>
             </div>
         </section>
+        <h2 title="星星僅代表本人的熟悉度，不代表語言好壞。本人的能力有限，相關技能不多。">💻 程式語言技能</h2>
         <div class="language-cards">
             <div class="lang-card c">
-                <img src="https://simpleicons.org/icons/c.svg" alt="C++">
+                <div class="skill-level">
+                    <span class="level-indicator">★★★★☆</span>
+                </div>
+                <div class="icon-container">
+                    <img src="https://simpleicons.org/icons/c.svg" alt="C">
+                </div>
                 <h3>C</h3>
                 <p>高效能、程序導向語言，常用於系統層</p>
+                <div class="card-details">
+                    <h4>相關技能</h4>
+                    <ul>
+                        <li>MCS-51</li>
+                        <li>Arduino</li>
+                        <li>ADP-Corvette-F1</li>
+                    </ul>
+                </div>
             </div>
             <div class="lang-card cpp">
-                <img src="https://simpleicons.org/icons/cplusplus.svg" alt="C++">
+                <div class="skill-level">
+                    <span class="level-indicator">★★★★☆</span>
+                </div>
+                <div class="icon-container">
+                    <img src="https://simpleicons.org/icons/cplusplus.svg" alt="C++">
+                </div>
                 <h3>C++</h3>
                 <p>高效能、物件導向，適用於系統或遊戲開發</p>
+                <div class="card-details">
+                    <h4>相關技能</h4>
+                    <ul>
+                        <li>演算法</li>
+                        <li>Windows Forms</li>
+                        <li>競程解題</li>
+                    </ul>
+                </div>
             </div>
             <div class="lang-card csharp">
-                <img src="https://simpleicons.org/icons/dotnet.svg" alt="C#">
+                <div class="skill-level">
+                    <span class="level-indicator">★★★☆☆</span>
+                </div>
+                <div class="icon-container">
+                    <img src="https://simpleicons.org/icons/dotnet.svg" alt="C#">
+                </div>
                 <h3>C#</h3>
                 <p>適用於桌面應用、Web、遊戲開發</p>
+                <div class="card-details">
+                    <h4>相關技能</h4>
+                    <ul>
+                        <li>.NET Framework</li>
+                        <li>Windows Forms</li>
+                        <li>MonoGame</li>
+                    </ul>
+                </div>
             </div>
             <div class="lang-card java">
-                <img src="https://simpleicons.org/icons/openjdk.svg" alt="Java">
+                <div class="skill-level">
+                    <span class="level-indicator">★☆☆☆☆</span>
+                </div>
+                <div class="icon-container">
+                    <img src="https://simpleicons.org/icons/openjdk.svg" alt="Java">
+                </div>
                 <h3>Java</h3>
                 <p>適用於企業級應用、後端 Web 開發</p>
+                <div class="card-details">
+                    <h4>相關技能</h4>
+                    <ul>
+                        <li>物聯網</li>
+                    </ul>
+                </div>
             </div>
             <div class="lang-card python">
-                <img src="https://simpleicons.org/icons/python.svg" alt="Python">
+                <div class="skill-level">
+                    <span class="level-indicator">★★★☆☆</span>
+                </div>
+                <div class="icon-container">
+                    <img src="https://simpleicons.org/icons/python.svg" alt="Python">
+                </div>
                 <h3>Python</h3>
                 <p>簡潔易學，廣泛應用於資料科學與後端</p>
+                <div class="card-details">
+                    <h4>相關技能</h4>
+                    <ul>
+                        <li>Django 框架</li>
+                        <li>Jupyter 訊號處理</li>
+                        <li>FastAPI</li>
+                    </ul>
+                </div>
             </div>
             <div class="lang-card dart">
-                <img src="https://simpleicons.org/icons/dart.svg" alt="Dart">
+                <div class="skill-level">
+                    <span class="level-indicator">★★★☆☆</span>
+                </div>
+                <div class="icon-container">
+                    <img src="https://simpleicons.org/icons/dart.svg" alt="Dart">
+                </div>
                 <h3>Dart</h3>
                 <p>適合跨平台行動應用開發</p>
+                <div class="card-details">
+                    <h4>相關技能</h4>
+                    <ul>
+                        <li>Flutter 框架</li>
+                    </ul>
+                </div>
             </div>
-                <div class="lang-card javascript">
-                <img src="https://simpleicons.org/icons/javascript.svg" alt="JavaScript">
+            <div class="lang-card javascript">
+                <div class="skill-level">
+                    <span class="level-indicator">★☆☆☆☆</span>
+                </div>
+                <div class="icon-container">
+                    <img src="https://simpleicons.org/icons/javascript.svg" alt="JavaScript">
+                </div>
                 <h3>JavaScript</h3>
                 <p>網頁互動必備，前端與後端皆可用</p>
+                <div class="card-details">
+                    <h4>相關技能</h4>
+                    <ul>
+                        <li>DOM 操作與事件處理</li>
+                        <li>Tampermonkey 外掛</li>
+                    </ul>
+                </div>
             </div>
             <div class="lang-card html">
-                <img src="https://simpleicons.org/icons/html5.svg" alt="HTML5">
+                <div class="skill-level">
+                    <span class="level-indicator">★★☆☆☆</span>
+                </div>
+                <div class="icon-container">
+                    <img src="https://simpleicons.org/icons/html5.svg" alt="HTML5">
+                </div>
                 <h3>HTML5</h3>
                 <p>網頁結構標記語言，網站的基石</p>
+                <div class="card-details">
+                    <h4>相關技能</h4>
+                    <ul>
+                        <li>語義化標記</li>
+                        <li>響應式佈局</li>
+                        <li>Web API 整合</li>
+                    </ul>
+                </div>
             </div>
             <div class="lang-card sql">
-                <img src="https://simpleicons.org/icons/mysql.svg" alt="SQL">
+                <div class="skill-level">
+                    <span class="level-indicator">★☆☆☆☆</span>
+                </div>
+                <div class="icon-container">
+                    <img src="https://simpleicons.org/icons/mysql.svg" alt="SQL">
+                </div>
                 <h3>SQL</h3>
                 <p>資料庫查詢語言，管理與操作關聯式資料庫</p>
+                <div class="card-details">
+                    <h4>相關技能</h4>
+                    <ul>
+                        <li>MySQL</li>
+                        <li>PostgreSQL</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </main>
