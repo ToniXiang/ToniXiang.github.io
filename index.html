@@ -6,7 +6,7 @@
     <title>個人網頁</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="shortcut icon" href="assets/images/me.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_drop_up,arrow_forward_ios,close,contrast,dark_mode,description,download,group,history,home,light_mode,menu" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp&display=swap&icon_names=arrow_drop_up,arrow_forward_ios,close,contrast,dark_mode,description,download,group,history,home,light_mode,menu" />
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
@@ -19,27 +19,8 @@
         <span class="material-symbols-sharp" aria-label="打開選單">menu</span>
     </div>
     <main>
-        <div id="myModal" class="modal">
-            <div class="modal-overlay"></div>
-            <div class="modal-container">
-                <div class="modal-header">
-                    <h3 id="caption" class="modal-title"></h3>
-                    <button class="modal-close" aria-label="關閉圖片">
-                        <span class="material-symbols-sharp">close</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <img class="modal-content" id="img01" alt="Modal Image">
-                </div>
-                <div class="modal-controls">
-                    <button class="modal-control-btn" id="downloadBtn" aria-label="下載圖片">
-                        <span class="material-symbols-sharp">download</span>
-                    </button>
-                </div>
-            </div>
-        </div>
         <div class="hero-section">
-            <img class="main-image" src="assets/images/bodybg.jpg" alt="main-image" onclick="openModal('assets/images/bodybg.jpg', '主頁')">
+            <img class="main-image" src="assets/images/bodybg.jpg" alt="main-image">
             <div class="hero-card">
                 <div class="hero-content">
                     <div class="hero-icon">
@@ -117,11 +98,6 @@
                 <p>高效能、物件導向，適用於系統或遊戲開發</p>
                 <div class="card-details">
                     <h4>相關技能</h4>
-                    <ul>
-                        <li>演算法</li>
-                        <li>Windows Forms</li>
-                        <li>競程解題</li>
-                    </ul>
                 </div>
             </div>
             <div class="lang-card csharp">
@@ -136,8 +112,8 @@
                 <div class="card-details">
                     <h4>相關技能</h4>
                     <ul>
+                        <li>.NET MAUI</li>
                         <li>.NET Framework</li>
-                        <li>Windows Forms</li>
                         <li>MonoGame</li>
                     </ul>
                 </div>
@@ -153,9 +129,6 @@
                 <p>適用於企業級應用、後端 Web 開發</p>
                 <div class="card-details">
                     <h4>相關技能</h4>
-                    <ul>
-                        <li>物聯網</li>
-                    </ul>
                 </div>
             </div>
             <div class="lang-card python">
@@ -223,7 +196,6 @@
                     <ul>
                         <li>語義化標記</li>
                         <li>響應式佈局</li>
-                        <li>Web API 整合</li>
                     </ul>
                 </div>
             </div>

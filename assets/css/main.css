@@ -83,29 +83,18 @@
     background: var(--background-color, white);
 }
 .year-card h3 {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0 0 20px 0;
-    display: flex;
-    align-items: center;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 24px 0;
     text-align: center;
-}
-
-.year-card h3::before,
-.year-card h3::after {
-    content: '';
-    flex: 1;
-    height: 2px;
-    background: #ddd;
-    margin: 0 15px;
-}
-
-.year-card h3::before {
-    margin-left: 0;
-}
-
-.year-card h3::after {
-    margin-right: 0;
+    color: var(--primary-color, #667eea);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    padding: 12px 0;
+    letter-spacing: 1px;
 }
 .year-card.visible {
     opacity: 1;

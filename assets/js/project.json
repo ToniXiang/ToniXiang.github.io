@@ -6,19 +6,19 @@
                 "zh": "簡易的行控中心"
             },
             "tags": {
-                "en": ["Simulation", "Database","Windows Forms"],
-                "zh": [ "模擬", "資料庫","Windows Forms"]
+                "en": ["Simulation", ".NET MAUI"],
+                "zh": [ "模擬", ".NET MAUI"]
             },
             "repositoryLink": "https://github.com/ChenGuoXiang940/NTCUST_OCC_myproject.git",
             "sections": [
                 {
                     "title": {
-                        "en": "Form Design",
-                        "zh": "表單設計"
+                        "en": "UI Design",
+                        "zh": "使用者介面設計"
                     },
                     "content": {
-                        "en": "<p>This control center system interface integrates functions such as train status monitoring, route map visualization, flexible train control, and emergency event handling. It features intuitive operation, comprehensive information, and efficient response. Suitable for application in train operation scheduling and event handling, improving overall management efficiency and safety.</p><img src='assets/images/p1-1.png' alt='OCC' class='centered-image' onclick=\"openModal('assets/images/p1-1.png', 'OCC')\">",
-                        "zh": "<p>這個行控中心系統界面整合了列車狀態監控、路線圖可視化、列車靈活控制、事件應急處理等功能，具有操作直觀、信息全面和響應高效的特點。適合應用於列車運行調度和事件處理中，提升整體管理效率和安全性。</p><img src='assets/images/p1-1.png' alt='行控中心' class='centered-image' onclick=\"openModal('assets/images/p1-1.png', '行控中心')\">"
+                        "en": "<p>This control center system interface integrates functions such as train status monitoring, flexible train control, and emergency event handling. It features intuitive operation, comprehensive information, and efficient response. Suitable for application in train operation scheduling and event handling, improving overall management efficiency and safety.</p><img src='assets/images/p1-1.png' alt='Main screen' class='centered-image' onclick=\"openModal('assets/images/p1-1.png', 'Main screen')\">",
+                        "zh": "<p>這個行控中心系統界面整合了列車狀態監控、列車靈活控制、事件應急處理等功能，具有操作直觀、信息全面和響應高效的特點。適合應用於列車運行調度和事件處理中，提升整體管理效率和安全性。</p><img src='assets/images/p1-1.png' alt='主畫面' class='centered-image' onclick=\"openModal('assets/images/p1-1.png', '主畫面')\">"
                     }
                 },
                 {
@@ -27,8 +27,8 @@
                         "zh": "主要功能"
                     },
                     "content": {
-                        "en": "<ul><li>Users can operate the train themselves</li><li>Always keep track of the current time</li><li>Use simulation calculations to estimate the current status of the train</li><li>Route map visualization</li><li>Emergency event handling</li><li>User feedback function</li><li>More functions to be developed in the future (maintenance and repair plans, energy management connected to the database)</li></ul>",
-                        "zh": "<ul><li>使用者可以自行操作列車</li><li>時刻掌握當前時間</li><li>使用模擬計算來預估列車的當前狀態</li><li>路線地圖可視化展示</li><li>緊急事件處理</li><li>用戶回饋功能</li><li>更多功能日後開發(維護和檢修計劃、能源管理連接資料庫)</li></ul>"
+                        "en": "<ul><li>Users can operate the train themselves</li><li>Always keep track of the current time</li><li>Use simulation calculations to estimate the current status of the train</li><li>Emergency event handling</li><li>User feedback function</li></ul><img src='assets/images/p1-2.png' alt='Station Status' class='centered-image' onclick=\"openModal('assets/images/p1-2.png', 'Station Status')\"><img src='assets/images/p1-3.png' alt='Train Status and Operation' class='centered-image' onclick=\"openModal('assets/images/p1-3.png', 'Train Status and Operation')\"><img src='assets/images/p1-4.png' alt='Event handling' class='centered-image' onclick=\"openModal('assets/images/p1-4.png', 'Event handling')\">",
+                        "zh": "<ul><li>使用者可以自行操作列車</li><li>時刻掌握當前時間</li><li>使用模擬計算來預估列車的當前狀態</li><li>緊急事件處理</li><li>用戶回饋功能</li></ul><img src='assets/images/p1-2.png' alt='車站狀態' class='centered-image' onclick=\"openModal('assets/images/p1-2.png', '車站狀態')\"><img src='assets/images/p1-3.png' alt='列車狀態及操作' class='centered-image' onclick=\"openModal('assets/images/p1-3.png', '列車狀態及操作')\"><img src='assets/images/p1-4.png' alt='事件處理' class='centered-image' onclick=\"openModal('assets/images/p1-4.png', '事件處理')\">"
                     }
                 },
                 {
@@ -37,8 +37,8 @@
                         "zh": "功能介紹"
                     },
                     "content": {
-                        "en": "<h4>1. Station Status</h4><p>Please select the station name, and you can adjust the priority.</p><p>The timetable includes the name of the train that will arrive, the estimated arrival time, the starting station, and the terminal station.</p><h4>2. Train Status and Operation</h4><p>Please select the train name, and you can adjust the priority and change the terminal station, but first stop temporarily.</p><ul><li>The train's acceleration when leaving the station is 2.5 m/s², maintaining and not exceeding 110km/h.</li><li>The train's acceleration when entering the station is -2.0 m/s².</li><li>“Brake” braking acceleration is -3.0 m/s² for emergency braking.</li><li>“Start” to start driving acceleration, needs to be on the track.</li><li>“Depart” waiting for departure.</li><li>“Stop at station” does not depart at this station, needs to stop at the station first.</li><li>If the station priority is lower than the train, it will not stop temporarily.</li></ul><ul><li>Trains in the same direction will not depart at the station at the same time, considering safety issues.</li><li>If the number of platforms to enter the station is insufficient, it will not depart, and it needs to wait for the train already at the platform to leave the station.</li><li>Each platform has one northbound and one southbound for trains to stop.</li></ul><h4>3. Route Map</h4><p>Click on the station name to directly change the station name of the train station status.</p><p>Arrow color description:</p><ul><li>Black arrow: No train is running here.</li><li>Orange arrow: A train is about to enter or leave the station.</li><li>Blue arrow: A train is running here.</li><li>Red arrow: There is a safety issue.</li></ul><h4>4. Event Handling</h4><p>Select the event and train, check the contact unit, and the detailed content can be empty.</p><p>Simulate event reporting function.</p>",
-                        "zh": "<h4>1. 車站狀態</h4><p>請選擇車站名稱，可以調整優先序。</p><p>時刻表包含將進站的列車名、預估抵達時間、起始站、終點站。</p><h4>2. 列車狀態及操作</h4><p>請選擇列車名稱，可以調整優先序、更改終點站，但先臨停。</p><ul><li>列車出站加速度為 2.5 m/s²，維持且不超過 110km/h。</li><li>列車進站加速度為 -2.0 m/s²。</li><li>「煞車」煞車加速度為 -3.0 m/s² 用於急煞。</li><li>「啟動」要開始行駛加速，需要在軌道上。</li><li>「發車」等候發車。</li><li>「停靠站」在此站不發車，需要先停靠在車站。</li><li>車站優先序如果低於列車則不會臨停。</li></ul><ul><li>同方向列車不會在車站同時發車，考慮安全問題。</li><li>如果要進站的月台數不足則不會發車，需等待已在進站月台的列車離站。</li><li>一個月台有各一個北上和南下可給列車停靠。</li></ul><h4>3.路線地圖</h4><p>點選車站名可直接更改列車站狀態的車站名。</p><p>箭頭顏色說明：</p><ul><li>黑色箭頭：無列車在此行駛。</li><li>橘色箭頭：有列車要進站或離站。</li><li>藍色箭頭：有列車正在此行駛。</li><li>紅色箭頭：存在安全問題。</li></ul><h4>4. 事件處理</h4><p>選擇事件及列車，勾選聯絡單位，詳細內容可為空。</p><p>模擬事件回報功能。</p>"
+                        "en": "<h4>1. Station Status</h4><p>Please select the station name, and you can adjust the priority.</p><p>The timetable includes the name of the train that will arrive, the estimated arrival time, the starting station, and the terminal station.</p><h4>2. Train Status and Operation</h4><p>Please select the train name, and you can adjust the priority and change the terminal station, but the train must first stop temporarily.</p><ul><li>The train's acceleration when leaving the station is 2.5 m/s², maintaining a speed not exceeding 110km/h.</li><li>The train's acceleration when entering the station is -2.0 m/s².</li><li>'Brake' - braking acceleration is -3.0 m/s² for emergency braking</li><li>'Start' - initiates driving acceleration, requires the train to be on the track</li><li>'Depart' - waiting for departure</li><li>'Stop at station' - the train does not depart at this station and needs to stop at the station first</li><li>If the station priority is lower than the train priority, the train will not stop temporarily.</li></ul><ul><li>Trains traveling in the same direction will not depart from the station at the same time for safety considerations.</li><li>If there are insufficient platforms available for the train to enter the station, it will not depart and must wait for trains already at the platform to leave the station.</li><li>Each platform has one northbound and one southbound track for trains to stop.</li></ul><h4>3. Event Handling</h4><p>Select the event and train, check the contact unit, and the detailed content can't be left empty.</p><p>Simulates the event reporting function.</p>",
+                        "zh": "<h4>1. 車站狀態</h4><p>請選擇車站名稱，可以調整優先序。</p><p>時刻表包含將進站的列車名、預估抵達時間、起始站、終點站。</p><h4>2. 列車狀態及操作</h4><p>請選擇列車名稱，可以調整優先序、更改終點站，但先臨停。</p><ul><li>列車出站加速度為 2.5 m/s²，維持且不超過 110km/h。</li><li>列車進站加速度為 -2.0 m/s²。</li><li>「煞車」煞車加速度為 -3.0 m/s² 用於急煞。</li><li>「啟動」要開始行駛加速，需要在軌道上。</li><li>「發車」等候發車。</li><li>「停靠站」在此站不發車，需要先停靠在車站。</li><li>車站優先序如果低於列車則不會臨停。</li></ul><ul><li>同方向列車不會在車站同時發車，考慮安全問題。</li><li>如果要進站的月台數不足則不會發車，需等待已在進站月台的列車離站。</li><li>一個月台有各一個北上和南下可給列車停靠。</li></ul><h4>3. 事件處理</h4><p>選擇事件及列車，勾選聯絡單位，詳細內容不可為空。</p><p>模擬事件回報功能。</p>"
                     }
                 }
             ]
