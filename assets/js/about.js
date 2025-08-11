@@ -1,8 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-    initDynamicNav();
+    // initDynamicNav(); // 已移除頂部導航
     initResumeCard();
 });
-// 初始化動態導航
+
+/*
+// 初始化動態導航 - 已移除頂部導航功能
 function initDynamicNav() {
     const navItems = document.querySelectorAll('.nav-item');
     const sections = document.querySelectorAll('article[id]');
@@ -62,6 +64,8 @@ function initDynamicNav() {
         isScrolling = true;
     });
 };
+*/
+
 // 初始化簡歷卡片動畫
 function initResumeCard() {
     const resumeCards = document.querySelectorAll('.resume-card');

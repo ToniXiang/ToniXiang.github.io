@@ -82,20 +82,6 @@
     z-index: 1;
     background: var(--background-color, white);
 }
-.year-card h3 {
-    font-size: 28px;
-    font-weight: 700;
-    margin: 0 0 24px 0;
-    text-align: center;
-    color: var(--primary-color, #667eea);
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    position: relative;
-    padding: 12px 0;
-    letter-spacing: 1px;
-}
 .year-card.visible {
     opacity: 1;
     transform: translateX(0);
@@ -700,37 +686,6 @@
     .section-subtitle {
         font-size: 0.9rem;
     }
-}
-
-.list-icon {
-    display: inline-block;
-    margin-right: 12px;
-    font-size: 1.2em;
-    padding: 4px 8px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 50%;
-    color: white;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    min-width: 24px;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.list-icon:hover {
-    transform: scale(1.1);
-}
-
-.year-card:nth-child(1) .list-icon {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.year-card:nth-child(2) .list-icon {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-}
-
-.year-card:nth-child(3) .list-icon {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 }
 
 .skill-level {
