@@ -176,7 +176,7 @@ function checkLanguage(){
         languageSwitcher.value = savedLanguage;
     }
     else{
-        languageSwitcher.value = 'en';
+        languageSwitcher.value = 'zh';
     }
     generateCatalog();
     displayCatalog();

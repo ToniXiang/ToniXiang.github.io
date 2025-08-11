@@ -4,11 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadNavigationAndFooter();
     initializeBackToTopButton();
     initializeModalEvents();
-    // localStorage.removeItem('notificationDismissed'); // 測試用
-    const isNotificationDismissed = localStorage.getItem('notificationDismissed');
-    if (!isNotificationDismissed) {
-        showNotificationBar();
-    }
 });
 // Loading 加載照片的動畫
 function initializeLoadingScreens() {
@@ -42,62 +37,75 @@ function loadDefaultTheme() {
         applyTheme(defaultTheme);
     }
 }
-// 頁尾提示
-function showNotificationBar() {
-    const notificationBar = document.createElement('div');
-    notificationBar.id = 'notificationBar';
-    const message = document.createElement('span');
-    message.textContent = '有新的想法會持續更新';
-    message.style.flex = '1';
-    const closeButton = document.createElement('button');
-    closeButton.textContent = '知道了';
-    closeButton.id='closeBar';
-    closeButton.addEventListener('click', () => {
-        localStorage.setItem('notificationDismissed', 'true');
-        notificationBar.remove();
-    });
-    notificationBar.appendChild(message);
-    notificationBar.appendChild(closeButton);
-    document.body.appendChild(notificationBar);
-}
 // 載入時加導覽欄和頁尾的資訊
 function loadNavigationAndFooter() {
     const blogTitle = document.querySelector('.blogTitle');
     const foot = document.querySelector('footer');
     const currentPage = window.location.pathname.split('/').pop().replace('.html', '');
     blogTitle.innerHTML = `
-        <nav class="nav-item${currentPage === 'index' ? ' active' : ''}" onclick="redirectToPage('index.html')">
-            <div class="nav-icon">
-                <span class="material-symbols-sharp">home</span>
+        <div class="sidebar-header">
+            <div class="brand-container">
+                <div class="brand-info">
+                    <h3>陳國翔</h3>
+                    <span class="brand-subtitle">網頁設計作品</span>
+                </div>
             </div>
-            <div class="nav-text">
-                <p>主要頁面</p>
+        </div>
+        
+        <div class="nav-section">
+            <div class="nav-label">導覽</div>
+            <nav class="nav-item${currentPage === 'index' ? ' active' : ''}" onclick="redirectToPage('index.html')">
+                <div class="nav-icon">
+                    <span class="material-symbols-sharp">home</span>
+                </div>
+                <div class="nav-text">
+                    <p>主要頁面</p>
+                    <span class="nav-description">首頁介紹</span>
+                </div>
+                <div class="nav-indicator"></div>
+            </nav>
+            <nav class="nav-item${currentPage === 'project' ? ' active' : ''}" onclick="redirectToPage('project.html')">
+                <div class="nav-icon">
+                    <span class="material-symbols-sharp">description</span>
+                </div>
+                <div class="nav-text">
+                    <p>作品展示</p>
+                    <span class="nav-description">項目作品</span>
+                </div>
+                <div class="nav-indicator"></div>
+            </nav>
+            <nav class="nav-item${currentPage === 'about' ? ' active' : ''}" onclick="redirectToPage('about.html')">
+                <div class="nav-icon">
+                    <span class="material-symbols-sharp">group</span>
+                </div>
+                <div class="nav-text">
+                    <p>關於我</p>
+                    <span class="nav-description">個人簡介</span>
+                </div>
+                <div class="nav-indicator"></div>
+            </nav>
+        </div>
+        
+        <div class="nav-section">
+            <div class="nav-label">設定</div>
+            <nav class="nav-item theme" onclick="toggleTheme()" aria-label="切換主題">
+                <div class="nav-icon">
+                    <span class="material-symbols-sharp" id="theme-icon">dark_mode</span>
+                </div>
+                <div class="nav-text">
+                    <p>切換主題</p>
+                    <span class="nav-description">明暗模式</span>
+                </div>
+                <div class="nav-indicator"></div>
+            </nav>
+        </div>
+        
+        <div class="sidebar-footer">
+            <div class="footer-info">
+                <p class="version">版本 v2025.8</p>
+                <p class="copyright">© 陳國翔</p>
             </div>
-        </nav>
-        <nav class="nav-item${currentPage === 'project' ? ' active' : ''}" onclick="redirectToPage('project.html')">
-            <div class="nav-icon">
-                <span class="material-symbols-sharp">description</span>
-            </div>
-            <div class="nav-text">
-                <p>作品展示</p>
-            </div>
-        </nav>
-        <nav class="nav-item${currentPage === 'about' ? ' active' : ''}" onclick="redirectToPage('about.html')">
-            <div class="nav-icon">
-                <span class="material-symbols-sharp">group</span>
-            </div>
-            <div class="nav-text">
-                <p>關於我</p>
-            </div>
-        </nav>
-        <nav class="nav-item theme" onclick="toggleTheme()" aria-label="切換主題">
-            <div class="nav-icon">
-                <span class="material-symbols-sharp" id="theme-icon">light_mode</span>
-            </div>
-            <div class="nav-text">
-                <p>切換主題</p>
-            </div>
-        </nav>
+        </div>
         `;
     foot.innerHTML = `
         <div class="footer-content">
@@ -145,9 +153,6 @@ function loadNavigationAndFooter() {
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>© ${new Date().getFullYear()} 持續更新中<span class="dots-animation">...</span></p>
-            </div>
         </div>`;
 }
 //  如果不在最頂就顯示"往上的標誌" 如果被按下就滑動到最頂
@@ -173,13 +178,49 @@ function initializeBackToTopButton() {
 function toggleMenu() {
     const blogTitle = document.querySelector('.blogTitle');
     const menuIcon = document.querySelector('.menu span.material-symbols-sharp');
+    const navItems = blogTitle.querySelectorAll('.nav-item');
+    const sidebarHeader = blogTitle.querySelector('.sidebar-header');
+    const sidebarFooter = blogTitle.querySelector('.sidebar-footer');
+    
     blogTitle.classList.toggle('show');
+    
     if (menuIcon.textContent === 'menu') {
         blogTitle.classList.add('show');
         menuIcon.textContent = 'close';
+        
+        // 添加進入動畫
+        setTimeout(() => {
+            if (sidebarHeader) {
+                sidebarHeader.style.animation = 'slideInFromTop 0.6s cubic-bezier(0.4, 0.0, 0.2, 1) forwards';
+            }
+            
+            navItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(30px)';
+                setTimeout(() => {
+                    item.style.animation = `slideInFromRight 0.5s cubic-bezier(0.4, 0.0, 0.2, 1) ${index * 0.1}s forwards`;
+                }, 100);
+            });
+            
+            if (sidebarFooter) {
+                setTimeout(() => {
+                    sidebarFooter.style.animation = 'slideInFromBottom 0.6s cubic-bezier(0.4, 0.0, 0.2, 1) forwards';
+                }, navItems.length * 100 + 200);
+            }
+        }, 100);
+        
     } else {
         blogTitle.classList.remove('show');
         menuIcon.textContent = 'menu';
+        
+        // 重置動畫
+        if (sidebarHeader) sidebarHeader.style.animation = '';
+        if (sidebarFooter) sidebarFooter.style.animation = '';
+        navItems.forEach(item => {
+            item.style.animation = '';
+            item.style.opacity = '';
+            item.style.transform = '';
+        });
     }
 }
 // 點擊後跳轉頁面

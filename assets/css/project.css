@@ -11,7 +11,7 @@
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: var(--primary-color);
     color: #fff;
     border: none;
     border-radius: 0 12px 12px 0;
@@ -26,7 +26,6 @@
 }
 
 #showNavs:hover {
-    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
     transform: translateY(-50%) scale(1.1) translateX(5px);
     box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
 }

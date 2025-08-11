@@ -19,23 +19,55 @@ body>main{
 .menu>span.material-symbols-sharp{
     z-index: 1000;
     user-select: none;
+    font-size: 24px;
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    opacity: 0.9;
+}
+
+.menu>span.material-symbols-sharp:hover {
+    color: #667eea;
+    transform: scale(1.1);
+    opacity: 1;
+    text-shadow: 0 0 12px rgba(102, 126, 234, 0.5);
 }
 .blogTitle {
     position: fixed;
     z-index: 20;
-    height: 100%;
+    height: 100vh;
+    width: 280px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     user-select: none;
     top: 0; 
-    right: 0; 
-    background: linear-gradient(135deg, #0056b3, #1976d2, #2196f3);
-    backdrop-filter: blur(15px);
-    border-left: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    transform: translateX(100vw);
+    right: 0;
+    background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: -20px 0 60px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transform: translateX(100%);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar for Sidebar */
+.blogTitle::-webkit-scrollbar {
+    width: 6px;
+}
+
+.blogTitle::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.blogTitle::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.blogTitle::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
 }
 
 .blogTitle.show {
@@ -49,22 +81,97 @@ body>main{
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 103, 132, 0.1) 0%, transparent 50%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
     pointer-events: none;
 }
+
+/* Sidebar Header */
+.sidebar-header {
+    padding: 24px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 16px;
+}
+
+.brand-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 4px;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.brand-container:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: scale(1.02);
+}
+
+.brand-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.brand-container:hover .brand-icon {
+    transform: rotate(5deg) scale(1.05);
+    box-shadow: 0 12px 32px rgba(102, 126, 234, 0.4);
+}
+
+.brand-icon .material-symbols-sharp {
+    color: white;
+    font-size: 28px;
+}
+
+.brand-info h3 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.brand-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/* Navigation Sections */
+.nav-section {
+    margin-bottom: 24px;
+    padding: 0 20px;
+}
+
+.nav-label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    padding-left: 12px;
+}
 .nav-item {
-    width: 150px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 12px;
-    margin: 12px 0;
-    border-radius: 12px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    padding: 16px 12px;
+    margin: 6px 0;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -74,79 +181,160 @@ body>main{
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
-    width: 100%;
+    left: 0;
+    width: 3px;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.5s ease;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transform: scaleY(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    border-radius: 0 2px 2px 0;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    border-radius: 50%;
+    opacity: 0;
 }
 
 .nav-item:hover::before {
-    left: 100%;
+    transform: scaleY(1);
 }
+
+.nav-item:hover::after {
+    width: 200px;
+    height: 200px;
+    opacity: 1;
+}
+
 .nav-item.active {
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.2);
 }
 
 .nav-item.active::before {
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-}
-.nav-item:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
-    transform: translateX(8px) scale(1.05);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    border-color: rgba(255, 255, 255, 0.3);
+    transform: scaleY(1);
 }
 
-.nav-item:hover .nav-text p {
-    color: #ffffff;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+.nav-item:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    transform: translateX(4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.15);
 }
+
+.nav-item:active {
+    transform: translateX(2px) scale(0.98);
+    transition: all 0.1s ease;
+}
+
 .nav-icon {
     display: flex !important;
     align-items: center;
     justify-content: center;
     width: 40px;
     height: 40px;
-    margin-right: 10px;
-    background-color: white;
-    border-radius: 50%;
-    color: black;
-    font-size: 1.5em;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    flex-shrink: 0; /* 防止圖標被壓縮 */
-    min-width: 40px; /* 確保最小寬度 */
-    min-height: 40px; /* 確保最小高度 */
+    margin-right: 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+    flex-shrink: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
+
+.nav-item:hover .nav-icon {
+    transform: scale(1.1);
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+}
+
+.nav-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
 .nav-text p {
     margin: 0;
-    font-size: 1em;
-    color: white;
-    font-weight: bold;
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.nav-description {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+}
+
+.nav-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    margin-left: auto;
+}
+
+.nav-item.active .nav-indicator {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 0 12px rgba(102, 126, 234, 0.6);
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+    margin-top: auto;
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-info {
+    text-align: center;
+}
+
+.footer-info .version {
+    margin: 0 0 4px 0;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.footer-info .copyright {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 10px;
+    font-weight: 400;
 }
 .menu {
     top: 5px;
-    color: var(--menu-color);
     position: fixed;
     right: 5px;
     padding: 12px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    background: var(--menu-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--menu-border);
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: 21;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .menu:hover {
-    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-    transform: scale(1.1);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    transform: scale(1.05);
+    box-shadow: 0 12px 32px rgba(102, 126, 234, 0.3);
+    border-color: #667eea;
 }
 
 .menu:active {
@@ -154,67 +342,157 @@ body>main{
     transition: all 0.1s ease;
 }
 
+/* 淺色主題下的菜單特殊樣式 */
+.light-theme .menu {
+    background: var(--menu-bg-light);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.light-theme .menu:hover {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
+}
+
 .menu span {
     display: block;
-    font-size: 1.2em;
-    transition: transform 0.3s ease;
+    font-size: 24px;
+    color: var(--menu-color);
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .menu:hover span {
-    transform: rotate(90deg);
+    transform: rotate(180deg);
+    color: #667eea;
+    text-shadow: 0 0 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Flutter-like Animations */
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Add subtle glow effect to nav items */
+.nav-item:hover .nav-icon {
+    box-shadow: 
+        0 8px 24px rgba(102, 126, 234, 0.4),
+        0 0 20px rgba(102, 126, 234, 0.2);
 }
 
 
 @media screen and (max-width: 900px) {
     .blogTitle {
-        width: 40%;
-        padding-top: 18%;
+        width: 90%;
+        max-width: 320px;
     }
     
-    .nav-icon {
-        width: 35px;
-        height: 35px;
-        font-size: 1.3em;
-        margin-right: 8px;
+    .sidebar-header {
+        padding: 20px 16px;
+    }
+    
+    .brand-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .brand-icon .material-symbols-sharp {
+        font-size: 24px;
+    }
+    
+    .brand-info h3 {
+        font-size: 16px;
+    }
+    
+    .nav-section {
+        padding: 0 16px;
+        margin-bottom: 20px;
     }
     
     .nav-item {
-        width: 140px;
-        padding: 8px;
+        padding: 14px 12px;
+    }
+    
+    .nav-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+        margin-right: 14px;
     }
     
     .nav-text p {
-        font-size: 0.9em;
+        font-size: 13px;
+    }
+    
+    .nav-description {
+        font-size: 10px;
+    }
+    
+    .sidebar-footer {
+        padding: 16px;
     }
 }
 
 @media screen and (min-width: 901px) and (max-width: 1200px) {
     .blogTitle {
-        width: 20%;
-        padding-top: 8%;
+        width: 260px;
     }
     
     .nav-icon {
         width: 38px;
         height: 38px;
-        font-size: 1.4em;
-        margin-right: 9px;
-    }
-    
-    .nav-item {
-        width: 145px;
-        padding: 9px;
+        font-size: 19px;
+        margin-right: 15px;
     }
     
     .nav-text p {
-        font-size: 0.95em;
+        font-size: 13px;
     }
 }
 
 @media screen and (min-width: 1201px) {
     .blogTitle {
-        width: 10%;
-        padding-top: 5%;
+        width: 280px;
+        padding-top: 0;
     }
 }
 
@@ -355,7 +633,9 @@ section>p,section>ul{
     --tertiary-color-light:#0d1117;
     --accent-color-light: #0d1117;
     --img-color-light:#1990b8;
-    --menu-color-light:#000;
+    --menu-color-light:#667eea;
+    --menu-bg-light: rgba(255, 255, 255, 0.95);
+    --menu-border-light: rgba(102, 126, 234, 0.2);
     --a-color-light: #0056b3;
 
     --background-color-dark: #0d1117;
@@ -365,8 +645,22 @@ section>p,section>ul{
     --tertiary-color-dark:#FFFFCC;
     --accent-color-dark:#FFFFCC;
     --img-color-dark:#333333;
-    --menu-color-dark:#fff;
+    --menu-color-dark:#ffffff;
+    --menu-bg-dark: linear-gradient(145deg, rgba(26, 26, 46, 0.9) 0%, rgba(22, 33, 62, 0.9) 50%, rgba(15, 52, 96, 0.9) 100%);
+    --menu-border-dark: rgba(102, 126, 234, 0.2);
     --a-color-dark: #FFFFCC;
+
+    --background-color: var(--background-color-dark);
+    --text-color: var(--text-color-dark);
+    --primary-color: var(--primary-color-dark);
+    --secondary-color: var(--secondary-color-dark);
+    --tertiary-color: var(--tertiary-color-dark);
+    --accent-color: var(--accent-color-dark);
+    --img-color: var(--img-color-dark);
+    --menu-color: var(--menu-color-dark);
+    --menu-bg: var(--menu-bg-dark);
+    --menu-border: var(--menu-border-dark);
+    --a-color: var(--a-color-dark);
 }
 .dark-theme {
     --background-color:var(--background-color-dark);
@@ -377,6 +671,8 @@ section>p,section>ul{
     --accent-color:var(--accent-color-dark);
     --img-color:var(--img-color-dark);
     --menu-color:var(--menu-color-dark);
+    --menu-bg:var(--menu-bg-dark);
+    --menu-border:var(--menu-border-dark);
     --a-color:var(--a-color-dark);
 }
 
@@ -389,6 +685,8 @@ section>p,section>ul{
     --accent-color:var(--accent-color-light);
     --img-color:var(--img-color-light);
     --menu-color:var(--menu-color-light);
+    --menu-bg:var(--menu-bg-light);
+    --menu-border:var(--menu-border-light);
     --a-color:var(--a-color-light);
 }
 .light-theme h3 {
@@ -398,7 +696,7 @@ section>p,section>ul{
 .light-theme .switch {
     transform: translateX(calc(100%*0.7));
 }
-/* 模态框样式 */
+
 .modal {
     display: none;
     position: fixed;
@@ -460,7 +758,7 @@ section>p,section>ul{
 .modal-close {
     background: rgba(255, 255, 255, 0.1);
     border: none;
-    border-radius: 50%;
+    border-radius: 12px;
     width: 48px;
     height: 48px;
     display: flex;
@@ -518,7 +816,7 @@ section>p,section>ul{
 .modal-control-btn {
     background: rgba(255, 255, 255, 0.1);
     border: none;
-    border-radius: 50%;
+    border-radius: 12px;
     width: 48px;
     height: 48px;
     display: flex;
@@ -540,7 +838,6 @@ section>p,section>ul{
     font-size: 20px;
 }
 
-/* 深色主题的模态框样式优化 */
 .dark-theme .modal-overlay {
     background: rgba(0, 0, 0, 0.9);
 }
@@ -560,7 +857,6 @@ section>p,section>ul{
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* 浅色主题的模态框样式优化 */
 .light-theme .modal-overlay {
     background: rgba(255, 255, 255, 0.9);
 }
@@ -591,7 +887,6 @@ section>p,section>ul{
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* Toast 提示信息样式 */
 .toast {
     position: fixed;
     top: 20px;
@@ -629,7 +924,6 @@ section>p,section>ul{
     }
 }
 
-/* 防止模态框打开时背景滚动 */
 body.no-hover-effect {
     overflow: hidden;
 }
@@ -780,19 +1074,6 @@ td a:hover{
     background-color: #009879;
     font-weight: bold;
 }
-#notificationBar{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: var(--img-color);
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 #closeBar{
     background-color: #555;
     color: #fff;
@@ -828,7 +1109,6 @@ h2::after {
     }
 }
 
-/* 美化頁尾樣式 */
 footer {
     background: var(--background-color);
     border-top: 2px solid var(--primary-color);
@@ -888,7 +1168,7 @@ footer {
 .brand-subtitle {
     margin: 0;
     font-size: 0.9em;
-    color: var(--text-color);
+    color: white;
     opacity: 0.8;
 }
 
@@ -949,31 +1229,4 @@ footer {
 .farea ul li a:hover {
     color: var(--primary-color);
     transform: translateX(3px);
-}
-
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 20px;
-    border-top: 1px solid var(--primary-color);
-    font-size: 0.8em;
-    color: var(--text-color);
-    opacity: 0.8;
-}
-
-.dots-animation {
-    animation: dots-fade 2s infinite;
-}
-
-@keyframes dots-fade {
-    0%, 20% { opacity: 0; }
-    40% { opacity: 1; }
-    60% { opacity: 0; }
-    80%, 100% { opacity: 1; }
-}
-
-.footer-copyright p,
-.footer-info p {
-    margin: 0;
 }
