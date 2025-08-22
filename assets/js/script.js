@@ -99,13 +99,6 @@ function loadNavigationAndFooter() {
                 <div class="nav-indicator"></div>
             </nav>
         </div>
-        
-        <div class="sidebar-footer">
-            <div class="footer-info">
-                <p class="version">版本 v2025.8</p>
-                <p class="copyright">© 陳國翔</p>
-            </div>
-        </div>
         `;
     foot.innerHTML = `
         <div class="footer-content">

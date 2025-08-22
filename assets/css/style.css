@@ -34,16 +34,19 @@ body>main{
     position: fixed;
     z-index: 20;
     height: 100vh;
-    width: 280px;
+    width: 210px;
+    max-width: 85vw;
+    min-width: 120px;
     display: flex;
     flex-direction: column;
     user-select: none;
-    top: 0; 
+    top: 0;
     right: 0;
-    background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    backdrop-filter: blur(20px);
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: -20px 0 60px rgba(0, 0, 0, 0.4);
+    background: #23263aee;
+    border-radius: 18px 0 0 18px;
+    box-shadow: -4px 0 16px 0 rgba(40, 40, 80, 0.10);
+    border-left: none;
+    backdrop-filter: blur(10px);
     transition: transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
     transform: translateX(100%);
     overflow-y: auto;
@@ -90,9 +93,9 @@ body>main{
 
 /* Sidebar Header */
 .sidebar-header {
-    padding: 24px 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 16px;
+    padding: 28px 20px 18px 20px;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.13);
+    margin-bottom: 10px;
 }
 
 .brand-container {
@@ -147,34 +150,36 @@ body>main{
 
 /* Navigation Sections */
 .nav-section {
-    margin-bottom: 24px;
-    padding: 0 20px;
+    margin-bottom: 18px;
+    padding: 0 16px;
 }
 
 .nav-label {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 11px;
-    font-weight: 600;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 10px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-    padding-left: 12px;
+    letter-spacing: 1.2px;
+    margin-bottom: 10px;
+    padding-left: 8px;
 }
 .nav-item {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 16px 12px;
-    margin: 6px 0;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    padding: 10px 8px 10px 12px;
+    margin: 5px 0;
+    border-radius: 10px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    transition: background 0.18s, transform 0.18s;
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    min-height: 40px;
+    gap: 8px;
 }
 
 .nav-item::before {
@@ -225,10 +230,8 @@ body>main{
 }
 
 .nav-item:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-    transform: translateX(4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
-    border-color: rgba(255, 255, 255, 0.15);
+    background: #2e3250;
+    transform: translateX(2px) scale(1.01);
 }
 
 .nav-item:active {
@@ -240,16 +243,16 @@ body>main{
     display: flex !important;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    margin-right: 16px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 12px;
-    color: white;
-    font-size: 20px;
-    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+    background: #3a3e5a;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 16px;
+    box-shadow: none;
     flex-shrink: 0;
-    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: background 0.18s;
 }
 
 .nav-item:hover .nav-icon {
@@ -266,15 +269,15 @@ body>main{
 
 .nav-text p {
     margin: 0;
-    font-size: 14px;
+    font-size: 15px;
     color: #ffffff;
     font-weight: 600;
     line-height: 1.2;
 }
 
 .nav-description {
-    font-size: 11px;
-    color: rgba(255, 255, 255, 0.6);
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.5);
     font-weight: 400;
 }
 
@@ -292,48 +295,27 @@ body>main{
     box-shadow: 0 0 12px rgba(102, 126, 234, 0.6);
 }
 
-/* Sidebar Footer */
-.sidebar-footer {
-    margin-top: auto;
-    padding: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.footer-info {
-    text-align: center;
-}
-
-.footer-info .version {
-    margin: 0 0 4px 0;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 11px;
-    font-weight: 500;
-}
-
-.footer-info .copyright {
-    margin: 0;
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 10px;
-    font-weight: 400;
-}
 .menu {
-    top: 5px;
+    top: 8px;
     position: fixed;
-    right: 5px;
-    padding: 12px;
-    border-radius: 16px;
+    right: 8px;
+    padding: 6px;
+    border-radius: 8px;
     background: var(--menu-bg);
-    backdrop-filter: blur(20px);
+    /* reduce heavy blur to avoid large visual footprint */
+    backdrop-filter: blur(6px);
     border: 1px solid var(--menu-border);
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: 21;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    /* smaller, subtler shadow */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .menu:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 32px rgba(102, 126, 234, 0.3);
+    /* avoid large hover scaling; keep subtle feedback */
+    transform: scale(1.02);
+    box-shadow: 0 6px 18px rgba(102, 126, 234, 0.12);
     border-color: #667eea;
 }
 
@@ -345,8 +327,8 @@ body>main{
 /* 淺色主題下的菜單特殊樣式 */
 .light-theme .menu {
     background: var(--menu-bg-light);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
 }
 
 .light-theme .menu:hover {
@@ -356,9 +338,9 @@ body>main{
 
 .menu span {
     display: block;
-    font-size: 24px;
+    font-size: 20px;
     color: var(--menu-color);
-    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: all 0.18s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .menu:hover span {

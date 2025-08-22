@@ -1,3 +1,30 @@
+@media (max-width: 768px) {
+    #jobs .main-row td:first-child,
+    #jobs .details-row .details-cell {
+        text-align: center !important;
+    }
+    .details-row .details-cell {
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
+    }
+}
+
+.mobile-col,
+.expand-btn {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+
+    .mobile-col,
+    .expand-btn {
+        display: none !important;
+    }
+    .details-row {
+        display: table-row !important;
+    }
+}
 .resume-card {
     margin-bottom: 24px;
     border-radius: 16px;
@@ -424,16 +451,61 @@ main {
     .table-container {
         margin: 15px 0;
         border-radius: 8px;
+        overflow-x: visible !important;
     }
     
     .table-container table {
-        min-width: 600px;
+        min-width: 0 !important;
+        width: 100% !important;
         font-size: 0.9em;
+        table-layout: fixed;
+        word-break: break-all;
     }
     
     .table-container th,
     .table-container td {
         padding: 12px 8px;
+        word-break: break-word;
+        white-space: normal !important;
+    }
+
+    /* 手機隱藏非主欄位 */
+    .hide-on-mobile {
+        display: none !important;
+    }
+    .mobile-col {
+        display: table-cell !important;
+        width: 48px;
+        text-align: center;
+    }
+    .expand-btn {
+        background: none;
+        border: none;
+        padding: 4px;
+        cursor: pointer;
+        font-size: 1.5em;
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .expand-btn[aria-expanded="true"] .material-symbols-sharp {
+        transform: rotate(180deg);
+    }
+    .expand-btn .material-symbols-sharp {
+        transition: transform 0.2s;
+    }
+    .details-row td {
+        background: #f8f9fa;
+        padding: 12px 8px;
+    }
+    .detail-block strong {
+        display: block;
+        margin-top: 8px;
+        color: var(--primary-color);
+    }
+    .detail-block p {
+        margin: 0 0 8px 0;
     }
 }
 
