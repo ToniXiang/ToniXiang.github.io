@@ -1,4 +1,7 @@
+
 name: Generate Languages Summary
+permissions:
+  contents: write
 
 on:
   push:
