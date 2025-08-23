@@ -9,7 +9,7 @@
                 "en": ["Simulation", ".NET MAUI"],
                 "zh": [ "模擬", ".NET MAUI"]
             },
-            "repositoryLink": "https://github.com/ChenGuoXiang940/NTCUST_OCC_myproject.git",
+            "repositoryLink": "https://github.com/ToniXiang/OCC_myproject.git",
             "sections": [
                 {
                     "title": {
@@ -52,7 +52,7 @@
             "en": ["Flutter","Django","Database","render"],
             "zh": ["Flutter","Django","資料庫","render"]
         },
-        "repositoryLink": "https://github.com/ChenGuoXiang940/SC2_myproject.git",
+        "repositoryLink": "https://github.com/ToniXiang/SC2_myproject.git",
         "sections": [
             {
                 "title": {

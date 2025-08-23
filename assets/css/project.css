@@ -496,3 +496,89 @@ nav.visible {
     border-radius: 8px;
     overflow: hidden;
 }
+
+/* List-based repo layout (mobile friendly) */
+.github-list {
+    margin-top: 1rem;
+}
+.github-list .list-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0.75rem;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--menu-border);
+}
+.repo-list {
+    list-style: none;
+    padding: 0.5rem 0;
+    margin: 0;
+}
+.repo-item {
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--menu-border);
+    background: transparent;
+}
+.repo-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+}
+.repo-name {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    word-break: break-word;
+}
+.repo-updated {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    opacity: 0.75;
+}
+.repo-desc {
+    margin: 0.45rem 0 0 0;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    line-height: 1.3;
+    opacity: 0.95;
+}
+
+@media (min-width: 800px) {
+    .repo-item { padding: 0.9rem 1rem; }
+    .repo-desc { font-size: 0.95rem; }
+}
+
+.dark-theme .repo-item { border-bottom-color: rgba(255,255,255,0.06); }
+body:not(.dark-theme) .repo-item { border-bottom-color: rgba(0,0,0,0.06); }
+
+.repo-name:hover { color: var(--accent-color); }
+
+#language-summary {
+    margin: 0.75rem 0 0.5rem 0;
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+    border: 1px solid var(--menu-border);
+}
+#language-summary h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--primary-color);
+    font-size: 0.98rem;
+}
+.language-list { display: grid; gap: 0.45rem; }
+.lang-item { display: block; }
+.lang-label { display:flex; justify-content:space-between; font-size:0.9rem; color:var(--text-color); }
+.lang-bar-wrap { width:100%; height:8px; background: rgba(0,0,0,0.06); border-radius:6px; margin-top:6px; overflow:hidden; }
+.lang-bar { height:100%; background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); }
+
+#repos-meta, .repos-meta {
+    margin-top: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    background: transparent;
+    border: 1px solid var(--menu-border);
+    color: var(--text-color);
+}
+.repos-meta .meta-row { display:flex; justify-content:space-between; padding:4px 0; font-size:0.95rem; }
+.repos-meta .meta-label { color:var(--text-color); opacity:0.8; }

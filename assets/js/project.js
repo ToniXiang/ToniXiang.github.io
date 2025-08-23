@@ -50,51 +50,126 @@ function loadArticle(articleId, event) {
         });
 }
 
-// 載入 GitHub 儲存庫表格
+// ...existing code...
+
+// Load GitHub repos as a mobile-friendly list (name left, date right, description below)
 function loadGitHubRepos() {
     const selectedLanguage = document.getElementById('languageSwitcher').value;
     const tableContainer = document.querySelector('.github-table-container');
-    const tableHTML = `
-        <div class="table-container">
-            <table id="repo-table" class="info-table">
-                <thead>
-                    <tr>
-                        <th>${selectedLanguage === 'en' ? 'Repository Name' : '庫名'}</th>
-                        <th>${selectedLanguage === 'en' ? 'Description' : '簡介'}</th>
-                        <th>${selectedLanguage === 'en' ? 'Last Updated' : '最後更新'}</th>
-                    </tr>
-                </thead>
-                <tbody id="repo-list"></tbody>
-            </table>
+    const headerName = selectedLanguage === 'en' ? 'Repository' : '\u5132\u5b58\u5eab';
+    const headerUpdated = selectedLanguage === 'en' ? 'Last Updated' : '\u6700\u5f8c\u66f4\u65b0';
+    const listHTML = `
+        <div class="github-list" aria-live="polite">
+            <div class="list-header">
+                <span class="header-name">${headerName}</span>
+                <span class="header-updated">${headerUpdated}</span>
+            </div>
+            <ul id="repo-list" class="repo-list"></ul>
         </div>
     `;
-    tableContainer.innerHTML = tableHTML;
-    // 載入 GitHub 儲存庫資料
+    tableContainer.innerHTML = listHTML;
     fetchGitHubRepos();
 }
 
 // 獲取 GitHub 儲存庫資料
 function fetchGitHubRepos() {
-    const apiUrl = `https://api.github.com/users/ChenGuoXiang940/repos`;
+    const selectedLanguage = document.getElementById('languageSwitcher').value;
+    const apiUrl = `https://api.github.com/users/ToniXiang/repos`;
     fetch(apiUrl)
         .then(response => response.json())
         .then(repos => {
-            let repoList = document.getElementById("repo-list");
-            repoList.innerHTML = ''; // 清空現有內容
-            repos.forEach(repo => {
-                let row = document.createElement("tr");
-                let updatedDate = new Date(repo.updated_at).toLocaleDateString('zh-Hant-TW', {
-                    year: 'numeric',
-                    month: '2-digit',
-                    day: '2-digit'
+            const repoList = document.getElementById("repo-list");
+            repoList.innerHTML = '';
+            if (!Array.isArray(repos)) return;
+            // Sort by updated_at descending (newest first)
+            repos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+
+            // Try to use a pre-generated static file (assets/js/languages.json) created by GitHub Actions
+            const staticLangUrl = 'assets/js/languages.json';
+            fetch(staticLangUrl)
+                .then(res => res.ok ? res.json() : Promise.reject())
+                .then(staticData => {
+                    const languageTotals = staticData.totals || {};
+                    renderLanguageSummary(languageTotals);
+                })
+                .catch(() => {
+                    // Fallback: fetch per-repo languages (may hit rate limits)
+                    const languageTotals = {};
+                    const languageFetches = repos.map(r => fetch(r.languages_url)
+                        .then(res => res.ok ? res.json() : {})
+                        .catch(() => ({}))
+                    );
+
+                    Promise.all(languageFetches).then(languageResults => {
+                        languageResults.forEach((langObj) => {
+                            if (!langObj) return;
+                            Object.entries(langObj).forEach(([lang, bytes]) => {
+                                languageTotals[lang] = (languageTotals[lang] || 0) + (bytes || 0);
+                            });
+                        });
+                        renderLanguageSummary(languageTotals);
+                    }).catch(() => {
+                        // ignore language aggregation errors
+                    });
                 });
-                row.innerHTML = `
-                    <td><a href="${repo.html_url}" target="_blank">${repo.name.replace(/_/g, ' ')}</a></td>
-                    <td>${repo.description || '沒有任何描述'}</td>
-                    <td>${updatedDate}</td>
+
+            function renderLanguageSummary(languageTotals) {
+                const summaryContainer = document.createElement('div');
+                summaryContainer.id = 'language-summary';
+                summaryContainer.className = 'language-summary';
+                const totalBytes = Object.values(languageTotals).reduce((s, v) => s + v, 0) || 0;
+                const topLanguages = Object.entries(languageTotals).sort((a, b) => b[1] - a[1]);
+                summaryContainer.innerHTML = `<h4>${document.getElementById('languageSwitcher').value === 'en' ? 'Languages (all repos)' : '所有倉庫語言分佈'}</h4>`;
+                const list = document.createElement('div');
+                list.className = 'language-list';
+                topLanguages.forEach(([lang, bytes]) => {
+                    const pct = totalBytes ? Math.round((bytes / totalBytes) * 100) : 0;
+                    const item = document.createElement('div');
+                    item.className = 'lang-item';
+                    item.innerHTML = `
+                        <div class="lang-label"><span class="lang-name">${lang}</span><span class="lang-pct">${pct}%</span></div>
+                        <div class="lang-bar-wrap"><div class="lang-bar" style="width:${pct}%"></div></div>
+                    `;
+                    list.appendChild(item);
+                });
+                summaryContainer.appendChild(list);
+                // Insert summary below the repo list (at end of the github-list container)
+                const container = document.querySelector('.github-list');
+                if (container) container.appendChild(summaryContainer);
+            }
+
+            // Compute total repo count
+            const totalRepos = repos.length;
+
+            repos.forEach(repo => {
+                const updatedDate = new Date(repo.updated_at).toLocaleDateString(
+                    selectedLanguage === 'en' ? 'en-US' : 'zh-Hant-TW',
+                    { year: 'numeric', month: '2-digit', day: '2-digit' }
+                );
+
+                const li = document.createElement('li');
+                li.className = 'repo-item';
+                li.innerHTML = `
+                    <div class="repo-row">
+                        <a class="repo-name" href="${repo.html_url}" target="_blank" rel="noopener noreferrer">${repo.name.replace(/_/g, ' ')}</a>
+                        <time class="repo-updated">${updatedDate}</time>
+                    </div>
+                    <p class="repo-desc">${repo.description || (selectedLanguage === 'en' ? 'No description' : '沒有任何描述')}</p>
                 `;
-                repoList.appendChild(row);
+                repoList.appendChild(li);
             });
+
+            // After rendering repos, append a small meta block with total count
+            try {
+                const meta = document.createElement('div');
+                meta.id = 'repos-meta';
+                meta.className = 'repos-meta';
+                meta.innerHTML = `
+                    <div class="meta-row"><span class="meta-label">${selectedLanguage === 'en' ? 'Total repos' : '倉庫總數'}:</span> <strong>${totalRepos}</strong></div>
+                `;
+                const container = document.querySelector('.github-list');
+                if (container) container.appendChild(meta);
+            } catch (e) { /* ignore DOM errors */ }
         })
         .catch(error => console.error("Error fetching GitHub repos:", error));
 }

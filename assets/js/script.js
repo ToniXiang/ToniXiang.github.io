@@ -118,7 +118,7 @@ function loadNavigationAndFooter() {
                         熱愛程式設計，持續學習新技術
                     </p>
                     <div class="social-links">
-                        <a href="https://github.com/ChenGuoXiang940" target="_blank" aria-label="GitHub" title="ChenGuoXiang940">GitHub</a>
+                        <a href="https://github.com/ToniXiang" target="_blank" aria-label="GitHub" title="ToniXiang">GitHub</a>
                         <a href="mailto:chen199940@example.com" aria-label="Email" title="chen199940@example.com">Email</a>
                     </div>
                 </div>
