@@ -1,0 +1,20 @@
+{
+  "generated_at": "2025-08-23T16:58:05.828Z",
+  "totals": {
+    "C++": 139438,
+    "Assembly": 6439,
+    "HTML": 98423,
+    "C": 3279,
+    "JavaScript": 57076,
+    "CSS": 72933,
+    "C#": 58590,
+    "Dart": 60402,
+    "Python": 26128,
+    "CMake": 19886,
+    "Swift": 2445,
+    "Dockerfile": 310,
+    "Kotlin": 125,
+    "Objective-C": 38
+  },
+  "repo_count": 8
+}
