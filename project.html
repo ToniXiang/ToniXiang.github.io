@@ -7,20 +7,18 @@
     <title>個人網頁(陳國翔)</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/me.png">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp&display=swap&icon_names=arrow_drop_up,arrow_forward_ios,chevron_right,close,contrast,dark_mode,description,download,group,history,home,light_mode,menu" />
     <link rel="stylesheet" href="assets/css/project.css">
 </head>
 
 <body>
     <div id="background"></div>
-    <div class="cp" id="backToTop">
-        <span class="material-symbols-sharp">arrow_drop_up</span>
-    </div>
     <header class="blogTitle"></header>
-    <div class="menu" onclick="toggleMenu()" aria-label="打開選單">
-        <span class="material-symbols-sharp">menu</span>
+    <div class="menu" onclick="toggleMenu()">
+        <img src="assets/images/menu.svg" alt="首頁" width="20" height="20" class="icon" aria-hidden="true">
     </div>
-    <button id="showNavs"><span class="material-symbols-sharp">chevron_right</span></button>
+    <button id="showNavs">
+        <img src="assets/images/chevron_right.svg" alt="目錄" width="20" height="20" class="icon" aria-hidden="true">
+    </button>
     <aside id="catalog">
         <h2>目錄</h2>
     </aside>
@@ -31,16 +29,11 @@
                 <div class="modal-header">
                     <h3 id="caption" class="modal-title"></h3>
                     <button class="modal-close" aria-label="關閉圖片">
-                        <span class="material-symbols-sharp">close</span>
+                        <img src="assets/images/close.svg" alt="關閉" width="20" height="20" class="icon" aria-hidden="true">
                     </button>
                 </div>
                 <div class="modal-body">
                     <img class="modal-content" id="img01" alt="Modal Image">
-                </div>
-                <div class="modal-controls">
-                    <button class="modal-control-btn" id="downloadBtn" aria-label="下載圖片">
-                        <span class="material-symbols-sharp">download</span>
-                    </button>
                 </div>
             </div>
         </div>

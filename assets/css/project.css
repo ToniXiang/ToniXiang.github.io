@@ -7,48 +7,46 @@
 }
 #showNavs {
     position: fixed;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    background: var(--primary-color);
+    background: linear-gradient(135deg, #1f2233 0%, #2b2f47 100%);
     color: #fff;
-    border: none;
+    border: 1px solid rgba(255,255,255,0.06);
     border-radius: 0 12px 12px 0;
-    padding: 12px 15px;
+    padding: 6px;
     cursor: pointer;
-    font-size: 1.1em;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
+    font-size: 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.16);
+    transition: all 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: 1000;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
 }
 
 #showNavs:hover {
-    transform: translateY(-50%) scale(1.1) translateX(5px);
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
+    transform: translateY(-50%) scale(1.02) translateX(5px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+    border-color: rgba(102,126,234,0.12);
 }
 
 #showNavs:active {
     transform: translateY(-50%) scale(0.95) translateX(5px);
+    transition: all 0.1s ease;
 }
 
-#showNavs span {
-    transition: transform 0.3s ease;
-}
-
-#showNavs:hover span {
-    transform: scale(1.2);
-}
 nav.hidden {
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
 }
+
 nav.visible {
     transform: translateX(0);
     transition: transform 0.3s ease-in-out;
 }
+
 .message-tags {
     border: var(--accent-color) 0.5px solid;
     border-radius: 5px;

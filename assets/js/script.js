@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     initializeLoadingScreens();
-    loadDefaultTheme();
     loadNavigationAndFooter();
-    initializeBackToTopButton();
+    loadDefaultTheme();
     initializeModalEvents();
 });
 // Loading 加載照片的動畫
@@ -56,7 +55,7 @@ function loadNavigationAndFooter() {
             <div class="nav-label">導覽</div>
             <nav class="nav-item${currentPage === 'index' ? ' active' : ''}" onclick="redirectToPage('index.html')">
                 <div class="nav-icon">
-                    <span class="material-symbols-sharp">home</span>
+                    <img src="assets/images/home.svg" alt="home" width="20" height="20" class="nav-icon-img" aria-hidden="true">
                 </div>
                 <div class="nav-text">
                     <p>主要頁面</p>
@@ -65,9 +64,7 @@ function loadNavigationAndFooter() {
                 <div class="nav-indicator"></div>
             </nav>
             <nav class="nav-item${currentPage === 'project' ? ' active' : ''}" onclick="redirectToPage('project.html')">
-                <div class="nav-icon">
-                    <span class="material-symbols-sharp">description</span>
-                </div>
+                <img src="assets/images/description.svg" alt="project" width="20" height="20" class="nav-icon-img" aria-hidden="true">
                 <div class="nav-text">
                     <p>作品展示</p>
                     <span class="nav-description">項目作品</span>
@@ -75,9 +72,7 @@ function loadNavigationAndFooter() {
                 <div class="nav-indicator"></div>
             </nav>
             <nav class="nav-item${currentPage === 'about' ? ' active' : ''}" onclick="redirectToPage('about.html')">
-                <div class="nav-icon">
-                    <span class="material-symbols-sharp">group</span>
-                </div>
+                <img src="assets/images/person.svg" alt="about" width="20" height="20" class="nav-icon-img" aria-hidden="true">
                 <div class="nav-text">
                     <p>關於我</p>
                     <span class="nav-description">個人簡介</span>
@@ -90,7 +85,7 @@ function loadNavigationAndFooter() {
             <div class="nav-label">設定</div>
             <nav class="nav-item theme" onclick="toggleTheme()" aria-label="切換主題">
                 <div class="nav-icon">
-                    <span class="material-symbols-sharp" id="theme-icon">dark_mode</span>
+                    <img id="theme-icon" src="assets/images/dark_mode.svg" alt="theme" width="20" height="20" class="nav-icon-img" aria-hidden="true">
                 </div>
                 <div class="nav-text">
                     <p>切換主題</p>
@@ -148,38 +143,20 @@ function loadNavigationAndFooter() {
             </div>
         </div>`;
 }
-//  如果不在最頂就顯示"往上的標誌" 如果被按下就滑動到最頂
-function initializeBackToTopButton() {
-    const backToTopButton = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            backToTopButton.classList.add('show');
-            backToTopButton.classList.remove('hide');
-        } else {
-            backToTopButton.classList.add('hide');
-            backToTopButton.classList.remove('show');
-        }
-    });
-    backToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-}
 // 開啟與關閉的導航欄動畫
 function toggleMenu() {
     const blogTitle = document.querySelector('.blogTitle');
-    const menuIcon = document.querySelector('.menu span.material-symbols-sharp');
+    const menuIcon = document.querySelector('.menu img.icon');
     const navItems = blogTitle.querySelectorAll('.nav-item');
     const sidebarHeader = blogTitle.querySelector('.sidebar-header');
     const sidebarFooter = blogTitle.querySelector('.sidebar-footer');
     
     blogTitle.classList.toggle('show');
     
-    if (menuIcon.textContent === 'menu') {
+    const currentSrc = menuIcon ? menuIcon.getAttribute('src') : '';
+    if (currentSrc && currentSrc.indexOf('menu.svg') !== -1) {
         blogTitle.classList.add('show');
-        menuIcon.textContent = 'close';
+        if (menuIcon) menuIcon.setAttribute('src', 'assets/images/close.svg');
         
         // 添加進入動畫
         setTimeout(() => {
@@ -204,7 +181,7 @@ function toggleMenu() {
         
     } else {
         blogTitle.classList.remove('show');
-        menuIcon.textContent = 'menu';
+        if (menuIcon) menuIcon.setAttribute('src', 'assets/images/menu.svg');
         
         // 重置動畫
         if (sidebarHeader) sidebarHeader.style.animation = '';
@@ -239,20 +216,19 @@ function setTheme(themeName) {
     localStorage.setItem('theme', themeName);
     applyTheme(themeName);
 }
-document.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        applyTheme(savedTheme);
-    }
-});
 // 切換主題
 function applyTheme(themeName) {
-    document.body.className = themeName;
-    const themeIcons = document.querySelectorAll('#theme-icon'); 
-    if (document.body.classList.contains('dark-theme')) {
-        themeIcons.forEach(themeIcon => themeIcon.textContent = 'light_mode');
-    } else {
-        themeIcons.forEach(themeIcon => themeIcon.textContent = 'dark_mode');
+    document.body.classList.remove('dark-theme', 'light-theme');
+    document.body.classList.add(themeName);
+    const themeIconImg = document.getElementById('theme-icon');
+    if (themeIconImg) {
+        if (document.body.classList.contains('dark-theme')) {
+            themeIconImg.setAttribute('src', 'assets/images/light_mode.svg');
+            themeIconImg.setAttribute('alt', 'light mode');
+        } else {
+            themeIconImg.setAttribute('src', 'assets/images/dark_mode.svg');
+            themeIconImg.setAttribute('alt', 'dark mode');
+        }
     }
 }
 // 點擊圖片後顯示它的大圖
@@ -261,7 +237,8 @@ function openModal(imgSrc, imgName) {
     const modalImg = document.getElementById("img01");
     const captionText = document.getElementById("caption");
     
-    modal.style.display = "block";
+    // use class toggling so CSS animations handle visibility
+    modal.classList.add('show');
     modalImg.src = imgSrc;
     captionText.textContent = imgName;
     document.body.classList.add("no-hover-effect");
@@ -274,7 +251,7 @@ function openModal(imgSrc, imgName) {
 // 關閉模態框
 function closeModal() {
     const modal = document.getElementById("myModal");
-    modal.style.display = "none";
+    modal.classList.remove('show');
     document.body.classList.remove("no-hover-effect");
     document.body.style.overflow = 'auto';
     document.removeEventListener('keydown', handleModalKeydown);
@@ -286,19 +263,6 @@ function handleModalKeydown(event) {
         closeModal();
     }
 }
-// 下載圖片
-function downloadImage() {
-    const modalImg = document.getElementById("img01");
-    const captionText = document.getElementById("caption");
-    const imgSrc = modalImg.src;
-    const imgName = captionText.textContent || 'image';
-    
-    const link = document.createElement('a');
-    link.href = imgSrc;
-    link.download = imgName;
-    link.click();
-}
-
 // 顯示提示訊息
 function showToast(message) {
     const toast = document.createElement('div');
@@ -328,22 +292,16 @@ function showToast(message) {
 
 // 初始化模態框事件監聽
 function initializeModalEvents() {
-    const closeBtn = document.querySelector('.modal-close');
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closeModal);
-    }
-    const modalOverlay = document.querySelector('.modal-overlay');
-    if (modalOverlay) {
-        modalOverlay.addEventListener('click', closeModal);
-    }
-    const downloadBtn = document.getElementById('downloadBtn');
-    if (downloadBtn) {
-        downloadBtn.addEventListener('click', downloadImage);
-    }
-}
-
-// 為關閉按鈕添加點擊事件
-const span = document.getElementsByClassName("close")[0];
-if (span) {
-    span.onclick = closeModal;
+    document.addEventListener('click', function (e) {
+        const closeEl = e.target.closest && e.target.closest('.modal-close');
+        if (closeEl) {
+            closeModal();
+            return;
+        }
+        const overlayEl = e.target.closest && e.target.closest('.modal-overlay');
+        if (overlayEl) {
+            closeModal();
+            return;
+        }
+    });
 }

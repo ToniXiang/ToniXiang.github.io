@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // localStorage.removeItem('snowStart'); // 測試用
     toggleSnow();
     transformArticle();
     initScrollAnimation();
@@ -22,7 +21,7 @@ const observer = new IntersectionObserver((entries, obs) => {
         }
     });
 }, { threshold: 0.2 });
-// 新增雪花特效
+// 新增雪花特效(預設關閉)
 function createSnowflake() {
     const snowflake = document.createElement('div');
     snowflake.classList.add('snowflake');
@@ -57,24 +56,36 @@ function stopSnow() {
     snowInterval = null;
 }
 function toggleSnow() {
-    let snowStart = localStorage.getItem('snowStart') === 'true';
     const btn = document.getElementById('toggleSnow');
-    snowInterval = null;
+    const saved = localStorage.getItem('snowStart');
+    let snowStart = saved === null ? false : (saved === 'true');
+    if (!btn) return;
+
+    function setButtonText(text) {
+        const textEl = btn.querySelector('.btn-text');
+        if (textEl) {
+            textEl.textContent = text;  
+        } else {
+            btn.textContent = text;
+        }
+    }
+
     if (!snowStart) {
-        btn.textContent = '繼續雪花';
+        setButtonText('繼續雪花');
         stopSnow();
     } else {
-        btn.textContent = '暫停雪花';
+        setButtonText('暫停雪花');
         startSnow();
     }
+
     btn.addEventListener('click', function() {
         snowStart = !snowStart;
         localStorage.setItem('snowStart', snowStart);
         if (!snowStart) {
-            this.textContent = '繼續雪花';
+            setButtonText('繼續雪花');
             stopSnow();
         } else {
-            this.textContent = '暫停雪花';
+            setButtonText('暫停雪花');
             startSnow();
         }
     });
