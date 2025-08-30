@@ -5,19 +5,23 @@ permissions:
   id-token: write
 
 on:
-  push:
-    branches: [ main ]
+  workflow_run:
+    workflows: ["Build"]
+    types: [completed]
 
 concurrency:
-  group: pages-deploy-${{ github.ref }}
+  group: pages-deploy-${{ github.event.workflow_run.head_sha }}
   cancel-in-progress: true
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout target commit
         uses: actions/checkout@v4
+        with:
+          # checkout the exact commit that finished the Build workflow
+          ref: ${{ github.event.workflow_run.head_sha }}
 
       - name: Prepare public folder
         run: |
@@ -27,10 +31,11 @@ jobs:
           # Copy site files into public, excluding workflow configs, git data and node_modules
           rsync -av --exclude='.github' --exclude='.git' --exclude='node_modules' --exclude='scripts' ./ public/
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v1
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: ./public
-
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          # Optional: keep history by not setting force; set user name/email
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com

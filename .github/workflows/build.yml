@@ -1,0 +1,20 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Quick validation
+        run: |
+          echo "Build placeholder: no build steps defined for static site"
+          echo "Commit: $GITHUB_SHA"
