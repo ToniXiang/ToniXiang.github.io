@@ -621,6 +621,8 @@ section>ul {
     --primary-color-light: #5f6caf;
     --secondary-color-light: #0056b3;
     --tertiary-color-light: #0d1117;
+    --card-bg-light: #ffffff;
+    --card-border-light: rgba(34,41,122,0.06);
     --accent-color-light: #0d1117;
     --img-color-light: #1990b8;
     --menu-color-light: #667eea;
@@ -633,6 +635,8 @@ section>ul {
     --primary-color-dark: #f0883e;
     --secondary-color-dark: #0056b3;
     --tertiary-color-dark: #FFFFCC;
+    --card-bg-dark: rgba(255,255,255,0.03);
+    --card-border-dark: rgba(255,255,255,0.06);
     --accent-color-dark: #FFFFCC;
     --img-color-dark: #333333;
     --menu-color-dark: #ffffff;
@@ -645,6 +649,9 @@ section>ul {
     --primary-color: var(--primary-color-dark);
     --secondary-color: var(--secondary-color-dark);
     --tertiary-color: var(--tertiary-color-dark);
+    --card-bg: var(--card-bg-dark);
+    --card-border: var(--card-border-dark);
+    --icon-filter: invert(1) brightness(1.05) contrast(1);
     --accent-color: var(--accent-color-dark);
     --img-color: var(--img-color-dark);
     --menu-color: var(--menu-color-dark);
@@ -659,12 +666,15 @@ section>ul {
     --primary-color: var(--primary-color-dark);
     --secondary-color: var(--secondary-color-dark);
     --tertiary-color: var(--tertiary-color-dark);
+    --card-bg: var(--card-bg-dark);
+    --card-border: var(--card-border-dark);
     --accent-color: var(--accent-color-dark);
     --img-color: var(--img-color-dark);
     --menu-color: var(--menu-color-dark);
     --menu-bg: var(--menu-bg-dark);
     --menu-border: var(--menu-border-dark);
     --a-color: var(--a-color-dark);
+    --icon-filter: invert(1) brightness(1.05) contrast(1);
 }
 
 .light-theme {
@@ -673,12 +683,15 @@ section>ul {
     --primary-color: var(--primary-color-light);
     --secondary-color: var(--secondary-color-light);
     --tertiary-color: var(--tertiary-color-light);
+    --card-bg: var(--card-bg-light);
+    --card-border: var(--card-border-light);
     --accent-color: var(--accent-color-light);
     --img-color: var(--img-color-light);
     --menu-color: var(--menu-color-light);
     --menu-bg: var(--menu-bg-light);
     --menu-border: var(--menu-border-light);
     --a-color: var(--a-color-light);
+    --icon-filter: invert(0) brightness(0.95) contrast(1);
 }
 
 .light-theme h3 {
@@ -1229,7 +1242,6 @@ footer {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    border: 2px solid var(--primary-color);
     object-fit: cover;
 }
 
