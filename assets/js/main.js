@@ -1,15 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
     toggleSnow();
     transformArticle();
-    initScrollAnimation();
-    initCardDetails();
 });
 //  新增文章卡片淡入效果
 function transformArticle() {
     document.querySelectorAll('.year-card').forEach(card => {
-        observer.observe(card);
-    });
-    document.querySelectorAll('.lang-card').forEach(card => {
         observer.observe(card);
     });
 }
@@ -90,101 +85,3 @@ function toggleSnow() {
         }
     });
 }
-// 初始化語言卡片動畫
-function initLanguageCards() {
-    const cards = document.querySelectorAll('.lang-card');
-    cards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(50px) scale(0.8)';
-        
-        setTimeout(() => {
-            card.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0) scale(1)';
-        }, index * 100 + 300);
-    });
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            cards.forEach(otherCard => {
-                if (otherCard !== card) {
-                    otherCard.style.animationPlayState = 'paused';
-                }
-            });
-        });
-        card.addEventListener('mouseleave', function() {
-            cards.forEach(otherCard => {
-                otherCard.style.animationPlayState = 'running';
-            });
-        });
-    });
-}
-// 語言卡片技能等級動畫
-function animateSkillLevels() {
-    const skillLevels = document.querySelectorAll('.level-indicator');
-    skillLevels.forEach(level => {
-        const stars = level.textContent;
-        level.textContent = '';      
-        // 逐個顯示星星
-        for (let i = 0; i < stars.length; i++) {
-            setTimeout(() => {
-                level.textContent += stars[i];
-            }, i * 150);
-        }
-    });
-}
-// 語言卡片詳細信息動畫
-function initCardDetails() {
-    const cards = document.querySelectorAll('.lang-card');
-    cards.forEach(card => {
-        const details = card.querySelector('.card-details');
-        const listItems = details.querySelectorAll('li'); 
-        card.addEventListener('mouseenter', function() {
-            listItems.forEach((item, index) => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateX(-20px)';
-                
-                setTimeout(() => {
-                    item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-                    item.style.opacity = '1';
-                    item.style.transform = 'translateX(0)';
-                }, index * 50 + 200);
-            });
-        });
-        card.addEventListener('mouseleave', function() {
-            // 重置動畫狀態
-            listItems.forEach(item => {
-                item.style.transition = 'none';
-                item.style.opacity = '';
-                item.style.transform = '';
-            });
-        });
-    });
-}
-// 滾動觸發的語言卡片動畫
-function initScrollAnimation() {
-    const languageSection = document.querySelector('.language-cards');
-    const scrollObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                initLanguageCards();
-                setTimeout(() => {
-                    animateSkillLevels();
-                }, 800);
-                scrollObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-    if (languageSection) {
-        scrollObserver.observe(languageSection);
-    }
-}
-// 視窗大小變化時重新調整動畫
-window.addEventListener('resize', function() {
-    const cards = document.querySelectorAll('.lang-card');
-    cards.forEach(card => {
-        card.style.transition = 'none';
-        setTimeout(() => {
-            card.style.transition = '';
-        }, 10);
-    });
-});
