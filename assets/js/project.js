@@ -43,8 +43,8 @@ function loadArticle(articleId, event) {
                 `).join('')}
             `;
             articleContent.innerHTML = articleHTML;
-            // 如果是 GitHub 儲存庫文章，載入表格
-            if (articleId === 'github-repos') {
+            // 如果是 home 頁面，載入 GitHub 儲存庫表格
+            if (articleId === 'home') {
                 loadGitHubRepos();
             }
         });
@@ -223,8 +223,7 @@ function displayCatalog(){
 const articles = [
     { id: 'home', title: { en: 'Welcome to My Project Showcase', zh: '歡迎來到我的專案展示' } },
     { id: 'OCC_myproject', title: { en: 'Simple Control Center', zh: '簡易的行控中心' } },
-    { id: 'shoppingPlatform', title: { en: 'Shopping Platform', zh: '購物平台' } },
-    { id: 'github-repos', title: { en: 'My GitHub Repositories', zh: '我的 GitHub 儲存庫' } }
+    { id: 'shoppingPlatform', title: { en: 'Shopping Platform', zh: '購物平台' } }
 ];
 function generateCatalog() {
     const catalog = document.getElementById('catalog');

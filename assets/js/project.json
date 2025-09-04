@@ -142,18 +142,28 @@
                 "zh": "歡迎來到我的專案展示"
             },
             "tags": {
-                "en": ["Portfolio", "Projects", "Development"],
-                "zh": ["作品集", "專案", "開發"]
+                "en": ["Portfolio", "Projects", "Development", "GitHub"],
+                "zh": ["作品集", "專案", "開發", "GitHub"]
             },
             "sections": [
                 {
                     "title": {
-                        "en": "About This Portfolio",
-                        "zh": "關於這個作品集"
+                        "en": "Hello I'm Guoxiang Chen :D",
+                        "zh": "Hello 我是陳國翔 :D"
                     },
                     "content": {
-                        "en": "<p>Welcome to my project showcase! This is where I share my development journey and technical achievements. Each project represents a unique challenge and learning experience that has shaped my skills as a developer.</p><p>Here you can explore different projects to understand my work and interests. Each project includes detailed descriptions, technical specifications, and links to repositories where available.</p>",
-                        "zh": "<p>歡迎來到我的專案展示！這裡是我分享開發歷程和技術成就的地方。每個專案都代表著獨特的挑戰和學習經驗，塑造了我作為開發者的技能。</p><p>您可以在這裡探索不同的專案，了解我的工作和興趣。每個專案都包含詳細的描述、技術規格，以及可用的儲存庫連結。</p>"
+                        "en": "<div class='hero-section'><div class='hero-content'><p>Welcome to my project showcase! This is where I share my development journey and technical achievements. Each project represents unique challenges and learning experiences that have shaped my skills as a developer.</p><div class='highlight-stats'><div class='stat-item'><span class='stat-number'>3+</span><span class='stat-label'>Years of Coding</span></div><div class='stat-item'><span class='stat-number'>Multiple</span><span class='stat-label'>Technologies</span></div></div></div></div>",
+                        "zh": "<div class='hero-section'><div class='hero-content'><p>歡迎來到我的專案展示！這裡是我分享開發歷程和技術成就的地方。每個專案都代表著獨特的挑戰和學習經驗，塑造了我作為開發者的技能。</p><div class='highlight-stats'><div class='stat-item'><span class='stat-number'>3+</span><span class='stat-label'>年程式開發經驗</span></div><div class='stat-item'><span class='stat-number'>多項</span><span class='stat-label'>技術專長</span></div></div></div></div>"
+                    }
+                },
+                {
+                    "title": {
+                        "en": "What You'll Find Here",
+                        "zh": "您將在這裡發現"
+                    },
+                    "content": {
+                        "en": "<div class='simple-features'><div class='simple-item'><strong>Featured Projects</strong><br>Detailed descriptions of my key projects.</div><div class='simple-item'><strong>GitHub Portfolio</strong><br>Complete repository collection with language statistics and project details.</div></div>",
+                        "zh": "<div class='simple-features'><div class='simple-item'><strong>精選專案</strong><br>我主要項目的詳細描述</div><div class='simple-item'><strong>GitHub 作品集</strong><br>完整的儲存庫收藏包含語言統計和專案資訊。</div></div>"
                     }
                 },
                 {
@@ -162,30 +172,18 @@
                         "zh": "導航指南"
                     },
                     "content": {
-                        "en": "<ul><li>Use the catalog button on the left to browse different projects and sections</li><li>Click on any project title to view detailed information</li><li>Each project includes technical details, screenshots, and repository links</li><li>Feel free to contact me if you have any questions or suggestions</li></ul>",
-                        "zh": "<ul><li>使用左側的目錄按鈕瀏覽不同的專案和章節</li><li>點擊任何專案標題以查看詳細資訊</li><li>每個專案都包含技術細節、截圖和儲存庫連結</li><li>如果有任何問題或建議，歡迎聯繫我</li></ul>"
+                        "en": "<div class='simple-guide'><p><strong>Browse:</strong> Use the catalog button to explore projects</p><p><strong>Explore:</strong> Click project titles for detailed information</p><p><strong>Visit:</strong> Access code repositories and documentation</p><p><strong>Contact:</strong> Feel free to reach out for collaboration</p></div>",
+                        "zh": "<div class='simple-guide'><p><strong>瀏覽：</strong>使用目錄按鈕探索專案</p><p><strong>探索：</strong>點擊專案標題查看詳細資訊</p><p><strong>查看：</strong>訪問程式碼儲存庫和文件</p><p><strong>聯繫：</strong>歡迎聯繫進行合作交流</p></div>"
                     }
-                }
-            ]
-        },
-        "github-repos": {
-            "title": {
-                "en": "My GitHub Repositories",
-                "zh": "我的 GitHub 儲存庫"
-            },
-            "tags": {
-                "en": ["GitHub", "Open Source", "Code"],
-                "zh": ["GitHub", "開源", "程式碼"]
-            },
-            "sections": [
+                },
                 {
                     "title": {
-                        "en": "Repository Overview",
-                        "zh": "儲存庫概覽"
+                        "en": "My GitHub Repositories",
+                        "zh": "我的 GitHub 儲存庫"
                     },
                     "content": {
-                        "en": "<p>Below is a comprehensive list of my GitHub repositories. Each repository represents different aspects of my development work, from personal projects to experimental code and learning exercises.</p><div class='github-table-container'></div>",
-                        "zh": "<p>以下是我的 GitHub 儲存庫的完整列表。每個儲存庫代表我開發工作的不同方面，從個人專案到實驗性程式碼和學習練習。</p><div class='github-table-container'></div>"
+                        "en": "<div class='github-table-container'></div>",
+                        "zh": "<div class='github-table-container'></div>"
                     }
                 }
             ]
