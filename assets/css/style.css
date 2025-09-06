@@ -162,7 +162,8 @@ body>main {
     background: transparent;
     border: none;
     box-shadow: none;
-    transition: background 0.18s, transform 0.18s;
+    /* simplified transition: only background color */
+    transition: background-color 0.15s ease;
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -170,47 +171,21 @@ body>main {
     gap: 8px;
 }
 
-.nav-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 3px;
-    height: 100%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    transform: scaleY(0);
-    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-    border-radius: 0 2px 2px 0;
-}
+/* remove decorative pseudo-element for simpler UI */
+.nav-item::before { display: none; }
 
-.nav-item::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%);
-    transform: translate(-50%, -50%);
-    transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
-    border-radius: 50%;
-    opacity: 0;
-}
+/* remove ripple pseudo-element */
+.nav-item::after { display: none; }
 
-.nav-item:hover::before {
-    transform: scaleY(1);
-}
-
-.nav-item:hover::after {
-    width: 200px;
-    height: 200px;
-    opacity: 1;
-}
+/* no fancy hover animations */
+.nav-item:hover::before,
+.nav-item:hover::after { display: none; }
 
 .nav-item.active {
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
-    border: 1px solid rgba(102, 126, 234, 0.3);
-    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.2);
+    /* simplified active state */
+    background: rgba(0, 0, 0, 0.12);
+    border: none;
+    box-shadow: none;
 }
 
 .nav-item.active::before {
@@ -218,13 +193,13 @@ body>main {
 }
 
 .nav-item:hover {
-    background: #2e3250;
-    transform: translateX(2px) scale(1.01);
+    /* darken slightly on hover only */
+    background: rgba(0, 0, 0, 0.18);
+    transform: none;
 }
 
 .nav-item:active {
-    transform: translateX(2px) scale(0.98);
-    transition: all 0.1s ease;
+    transform: none;
 }
 
 .nav-icon {
@@ -244,8 +219,9 @@ body>main {
 }
 
 .nav-item:hover .nav-icon {
-    transform: scale(1.1);
-    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+    /* keep icon appearance stable on hover */
+    transform: none;
+    box-shadow: none;
 }
 
 .nav-text {
@@ -489,6 +465,7 @@ body>main {
     border-color: rgba(255, 255, 255, 0.06) !important;
     color: #ffffff !important;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16) !important;
+    user-select: none;
 }
 
 .menu span,
@@ -641,7 +618,7 @@ section>ul {
     --tertiary-color-light: #0d1117;
     --card-bg-light: #ffffff;
     --card-border-light: rgba(34,41,122,0.06);
-    --accent-color-light: #0d1117;
+    --accent-color-light: #5f6caf;
     --img-color-light: #1990b8;
     --menu-color-light: #667eea;
     --menu-bg-light: rgba(255, 255, 255, 0.95);

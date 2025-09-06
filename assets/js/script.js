@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadNavigationAndFooter();
     loadDefaultTheme();
     initializeModalEvents();
+    setupMenuHover();
 });
 // Loading 加載照片的動畫
 function initializeLoadingScreens() {
@@ -29,12 +30,56 @@ function initializeLoadingScreens() {
 // 載入預設主題
 function loadDefaultTheme() {
     const savedTheme = localStorage.getItem('theme');
+    const prefersDarkMQ = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+
+    function applySystemTheme() {
+        const systemTheme = (prefersDarkMQ && prefersDarkMQ.matches) ? 'dark-theme' : 'light-theme';
+        document.body.classList.remove('dark-theme', 'light-theme');
+        document.body.classList.add(systemTheme);
+
+        const themeIconImg = document.getElementById('theme-icon');
+        if (themeIconImg) {
+            themeIconImg.setAttribute('src', 'assets/images/desktop_windows.svg');
+            themeIconImg.setAttribute('alt', 'system preference');
+        }
+    }
+
     if (savedTheme) {
         applyTheme(savedTheme);
     } else {
-        const defaultTheme = 'dark-theme';
-        applyTheme(defaultTheme);
+        applySystemTheme();
+        const mqListener = (e) => {
+            if (!localStorage.getItem('theme')) {
+                applySystemTheme();
+            }
+        };
+        if (prefersDarkMQ) {
+            if (typeof prefersDarkMQ.addEventListener === 'function') {
+                prefersDarkMQ.addEventListener('change', mqListener);
+            } else if (typeof prefersDarkMQ.addListener === 'function') {
+                prefersDarkMQ.addListener(mqListener);
+            }
+        }
     }
+
+    window.addEventListener('storage', (ev) => {
+        if (ev.key === 'theme') {
+            const newVal = ev.newValue;
+            if (newVal) {
+                applyTheme(newVal);
+            } else {
+                const prefers = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+                const sysTheme = (prefers && prefers.matches) ? 'dark-theme' : 'light-theme';
+                document.body.classList.remove('dark-theme', 'light-theme');
+                document.body.classList.add(sysTheme);
+                const themeIconImg = document.getElementById('theme-icon');
+                if (themeIconImg) {
+                    themeIconImg.setAttribute('src', 'assets/images/desktop_windows.svg');
+                    themeIconImg.setAttribute('alt', 'system preference');
+                }
+            }
+        }
+    });
 }
 // 載入時加導覽欄和頁尾的資訊
 function loadNavigationAndFooter() {
@@ -85,7 +130,7 @@ function loadNavigationAndFooter() {
             <div class="nav-label">設定</div>
             <nav class="nav-item theme" onclick="toggleTheme()" aria-label="切換主題">
                 <div class="nav-icon">
-                    <img id="theme-icon" src="assets/images/dark_mode.svg" alt="theme" width="20" height="20" class="nav-icon-img" aria-hidden="true">
+                    <img id="theme-icon" src="assets/images/desktop_windows.svg" alt="theme" width="20" height="20" class="nav-icon-img" aria-hidden="true">
                 </div>
                 <div class="nav-text">
                     <p>切換主題</p>
@@ -193,22 +238,66 @@ function toggleMenu() {
         });
     }
 }
+
+// 在非觸控裝置上啟用滑鼠移入顯示、移出隱藏的行為（手機仍以點擊為主）
+function setupMenuHover(){
+    const isTouchDevice = (('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints && navigator.msMaxTouchPoints > 0));
+    if(isTouchDevice) return; // 觸控裝置不綁定 hover
+
+    const menuEl = document.querySelector('.menu');
+    const blogTitle = document.querySelector('.blogTitle');
+    const menuIcon = document.querySelector('.menu img.icon');
+    const navItems = blogTitle ? blogTitle.querySelectorAll('.nav-item') : [];
+    const sidebarHeader = blogTitle ? blogTitle.querySelector('.sidebar-header') : null;
+    const sidebarFooter = blogTitle ? blogTitle.querySelector('.sidebar-footer') : null;
+
+    if(!menuEl || !blogTitle) return;
+
+    menuEl.addEventListener('mouseenter', ()=>{
+        if(blogTitle.classList.contains('show')) return;
+        blogTitle.classList.add('show');
+        if (menuIcon) menuIcon.setAttribute('src', 'assets/images/close.svg');
+
+        // 添加進入動畫（複製 toggleMenu 中的動畫段落）
+        setTimeout(() => {
+            if (sidebarHeader) {
+                sidebarHeader.style.animation = 'slideInFromTop 0.6s cubic-bezier(0.4, 0.0, 0.2, 1) forwards';
+            }
+
+            navItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(30px)';
+                setTimeout(() => {
+                    item.style.animation = `slideInFromRight 0.5s cubic-bezier(0.4, 0.0, 0.2, 1) ${index * 0.1}s forwards`;
+                }, 100);
+            });
+
+            if (sidebarFooter) {
+                setTimeout(() => {
+                    sidebarFooter.style.animation = 'slideInFromBottom 0.6s cubic-bezier(0.4, 0.0, 0.2, 1) forwards';
+                }, navItems.length * 100 + 200);
+            }
+        }, 100);
+    });
+}
 // 點擊後跳轉頁面
 function redirectToPage(url) {
     window.location.href = url;
 }
 // 點擊後交換主題
 function toggleTheme(){
-    document.body.classList.toggle('dark-theme');
-    document.body.classList.toggle('light-theme');
-    if (document.body.classList.contains('dark-theme')) {
-        setTheme('dark-theme');
-    } else {
+    const themeIconImg = document.getElementById('theme-icon');
+    const currentSrc = themeIconImg ? themeIconImg.getAttribute('src') : '';
+
+    if (currentSrc && currentSrc.indexOf('desktop_windows.svg') !== -1) {
         setTheme('light-theme');
+        return;
     }
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        applyTheme(savedTheme);
+
+    if (document.body.classList.contains('dark-theme')) {
+        setTheme('light-theme');
+    } else {
+        setTheme('dark-theme');
     }
 }
 // 紀錄使用者選擇的主題
@@ -304,4 +393,22 @@ function initializeModalEvents() {
             return;
         }
     });
+
+    // 在非觸控裝置上，允許滑鼠移上圖片時開啟 modal（但仍保留點擊行為）
+    const isTouchDevice = (('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints && navigator.msMaxTouchPoints > 0));
+    if (!isTouchDevice) {
+        document.addEventListener('mouseover', function (e) {
+            const img = e.target.closest && e.target.closest('.centered-image');
+            if (!img) return;
+            // 如果 modal 已顯示，不重複開啟
+            const modal = document.getElementById('myModal');
+            if (modal && modal.classList.contains('show')) return;
+
+            const src = img.getAttribute('src') || img.dataset.src;
+            const name = img.getAttribute('alt') || '';
+            if (src) {
+                openModal(src, name);
+            }
+        });
+    }
 }

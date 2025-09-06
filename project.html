@@ -16,12 +16,26 @@
     <div class="menu" onclick="toggleMenu()">
         <img src="assets/images/menu.svg" alt="首頁" width="20" height="20" class="icon" aria-hidden="true">
     </div>
-    <button id="showNavs">
-        <img src="assets/images/chevron_right.svg" alt="目錄" width="20" height="20" class="icon" aria-hidden="true">
-    </button>
-    <aside id="catalog">
-        <h2>目錄</h2>
-    </aside>
+    <div id="app" class="menu-wrapper">
+        <div id="menuBackdrop" class="menu-backdrop" tabindex="-1" aria-hidden="true"></div>
+
+        <div class="menu-anchor" id="menuAnchor">
+            <button id="showNavs" aria-haspopup="true" aria-expanded="false" aria-controls="catalog" class="menu-trigger">
+                <span class="menu-label">目錄</span>
+                <img src="assets/images/chevron_right.svg" alt="目錄" width="20" height="20" class="icon" aria-hidden="true">
+            </button>
+
+            <div id="catalog" class="menu-dropdown" role="menu" aria-hidden="true">
+                <div class="catalog-header">
+                    <h2>目錄</h2>
+                    <button id="closeCatalog" class="close-catalog" aria-label="關閉目錄">
+                        <img src="assets/images/close.svg" alt="關閉" width="20" height="20" class="icon" aria-hidden="true">
+                    </button>
+                </div>
+                <!-- 導航將由 generateCatalog() 生成 -->
+            </div>
+        </div>
+    </div>
     <main>
         <div id="myModal" class="modal">
             <div class="modal-overlay"></div>

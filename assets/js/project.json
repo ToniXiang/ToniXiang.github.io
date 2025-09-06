@@ -70,8 +70,8 @@
                     "zh": "註冊與登入頁面"
                 },
                 "content": {
-                    "en": "<ul><li>Users can create an account through the registration page (simulation only, no storage).</li><li>The login page allows users to enter their account and password to enter the main screen (no backend verification required).</li></ul><img src='assets/images/p2-1.png' alt='LoginPage' class='centered-image' onclick=\"openModal('assets/images/p2-1.png', 'LoginPage')\">",
-                    "zh": "<ul><li>使用者可透過註冊頁面創建帳號</li><li>登入頁面可讓使用者輸入帳號密碼並進入主畫面</li></ul><img src='assets/images/p2-1.png' alt='登入' class='centered-image' onclick=\"openModal('assets/images/p2-1.png', '登入')\">"
+                    "en": "<img src='assets/images/p2-1.png' alt='LoginPage' class='centered-image' onclick=\"openModal('assets/images/p2-1.png', 'LoginPage')\">",
+                    "zh": "<img src='assets/images/p2-1.png' alt='登入' class='centered-image' onclick=\"openModal('assets/images/p2-1.png', '登入')\">"
                 }
             },
             {
@@ -80,8 +80,8 @@
                     "zh": "主畫面"
                 },
                 "content": {
-                    "en": "<ul><li>Displays multiple products, including name, image, and price.</li><li>Provides an 'Add to Cart' button to add products to the shopping cart.</li><li>The UI should clearly display the products and consider responsive design.</li></ul><img src='assets/images/p2-2.png' alt='Main Page' class='centered-image' onclick=\"openModal('assets/images/p2-2.png', 'Main Page')\">",
-                    "zh": "<ul><li>顯示多個商品，包含名稱、圖片、價格</li><li>提供「加入購物車」按鈕，可將商品加入購物車</li><li>UI 需清楚展示商品，並考慮響應式設計</li></ul><img src='assets/images/p2-2.png' alt='主頁' class='centered-image' onclick=\"openModal('assets/images/p2-2.png', '主頁')\">"
+                    "en": "<img src='assets/images/p2-2.png' alt='Main Page' class='centered-image' onclick=\"openModal('assets/images/p2-2.png', 'Main Page')\">",
+                    "zh": "<img src='assets/images/p2-2.png' alt='主頁' class='centered-image' onclick=\"openModal('assets/images/p2-2.png', '主頁')\">"
                 }
             },
             {
@@ -92,6 +92,16 @@
                 "content":{
                     "en":"<img src='assets/images/p2-3.png' alt='Classification' class='centered-image' onclick=\"openModal('assets/images/p2-3.png', 'Classification')\">",
                     "zh":"<img src='assets/images/p2-3.png' alt='分類' class='centered-image' onclick=\"openModal('assets/images/p2-3.png', '分類')\">"
+                }
+            },
+            {
+                "title": {
+                    "en": "Order Records",
+                    "zh": "訂單紀錄"
+                },
+                "content": {
+                    "en": "<img src='assets/images/p2-5.png' alt='Order Records' class='centered-image' onclick=\"openModal('assets/images/p2-5.png', 'Order Records')\">",
+                    "zh": "<img src='assets/images/p2-5.png' alt='訂單紀錄' class='centered-image' onclick=\"openModal('assets/images/p2-5.png', '訂單紀錄')\">"
                 }
             },
             {
@@ -110,8 +120,8 @@
                     "zh":"設定"
                 },
                 "content":{
-                    "en":"<img src='assets/images/p2-4.png' alt=Setting' class='centered-image' onclick=\"openModal('assets/images/p2-4.png', 'Setting')\">",
-                    "zh":"<img src='assets/images/p2-4.png' alt='設定' class='centered-image' onclick=\"openModal('assets/images/p2-4.png', '設定')\""
+                    "en":"<img src='assets/images/p2-4.png' alt='Setting' class='centered-image' onclick=\"openModal('assets/images/p2-4.png', 'Setting')\">",
+                    "zh":"<img src='assets/images/p2-4.png' alt='設定' class='centered-image' onclick=\"openModal('assets/images/p2-4.png', '設定')\">"
                 }
             },
             {
@@ -152,8 +162,8 @@
                         "zh": "Hello 我是陳國翔 :D"
                     },
                     "content": {
-                        "en": "<div class='hero-section'><div class='hero-content'><p>Welcome to my project showcase! This is where I share my development journey and technical achievements. Each project represents unique challenges and learning experiences that have shaped my skills as a developer.</p><div class='highlight-stats'><div class='stat-item'><span class='stat-number'>3+</span><span class='stat-label'>Years of Coding</span></div><div class='stat-item'><span class='stat-number'>Multiple</span><span class='stat-label'>Technologies</span></div></div></div></div>",
-                        "zh": "<div class='hero-section'><div class='hero-content'><p>歡迎來到我的專案展示！這裡是我分享開發歷程和技術成就的地方。每個專案都代表著獨特的挑戰和學習經驗，塑造了我作為開發者的技能。</p><div class='highlight-stats'><div class='stat-item'><span class='stat-number'>3+</span><span class='stat-label'>年程式開發經驗</span></div><div class='stat-item'><span class='stat-number'>多項</span><span class='stat-label'>技術專長</span></div></div></div></div>"
+                        "en": "<div class='hero-section'><div class='hero-content'><p>This is where I share my development journey and technical achievements. Each project represents unique challenges and learning experiences that have shaped my skills as a developer.</p><div class='highlight-stats'><div class='stat-item'><span class='stat-number'>3+</span><span class='stat-label'>Years of Coding</span></div><div class='stat-item'><span class='stat-number'>Multiple</span><span class='stat-label'>Technologies</span></div></div></div></div>",
+                        "zh": "<div class='hero-section'><div class='hero-content'><p>這裡是我分享開發歷程和技術成就的地方。每個專案都代表著獨特的挑戰和學習經驗，塑造了我作為開發者的技能。</p><div class='highlight-stats'><div class='stat-item'><span class='stat-number'>3+</span><span class='stat-label'>年程式開發經驗</span></div><div class='stat-item'><span class='stat-number'>多項</span><span class='stat-label'>技術專長</span></div></div></div></div>"
                     }
                 },
                 {
