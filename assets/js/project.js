@@ -16,15 +16,8 @@ function loadArticle(articleId, event) {
     const h2 = document.querySelector('#catalog h2');
     const catalog = document.getElementById('catalog');
     const backdrop = document.getElementById('menuBackdrop');
-    // 隱藏下拉目錄與 backdrop，確保點選後背景回復
-    catalog.classList.add('hidden');
-    catalog.classList.remove('visible');
-    if (backdrop) {
-        backdrop.classList.remove('visible');
-        backdrop.setAttribute('aria-hidden', 'true');
-    }
-    if (showNavsButton) showNavsButton.setAttribute('aria-expanded', 'false');
-    if (catalog) catalog.setAttribute('aria-hidden', 'true');
+    // 隱藏下拉目錄與 backdrop（安全關閉）
+    closeCatalogSafely(catalog, backdrop, showNavsButton);
     navs.forEach(nav => {
         nav.classList.add('hidden');
         nav.classList.remove('visible');
@@ -176,6 +169,53 @@ function fetchGitHubRepos() {
         })
         .catch(error => console.error("Error fetching GitHub repos:", error));
 }
+// 開啟與關閉目錄的輔助函式，確保焦點管理
+function openCatalog(catalog, backdrop, showNavsButton){
+    if(!catalog) return;
+    catalog.classList.add('visible');
+    catalog.classList.remove('hidden');
+    try{
+        catalog.removeAttribute('inert');
+        if ('inert' in catalog) catalog.inert = false;
+    }catch(e){}
+    catalog.setAttribute('aria-hidden','false');
+    if(backdrop){
+        backdrop.classList.add('visible');
+        backdrop.setAttribute('aria-hidden','false');
+    }
+    if(showNavsButton) showNavsButton.setAttribute('aria-expanded','true');
+}
+
+function closeCatalogSafely(catalog, backdrop, showNavsButton){
+    if(!catalog) return;
+    try{
+        const active = document.activeElement;
+        if (catalog.contains(active)){
+            if(showNavsButton && typeof showNavsButton.focus === 'function'){
+                showNavsButton.focus();
+            } else if (document.body && typeof document.body.focus === 'function'){
+                document.body.focus();
+            } else if (active && typeof active.blur === 'function'){
+                active.blur();
+            }
+        }
+    }catch(e){}
+
+    catalog.classList.remove('visible');
+    catalog.classList.add('hidden');
+    try{
+        if ('inert' in catalog) catalog.inert = true;
+        else catalog.setAttribute('inert','');
+    }catch(e){
+        try{ catalog.setAttribute('inert',''); }catch(e){}
+    }
+    catalog.setAttribute('aria-hidden','true');
+    if(backdrop){
+        backdrop.classList.remove('visible');
+        backdrop.setAttribute('aria-hidden','true');
+    }
+    if(showNavsButton) showNavsButton.setAttribute('aria-expanded','false');
+}
 // 顯示和隱藏目錄
 let catalogEventListenersAdded = false;
 function displayCatalog(){
@@ -201,19 +241,11 @@ function displayCatalog(){
                 // 點擊切換顯示/隱藏
             showNavsButton.addEventListener('click', (e)=>{
                 const isOpen = catalog.classList.contains('visible');
-                if(isOpen){
-                    catalog.classList.remove('visible');
-                    catalog.classList.add('hidden');
-                    backdrop && backdrop.classList.remove('visible');
-                    showNavsButton.setAttribute('aria-expanded','false');
-                    catalog.setAttribute('aria-hidden','true');
-                } else {
-                    catalog.classList.add('visible');
-                    catalog.classList.remove('hidden');
-                    backdrop && backdrop.classList.add('visible');
-                    showNavsButton.setAttribute('aria-expanded','true');
-                    catalog.setAttribute('aria-hidden','false');
-                }
+                        if(isOpen){
+                            closeCatalogSafely(catalog, backdrop, showNavsButton);
+                        } else {
+                            openCatalog(catalog, backdrop, showNavsButton);
+                        }
             });
 
             // 滑鼠懸停：滑鼠移入顯示，但不在移出時自動隱藏
@@ -222,44 +254,28 @@ function displayCatalog(){
             if (!isTouchDevice) {
                 // 只綁定 mouseover / enter 用於開啟 catalog。使用者可透過目錄內的關閉按鈕或點擊 backdrop 來關閉。
                 menuAnchor && menuAnchor.addEventListener('mouseover', ()=>{
-                    catalog.classList.add('visible');
-                    catalog.classList.remove('hidden');
-                    backdrop && backdrop.classList.add('visible');
-                    showNavsButton.setAttribute('aria-expanded','true');
-                    catalog.setAttribute('aria-hidden','false');
+                    openCatalog(catalog, backdrop, showNavsButton);
                 });
                 // 不再自動在 mouseleave 時關閉，避免滑鼠短暫移開導致目錄被誤關閉。
             }
 
             // 點擊背景遮罩關閉
             backdrop && backdrop.addEventListener('click', ()=>{
-                catalog.classList.remove('visible');
-                catalog.classList.add('hidden');
-                backdrop.classList.remove('visible');
-                showNavsButton.setAttribute('aria-expanded','false');
-                catalog.setAttribute('aria-hidden','true');
+                closeCatalogSafely(catalog, backdrop, showNavsButton);
             });
 
             // 目錄內的關閉按鈕
             const closeBtn = document.getElementById('closeCatalog');
             if(closeBtn){
                 closeBtn.addEventListener('click', ()=>{
-                    catalog.classList.remove('visible');
-                    catalog.classList.add('hidden');
-                    backdrop && backdrop.classList.remove('visible');
-                    showNavsButton.setAttribute('aria-expanded','false');
-                    catalog.setAttribute('aria-hidden','true');
+                    closeCatalogSafely(catalog, backdrop, showNavsButton);
                 });
             }
 
             // 按 ESC 鍵關閉
             document.addEventListener('keydown',(ev)=>{
                 if(ev.key === 'Escape'){
-                    catalog.classList.remove('visible');
-                    catalog.classList.add('hidden');
-                    backdrop && backdrop.classList.remove('visible');
-                    showNavsButton.setAttribute('aria-expanded','false');
-                    catalog.setAttribute('aria-hidden','true');
+                    closeCatalogSafely(catalog, backdrop, showNavsButton);
                 }
             });
 

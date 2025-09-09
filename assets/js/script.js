@@ -326,7 +326,6 @@ function openModal(imgSrc, imgName) {
     const modalImg = document.getElementById("img01");
     const captionText = document.getElementById("caption");
     
-    // use class toggling so CSS animations handle visibility
     modal.classList.add('show');
     modalImg.src = imgSrc;
     captionText.textContent = imgName;
@@ -393,22 +392,4 @@ function initializeModalEvents() {
             return;
         }
     });
-
-    // 在非觸控裝置上，允許滑鼠移上圖片時開啟 modal（但仍保留點擊行為）
-    const isTouchDevice = (('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints && navigator.msMaxTouchPoints > 0));
-    if (!isTouchDevice) {
-        document.addEventListener('mouseover', function (e) {
-            const img = e.target.closest && e.target.closest('.centered-image');
-            if (!img) return;
-            // 如果 modal 已顯示，不重複開啟
-            const modal = document.getElementById('myModal');
-            if (modal && modal.classList.contains('show')) return;
-
-            const src = img.getAttribute('src') || img.dataset.src;
-            const name = img.getAttribute('alt') || '';
-            if (src) {
-                openModal(src, name);
-            }
-        });
-    }
 }
