@@ -16,14 +16,34 @@
     width: calc(100% - 40px);
     max-width: 1200px;
     gap: 40px;
-    background: linear-gradient(135deg, rgba(102,126,234,0.08), rgba(118,75,162,0.08));
+    background: var(--hero-bg);
     border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    box-shadow: var(--hero-shadow);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid var(--hero-border);
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
+    transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* 主題相關的顏色變量 */
+.dark-theme {
+    --hero-bg: linear-gradient(135deg, rgba(40,40,40,0.8), rgba(60,60,60,0.6));
+    --hero-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    --hero-border: rgba(255,255,255,0.1);
+    --hero-radial-bg: rgba(80,80,80,0.15);
+    --hero-badge-bg: rgba(200,200,200,0.15);
+    --hero-badge-border: rgba(200,200,200,0.25);
+}
+
+body:not(.dark-theme) {
+    --hero-bg: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(240,240,245,0.8));
+    --hero-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    --hero-border: rgba(0,0,0,0.1);
+    --hero-radial-bg: rgba(102,126,234,0.1);
+    --hero-badge-bg: rgba(102,126,234,0.12);
+    --hero-badge-border: rgba(102,126,234,0.25);
 }
 
 .hero-section::before {
@@ -33,9 +53,10 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(102,126,234,0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, var(--hero-radial-bg) 0%, transparent 70%);
     animation: backgroundMove 15s ease-in-out infinite;
     z-index: -1;
+    transition: background 0.3s ease;
 }
 
 @keyframes backgroundMove {
@@ -83,11 +104,12 @@
     padding: 6px 12px;
     font-size: 0.9rem;
     border-radius: 999px;
-    background: rgba(102,126,234,0.12);
+    background: var(--hero-badge-bg);
     color: var(--text-color);
-    border: 1px solid rgba(102,126,234,0.25);
+    border: 1px solid var(--hero-badge-border);
     backdrop-filter: blur(6px);
     margin-bottom: 14px;
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .hero-title {
@@ -420,24 +442,91 @@
     box-sizing: border-box;
 }
 
-.year-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 18px;
+.year-cards-container {
+    position: relative;
 }
 
+.year-cards {
+    display: flex;
+    gap: 18px;
+    position: relative;
+    overflow-x: auto;
+    overflow-y: visible;
+    padding-bottom: 10px;
+    scroll-behavior: smooth;
+}
+
+.year-cards::-webkit-scrollbar {
+    height: 6px;
+}
+
+.year-cards::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+}
+
+.year-cards::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 3px;
+}
+
+.year-cards::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+}
+
+/* 卡片樣式 */
 .year-card {
     background: var(--card-bg, transparent);
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 14px;
     padding: 16px 16px 14px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    flex: 0 0 280px;
+    min-width: 280px;
+    height: 380px;
+    overflow-y: auto;
 }
 
 .year-card:hover {
-    transform: translateY(-3px);
     box-shadow: 0 12px 28px rgba(0,0,0,0.14);
+    border-color: rgba(255,255,255,0.12);
+}
+
+/* 卡片內滾動條樣式 */
+.year-card::-webkit-scrollbar {
+    width: 4px;
+}
+
+.year-card::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+    border-radius: 2px;
+}
+
+.year-card::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 2px;
+}
+
+.year-card::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .year-card {
+        flex: 0 0 260px;
+        min-width: 260px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .year-card {
+        flex: 0 0 240px;
+        min-width: 240px;
+        height: 280px;
+    }
 }
 
 .year-card h3 {

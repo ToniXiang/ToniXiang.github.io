@@ -1,3 +1,29 @@
+/* 主題變量 */
+:root {
+    --catalog-bg-dark: rgba(0, 0, 0, 0.95);
+    --catalog-shadow-dark: rgba(0, 0, 0, 0.5);
+    --catalog-border-dark: rgba(255, 255, 255, 0.2);
+    --catalog-text-dark: #ffffff;
+    --catalog-bg-light: rgba(255, 255, 255, 0.98);
+    --catalog-shadow-light: rgba(0, 0, 0, 0.25);
+    --catalog-border-light: rgba(0, 0, 0, 0.15);
+    --catalog-text-light: #333333;
+}
+
+.dark-theme {
+    --catalog-bg: var(--catalog-bg-dark);
+    --catalog-shadow: var(--catalog-shadow-dark);
+    --catalog-border: var(--catalog-border-dark);
+    --catalog-text: var(--catalog-text-dark);
+}
+
+body:not(.dark-theme) {
+    --catalog-bg: var(--catalog-bg-light);
+    --catalog-shadow: var(--catalog-shadow-light);
+    --catalog-border: var(--catalog-border-light);
+    --catalog-text: var(--catalog-text-light);
+}
+
 .centered-image {
     display: block;
     max-width:70%;
@@ -70,11 +96,11 @@ nav.visible {
     transition: transform 0.3s ease;
     z-index: 2;
     overflow-y: visible;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    background: var(--catalog-bg);
     backdrop-filter: blur(15px);
     border-radius: 0 15px 15px 0;
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border-right: 1px solid var(--catalog-border);
+    box-shadow: 0 8px 32px var(--catalog-shadow);
     padding-left: 20px;
     padding-right: 20px;
     user-select: none;
@@ -131,7 +157,7 @@ nav.visible {
 #dynamicNavs>nav>p{
     font-weight: 500;
     padding: 12px 15px;
-    color: var(--text-color);
+    color: var(--catalog-text);
     margin: 0;
     transition: all 0.3s ease;
     border-radius: 8px;

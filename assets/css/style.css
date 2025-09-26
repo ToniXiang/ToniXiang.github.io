@@ -32,10 +32,10 @@ body>main {
     user-select: none;
     top: 0;
     right: 0;
-    background: #23263aee;
+    background: var(--sidebar-bg);
     border-radius: 18px 0 0 18px;
-    box-shadow: -4px 0 16px 0 rgba(40, 40, 80, 0.10);
-    border-left: none;
+    box-shadow: -4px 0 16px 0 var(--sidebar-shadow);
+    border-left: var(--sidebar-border, none);
     backdrop-filter: blur(10px);
     transition: transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
     transform: translateX(100%);
@@ -118,20 +118,20 @@ body>main {
 }
 
 .brand-icon .material-symbols-sharp {
-    color: white;
+    color: var(--sidebar-text);
     font-size: 28px;
 }
 
 .brand-info h3 {
     margin: 0;
-    color: #ffffff;
+    color: var(--sidebar-text);
     font-size: 18px;
     font-weight: 600;
     letter-spacing: 0.5px;
 }
 
 .brand-subtitle {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--sidebar-text-secondary);
     font-size: 12px;
     font-weight: 400;
 }
@@ -142,7 +142,7 @@ body>main {
 }
 
 .nav-label {
-    color: rgba(255, 255, 255, 0.55);
+    color: var(--sidebar-text-tertiary);
     font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
@@ -234,14 +234,14 @@ body>main {
 .nav-text p {
     margin: 0;
     font-size: 15px;
-    color: #ffffff;
+    color: var(--sidebar-text);
     font-weight: 600;
     line-height: 1.2;
 }
 
 .nav-description {
     font-size: 10px;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--sidebar-text-secondary);
     font-weight: 400;
 }
 
@@ -624,6 +624,12 @@ section>ul {
     --menu-bg-light: rgba(255, 255, 255, 0.95);
     --menu-border-light: rgba(102, 126, 234, 0.2);
     --a-color-light: #0056b3;
+    --sidebar-bg-light: rgba(255, 255, 255, 0.98);
+    --sidebar-shadow-light: rgba(0, 0, 0, 0.25);
+    --sidebar-border-light: 1px solid rgba(0, 0, 0, 0.12);
+    --sidebar-text-light: #333333;
+    --sidebar-text-secondary-light: rgba(0, 0, 0, 0.6);
+    --sidebar-text-tertiary-light: rgba(0, 0, 0, 0.4);
 
     --background-color-dark: #0d1117;
     --text-color-dark: aliceblue;
@@ -638,6 +644,12 @@ section>ul {
     --menu-bg-dark: linear-gradient(145deg, rgba(26, 26, 46, 0.9) 0%, rgba(22, 33, 62, 0.9) 50%, rgba(15, 52, 96, 0.9) 100%);
     --menu-border-dark: rgba(102, 126, 234, 0.2);
     --a-color-dark: #FFFFCC;
+    --sidebar-bg-dark: rgba(0, 0, 0, 0.9);
+    --sidebar-shadow-dark: rgba(0, 0, 0, 0.4);
+    --sidebar-border-dark: none;
+    --sidebar-text-dark: #ffffff;
+    --sidebar-text-secondary-dark: rgba(255, 255, 255, 0.7);
+    --sidebar-text-tertiary-dark: rgba(255, 255, 255, 0.55);
 
     --background-color: var(--background-color-dark);
     --text-color: var(--text-color-dark);
@@ -653,6 +665,12 @@ section>ul {
     --menu-bg: var(--menu-bg-dark);
     --menu-border: var(--menu-border-dark);
     --a-color: var(--a-color-dark);
+    --sidebar-bg: var(--sidebar-bg-dark);
+    --sidebar-shadow: var(--sidebar-shadow-dark);
+    --sidebar-border: var(--sidebar-border-dark);
+    --sidebar-text: var(--sidebar-text-dark);
+    --sidebar-text-secondary: var(--sidebar-text-secondary-dark);
+    --sidebar-text-tertiary: var(--sidebar-text-tertiary-dark);
 }
 
 .dark-theme {
@@ -669,6 +687,12 @@ section>ul {
     --menu-bg: var(--menu-bg-dark);
     --menu-border: var(--menu-border-dark);
     --a-color: var(--a-color-dark);
+    --sidebar-bg: var(--sidebar-bg-dark);
+    --sidebar-shadow: var(--sidebar-shadow-dark);
+    --sidebar-border: var(--sidebar-border-dark);
+    --sidebar-text: var(--sidebar-text-dark);
+    --sidebar-text-secondary: var(--sidebar-text-secondary-dark);
+    --sidebar-text-tertiary: var(--sidebar-text-tertiary-dark);
     --icon-filter: invert(1) brightness(1.05) contrast(1);
 }
 
@@ -686,6 +710,12 @@ section>ul {
     --menu-bg: var(--menu-bg-light);
     --menu-border: var(--menu-border-light);
     --a-color: var(--a-color-light);
+    --sidebar-bg: var(--sidebar-bg-light);
+    --sidebar-shadow: var(--sidebar-shadow-light);
+    --sidebar-border: var(--sidebar-border-light);
+    --sidebar-text: var(--sidebar-text-light);
+    --sidebar-text-secondary: var(--sidebar-text-secondary-light);
+    --sidebar-text-tertiary: var(--sidebar-text-tertiary-light);
     --icon-filter: invert(0) brightness(0.95) contrast(1);
 }
 
@@ -1298,7 +1328,7 @@ footer {
 .brand-subtitle {
     margin: 0;
     font-size: 0.9em;
-    color: white;
+    color: var(--text-color);
     opacity: 0.8;
 }
 
