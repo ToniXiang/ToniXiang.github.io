@@ -1,11 +1,40 @@
 document.addEventListener("DOMContentLoaded", function() {
     toggleSnow();
     transformArticle();
+    initTimeline();
 });
 //  新增文章卡片淡入效果
 function transformArticle() {
-    document.querySelectorAll('.year-card').forEach(card => {
-        observer.observe(card);
+    document.querySelectorAll('.timeline-content').forEach(content => {
+        observer.observe(content);
+    });
+}
+
+// 時間軸交互功能
+function initTimeline() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const timelineContents = document.querySelectorAll('.timeline-content');
+    
+    // 預設選中第一個項目 (2023年)
+    if (timelineItems.length > 0) {
+        timelineItems[0].classList.add('active');
+    }
+    
+    timelineItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const year = this.getAttribute('data-year');
+            
+            // 移除所有active類
+            timelineItems.forEach(ti => ti.classList.remove('active'));
+            timelineContents.forEach(tc => tc.classList.remove('active'));
+            
+            // 添加active類到選中的項目
+            this.classList.add('active');
+            const targetContent = document.getElementById(`content-${year}`);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+        });
     });
 }
 const observer = new IntersectionObserver((entries, obs) => {

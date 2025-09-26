@@ -24,8 +24,7 @@
                     <h1 class="hero-title">歡迎來到我的個人網頁</h1>
                     <p class="hero-description">這裡記錄了我的學習歷程、專案作品與個人發展。探索我的程式設計之旅，了解我的技術能力與成長軌跡。</p>
                     <div class="hero-actions">
-                        <button id="toggleSnow" class="btn btn-outline" title="畫面顯示雪花特效 暫停需等待幾秒鐘">
-                            <span class="btn-icon">❄️</span>
+                        <button id="toggleSnow" class="btn" title="畫面顯示雪花特效 暫停需等待幾秒鐘">
                             <span class="btn-text">暫停雪花</span>
                         </button>
                     </div>
@@ -35,39 +34,57 @@
         <div id="snowflakes"></div>
         <h2 title="時間表示當年度初次學習或達成的目標">✨時間軸</h2>
         <section class="learning-progress">
-            <div class="year-cards-container">
-                <div class="year-cards">
-                    <div class="year-card">
-                        <h3>2023年</h3>
-                        <ul>
-                            <li>重新接觸程式設計，學習 Python 與 Java，完成基礎專案。</li>
-                            <li>撰寫各類程式設計競賽題目，強化邏輯思維與解題能力。</li>
-                            <li>自學資料結構與演算法，練習 <a href="https://leetcode.com/u/chen199940/">LeetCode</a>、<a href="https://zerojudge.tw/UserStatistic?id=179887">ZeroJudge</a> 等線上題庫，各約 200 題。</li>
-                            <li>開始使用 Git 進行版本控制，學習團隊協作流程。</li>
-                        </ul>
-                    </div>
-                    <div class="year-card">
-                        <h3>2024年</h3>
-                        <ul>
-                            <li>嘗試撰寫 C# MonoGame 小型 2D 遊戲與 JavaScript 的外掛腳本，提升實作能力。</li>
-                            <li>前端技術：深入掌握 HTML5、CSS3 與 JavaScript，熟悉 DOM 操作、事件驅動與響應式佈局。</li>
-                            <li>網路通訊與後端入門：學習 HTTP 協議與 RESTful API 設計原則。</li>
-                        </ul>
-                    </div>
-                    <div class="year-card">
-                        <h3>2025年</h3>
-                        <ul>
-                            <li>專業證照與能力檢定：參加大學程式能力考試並取得高分，通過資訊領域專業證照。</li>
-                            <li>Django 後端開發：使用 Django 框架編寫 RESTful API，結合 PostgreSQL，並部署至雲端（render），設定自動化測試與 CI/CD。</li>
-                            <li>個人作品發表：在 <a href="https://github.com/ToniXiang">GitHub</a> 建立專案倉庫，撰寫 README 與技術文件，將程式碼至公開平台，並撰寫靜態網頁分享開發心得。</li>
-                        </ul>
-                    </div>
-                    <div class="year-card">
-                        <h3>2026年</h3>
-                        <ul>
-                            <li>待續</li>
-                        </ul>
-                    </div>
+            <!-- 時間軸導航 -->
+            <div class="timeline-nav">
+                <div class="timeline-item" data-year="2023">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2023</div>
+                </div>
+                <div class="timeline-line"></div>
+                <div class="timeline-item" data-year="2024">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2024</div>
+                </div>
+                <div class="timeline-line"></div>
+                <div class="timeline-item" data-year="2025">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2025</div>
+                </div>
+                <div class="timeline-line"></div>
+                <div class="timeline-item" data-year="2026">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2026</div>
+                </div>
+            </div>
+            
+            <!-- 內容區域 -->
+            <div class="timeline-content-area">
+                <div class="timeline-content active" id="content-2023">
+                    <ul>
+                        <li>重新接觸程式設計，學習 Python 與 Java，完成基礎專案。</li>
+                        <li>撰寫各類程式設計競賽題目，強化邏輯思維與解題能力。</li>
+                        <li>自學資料結構與演算法，練習 <a href="https://leetcode.com/u/chen199940/">LeetCode</a>、<a href="https://zerojudge.tw/UserStatistic?id=179887">ZeroJudge</a> 等線上題庫，各約 200 題。</li>
+                        <li>開始使用 Git 進行版本控制，學習團隊協作流程。</li>
+                    </ul>
+                </div>
+                <div class="timeline-content" id="content-2024">
+                    <ul>
+                        <li>嘗試撰寫 C# MonoGame 小型 2D 遊戲與 JavaScript 的外掛腳本，提升實作能力。</li>
+                        <li>前端技術：深入掌握 HTML5、CSS3 與 JavaScript，熟悉 DOM 操作、事件驅動與響應式佈局。</li>
+                        <li>網路通訊與後端入門：學習 HTTP 協議與 RESTful API 設計原則。</li>
+                    </ul>
+                </div>
+                <div class="timeline-content" id="content-2025">
+                    <ul>
+                        <li>專業證照與能力檢定：參加大學程式能力考試並取得高分，通過資訊領域專業證照。</li>
+                        <li>Django 後端開發：使用 Django 框架編寫 RESTful API，結合 PostgreSQL，並部署至雲端（render），設定自動化測試與 CI/CD。</li>
+                        <li>個人作品發表：在 <a href="https://github.com/ToniXiang">GitHub</a> 建立專案倉庫，撰寫 README 與技術文件，將程式碼至公開平台，並撰寫靜態網頁分享開發心得。</li>
+                    </ul>
+                </div>
+                <div class="timeline-content" id="content-2026">
+                    <ul>
+                        <li>待續</li>
+                    </ul>
                 </div>
             </div>
         </section>
