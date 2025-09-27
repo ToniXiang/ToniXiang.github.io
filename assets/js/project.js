@@ -80,8 +80,12 @@ function fetchGitHubRepos() {
             const repoList = document.getElementById("repo-list");
             repoList.innerHTML = '';
             if (!Array.isArray(repos)) return;
+            
+            // 過濾掉 fork 的庫，只保留原始庫
+            const originalRepos = repos.filter(repo => !repo.fork);
+            
             // 依 updated_at 降冪排序（最新在前）
-            repos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+            originalRepos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
 
         // 嘗試使用由 GitHub Actions 預先產生的靜態檔案 (assets/js/languages.json)
             const staticLangUrl = 'assets/js/languages.json';
@@ -94,7 +98,7 @@ function fetchGitHubRepos() {
                 .catch(() => {
             // 備援：逐倉庫抓取語言（可能遇到 API 速率限制）
                     const languageTotals = {};
-                    const languageFetches = repos.map(r => fetch(r.languages_url)
+                    const languageFetches = originalRepos.map(r => fetch(r.languages_url)
                         .then(res => res.ok ? res.json() : {})
                         .catch(() => ({}))
                     );
@@ -136,10 +140,10 @@ function fetchGitHubRepos() {
                 if (container) container.appendChild(summaryContainer);
             }
 
-            // 計算倉庫總數
-            const totalRepos = repos.length;
+            // 計算原始倉庫總數（不包含 fork）
+            const totalRepos = originalRepos.length;
 
-            repos.forEach(repo => {
+            originalRepos.forEach(repo => {
                 const updatedDate = new Date(repo.updated_at).toLocaleDateString(
                     selectedLanguage === 'en' ? 'en-US' : 'zh-Hant-TW',
                     { year: 'numeric', month: '2-digit', day: '2-digit' }
