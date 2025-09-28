@@ -93,7 +93,7 @@
 
 .resume-label {
     font-size: 0.8em;
-    color: var(--secondary-color);
+    color: var(--text-color);
     font-weight: 500;
     opacity: 0.8;
 }
@@ -189,7 +189,7 @@
 
 .education-department {
     font-size: 0.95em;
-    color: var(--secondary-color);
+    color: var(--text-color);
     opacity: 0.9;
 }
 
@@ -251,7 +251,7 @@
 
 .achievement-section h4 {
     margin: 0 0 16px 0;
-    color: var(--tertiary-color);
+    color: var(--primary-color);
     font-size: 1.1em;
     padding-bottom: 8px;
     border-bottom: 2px solid rgba(95, 108, 175, 0.1);

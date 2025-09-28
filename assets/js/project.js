@@ -153,7 +153,7 @@ function fetchGitHubRepos() {
                 li.className = 'repo-item';
                 li.innerHTML = `
                     <div class="repo-row">
-                        <a class="repo-name" href="${repo.html_url}" target="_blank" rel="noopener noreferrer">${repo.name.replace(/_/g, ' ')}</a>
+                        <a class="repo-name" href="${repo.html_url}" target="_blank" rel="noopener noreferrer" title="${repo.name.replace(/_/g, ' ')}">${repo.name.replace(/_/g, ' ')}</a>
                         <time class="repo-updated">${updatedDate}</time>
                     </div>
                     <p class="repo-desc">${repo.description || (selectedLanguage === 'en' ? 'No description' : '沒有任何描述')}</p>

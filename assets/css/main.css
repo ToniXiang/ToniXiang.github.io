@@ -670,10 +670,23 @@ body:not(.dark-theme) {
     color: var(--primary-color);
     text-decoration: none;
     transition: all 0.3s ease;
+    position: relative;
 }
 
-.timeline-content a:hover {
-    text-decoration: underline;
+.timeline-content a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background: transparent;
+    transition: width 220ms ease, background 220ms ease;
+}
+
+.timeline-content a:hover::after {
+    width: 100%;
+    background: var(--primary-color);
 }
 
 /* 主題特定樣式 */
