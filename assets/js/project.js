@@ -11,19 +11,7 @@ function loadArticle(articleId, event) {
         en: "Repository Link",
         zh: "儲存庫連結"
     };
-    const navs = document.querySelectorAll('#dynamicNavs nav');
-    const showNavsButton = document.getElementById('showNavs');
-    const h2 = document.querySelector('#catalog h2');
-    const catalog = document.getElementById('catalog');
-    const backdrop = document.getElementById('menuBackdrop');
-    // 隱藏下拉目錄與 backdrop（安全關閉）
-    closeCatalogSafely(catalog, backdrop, showNavsButton);
-    navs.forEach(nav => {
-        nav.classList.add('hidden');
-        nav.classList.remove('visible');
-    });
-    showNavsButton.style.display = 'block';
-    h2.style.display = 'none';
+
     fetch('assets/js/project.json')
         .then(response => response.json())
         .then(data => {
@@ -173,146 +161,6 @@ function fetchGitHubRepos() {
         })
         .catch(error => console.error("Error fetching GitHub repos:", error));
 }
-// 開啟與關閉目錄的輔助函式，確保焦點管理
-function openCatalog(catalog, backdrop, showNavsButton){
-    if(!catalog) return;
-    catalog.classList.add('visible');
-    catalog.classList.remove('hidden');
-    try{
-        catalog.removeAttribute('inert');
-        if ('inert' in catalog) catalog.inert = false;
-    }catch(e){}
-    catalog.setAttribute('aria-hidden','false');
-    if(backdrop){
-        backdrop.classList.add('visible');
-        backdrop.setAttribute('aria-hidden','false');
-    }
-    if(showNavsButton) showNavsButton.setAttribute('aria-expanded','true');
-}
-
-function closeCatalogSafely(catalog, backdrop, showNavsButton){
-    if(!catalog) return;
-    try{
-        const active = document.activeElement;
-        if (catalog.contains(active)){
-            if(showNavsButton && typeof showNavsButton.focus === 'function'){
-                showNavsButton.focus();
-            } else if (document.body && typeof document.body.focus === 'function'){
-                document.body.focus();
-            } else if (active && typeof active.blur === 'function'){
-                active.blur();
-            }
-        }
-    }catch(e){}
-
-    catalog.classList.remove('visible');
-    catalog.classList.add('hidden');
-    try{
-        if ('inert' in catalog) catalog.inert = true;
-        else catalog.setAttribute('inert','');
-    }catch(e){
-        try{ catalog.setAttribute('inert',''); }catch(e){}
-    }
-    catalog.setAttribute('aria-hidden','true');
-    if(backdrop){
-        backdrop.classList.remove('visible');
-        backdrop.setAttribute('aria-hidden','true');
-    }
-    if(showNavsButton) showNavsButton.setAttribute('aria-expanded','false');
-}
-// 顯示和隱藏目錄
-let catalogEventListenersAdded = false;
-function displayCatalog(){
-    const showNavsButton = document.getElementById('showNavs');
-    const navs = document.querySelectorAll('#dynamicNavs nav');
-    const catalog = document.getElementById('catalog');
-    const backdrop = document.getElementById('menuBackdrop');
-    const menuAnchor = document.getElementById('menuAnchor');
-    
-    if(showNavsButton&&navs&&catalog){
-        catalog.classList.remove('visible');
-        catalog.classList.add('hidden');
-        backdrop && backdrop.classList.remove('visible');
-        showNavsButton.setAttribute('aria-expanded','false');
-        catalog.setAttribute('aria-hidden','true');
-        navs.forEach(nav => {
-            nav.classList.remove('visible');
-            nav.classList.add('hidden');
-        });
-
-        // 只在第一次執行時綁定事件監聽器
-        if (!catalogEventListenersAdded) {
-                // 點擊切換顯示/隱藏
-            showNavsButton.addEventListener('click', (e)=>{
-                const isOpen = catalog.classList.contains('visible');
-                        if(isOpen){
-                            closeCatalogSafely(catalog, backdrop, showNavsButton);
-                        } else {
-                            openCatalog(catalog, backdrop, showNavsButton);
-                        }
-            });
-
-            // 滑鼠懸停：滑鼠移入顯示，但不在移出時自動隱藏
-            // 僅在非觸控裝置上綁定 hover 開啟 (關閉仍保留關閉按鈕與背景遮罩點擊)
-            const isTouchDevice = (('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints && navigator.msMaxTouchPoints > 0));
-            if (!isTouchDevice) {
-                // 只綁定 mouseover / enter 用於開啟 catalog。使用者可透過目錄內的關閉按鈕或點擊 backdrop 來關閉。
-                menuAnchor && menuAnchor.addEventListener('mouseover', ()=>{
-                    openCatalog(catalog, backdrop, showNavsButton);
-                });
-                // 不再自動在 mouseleave 時關閉，避免滑鼠短暫移開導致目錄被誤關閉。
-            }
-
-            // 點擊背景遮罩關閉
-            backdrop && backdrop.addEventListener('click', ()=>{
-                closeCatalogSafely(catalog, backdrop, showNavsButton);
-            });
-
-            // 目錄內的關閉按鈕
-            const closeBtn = document.getElementById('closeCatalog');
-            if(closeBtn){
-                closeBtn.addEventListener('click', ()=>{
-                    closeCatalogSafely(catalog, backdrop, showNavsButton);
-                });
-            }
-
-            // 按 ESC 鍵關閉
-            document.addEventListener('keydown',(ev)=>{
-                if(ev.key === 'Escape'){
-                    closeCatalogSafely(catalog, backdrop, showNavsButton);
-                }
-            });
-
-            catalogEventListenersAdded = true;
-        }
-    }
-}
-// 目錄生成
-const articles = [
-    { id: 'home', title: { en: 'Welcome to My Project Showcase', zh: '歡迎來到我的專案展示' } },
-    { id: 'OCC_myproject', title: { en: 'Simple Control Center', zh: '簡易的行控中心' } },
-    { id: 'shoppingPlatform', title: { en: 'Shopping Platform', zh: '購物平台' } }
-];
-function generateCatalog() {
-    const catalog = document.getElementById('catalog');
-    const navContainer = document.createElement('div');
-    navContainer.id = 'dynamicNavs';
-    const existingNavs = document.getElementById('dynamicNavs');
-    if (existingNavs) {
-        existingNavs.remove();
-    }
-    const selectedLanguage = document.getElementById('languageSwitcher').value;
-    articles.forEach(article => {
-        const nav = document.createElement('nav');
-        nav.setAttribute('role','menuitem');
-        nav.setAttribute('tabindex','0');
-        nav.addEventListener('click', (e)=> loadArticle(article.id, e));
-        nav.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') loadArticle(article.id, e); });
-        nav.innerHTML = `<p>${article.title[selectedLanguage]}</p>`;
-        navContainer.appendChild(nav);
-    });
-    catalog.appendChild(navContainer);
-}
 // 頁面加載時檢查語言選擇
 function checkLanguage(){
     let savedLanguage = localStorage.getItem('selectedLanguage');
@@ -323,26 +171,13 @@ function checkLanguage(){
     else{
         languageSwitcher.value = 'zh';
     }
-    generateCatalog();
-    displayCatalog();
     loadArticle('home');
 }
 
 // 中與英的語言選擇
-const translations = {
-    en: {
-        catalogTitle: 'Catalog'
-    },
-    zh: {
-        catalogTitle: '目錄'
-    }
-};
 document.getElementById('languageSwitcher').addEventListener('change', function() {
     const selectedLanguage = this.value;
     localStorage.setItem('selectedLanguage', selectedLanguage);
-    document.querySelector('#catalog h2').textContent = translations[selectedLanguage].catalogTitle;
-    generateCatalog();
-    displayCatalog();
     if (currentArticleId === ''){
         loadArticle('home');
         return;
