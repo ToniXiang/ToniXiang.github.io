@@ -1,41 +1,37 @@
 name: Deploy Pages
+
 permissions:
   contents: read
   pages: write
   id-token: write
 
 on:
-  workflow_run:
-    workflows: ["Build"]
-    types: [completed]
+  push:
+    branches: [ main ]
+  workflow_dispatch:
 
 concurrency:
-  group: pages-deploy-${{ github.event.workflow_run.head_sha }}
-  cancel-in-progress: true
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout target commit
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          # checkout the exact commit that finished the Build workflow
-          ref: ${{ github.event.workflow_run.head_sha }}
 
-      - name: Prepare public folder
-        run: |
-          # Remove old public folder and recreate
-          rm -rf public
-          mkdir -p public
-          # Copy site files into public, excluding workflow configs, git data and node_modules
-          rsync -av --exclude='.github' --exclude='.git' --exclude='node_modules' --exclude='scripts' ./ public/
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
-      - name: Deploy to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          # Optional: keep history by not setting force; set user name/email
-          user_name: github-actions[bot]
-          user_email: github-actions[bot]@users.noreply.github.com
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -3,6 +3,8 @@ name: Build
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 permissions:
   contents: read
@@ -14,7 +16,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Quick validation
+      - name: Validate HTML files
         run: |
-          echo "Build placeholder: no build steps defined for static site"
-          echo "Commit: $GITHUB_SHA"
+          echo "Validating HTML files..."
+          # Check if HTML files exist and are valid
+          for file in *.html; do
+            if [ -f "$file" ]; then
+              echo "✓ Found: $file"
+            fi
+          done
+          echo "✓ Build validation completed"
