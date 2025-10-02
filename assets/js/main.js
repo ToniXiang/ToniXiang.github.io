@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    toggleSnow();
+    toggleRain();
     transformArticle();
     initTimeline();
 });
@@ -14,10 +14,31 @@ function transformArticle() {
 function initTimeline() {
     const timelineItems = document.querySelectorAll('.timeline-item');
     const timelineContents = document.querySelectorAll('.timeline-content');
+    const timelineContentArea = document.querySelector('.timeline-content-area');
+    
+    // 檢查內容是否需要滾動的函數
+    function checkScrollable(content) {
+        if (content && timelineContentArea) {
+            const isScrollable = content.scrollHeight > content.clientHeight;
+            timelineContentArea.classList.toggle('scrollable', isScrollable);
+            
+            // 添加滾動事件監聽器
+            if (isScrollable) {
+                content.addEventListener('scroll', function() {
+                    const isScrolledToBottom = 
+                        this.scrollTop + this.clientHeight >= this.scrollHeight - 5;
+                    this.classList.toggle('scrolled-to-bottom', isScrolledToBottom);
+                });
+            }
+        }
+    }
     
     // 預設選中第一個項目 (2023年)
     if (timelineItems.length > 0) {
         timelineItems[0].classList.add('active');
+        // 檢查第一個內容是否需要滾動
+        const firstContent = document.getElementById('content-2023');
+        setTimeout(() => checkScrollable(firstContent), 100);
     }
     
     timelineItems.forEach(item => {
@@ -33,6 +54,9 @@ function initTimeline() {
             const targetContent = document.getElementById(`content-${year}`);
             if (targetContent) {
                 targetContent.classList.add('active');
+                // 重置滾動位置並檢查是否需要滾動
+                targetContent.scrollTop = 0;
+                setTimeout(() => checkScrollable(targetContent), 100);
             }
         });
     });
@@ -45,44 +69,75 @@ const observer = new IntersectionObserver((entries, obs) => {
         }
     });
 }, { threshold: 0.2 });
-// 新增雪花特效(預設關閉)
-function createSnowflake() {
-    const snowflake = document.createElement('div');
-    snowflake.classList.add('snowflake');
-    snowflake.style.left = Math.random() * window.innerWidth + 'px';
-    const size = Math.random() * 14 + 8;
-    snowflake.style.width = size + 'px';
-    snowflake.style.height = size + 'px';
-    snowflake.style.opacity = Math.random() * 0.5 + 0.2;
-    snowflake.style.transform = `rotate(${Math.random() * 360}deg)`;
-    snowflake.style.animationDuration = (Math.random() * 2 + 3) + 's';
-    snowflake.style.animationDelay = Math.random() * 2 + 's';
-    snowflake.style.backgroundColor = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.5})`;
-    snowflake.style.boxShadow = `0 0 ${size / 2}px rgba(255, 255, 255, ${Math.random() * 0.5 + 0.5})`;
-    snowflake.style.borderRadius = '50%';
-    snowflake.style.position = 'fixed';
-    document.getElementById('snowflakes').appendChild(snowflake);
+// 新增雨滴特效(預設關閉)
+function createRaindrop() {
+    const raindrop = document.createElement('div');
+    raindrop.classList.add('raindrop');
+    raindrop.style.left = Math.random() * window.innerWidth + 'px';
+    
+    // 雨滴大小變化（更細長）
+    const width = Math.random() * 3 + 2;  // 2-5px 寬度
+    const height = Math.random() * 8 + 12; // 12-20px 高度
+    raindrop.style.width = width + 'px';
+    raindrop.style.height = height + 'px';
+    
+    // 透明度和速度
+    raindrop.style.opacity = Math.random() * 0.3 + 0.6;
+    raindrop.style.animationDuration = (Math.random() * 0.5 + 0.8) + 's'; // 更快的下落速度
+    raindrop.style.animationDelay = Math.random() * 0.5 + 's';
+    
+    // 隨機傾斜度模擬風向
+    const tilt = Math.random() * 10 - 5; // -5 到 5 度
+    raindrop.style.transform = `rotate(${tilt}deg)`;
+    
+    raindrop.style.position = 'fixed';
+    raindrop.style.zIndex = '9999';
+    document.getElementById('raindrops').appendChild(raindrop);
+    
+    // 創建濺起效果
     setTimeout(() => {
-        snowflake.remove();
-    }, 7000);
+        createSplash(raindrop);
+        raindrop.remove();
+    }, parseInt(raindrop.style.animationDuration) * 1000);
 }
+
+function createSplash(raindrop) {
+    const splash = document.createElement('div');
+    splash.classList.add('raindrop-splash');
+    
+    // 獲取雨滴落地位置
+    const rect = raindrop.getBoundingClientRect();
+    splash.style.left = rect.left + 'px';
+    splash.style.top = (window.innerHeight - 10) + 'px';
+    
+    splash.style.position = 'fixed';
+    document.getElementById('raindrops').appendChild(splash);
+    
+    setTimeout(() => {
+        splash.remove();
+    }, 300);
+}
+
 function getRandomNumber(n) {
   return Math.floor(Math.random() * n) + 1;
 }
-let snowInterval = null;
-function startSnow() {
-    if (!snowInterval) {
-        snowInterval = setInterval(createSnowflake, 200);
+
+let rainInterval = null;
+function startRain() {
+    if (!rainInterval) {
+        rainInterval = setInterval(createRaindrop, 100); // 更頻繁的雨滴
     }
 }
-function stopSnow() {
-    clearInterval(snowInterval);
-    snowInterval = null;
+
+function stopRain() {
+    clearInterval(rainInterval);
+    rainInterval = null;
 }
-function toggleSnow() {
-    const btn = document.getElementById('toggleSnow');
-    const saved = localStorage.getItem('snowStart');
-    let snowStart = saved === null ? false : (saved === 'true');
+
+function toggleRain() {
+    const btn = document.getElementById('toggleRain');
+    const saved = localStorage.getItem('rainStart');
+    let rainStart = saved === null ? false : (saved === 'true');
     if (!btn) return;
 
     function setButtonText(text) {
@@ -94,23 +149,23 @@ function toggleSnow() {
         }
     }
 
-    if (!snowStart) {
-        setButtonText('繼續雪花');
-        stopSnow();
+    if (!rainStart) {
+        setButtonText('繼續雨滴');
+        stopRain();
     } else {
-        setButtonText('暫停雪花');
-        startSnow();
+        setButtonText('暫停雨滴');
+        startRain();
     }
 
     btn.addEventListener('click', function() {
-        snowStart = !snowStart;
-        localStorage.setItem('snowStart', snowStart);
-        if (!snowStart) {
-            setButtonText('繼續雪花');
-            stopSnow();
+        rainStart = !rainStart;
+        localStorage.setItem('rainStart', rainStart);
+        if (!rainStart) {
+            setButtonText('繼續雨滴');
+            stopRain();
         } else {
-            setButtonText('暫停雪花');
-            startSnow();
+            setButtonText('暫停雨滴');
+            startRain();
         }
     });
 }

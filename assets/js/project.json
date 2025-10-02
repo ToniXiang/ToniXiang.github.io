@@ -2,8 +2,8 @@
     "articles": {
         "home": {
             "title": {
-                "en": "Welcome to My Project Showcase",
-                "zh": "歡迎來到我的專案展示"
+                "en": "Project Showcase",
+                "zh": "作品展示"
             },
             "tags": {
                 "en": ["Portfolio", "Projects", "Development", "GitHub"],
@@ -12,32 +12,12 @@
             "sections": [
                 {
                     "title": {
-                        "en": "Hello I'm Guoxiang Chen :D",
-                        "zh": "Hello 我是陳國翔 :D"
-                    },
-                    "content": {
-                        "en": "<div class='hero-section'><div class='hero-content'><p>This is where I share my development journey and technical achievements. Each project represents unique challenges and learning experiences that have shaped my skills as a developer.</p><div class='highlight-stats'><div class='stat-item'><span class='stat-number'>3+</span><span class='stat-label'>Years of Coding</span></div><div class='stat-item'><span class='stat-number'>Multiple</span><span class='stat-label'>Technologies</span></div></div></div></div>",
-                        "zh": "<div class='hero-section'><div class='hero-content'><p>這裡是我分享開發歷程和技術成就的地方。每個專案都代表著獨特的挑戰和學習經驗，塑造了我作為開發者的技能。</p><div class='highlight-stats'><div class='stat-item'><span class='stat-number'>3+</span><span class='stat-label'>年程式開發經驗</span></div><div class='stat-item'><span class='stat-number'>多項</span><span class='stat-label'>技術專長</span></div></div></div></div>"
-                    }
-                },
-                {
-                    "title": {
                         "en": "What You'll Find Here",
                         "zh": "您將在這裡發現"
                     },
                     "content": {
                         "en": "<div class='simple-features'><div class='simple-item'><strong>Featured Projects</strong><br>Detailed descriptions of my key projects.</div><div class='simple-item'><strong>GitHub Portfolio</strong><br>Complete repository collection with language statistics and project details.</div></div>",
                         "zh": "<div class='simple-features'><div class='simple-item'><strong>精選專案</strong><br>我主要項目的詳細描述</div><div class='simple-item'><strong>GitHub 作品集</strong><br>完整的儲存庫收藏包含語言統計和專案資訊。</div></div>"
-                    }
-                },
-                {
-                    "title": {
-                        "en": "Navigation Guide",
-                        "zh": "導航指南"
-                    },
-                    "content": {
-                        "en": "<div class='simple-guide'><p><strong>Browse:</strong> Use the catalog button to explore projects</p><p><strong>Explore:</strong> Click project titles for detailed information</p><p><strong>Visit:</strong> Access code repositories and documentation</p><p><strong>Contact:</strong> Feel free to reach out for collaboration</p></div>",
-                        "zh": "<div class='simple-guide'><p><strong>瀏覽：</strong>使用目錄按鈕探索專案</p><p><strong>探索：</strong>點擊專案標題查看詳細資訊</p><p><strong>查看：</strong>訪問程式碼儲存庫和文件</p><p><strong>聯繫：</strong>歡迎聯繫進行合作交流</p></div>"
                     }
                 },
                 {

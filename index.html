@@ -26,14 +26,14 @@
                     <h1 class="hero-title">歡迎來到我的個人網頁</h1>
                     <p class="hero-description">這裡記錄了我的學習歷程、專案作品與個人發展。探索我的程式設計之旅，了解我的技術能力與成長軌跡。</p>
                     <div class="hero-actions">
-                        <button id="toggleSnow" class="btn" title="畫面顯示雪花特效 暫停需等待幾秒鐘">
-                            <span class="btn-text">暫停雪花</span>
+                        <button id="toggleRain" class="btn" title="畫面顯示雨滴特效 暫停需等待幾秒鐘">
+                            <span class="btn-text">暫停雨滴</span>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="snowflakes"></div>
+        <div id="raindrops"></div>
         <h2 title="時間表示當年度初次學習或達成的目標">✨時間軸</h2>
         <section class="learning-progress">
             <!-- 時間軸導航 -->
@@ -63,19 +63,23 @@
             <div class="timeline-content-area">
                 <div class="timeline-content active" id="content-2023">
                     <ul>
+                        <li>甄選上台中科大資工，放棄其他學校。</li>
                         <li>重新接觸程式設計，學習 Python 與 Java，完成基礎專案。</li>
                         <li>撰寫各類程式設計競賽題目，強化邏輯思維與解題能力。</li>
                         <li>自學資料結構與演算法，練習 <a href="https://leetcode.com/u/chen199940/" title="LeetCode">LeetCode</a>、<a
                                 href="https://zerojudge.tw/UserStatistic?id=179887" title="ZeroJudge">ZeroJudge</a>
                             等線上題庫，各約 200 題。</li>
                         <li>開始使用 Git 進行版本控制，學習團隊協作流程。</li>
+                        <li>英文分班到 A 組，但校內多益模考沒達標，必修差點被當掉。</li>
                     </ul>
                 </div>
                 <div class="timeline-content" id="content-2024">
                     <ul>
                         <li>嘗試撰寫 C# MonoGame 小型 2D 遊戲與 JavaScript 的外掛腳本，提升實作能力。</li>
                         <li>前端技術：深入掌握 HTML5、CSS3 與 JavaScript，熟悉 DOM 操作、事件驅動與響應式佈局。</li>
-                        <li>網路通訊與後端入門：學習 HTTP 協議與 RESTful API 設計原則。</li>
+                        <li>網路通訊機制：熟悉 HTTP 的運作流程與請求結構，理解 Header、Status Code、Session 與 Token。</li>
+                        <li>後端技術：了解 RESTful API 設計與實作概念。</li>
+                        <li>資料庫基礎：了解關聯式資料庫概念，使用 Microsoft SQL Server 連接 C# 應用程式。</li>
                     </ul>
                 </div>
                 <div class="timeline-content" id="content-2025">
@@ -84,11 +88,14 @@
                         <li>Django 後端開發：使用 Django 框架編寫 RESTful API，結合 PostgreSQL，並部署至雲端（render），設定自動化測試與 CI/CD。</li>
                         <li>個人作品發表：在 <a href="https://github.com/ToniXiang" title="GitHub">GitHub</a> 建立專案倉庫，撰寫 README
                             與技術文件，將程式碼至公開平台，並撰寫靜態網頁分享開發心得。</li>
+                        <li>開始使用 Flutter 進行跨平台 App 開發，規劃並實作手機端專案。</li>
+                        <li>能使用 Git 團隊協作開發，熟悉 Issue 分工、Branch Flow 與 Pull Request 溝通流程。</li>
+                        <li>參與小組報告與專案分工，開始畢業專題的規劃與實作。</li>
                     </ul>
                 </div>
                 <div class="timeline-content" id="content-2026">
                     <div style="text-align: center; padding: 20px;">
-                        <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=24&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&width=500&height=60&lines=待續...;熱愛程式設計，持續學習新技術"
+                        <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=24&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&width=500&height=60&lines=待續..."
                             alt="Hello World Typing Animation"
                             style="max-width: 100%; height: auto; border-radius: 8px;">
                     </div>
@@ -98,10 +105,22 @@
 
         <div class="footer-chat-wrapper">
             <canvas id="chatCanvas" aria-hidden="true"></canvas>
-            <div class="footer-input-fake">
-                <div class="input-text">展示效果</div>
-                <div class="input-right">
-                    <button class="input-btn" aria-label="觸發展示效果">+</button>
+            <div class="tech-blog-input">
+                <div class="input-container">
+                    <div class="input-label">
+                        <span class="prompt-symbol">$</span>
+                        <span class="input-text">探索技術展示</span>
+                    </div>
+                    <div class="input-actions">
+                        <button class="execute-btn" aria-label="執行技術展示">
+                            <span class="btn-icon">▶</span>
+                            <span class="btn-text">Faster</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="status-bar">
+                    <span class="status-dot ready"></span>
+                    <span class="status-text">Ready to execute</span>
                 </div>
             </div>
         </div>

@@ -105,23 +105,16 @@ li {
 }
 
 #languageSwitcher {
-    position: relative;
-    top: auto;
-    right: auto;
-    margin: 1rem;
     display: block;
-    text-align: center;
-    padding: 0.5rem 1rem;
-    background: var(--background-color);
+    margin: 20px 0;
+    padding: 10px;
+    font-size: 10px;
     border: 1px solid var(--accent-color);
     border-radius: 5px;
+    background-color: var(--background-color);
     color: var(--text-color);
-    font-size: 0.9rem;
     cursor: pointer;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
 }
-
 #languageSwitcher:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
@@ -149,7 +142,7 @@ li {
 
 #articleContent h3 {
     color: var(--primary-color);
-    font-size: 1rem;
+    font-size: 20px;
     margin: 2rem 0 1rem;
     font-weight: 600;
 }
@@ -247,6 +240,15 @@ li {
 
     .language-chart {
         justify-content: center;
+    }
+    
+    #languageSwitcher {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 1rem 0;
+        display: block;
+        text-align: left;
     }
 }
 

@@ -175,8 +175,8 @@ function loop(t){
 	requestAnimationFrame(loop);
 }
 
-// Bind the + button to trigger a short burst/boost directly within scope
-const btn = document.querySelector('.footer-chat-wrapper .input-btn');
+// Bind the execute button to trigger a short burst/boost directly within scope
+const btn = document.querySelector('.footer-chat-wrapper .execute-btn');
 if(btn){
 	const boostNow = (durationMs = 2500, burstCount = 2)=>{
 		const now = performance.now();
