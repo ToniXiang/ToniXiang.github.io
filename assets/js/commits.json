@@ -1,0 +1,1406 @@
+{
+    "commits":  [
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-10-02 04:03:48 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "f003b84868101350f6c1485bda64f73db674b4ee"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ToniXiang"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ToniXiang",
+                                                      "date":  "2025-10-02 12:03:31 +0800"
+                                                  },
+                                       "message":  "style: improve homepage and project page styling"
+                                   },
+                        "sha":  "53ffdb5597c30d5c7f66b274ad62e69f98ac2c10"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-10-01 09:41:55 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "38413df46f0f6b16d6ef29d3f8961368a02815bf"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ToniXiang"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ToniXiang",
+                                                      "date":  "2025-10-01 17:41:35 +0800"
+                                                  },
+                                       "message":  "feat: remove all project introductions"
+                                   },
+                        "sha":  "a08c674bd2b96edcf1c0558a17f5083b437bd060"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-10-01 05:11:11 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "3b7ce493783bff8c542f9f17cdbd84f8db3b6f9f"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ToniXiang"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ToniXiang",
+                                                      "date":  "2025-10-01 13:10:45 +0800"
+                                                  },
+                                       "message":  "fix: update GitHub Pages deployment workflow"
+                                   },
+                        "sha":  "e636025ad708a1fa65f1a4f3bc7b4887928c18b0"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-10-01 03:04:45 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "9485c79268fad54e75041afa2c12aae0744afefa"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-09-29 02:58:22 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "b30fc67b987f6014086db63a5d80142ab718221d"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-09-28 02:45:47 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "472505746036142351cc4becb4eeecb0813d3052"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-09-28 10:45:35 +0800"
+                                                  },
+                                       "message":  "feat: Add dynamic typing animation to 2026 timeline section and Improve text link style"
+                                   },
+                        "sha":  "e91a61d6744b271a79be187cb99dc78991a8f1f2"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-09-27 00:50:03 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "d4ac619d5a0f03eeae7c517b8a4d04ca692b7c98"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-09-27 08:49:43 +0800"
+                                                  },
+                                       "message":  "feat: filter out forked repositories from GitHub repo list and enhance simple-guide"
+                                   },
+                        "sha":  "c12c7e9726573636d51673c1b35ba74986e5241f"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-09-26 16:50:43 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "268c530b0a9053bc9129182e2436037814389ece"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-09-27 00:50:27 +0800"
+                                                  },
+                                       "message":  "feat:improve year card and sidebar"
+                                   },
+                        "sha":  "47eef5cea2400ba86bc5f2449a08259ca34bd78d"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-09-26 06:24:27 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "8d64da1a87eb94eb19817facfe1b99ec8ece33c7"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ToniXiang"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ToniXiang",
+                                                      "date":  "2025-09-26 14:24:10 +0800"
+                                                  },
+                                       "message":  "feat: enhance light theme styling and add year-card-2026"
+                                   },
+                        "sha":  "3bee509fda551ba6f9779f48875e32b87bb4377a"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-09-26 02:54:17 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "880925f14f11ee8eb09f4ab0b585a2b642fb703c"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-09-19 02:55:02 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "2bd09bb120ddade4444ffcf6eb70f6bcbc957fc6"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-09-17 02:48:36 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "209f3d697b9021154c5f6cc74b4718901693b380"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-09-13 02:40:30 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "707ca79622ed5d4a6f22e710c156c9a24a5b894a"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-09-09 03:01:25 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "32185cff58d4ec343662b9b0b693cd58f44ce72b"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-09-09 11:01:07 +0800"
+                                                  },
+                                       "message":  "feat: remove auto-click on image hover, other optimizations"
+                                   },
+                        "sha":  "c312ddfd988156494e0c240c06bd3e5059934139"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-09-06 06:54:40 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "541673744dc8fcf2bff0dc3c1e31154d288ac3af"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-09-06 14:54:24 +0800"
+                                                  },
+                                       "message":  "feat:sidebar hover effects for desktop version; organize portfolio JSON; Initial theme follows user\u0027s default preference"
+                                   },
+                        "sha":  "13f466c9e69f431ac5ffc4e6a5e0a8adbe6d5d4d"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-09-04 05:22:58 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "d05bd96cd52ba1d735b52a3c51dd80f95c2e9213"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2025-09-04 13:22:39 +0800"
+                                                  },
+                                       "message":  "feat: center modal title and close button ; redesign project showcase"
+                                   },
+                        "sha":  "3431b9ba56ab2cfb5a4c5c98c6143266ee65683d"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-09-04 03:22:05 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "3c917d5c80e20decbfa99458d17f128c0ddd82c2"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-09-04 11:21:49 +0800"
+                                                  },
+                                       "message":  "feat: enhance personal resume styling"
+                                   },
+                        "sha":  "47ac04357ac5f347bae3f01fee5677095be9a0b7"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-09-03 10:37:45 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "2afc5ee921aaaac878d4d4c2837c1930ea7586cc"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-09-03 18:37:31 +0800"
+                                                  },
+                                       "message":  "Merge branch \u0027main\u0027 of https://github.com/ChenGuoXiang940/ChenGuoXiang940.github.io"
+                                   },
+                        "sha":  "016a1393ee98b12e43d570bbd5c668d10c482bba"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-09-03 18:37:27 +0800"
+                                                  },
+                                       "message":  "feat: remove language cards, enhance timeline UI, and restructure homepage layout"
+                                   },
+                        "sha":  "78bb69b558020dd1a54519db87ba6f9a36c00774"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-09-03 08:38:09 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "d6123fe117f90c40fc7dde4fa06f9e35b094bee6"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-09-03 16:37:54 +0800"
+                                                  },
+                                       "message":  "Add footer animation, enhance timeline styling, and improve homepage hero section"
+                                   },
+                        "sha":  "fca0d263a089a309f101fe6a94d340b5d64cad50"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-09-01 03:14:27 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "ea89e4df088a9e23f49962782ed5795e9e0bdf04"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-08-31 03:00:52 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "67406bff93ce253890b1b32228ea717f7f44b336"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2025-08-30 16:33:03 +0800"
+                                                  },
+                                       "message":  "ci: add Build and Deploy workflows (concurrency, gh-pages deploy)"
+                                   },
+                        "sha":  "e1bffa68bad6c249c4ec79f641696baaa58fb69c"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2025-08-30 16:28:55 +0800"
+                                                  },
+                                       "message":  "ci: add pages deploy workflow with concurrency"
+                                   },
+                        "sha":  "3e2be0ca1bf8518b556ec00be5e6cb34fc9eec54"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-08-30 08:15:28 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "3b82f31ac4bc2b321833b01bd475a4b857174d48"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2025-08-30 16:15:07 +0800"
+                                                  },
+                                       "message":  "feat:新增證照證書 Serial Number"
+                                   },
+                        "sha":  "d3e8ff66811810f211ea59e25af019a89a3ede46"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-08-29 02:57:05 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "21661a1c30cabcdbb4d3c7fc249e7492b253c346"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-08-27 02:57:30 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "7bba633904bb3911a07b0a53c28f33f7a2572424"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-08-25 06:27:26 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "11f67e99e522f3fccd0e39e3b29f2747ea2cd6b8"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-08-25 14:27:08 +0800"
+                                                  },
+                                       "message":  "feat: update project intro, optimize icons, and remove scroll-to-top feature - Revised project description for clarity and professionalism - Replaced icons with optimized SVGs to eliminate load delay and fix sizing - Removed scroll-to-top shortcut for cleaner UX"
+                                   },
+                        "sha":  "649846897c37319b10d2d42c7e1bb423ecf72796"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "github-actions[bot]"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "github-actions[bot]@users.noreply.github.com",
+                                                      "name":  "github-actions[bot]",
+                                                      "date":  "2025-08-23 16:58:05 +0000"
+                                                  },
+                                       "message":  "chore(ci): update languages.json [skip ci]"
+                                   },
+                        "sha":  "0b8201d4d2b1298f926f288ea8a6d547fe1a8e85"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-08-24 00:57:54 +0800"
+                                                  },
+                                       "message":  "chore(ci): add permissions for GitHub Actions to push languages.json"
+                                   },
+                        "sha":  "a94037bc0a707f3ea2cb1d0cb19696f63cd47721"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-08-24 00:55:57 +0800"
+                                                  },
+                                       "message":  "chore(ci): auto-commit and push generated languages.json in workflow"
+                                   },
+                        "sha":  "c0357023f81bcd00a96417a353d8a0c0dbfb03fa"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-08-24 00:43:07 +0800"
+                                                  },
+                                       "message":  "chore(ci): generate languages.json via GitHub Actions; front-end fallback"
+                                   },
+                        "sha":  "151487c439f5138f125b802339cc9f24e466b34d"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-08-22 18:15:13 +0800"
+                                                  },
+                                       "message":  "fix(style): shrink top-right menu container; expand About description on mobile"
+                                   },
+                        "sha":  "73a88a23262783ec89adfca9583d763f3b54d502"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-08-13 18:25:45 +0800"
+                                                  },
+                                       "message":  "feat: update displayed content in HTML"
+                                   },
+                        "sha":  "7256f32923e7f8cb47784740ec55da9397a16f79"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-08-12 00:00:57 +0800"
+                                                  },
+                                       "message":  "feat:移除頂部導覽、簡化UI設計"
+                                   },
+                        "sha":  "1bc7c307cf266a87008f13a0391b59171a7dff3c"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-08-11 22:14:37 +0800"
+                                                  },
+                                       "message":  "feat:修正主題問題、重新設計側邊導覽、同步履歷"
+                                   },
+                        "sha":  "3f143cf6fd3d5952cc12db8c112415be46dd20f9"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-07-27 16:32:03 +0800"
+                                                  },
+                                       "message":  "feat:新增作品介紹"
+                                   },
+                        "sha":  "c827bb34404fc392eea611058f9c7dab0f490fa7"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-07-07 15:18:13 +0800"
+                                                  },
+                                       "message":  "feat: 全面重設網站主題與排版 - 調整配色與字體樣式 - 重新設計頁面結構與導覽列 - 增強響應式設計與可讀性"
+                                   },
+                        "sha":  "0ff3937f7effdae59ce5a348d149d21b10f1cc3a"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-06-14 14:23:17 +0800"
+                                                  },
+                                       "message":  "fix:language-cards寬度問題"
+                                   },
+                        "sha":  "f6ae4269312a130fc13740a0ba986f3a7b677930"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-06-14 14:09:45 +0800"
+                                                  },
+                                       "message":  "feat:美化首頁"
+                                   },
+                        "sha":  "6e154c1fb17b50461d5f61da2f2f64f9f685530f"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-05-30 13:01:37 +0800"
+                                                  },
+                                       "message":  "feat:美化按鍵、新增語言工具"
+                                   },
+                        "sha":  "1a9ccb4495acd333109b718204b0e293a8a36d5c"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2025-05-28 19:02:03 +0800"
+                                                  },
+                                       "message":  "feat:優化雪花效果"
+                                   },
+                        "sha":  "2b96039f6b7bcaf29041a46b9e00b4e87d937276"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2025-05-25 11:08:35 +0800"
+                                                  },
+                                       "message":  "feat:新增about內容和自己的學習、整理頁尾"
+                                   },
+                        "sha":  "cd5a6025f55fd01c4e345fa05decdf79cf177e00"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2025-05-22 14:33:57 +0800"
+                                                  },
+                                       "message":  "fix:手機關閉導覽時右邊沒有完全隱藏"
+                                   },
+                        "sha":  "0ee8b3860e90421c4aa13d2392eed012303d7089"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-05-17 19:22:42 +0800"
+                                                  },
+                                       "message":  "fix:雪花預設關閉、手機排版問題"
+                                   },
+                        "sha":  "4169ce5f2c06a9bb5fed3c8edcd9801915bd0663"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-05-17 18:16:00 +0800"
+                                                  },
+                                       "message":  "feat:新增雪花、淡入動畫"
+                                   },
+                        "sha":  "d5c9715400292ee12bb72342b89ea7b32cb8ce5f"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-05-04 11:15:47 +0800"
+                                                  },
+                                       "message":  "Create LICENSE"
+                                   },
+                        "sha":  "866467c2701bea70467eeb275be98e62acb2d7c2"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "陳國翔"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "陳國翔",
+                                                      "date":  "2025-05-03 22:02:32 +0800"
+                                                  },
+                                       "message":  "feat(website): 新增專案介紹 JSON，並美化頁尾"
+                                   },
+                        "sha":  "e65d76572d15dfb2ff1c47e5cdd608aaa9a41e0d"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "chen199940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "chen199940@gmail.com",
+                                                      "name":  "chen199940",
+                                                      "date":  "2025-04-19 10:50:48 +0800"
+                                                  },
+                                       "message":  "1.美化導航欄 2.修正作品中英支持"
+                                   },
+                        "sha":  "00bcab0ed0f52163013635732b14a276232e7afb"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "chen199940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "chen199940@gmail.com",
+                                                      "name":  "chen199940",
+                                                      "date":  "2025-04-18 23:37:58 +0800"
+                                                  },
+                                       "message":  "1.作品中英支持 2.美化導航欄 3.about標籤式導航"
+                                   },
+                        "sha":  "c10c654692cd1e769d3b3f1e5fd8626aa121663a"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2025-04-18 12:42:51 +0800"
+                                                  },
+                                       "message":  "新增"
+                                   },
+                        "sha":  "2c6d66b65bac4b6e9a030132f6f6c630ef55b6bf"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "chen199940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "chen199940@gmail.com",
+                                                      "name":  "chen199940",
+                                                      "date":  "2025-04-04 20:23:10 +0800"
+                                                  },
+                                       "message":  "美化導航欄"
+                                   },
+                        "sha":  "1cabb138046c9aee8dc6c8314a7a0d86600c3b3b"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "chen199940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "chen199940@gmail.com",
+                                                      "name":  "chen199940",
+                                                      "date":  "2025-04-03 15:44:38 +0800"
+                                                  },
+                                       "message":  "新增mailto"
+                                   },
+                        "sha":  "d548dae2a7a6f86bf3e9c0d8309b1e99a3805842"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2025-04-02 11:51:19 +0800"
+                                                  },
+                                       "message":  "Modal Image修正"
+                                   },
+                        "sha":  "4c33be8ba953bd8abcb08c21561933414f7b510f"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2025-03-26 09:42:27 +0800"
+                                                  },
+                                       "message":  "repo垂直滾動"
+                                   },
+                        "sha":  "ad56ae666e4ed68ff9996f44249272f8a77a4f53"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2025-03-26 09:27:21 +0800"
+                                                  },
+                                       "message":  "新增"
+                                   },
+                        "sha":  "ef57e2231297aa0507371dd532b36d64598f3a24"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2025-03-25 10:29:15 +0800"
+                                                  },
+                                       "message":  "assets目錄結構"
+                                   },
+                        "sha":  "5b0d730e16e23a92e74d10a9a3a4290c8ba2d6c5"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "chen199940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "chen199940@gmail.com",
+                                                      "name":  "chen199940",
+                                                      "date":  "2025-03-23 00:04:12 +0800"
+                                                  },
+                                       "message":  "API提程式倉庫"
+                                   },
+                        "sha":  "227fc51225af61864953d5f5e8a1333a6fd4c9e8"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "chen199940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "chen199940@gmail.com",
+                                                      "name":  "chen199940",
+                                                      "date":  "2025-03-22 15:54:03 +0800"
+                                                  },
+                                       "message":  "作品中英支持"
+                                   },
+                        "sha":  "f63700b5b83a4c5eaff925f08c399846b3490424"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "chen199940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "chen199940@gmail.com",
+                                                      "name":  "chen199940",
+                                                      "date":  "2025-03-22 11:12:45 +0800"
+                                                  },
+                                       "message":  "以 JSON 來存儲文章數據"
+                                   },
+                        "sha":  "7759a64e5be5056ed07ef3805481f0e8f9d19891"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "chen199940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "chen199940@gmail.com",
+                                                      "name":  "chen199940",
+                                                      "date":  "2025-03-22 01:04:22 +0800"
+                                                  },
+                                       "message":  "整理"
+                                   },
+                        "sha":  "143ec3c3d22138f4f1354fa50543aacc56986adc"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "chen199940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "chen199940@gmail.com",
+                                                      "name":  "chen199940",
+                                                      "date":  "2025-03-09 00:23:38 +0800"
+                                                  },
+                                       "message":  "修正"
+                                   },
+                        "sha":  "a51a43066e3b12c49b66abbb143b8f9e6c9c9b4b"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2025-02-14 21:33:40 +0800"
+                                                  },
+                                       "message":  "新增"
+                                   },
+                        "sha":  "d09496a77734b6397881ca9b0bc48fa56941d2a4"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2025-01-31 09:40:28 +0800"
+                                                  },
+                                       "message":  "小修正"
+                                   },
+                        "sha":  "c2635c8ffe036db08f7645de80dcbab559e92154"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2025-01-30 23:14:45 +0800"
+                                                  },
+                                       "message":  "小修正"
+                                   },
+                        "sha":  "edf26f2cb9c89d6b01bdd2d2d8248260c10e70c5"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2025-01-30 11:20:19 +0800"
+                                                  },
+                                       "message":  "1.新增主頁內容 2.美化主題"
+                                   },
+                        "sha":  "926cc03665938727f40a49817b931f862a1ebdc2"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2025-01-29 22:14:54 +0800"
+                                                  },
+                                       "message":  "美化主題"
+                                   },
+                        "sha":  "a5a4f08d031c52e4177a7e7bbe5ef22eada5f2c3"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2025-01-28 12:01:24 +0800"
+                                                  },
+                                       "message":  "新增作品"
+                                   },
+                        "sha":  "7dd5aa45d683a999eb2f4dc40127363242a1107d"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2024-12-08 11:14:02 +0800"
+                                                  },
+                                       "message":  "小修正"
+                                   },
+                        "sha":  "e066f350f5d4762f4882c2bbf7fe1a96cb4341fa"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2024-12-08 10:53:52 +0800"
+                                                  },
+                                       "message":  "整理"
+                                   },
+                        "sha":  "f92a6ca43ed42be14d9d0d130f6305276b2f1cf4"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2024-12-07 17:48:01 +0800"
+                                                  },
+                                       "message":  "小修正"
+                                   },
+                        "sha":  "65a147e04c9b2042252112114f959a028a628ac0"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2024-12-07 16:30:57 +0800"
+                                                  },
+                                       "message":  "美化"
+                                   },
+                        "sha":  "648a8d88a413865aa827b523a986d1fc6ca51726"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2024-11-28 10:53:02 +0800"
+                                                  },
+                                       "message":  "小修改"
+                                   },
+                        "sha":  "733310b7afa5112533b27e68b0aebe67afd63860"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2024-11-28 10:28:33 +0800"
+                                                  },
+                                       "message":  "優化導航欄"
+                                   },
+                        "sha":  "1217bbd7dc02d8c90ecd46a8b30601b0f076cb62"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2024-11-26 19:35:59 +0800"
+                                                  },
+                                       "message":  "美化導航欄"
+                                   },
+                        "sha":  "887ed0abfaf322a8ebf109980cf23d05896a87b7"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2024-11-25 20:00:25 +0800"
+                                                  },
+                                       "message":  "小修正"
+                                   },
+                        "sha":  "6917b782e8ac084e98c995e7aefd86039fab17f4"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2024-11-25 19:48:36 +0800"
+                                                  },
+                                       "message":  "優化導航欄"
+                                   },
+                        "sha":  "d1add89e37f9a42b6f3fa3b2895f6c056101ffef"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2024-11-23 17:22:39 +0800"
+                                                  },
+                                       "message":  "優化精選圖集"
+                                   },
+                        "sha":  "406c8af9543e12ff6bed19777ada6e19437231dc"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2024-11-22 22:45:34 +0800"
+                                                  },
+                                       "message":  "補充連結\u0026美化"
+                                   },
+                        "sha":  "dd7e413a9774d663ad744d2fb6ead9d9c3d49386"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2024-11-21 22:12:35 +0800"
+                                                  },
+                                       "message":  "新增頁尾"
+                                   },
+                        "sha":  "d86b86043fd5a471fdbd27b86f7f27e6721824ab"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2024-11-21 17:21:09 +0800"
+                                                  },
+                                       "message":  "Loading優化"
+                                   },
+                        "sha":  "f2ec00bdc0a60a34ee7d5aa82097e80b31a63655"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2024-11-21 10:17:06 +0800"
+                                                  },
+                                       "message":  "美化深色主題"
+                                   },
+                        "sha":  "959b08d2e98be8cfd97aaaf03780d12bef8ac09a"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2024-11-20 21:52:38 +0800"
+                                                  },
+                                       "message":  "導航優化"
+                                   },
+                        "sha":  "cdf1aa3bfd346b9129ee0b5691895de84c817bf5"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2024-10-27 13:59:57 +0800"
+                                                  },
+                                       "message":  "美化"
+                                   },
+                        "sha":  "79f7054a2f30024ac648d5044c747698f1110c46"
+                    },
+                    {
+                        "author":  {
+                                       "login":  "ChenGuoXiang940"
+                                   },
+                        "commit":  {
+                                       "author":  {
+                                                      "email":  "s1411232069@ad1.nutc.edu.tw",
+                                                      "name":  "ChenGuoXiang940",
+                                                      "date":  "2024-10-25 13:46:09 +0800"
+                                                  },
+                                       "message":  "新增"
+                                   },
+                        "sha":  "292b321d1055dd1a86f9d6fae113851d87cae549"
+                    }
+                ],
+    "timestamp":  "2025-10-03T16:32:14.208Z",
+    "total":  100
+}

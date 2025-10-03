@@ -124,6 +124,14 @@ function loadNavigationAndFooter() {
                 </div>
                 <div class="nav-indicator"></div>
             </nav>
+            <nav class="nav-item${currentPage === 'changelog' ? ' active' : ''}" onclick="redirectToPage('changelog.html')">
+                <img src="assets/images/changelog.svg" alt="changelog" width="20" height="20" class="nav-icon-img" aria-hidden="true">
+                <div class="nav-text">
+                    <p>更新日誌</p>
+                    <span class="nav-description">版本變更紀錄</span>
+                </div>
+                <div class="nav-indicator"></div>
+            </nav>
         </div>
         
         <div class="nav-section">

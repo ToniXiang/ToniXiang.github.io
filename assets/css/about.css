@@ -176,7 +176,7 @@
     top: 0;
     width: 4px;
     height: 100%;
-    background: var(--primary-color);
+    background: var(--secondary-color);
     border-radius: 0 4px 4px 0;
 }
 
@@ -251,7 +251,7 @@
 
 .achievement-section h4 {
     margin: 0 0 16px 0;
-    color: var(--primary-color);
+    color: var(--secondary-color);
     font-size: 1.1em;
     padding-bottom: 8px;
     border-bottom: 2px solid rgba(95, 108, 175, 0.1);

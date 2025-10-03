@@ -22,8 +22,8 @@
                 },
                 {
                     "title": {
-                        "en": "My GitHub Repositories",
-                        "zh": "我的 GitHub 儲存庫"
+                        "en": "My Repo",
+                        "zh": "我的儲存庫"
                     },
                     "content": {
                         "en": "<div class='github-table-container'></div>",
