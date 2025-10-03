@@ -16,19 +16,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install deps (none required)
-        run: echo "No deps"
-
       - name: Run language aggregation
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-        run: node ./scripts/generate-languages.js
+        run: pwsh -File scripts/generate-languages.ps1
 
       - name: Commit & Push languages.json
         run: |
