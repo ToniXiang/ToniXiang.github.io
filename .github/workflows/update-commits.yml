@@ -33,17 +33,12 @@ jobs:
         fetch-depth: 0
         token: ${{ secrets.GITHUB_TOKEN }}
     
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-    
     - name: Generate commits data
       run: |
         if [ "${{ github.event.inputs.show_all_commits }}" = "true" ]; then
-          node scripts/generate-commits.js --show-all --max-commits=${{ github.event.inputs.max_commits || '100' }}
+          pwsh -File scripts/generate-commits.ps1 -MaxCommits ${{ github.event.inputs.max_commits || '100' }} -ShowAll
         else
-          node scripts/generate-commits.js --max-commits=${{ github.event.inputs.max_commits || '100' }}
+          pwsh -File scripts/generate-commits.ps1 -MaxCommits ${{ github.event.inputs.max_commits || '100' }}
         fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
