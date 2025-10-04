@@ -775,6 +775,12 @@ li {
     color: var(--tertiary-color);
     font-weight: 600;
 }
+.simple-item p {
+    margin: 0.5rem 0 0 0;
+    line-height: 1.4;
+    color: var(--text-color);
+    opacity: 0.9;
+}
 
 .repos-meta .meta-row {
     display: flex;

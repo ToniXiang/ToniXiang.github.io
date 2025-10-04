@@ -16,8 +16,8 @@
                         "zh": "您將在這裡發現"
                     },
                     "content": {
-                        "en": "<div class='simple-features'><div class='simple-item'><strong>Featured Projects</strong><br>Detailed descriptions of my key projects.</div><div class='simple-item'><strong>GitHub Portfolio</strong><br>Complete repository collection with language statistics and project details.</div></div>",
-                        "zh": "<div class='simple-features'><div class='simple-item'><strong>精選專案</strong><br>我主要項目的詳細描述</div><div class='simple-item'><strong>GitHub 作品集</strong><br>完整的儲存庫收藏包含語言統計和專案資訊。</div></div>"
+                        "en": "<div class='simple-features'><div class='simple-item'><strong>Featured Projects</strong><br><p>Detailed descriptions of my key projects.</p></div><div class='simple-item'><strong>GitHub Portfolio</strong><br><p>Complete repository collection with language statistics and project details.</p></div></div>",
+                        "zh": "<div class='simple-features'><div class='simple-item'><strong>精選專案</strong><br><p>我主要項目的詳細描述</p></div><div class='simple-item'><strong>GitHub 作品集</strong><br><p>完整的儲存庫收藏包含語言統計和專案資訊。</p></div></div>"
                     }
                 },
                 {

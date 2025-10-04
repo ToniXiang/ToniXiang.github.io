@@ -75,6 +75,13 @@ function createRaindrop() {
     raindrop.classList.add('raindrop');
     raindrop.style.left = Math.random() * window.innerWidth + 'px';
     
+    // 記錄雨滴創建時間（僅在 JS 中記錄，不存 localStorage）
+    const now = new Date();
+    const timeString = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+    
+    // 更新右側時間顯示
+    updateRaindropTimeDisplay(timeString);
+    
     // 雨滴大小變化（更細長）
     const width = Math.random() * 3 + 2;  // 2-5px 寬度
     const height = Math.random() * 8 + 12; // 12-20px 高度
@@ -99,6 +106,17 @@ function createRaindrop() {
         createSplash(raindrop);
         raindrop.remove();
     }, parseInt(raindrop.style.animationDuration) * 1000);
+}
+
+// 更新雨滴時間顯示
+let lastDisplayedTime = '';
+function updateRaindropTimeDisplay(timeString) {
+    const timeDisplay = document.getElementById('raindropTimeDisplay');
+    if (timeDisplay && timeString !== lastDisplayedTime) {
+        timeDisplay.textContent = timeString;
+        timeDisplay.classList.add('active');
+        lastDisplayedTime = timeString;
+    }
 }
 
 function createSplash(raindrop) {
@@ -132,6 +150,14 @@ function startRain() {
 function stopRain() {
     clearInterval(rainInterval);
     rainInterval = null;
+    // 清空時間顯示
+    const timeDisplay = document.getElementById('raindropTimeDisplay');
+    if (timeDisplay) {
+        timeDisplay.textContent = '';
+        timeDisplay.classList.remove('active');
+    }
+    // 重置最後顯示的時間
+    lastDisplayedTime = '';
 }
 
 function toggleRain() {

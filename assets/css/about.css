@@ -147,7 +147,9 @@
     fill: currentColor;
     opacity: 0.9;
 }
-
+.contact-item span{
+    color: var(--text-color);
+}
 .education-list {
     display: flex;
     flex-direction: column;
@@ -266,6 +268,7 @@
     border-radius: 8px;
     background: rgba(95, 108, 175, 0.03);
     transition: all 0.2s ease;
+    color: var(--text-color);
 }
 
 .achievement-item:hover {

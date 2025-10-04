@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadDefaultTheme();
     initializeModalEvents();
     setupMenuHover();
+    setupKeyboardEvents();
 });
 // Loading 加載照片的動畫
 function initializeLoadingScreens() {
@@ -90,8 +91,7 @@ function loadNavigationAndFooter() {
         <div class="sidebar-header">
             <div class="brand-container">
                 <div class="brand-info">
-                    <h3>陳國翔</h3>
-                    <span class="brand-subtitle">網頁設計作品</span>
+                    <h3>側邊欄</h3>
                 </div>
             </div>
         </div>
@@ -147,6 +147,13 @@ function loadNavigationAndFooter() {
                 <div class="nav-indicator"></div>
             </nav>
         </div>
+        <div class="nav-section">
+            <div class="nav-label">資訊</div>
+            <div class="sidebar-footer">
+                <p>ToniXiang</p>
+                <p>網頁設計作品</p>
+            </div>
+        </div>
         `;
     foot.innerHTML = `
         <div class="footer-content">
@@ -176,6 +183,7 @@ function loadNavigationAndFooter() {
                         <li><a href="index.html">主要頁面</a></li>
                         <li><a href="project.html">作品展示</a></li>
                         <li><a href="about.html">關於我</a></li>
+                        <li><a href="changelog.html">更新日誌</a></li>
                     </ul>
                 </div>
                 <div class="farea farea-tools">
@@ -183,6 +191,7 @@ function loadNavigationAndFooter() {
                     <ul>
                         <li><a href="https://code.visualstudio.com/" target="_blank">VSCode</a></li>
                         <li><a href="https://github.com/features/copilot" target="_blank">GitHub Copilot</a></li>
+                        <li><a href="https://github.com/features/copilot/cli/" target="_blank">GitHub Copilot CLI</a></li>
                         <li><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer" target="_blank">Live Server</a></li>
                     </ul>
                 </div>
@@ -191,10 +200,26 @@ function loadNavigationAndFooter() {
                     <ul>
                         <li><a href="https://navnav.co" target="_blank">NavNav+</a></li>
                         <li><a href="https://bootstrapmade.com" target="_blank">Bootstrap Templates</a></li>
+                        <li><a href="https://dribbble.com/" target="_blank">Dribbble</a></li>
                     </ul>
                 </div>
             </div>
         </div>`;
+    
+    // 創建背景遮罩
+    if (!document.querySelector('.sidebar-overlay')) {
+        const overlay = document.createElement('div');
+        overlay.className = 'sidebar-overlay';
+        overlay.onclick = closeSidebar;
+        document.body.appendChild(overlay);
+    }
+    
+    // 防止點擊側邊欄時關閉側邊欄
+    if (blogTitle) {
+        blogTitle.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
 }
 // 開啟與關閉的導航欄動畫
 function toggleMenu() {
@@ -203,13 +228,15 @@ function toggleMenu() {
     const navItems = blogTitle.querySelectorAll('.nav-item');
     const sidebarHeader = blogTitle.querySelector('.sidebar-header');
     const sidebarFooter = blogTitle.querySelector('.sidebar-footer');
+    const overlay = document.querySelector('.sidebar-overlay');
     
     blogTitle.classList.toggle('show');
     
     const currentSrc = menuIcon ? menuIcon.getAttribute('src') : '';
     if (currentSrc && currentSrc.indexOf('menu.svg') !== -1) {
         blogTitle.classList.add('show');
-        if (menuIcon) menuIcon.setAttribute('src', 'assets/images/close.svg');
+        if (overlay) overlay.classList.add('show');
+        if (menuIcon) menuIcon.setAttribute('src', 'assets/images/chevron_right.svg');
         
         // 添加進入動畫
         setTimeout(() => {
@@ -234,6 +261,32 @@ function toggleMenu() {
         
     } else {
         blogTitle.classList.remove('show');
+        if (overlay) overlay.classList.remove('show');
+        if (menuIcon) menuIcon.setAttribute('src', 'assets/images/menu.svg');
+        
+        // 重置動畫
+        if (sidebarHeader) sidebarHeader.style.animation = '';
+        if (sidebarFooter) sidebarFooter.style.animation = '';
+        navItems.forEach(item => {
+            item.style.animation = '';
+            item.style.opacity = '';
+            item.style.transform = '';
+        });
+    }
+}
+
+// 關閉側邊欄函數
+function closeSidebar() {
+    const blogTitle = document.querySelector('.blogTitle');
+    const menuIcon = document.querySelector('.menu img.icon');
+    const overlay = document.querySelector('.sidebar-overlay');
+    const navItems = blogTitle.querySelectorAll('.nav-item');
+    const sidebarHeader = blogTitle.querySelector('.sidebar-header');
+    const sidebarFooter = blogTitle.querySelector('.sidebar-footer');
+    
+    if (blogTitle && blogTitle.classList.contains('show')) {
+        blogTitle.classList.remove('show');
+        if (overlay) overlay.classList.remove('show');
         if (menuIcon) menuIcon.setAttribute('src', 'assets/images/menu.svg');
         
         // 重置動畫
@@ -255,6 +308,7 @@ function setupMenuHover(){
     const menuEl = document.querySelector('.menu');
     const blogTitle = document.querySelector('.blogTitle');
     const menuIcon = document.querySelector('.menu img.icon');
+    const overlay = document.querySelector('.sidebar-overlay');
     const navItems = blogTitle ? blogTitle.querySelectorAll('.nav-item') : [];
     const sidebarHeader = blogTitle ? blogTitle.querySelector('.sidebar-header') : null;
     const sidebarFooter = blogTitle ? blogTitle.querySelector('.sidebar-footer') : null;
@@ -264,7 +318,8 @@ function setupMenuHover(){
     menuEl.addEventListener('mouseenter', ()=>{
         if(blogTitle.classList.contains('show')) return;
         blogTitle.classList.add('show');
-        if (menuIcon) menuIcon.setAttribute('src', 'assets/images/close.svg');
+        if (overlay) overlay.classList.add('show');
+        if (menuIcon) menuIcon.setAttribute('src', 'assets/images/chevron_right.svg');
 
         // 添加進入動畫（複製 toggleMenu 中的動畫段落）
         setTimeout(() => {
@@ -288,6 +343,16 @@ function setupMenuHover(){
         }, 100);
     });
 }
+
+// 設置鍵盤事件
+function setupKeyboardEvents() {
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeSidebar();
+        }
+    });
+}
+
 // 點擊後跳轉頁面
 function redirectToPage(url) {
     window.location.href = url;

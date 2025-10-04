@@ -8,14 +8,9 @@ let filteredCommits = [];
 
 function setupEventListeners() {
     const typeFilter = document.getElementById('typeFilter');
-    const showAllCommits = document.getElementById('showAllCommits');
 
     if (typeFilter) {
         typeFilter.addEventListener('change', filterCommits);
-    }
-
-    if (showAllCommits) {
-        showAllCommits.addEventListener('change', filterCommits);
     }
 }
 
@@ -134,28 +129,12 @@ function setCachedCommits(commits, timestamp = null) {
 
 function filterCommits() {
     const typeFilter = document.getElementById('typeFilter');
-    const showAllCommits = document.getElementById('showAllCommits');
     const selectedType = typeFilter ? typeFilter.value : '';
-    const showAll = showAllCommits ? showAllCommits.checked : true;
-
-    let baseCommits = allCommits;
-
-    // 如果不顯示所有commit，則過濾掉自動化commit
-    if (!showAll) {
-        baseCommits = allCommits.filter(commit => {
-            const message = commit.commit.message.toLowerCase();
-            return !message.includes('chore(ci): update languages.json') &&
-                !message.includes('chore(ci): update commits.json') &&
-                !message.includes('update languages.json') &&
-                !message.includes('update commits.json');
-        });
-    }
-
-    // 根據類型過濾
+    // Always include all commits (including automated). Only filter by selected type if provided.
     if (!selectedType) {
-        filteredCommits = baseCommits;
+        filteredCommits = allCommits;
     } else {
-        filteredCommits = baseCommits.filter(commit => {
+        filteredCommits = allCommits.filter(commit => {
             const message = commit.commit.message.toLowerCase();
             return message.startsWith(selectedType + ':') ||
                 message.startsWith(selectedType + '(');

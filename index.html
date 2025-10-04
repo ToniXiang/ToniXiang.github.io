@@ -14,7 +14,7 @@
     <div id="background"></div>
     <header class="blogTitle"></header>
     <div class="menu" onclick="toggleMenu()">
-        <img src="assets/images/menu.svg" alt="首頁" width="20" height="20" class="icon" aria-hidden="true">
+        <img src="assets/images/menu.svg" alt="選單" width="20" height="20" class="icon" aria-hidden="true">
     </div>
     <main>
         <div class="hero-section">
@@ -26,9 +26,10 @@
                     <h1 class="hero-title">歡迎來到我的個人網頁</h1>
                     <p class="hero-description">這裡記錄了我的學習歷程、專案作品與個人發展。探索我的程式設計之旅，了解我的技術能力與成長軌跡。</p>
                     <div class="hero-actions">
-                        <button id="toggleRain" class="btn" title="畫面顯示雨滴特效 暫停需等待幾秒鐘">
+                        <button id="toggleRain" class="btn" title="畫面顯示雨滴特效及顯示時間">
                             <span class="btn-text">暫停雨滴</span>
                         </button>
+                        <div id="raindropTimeDisplay" class="raindrop-time-display"></div>
                     </div>
                 </div>
             </div>
