@@ -14,7 +14,14 @@ try {
     
     # Use git log with UTF-8 encoding
     $env:LC_ALL = "C.UTF-8"
-    $gitOutput = git -c core.quotepath=false log --pretty=format:"%H|%s|%an|%ae|%ai" -n $MaxCommits --encoding=UTF-8
+    
+    # If MaxCommits is very large (10000+), get all commits
+    if ($MaxCommits -ge 10000) {
+        Write-Host "Getting all commits (unlimited mode)..." -ForegroundColor Yellow
+        $gitOutput = git -c core.quotepath=false log --pretty=format:"%H|%s|%an|%ae|%ai" --encoding=UTF-8
+    } else {
+        $gitOutput = git -c core.quotepath=false log --pretty=format:"%H|%s|%an|%ae|%ai" -n $MaxCommits --encoding=UTF-8
+    }
     
     foreach ($line in $gitOutput) {
         if (-not [string]::IsNullOrWhiteSpace($line)) {
@@ -52,8 +59,10 @@ try {
         }
     }
     
-    # Limit to MaxCommits
-    $commits = $commits | Select-Object -First $MaxCommits
+    # Limit to MaxCommits only if it's not unlimited mode
+    if ($MaxCommits -lt 10000) {
+        $commits = $commits | Select-Object -First $MaxCommits
+    }
     
     # Create output data
     $outputData = @{

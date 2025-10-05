@@ -18,9 +18,9 @@ on:
         - 'true'
         - 'false'
       max_commits:
-        description: 'Maximum number of commits to include'
+        description: 'Maximum number of commits to include (0 for unlimited)'
         required: false
-        default: '100'
+        default: '0'
 
 jobs:
   update-commits:
@@ -35,12 +35,55 @@ jobs:
         fetch-depth: 0
         token: ${{ secrets.GITHUB_TOKEN }}
     
+    - name: Install jq
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y jq
+    
+    - name: Wait for other automation workflows to complete
+      if: github.event_name == 'push'
+      run: |
+        echo "Waiting for other automation workflows to complete..."
+        sleep 30
+        
+        # Check for any running workflows that might update files
+        max_attempts=10
+        attempt=1
+        
+        while [ $attempt -le $max_attempts ]; do
+          echo "Checking for running workflows (attempt $attempt/$max_attempts)..."
+          
+          # Get current running workflows
+          running_workflows=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/runs?status=in_progress" | \
+            jq -r '.workflow_runs[] | select(.name != "Update Commits Data") | .id')
+          
+          if [ -z "$running_workflows" ]; then
+            echo "No other automation workflows running. Proceeding..."
+            break
+          else
+            echo "Found running workflows: $running_workflows"
+            echo "Waiting 30 seconds before next check..."
+            sleep 30
+            attempt=$((attempt + 1))
+          fi
+        done
+        
+        if [ $attempt -gt $max_attempts ]; then
+          echo "Warning: Max attempts reached. Proceeding anyway..."
+        fi
+    
     - name: Generate commits data
       run: |
+        max_commits="${{ github.event.inputs.max_commits || '0' }}"
+        if [ "$max_commits" = "0" ]; then
+          max_commits="10000"  # Set to a very large number for unlimited
+        fi
+        
         if [ "${{ github.event.inputs.show_all_commits }}" = "true" ]; then
-          pwsh -File scripts/generate-commits.ps1 -MaxCommits ${{ github.event.inputs.max_commits || '100' }} -ShowAll
+          pwsh -File scripts/generate-commits.ps1 -MaxCommits $max_commits -ShowAll
         else
-          pwsh -File scripts/generate-commits.ps1 -MaxCommits ${{ github.event.inputs.max_commits || '100' }}
+          pwsh -File scripts/generate-commits.ps1 -MaxCommits $max_commits
         fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
