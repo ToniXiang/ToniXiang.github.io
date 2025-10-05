@@ -1,5 +1,4 @@
 {
-  "generated_at": "2025-10-05T03:01:13.670Z",
   "totals": {
     "C#": 616267,
     "C++": 238648,
@@ -10,7 +9,7 @@
     "HTML": 40898,
     "Python": 24037,
     "CMake": 19886,
-    "PowerShell": 7464,
+    "PowerShell": 7851,
     "Assembly": 6439,
     "C": 3279,
     "Swift": 2445,
@@ -18,5 +17,6 @@
     "Kotlin": 125,
     "Objective-C": 38
   },
+  "generated_at": "2025-10-05T03:47:51.467Z",
   "repo_count": 11
 }
