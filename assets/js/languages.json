@@ -1,6 +1,4 @@
 {
-  "generated_at": "2025-10-08T02:52:21.147Z",
-  "repo_count": 12,
   "totals": {
     "C#": 616267,
     "C++": 239025,
@@ -18,5 +16,7 @@
     "Dockerfile": 310,
     "Kotlin": 125,
     "Objective-C": 38
-  }
+  },
+  "repo_count": 12,
+  "generated_at": "2025-10-09T02:54:42.730Z"
 }
