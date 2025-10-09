@@ -1,55 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    checkLanguage();
+    // 頁面載入完成後直接載入 GitHub 儲存庫
+    loadGitHubRepos();
 });
-// 載入文章
-let currentArticleId = '';
-function loadArticle(articleId, event) {
-    window.scrollTo(0, 0);
-    currentArticleId = articleId;
-    const selectedLanguage = document.getElementById('languageSwitcher').value;
-    const repositoryLinkText = {
-        en: "Repository Link",
-        zh: "儲存庫連結"
-    };
 
-    fetch('assets/js/project.json')
-        .then(response => response.json())
-        .then(data => {
-            const article = data.articles[articleId];
-            const articleContent = document.getElementById('articleContent');
-            
-            let articleHTML = `
-                <header>
-                    <h2>${article.title[selectedLanguage]}</h2>
-                    ${article.tags[selectedLanguage].map(tag => `<span class="message-tags">${tag}</span>`).join('')}
-                    ${article.repositoryLink ? `<span class="message-tags"><a href="${article.repositoryLink}" target="_blank" class="link">${repositoryLinkText[selectedLanguage]}</a></span>` : ''}
-                </header>
-                ${article.sections.map(section => `
-                    <section>
-                        <h3>${section.title[selectedLanguage]}</h3>
-                        <div>${section.content[selectedLanguage]}</div>
-                    </section>
-                `).join('')}
-            `;
-            articleContent.innerHTML = articleHTML;
-            // 如果是 home 頁面，載入 GitHub 儲存庫表格
-            if (articleId === 'home') {
-                loadGitHubRepos();
-            }
-        });
-}
-
-// 以手機友善的方式載入 GitHub 倉庫列表（名稱左、日期右、描述在下）
+// 載入 GitHub 儲存庫表格
 function loadGitHubRepos() {
-    const selectedLanguage = document.getElementById('languageSwitcher').value;
     const tableContainer = document.querySelector('.github-table-container');
-    const headerName = selectedLanguage === 'en' ? 'Repository' : '\u5132\u5b58\u5eab';
-    const headerUpdated = selectedLanguage === 'en' ? 'Last Updated' : '\u6700\u5f8c\u66f4\u65b0';
     const listHTML = `
         <div class="github-list" aria-live="polite">
             <div class="list-header">
-                <span class="header-name">${headerName}</span>
-                <span class="header-updated">${headerUpdated}</span>
+                <span class="header-name">儲存庫</span>
+                <span class="header-updated">最後更新</span>
             </div>
             <ul id="repo-list" class="repo-list"></ul>
         </div>
@@ -60,7 +21,6 @@ function loadGitHubRepos() {
 
 // 獲取 GitHub 儲存庫資料
 function fetchGitHubRepos() {
-    const selectedLanguage = document.getElementById('languageSwitcher').value;
     const apiUrl = `https://api.github.com/users/ToniXiang/repos`;
     fetch(apiUrl)
         .then(response => response.json())
@@ -75,7 +35,7 @@ function fetchGitHubRepos() {
             // 依 updated_at 降冪排序（最新在前）
             originalRepos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
 
-        // 嘗試使用由 GitHub Actions 預先產生的靜態檔案 (assets/js/languages.json)
+            // 嘗試使用由 GitHub Actions 預先產生的靜態檔案 (assets/js/languages.json)
             const staticLangUrl = 'assets/js/languages.json';
             fetch(staticLangUrl)
                 .then(res => res.ok ? res.json() : Promise.reject())
@@ -84,7 +44,7 @@ function fetchGitHubRepos() {
                     renderLanguageSummary(languageTotals);
                 })
                 .catch(() => {
-            // 備援：逐倉庫抓取語言（可能遇到 API 速率限制）
+                    // 備援：逐倉庫抓取語言（可能遇到 API 速率限制）
                     const languageTotals = {};
                     const languageFetches = originalRepos.map(r => fetch(r.languages_url)
                         .then(res => res.ok ? res.json() : {})
@@ -110,7 +70,7 @@ function fetchGitHubRepos() {
                 summaryContainer.className = 'language-summary';
                 const totalBytes = Object.values(languageTotals).reduce((s, v) => s + v, 0) || 0;
                 const topLanguages = Object.entries(languageTotals).sort((a, b) => b[1] - a[1]);
-                summaryContainer.innerHTML = `<h4>${document.getElementById('languageSwitcher').value === 'en' ? 'Languages (all repos)' : '所有倉庫語言分佈'}</h4>`;
+                summaryContainer.innerHTML = `<h4>所有倉庫語言分佈</h4>`;
                 const list = document.createElement('div');
                 list.className = 'language-list';
                 topLanguages.forEach(([lang, bytes]) => {
@@ -133,7 +93,7 @@ function fetchGitHubRepos() {
 
             originalRepos.forEach(repo => {
                 const updatedDate = new Date(repo.updated_at).toLocaleDateString(
-                    selectedLanguage === 'en' ? 'en-US' : 'zh-Hant-TW',
+                    'zh-Hant-TW',
                     { year: 'numeric', month: '2-digit', day: '2-digit' }
                 );
 
@@ -144,7 +104,7 @@ function fetchGitHubRepos() {
                         <a class="repo-name" href="${repo.html_url}" target="_blank" rel="noopener noreferrer" title="${repo.name.replace(/_/g, ' ')}">${repo.name.replace(/_/g, ' ')}</a>
                         <time class="repo-updated">${updatedDate}</time>
                     </div>
-                    <p class="repo-desc">${repo.description || (selectedLanguage === 'en' ? 'No description' : '沒有任何描述')}</p>
+                    <p class="repo-desc">${repo.description || '沒有任何描述'}</p>
                 `;
                 repoList.appendChild(li);
             });
@@ -153,7 +113,7 @@ function fetchGitHubRepos() {
                 meta.id = 'repos-meta';
                 meta.className = 'repos-meta';
                 meta.innerHTML = `
-                    <div class="meta-row"><span class="meta-label">${selectedLanguage === 'en' ? 'Total repos' : '倉庫總數'}:</span> <strong>${totalRepos}</strong></div>
+                    <div class="meta-row"><span class="meta-label">倉庫總數:</span> <strong>${totalRepos}</strong></div>
                 `;
                 const container = document.querySelector('.github-list');
                 if (container) container.appendChild(meta);
@@ -161,26 +121,3 @@ function fetchGitHubRepos() {
         })
         .catch(error => console.error("Error fetching GitHub repos:", error));
 }
-// 頁面加載時檢查語言選擇
-function checkLanguage(){
-    let savedLanguage = localStorage.getItem('selectedLanguage');
-    const languageSwitcher = document.getElementById('languageSwitcher');
-    if (savedLanguage) {
-        languageSwitcher.value = savedLanguage;
-    }
-    else{
-        languageSwitcher.value = 'zh';
-    }
-    loadArticle('home');
-}
-
-// 中與英的語言選擇
-document.getElementById('languageSwitcher').addEventListener('change', function() {
-    const selectedLanguage = this.value;
-    localStorage.setItem('selectedLanguage', selectedLanguage);
-    if (currentArticleId === ''){
-        loadArticle('home');
-        return;
-    }
-    loadArticle(currentArticleId);
-});
