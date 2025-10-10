@@ -16,41 +16,26 @@
     <div class="menu" onclick="toggleMenu()">
         <img src="assets/images/menu.svg" alt="選單" width="20" height="20" class="icon" aria-hidden="true">
     </div>
-
+    // 未來開發blog頁面&加入圖片放大功能
     <main>
-        <div id="myModal" class="modal">
-            <div class="modal-overlay"></div>
-            <div class="modal-container">
-                <div class="modal-header">
-                    <h3 id="caption" class="modal-title"></h3>
-                    <button class="modal-close" aria-label="關閉圖片">
-                        <img src="assets/images/close.svg" alt="關閉" width="20" height="20" class="icon" aria-hidden="true">
-                    </button>
+        <section class="content-section">
+            <h2>您將在這裡發現</h2>
+            <div class='simple-features'>
+                <div class='simple-item'>
+                    <strong>精選專案</strong><br>
+                    <p>我主要項目的詳細描述</p>
                 </div>
-                <div class="modal-body">
-                    <img class="modal-content" id="img01" alt="Modal Image">
+                <div class='simple-item'>
+                    <strong>GitHub 作品集</strong><br>
+                    <p>完整的儲存庫收藏包含語言統計和專案資訊。</p>
                 </div>
             </div>
-        </div>
-            <section class="content-section">
-                <h2>您將在這裡發現</h2>
-                <div class='simple-features'>
-                    <div class='simple-item'>
-                        <strong>精選專案</strong><br>
-                        <p>我主要項目的詳細描述</p>
-                    </div>
-                    <div class='simple-item'>
-                        <strong>GitHub 作品集</strong><br>
-                        <p>完整的儲存庫收藏包含語言統計和專案資訊。</p>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="content-section">
-                <h2>我的儲存庫</h2>
-                <div class='github-table-container'></div>
-            </section>
-        </article>
+        </section>
+
+        <section class="content-section">
+            <h2>我的儲存庫</h2>
+            <div class='github-table-container'></div>
+        </section>
     </main>
     <footer></footer>
     <script src="assets/js/script.js" defer></script>
