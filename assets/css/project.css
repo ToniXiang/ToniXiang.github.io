@@ -685,3 +685,8 @@
     color: var(--primary-color);
     font-weight: 600;
 }
+
+article {
+    padding: 1.5rem;
+    box-sizing: border-box;
+}

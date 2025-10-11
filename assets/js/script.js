@@ -189,10 +189,9 @@ function loadNavigationAndFooter() {
                 <div class="farea farea-tools">
                     <h3>開發工具</h3>
                     <ul>
-                        <li><a href="https://code.visualstudio.com/" target="_blank">VSCode</a></li>
+                        <li><a href="https://www.jetbrains.com/webstorm/" target="_blank">WebStorm</a></li>
                         <li><a href="https://github.com/features/copilot" target="_blank">GitHub Copilot</a></li>
                         <li><a href="https://github.com/features/copilot/cli/" target="_blank">GitHub Copilot CLI</a></li>
-                        <li><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer" target="_blank">Live Server</a></li>
                     </ul>
                 </div>
                 <div class="farea farea-resources">
@@ -462,7 +461,6 @@ function initializeModalEvents() {
         const overlayEl = e.target.closest && e.target.closest('.modal-overlay');
         if (overlayEl) {
             closeModal();
-            return;
         }
     });
 }
