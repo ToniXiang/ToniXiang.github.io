@@ -1,12 +1,13 @@
 {
+  "repo_count": 13,
   "totals": {
     "C#": 621929,
     "C++": 254474,
-    "CSS": 88636,
+    "CSS": 85996,
     "Dart": 85066,
-    "JavaScript": 60772,
+    "JavaScript": 62512,
     "Vue": 59751,
-    "HTML": 41077,
+    "HTML": 41534,
     "Python": 24037,
     "CMake": 20039,
     "PowerShell": 7851,
@@ -17,6 +18,5 @@
     "Kotlin": 125,
     "Objective-C": 38
   },
-  "generated_at": "2025-10-14T02:55:11.057Z",
-  "repo_count": 13
+  "generated_at": "2025-10-14T05:07:24.312Z"
 }
