@@ -1,11 +1,25 @@
 .footer-chat-wrapper {
     position: relative;
     width: 100%;
+    height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    background: transparent;
+    padding: 28px 20px calc(12px + env(safe-area-inset-bottom, 0)) 20px;
+    box-sizing: border-box;
+    gap: 20px;
+}
+
+.footer-chat-wrapper canvas {
+    width: 60%;
+    height: 420px;
+    max-width: 600px;
     display: block;
-    margin: 30px 0 10px;
-    min-height: 240px;
-    padding-bottom: env(safe-area-inset-bottom, 0);
-    padding-right: env(safe-area-inset-right, 0);
+    background: transparent;
+    z-index: 1;
+    flex-shrink: 0;
 }
 
 .hero-section {
@@ -83,7 +97,7 @@ body:not(.dark-theme) {
     font-size: 3rem;
     opacity: 0.8;
 }
-.hero-section
+
 .hero-badge {
     display: inline-flex;
     align-items: center;
@@ -214,7 +228,7 @@ body:not(.dark-theme) {
 }
 
 .btn {
-    background: var(--bg-color);
+    background: var(--background-color);
 }
 
 .btn .btn-text {
@@ -223,6 +237,25 @@ body:not(.dark-theme) {
 
 .btn:hover {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1024px) {
+    .footer-chat-wrapper {
+        height: 360px;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .footer-chat-wrapper canvas {
+        width: 80%;
+        height: 250px;
+    }
+
+    .tech-blog-input {
+        width: 80%;
+        max-width: 500px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -257,6 +290,43 @@ body:not(.dark-theme) {
 
     .hero-actions {
         justify-content: center;
+    }
+
+    .footer-chat-wrapper {
+        height: 350px;
+        padding: 15px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-chat-wrapper canvas {
+        width: 90%;
+        height: 200px;
+    }
+
+    .tech-blog-input {
+        width: calc(100% - 20px);
+        max-width: none;
+        min-width: unset;
+    }
+
+    .input-container {
+        padding: 10px 12px;
+        min-height: 40px;
+    }
+
+    .input-text {
+        font-size: 13px;
+    }
+
+    .execute-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .status-bar {
+        padding: 6px 12px;
+        font-size: 10px;
     }
 }
 
@@ -319,58 +389,11 @@ body:not(.dark-theme) {
     }
 }
 
-.footer-chat-wrapper {
-    position: relative;
-    width: 100%;
-    height: 420px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    overflow: hidden;
-    background: transparent;
-    padding: 28px 12px calc(12px + env(safe-area-inset-bottom, 0)) 12px;
-    padding-right: calc(12px + env(safe-area-inset-right, 0));
-    box-sizing: border-box;
-}
-
-.footer-chat-wrapper canvas {
-    width: 100%;
-    height: 420px;
-    max-width: 1000px;
-    display: block;
-    background: transparent;
-    z-index: 1;
-}
-
-@media (max-width: 1024px) {
-    .footer-chat-wrapper {
-        height: 360px;
-    }
-
-    .footer-chat-wrapper canvas {
-        height: 360px;
-    }
-}
-
-@media (max-width: 768px) {
-    .footer-chat-wrapper {
-        height: 300px;
-        padding-top: 12px;
-        padding-right: calc(12px + env(safe-area-inset-right, 0));
-    }
-
-    .footer-chat-wrapper canvas {
-        height: 300px;
-    }
-}
-
 .tech-blog-input {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: calc(22px + env(safe-area-inset-bottom, 0));
-    width: calc(100% - 40px);
-    max-width: 920px;
+    position: static;
+    width: 35%;
+    max-width: 400px;
+    min-width: 280px;
     background: var(--code-bg, #1e1e1e);
     border: 2px solid var(--code-border, #333);
     border-radius: 8px;
@@ -379,6 +402,8 @@ body:not(.dark-theme) {
     pointer-events: auto;
     transition: all 0.3s ease;
     overflow: hidden;
+    flex-shrink: 0;
+    align-self: center;
 }
 
 .input-container {
@@ -394,13 +419,6 @@ body:not(.dark-theme) {
     align-items: center;
     gap: 8px;
     flex: 1;
-}
-
-.prompt-symbol {
-    color: var(--prompt-color, #4CAF50);
-    font-weight: bold;
-    font-size: 16px;
-    text-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
 }
 
 .input-text {
@@ -419,7 +437,7 @@ body:not(.dark-theme) {
     display: flex;
     align-items: center;
     gap: 6px;
-    background: linear-gradient(135deg, #2196F3, #21CBF3);
+    background: var(--secondary-color);
     border: none;
     color: white;
     padding: 8px 16px;
@@ -429,15 +447,10 @@ body:not(.dark-theme) {
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
 }
 
 .execute-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 
-        0 6px 20px rgba(33, 150, 243, 0.4),
-        0 0 20px rgba(33, 150, 243, 0.2);
-    background: linear-gradient(135deg, #1976D2, #00BCD4);
 }
 
 .execute-btn:active {
@@ -454,7 +467,7 @@ body:not(.dark-theme) {
 .btn-text {
     font-size: 12px;
     font-weight: 600;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
 }
 
 .status-bar {
@@ -491,7 +504,6 @@ body:not(.dark-theme) {
     50% { opacity: 0.5; }
 }
 
-/* 深色主題適配 */
 .dark-theme .tech-blog-input {
     --code-bg: #0d1117;
     --code-border: #30363d;
@@ -502,7 +514,6 @@ body:not(.dark-theme) {
     --status-text: #7d8590;
 }
 
-/* 淺色主題適配 */
 body:not(.dark-theme) .tech-blog-input {
     --code-bg: #f6f8fa;
     --code-border: #d0d7de;
@@ -524,8 +535,6 @@ body:not(.dark-theme) .execute-btn:hover {
         0 6px 20px rgba(9, 105, 218, 0.4),
         0 0 20px rgba(9, 105, 218, 0.2);
 }
-
-/* 響應式設計 */
 @media (max-width: 768px) {
     .tech-blog-input {
         width: calc(100% - 20px);
@@ -535,10 +544,6 @@ body:not(.dark-theme) .execute-btn:hover {
     .input-container {
         padding: 10px 12px;
         min-height: 40px;
-    }
-    
-    .prompt-symbol {
-        font-size: 14px;
     }
     
     .input-text {
@@ -614,7 +619,6 @@ body:not(.dark-theme) .execute-btn:hover {
     }
 }
 
-/* 雨滴濺起效果 */
 .raindrop-splash {
     position: fixed;
     width: 20px;
@@ -643,7 +647,6 @@ body:not(.dark-theme) .execute-btn:hover {
     }
 }
 
-/* ===== Timeline (learning-progress) ===== */
 .learning-progress {
     margin: 40px auto 10px;
     width: calc(100% - 40px);
@@ -738,7 +741,7 @@ body:not(.dark-theme) .execute-btn:hover {
     background: linear-gradient(90deg,
             var(--primary-color),
             var(--secondary-color));
-    width: 0%;
+    width: 0;
     transition: width 0.5s ease;
 }
 
@@ -749,13 +752,13 @@ body:not(.dark-theme) .execute-btn:hover {
 .timeline-content-area {
     position: relative;
     min-height: 300px;
-    max-height: 500px; /* 設定最大高度 */
+    max-height: 500px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
     padding: 32px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    overflow: hidden; /* 隱藏容器溢出 */
+    overflow: hidden;
 }
 
 .timeline-content {
@@ -769,15 +772,14 @@ body:not(.dark-theme) .execute-btn:hover {
     transform: translateY(20px);
     transition: all 0.4s ease;
     pointer-events: none;
-    overflow-y: auto; /* 添加垂直滾動 */
+    overflow-y: auto;
     overflow-x: hidden;
     scrollbar-width: thin;
     scrollbar-color: var(--primary-color) transparent;
-    scroll-behavior: smooth; /* 平滑滾動 */
-    overscroll-behavior: contain; /* 防止滾動鏈接 */
+    scroll-behavior: smooth;
+    overscroll-behavior: contain;
 }
 
-/* 自定義滾動條樣式 */
 .timeline-content::-webkit-scrollbar {
     width: 8px;
 }
@@ -785,21 +787,20 @@ body:not(.dark-theme) .execute-btn:hover {
 .timeline-content::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 4px;
-    margin: 4px 0; /* 添加上下邊距 */
+    margin: 4px 0;
 }
 
 .timeline-content::-webkit-scrollbar-thumb {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     border-radius: 4px;
     transition: background 0.3s ease;
-    min-height: 20px; /* 最小高度 */
+    min-height: 20px;
 }
 
 .timeline-content::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
 }
 
-/* 滾動條角落 */
 .timeline-content::-webkit-scrollbar-corner {
     background: transparent;
 }
@@ -810,7 +811,6 @@ body:not(.dark-theme) .execute-btn:hover {
     pointer-events: auto;
 }
 
-/* 滾動指示器 */
 .timeline-content-area::after {
     content: "";
     position: absolute;
@@ -828,7 +828,6 @@ body:not(.dark-theme) .execute-btn:hover {
     opacity: 1;
 }
 
-/* 當內容可滾動時添加陰影提示 */
 .timeline-content.active:not(.scrolled-to-bottom)::after {
     content: "";
     position: sticky;
@@ -846,31 +845,29 @@ body:not(.dark-theme) .execute-btn:hover {
     list-style: none;
     margin: 0;
     padding: 0;
-    counter-reset: timeline-counter; /* 初始化计数器 */
+    counter-reset: timeline-counter;
 }
 
 .timeline-content li {
     position: relative;
-    padding-left: 30px; /* 增加左边距以容纳数字 */
+    padding-left: 30px;
     margin: 16px 0;
     line-height: 1.7;
     color: var(--text-color);
     opacity: 0.9;
     font-size: 1rem;
-    counter-increment: timeline-counter; /* 递增计数器 */
+    counter-increment: timeline-counter;
 }
 
 .timeline-content li::before {
-    content: counter(timeline-counter); /* 显示计数器数字 */
+    content: counter(timeline-counter);
     position: absolute;
     left: 0;
     top: 0;
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: linear-gradient(135deg,
-            var(--primary-color),
-            var(--secondary-color));
+    background: var(--secondary-color);
     color: white;
     font-size: 12px;
     font-weight: 600;
@@ -933,7 +930,6 @@ body:not(.dark-theme) .timeline-line {
     background: rgba(0, 0, 0, 0.1);
 }
 
-/* 響應式設計 */
 @media (max-width: 768px) {
     .timeline-nav {
         padding: 15px;
@@ -956,7 +952,7 @@ body:not(.dark-theme) .timeline-line {
 
     .timeline-content-area {
         padding: 24px;
-        max-height: 400px; /* 移动设备上限制高度 */
+        max-height: 400px;
     }
 
     .timeline-content {
@@ -970,7 +966,7 @@ body:not(.dark-theme) .timeline-line {
     .timeline-content li {
         margin: 12px 0;
         font-size: 0.9rem;
-        padding-left: 26px; /* 移动端调整左边距 */
+        padding-left: 26px;
     }
     
     .timeline-content li::before {
@@ -994,7 +990,7 @@ body:not(.dark-theme) .timeline-line {
     .timeline-content-area {
         padding: 20px;
         border-radius: 12px;
-        max-height: 350px; /* 小屏幕设备上限制高度 */
+        max-height: 350px;
     }
 
     .timeline-content {
@@ -1004,8 +1000,7 @@ body:not(.dark-theme) .timeline-line {
         bottom: 0;
         padding: 20px;
     }
-    
-    /* 小屏幕设备上的数字圆圈优化 */
+
     .timeline-content li {
         padding-left: 24px;
     }
@@ -1016,7 +1011,6 @@ body:not(.dark-theme) .timeline-line {
         font-size: 10px;
     }
 
-    /* 移动设备上的滚动条优化 */
     .timeline-content::-webkit-scrollbar {
         width: 6px;
     }
@@ -1026,7 +1020,6 @@ body:not(.dark-theme) .timeline-line {
     }
 }
 
-/* Footer input theming */
 .dark-theme {
     --footer-input-bg: linear-gradient(180deg,
             rgba(255, 255, 255, 0.03),

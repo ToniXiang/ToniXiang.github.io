@@ -1,33 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    initializeLoadingScreens();
     loadNavigationAndFooter();
     loadDefaultTheme();
     initializeModalEvents();
     setupMenuHover();
     setupKeyboardEvents();
 });
-// Loading 加載照片的動畫
-function initializeLoadingScreens() {
-    const loadingScreens = document.querySelectorAll('.loadingScreen');
-    const images = document.querySelectorAll('.img-photo');
-    images.forEach((image, index) => {
-        const loadingScreen = loadingScreens[index];
-        image.addEventListener('load', () => {
-            if (loadingScreen) {
-                loadingScreen.style.display = 'none';
-            }
-            image.style.display = 'block';
-        });
-        image.addEventListener('error', () => {
-            if (loadingScreen) {
-                loadingScreen.style.display = 'none';
-            }
-        });
-        if (image.complete) {
-            image.dispatchEvent(new Event('load'));
-        }
-    });
-}
 // 載入預設主題
 function loadDefaultTheme() {
     const savedTheme = localStorage.getItem('theme');
@@ -98,7 +75,7 @@ function loadNavigationAndFooter() {
         
         <div class="nav-section">
             <div class="nav-label">導覽</div>
-            <nav class="nav-item${currentPage === 'index' ? ' active' : ''}" onclick="redirectToPage('index.html')">
+            <nav class="nav-item${currentPage === 'index'||currentPage==='' ? ' active' : ''}" onclick="redirectToPage('index.html')">
                 <div class="nav-icon">
                     <img src="assets/images/home.svg" alt="home" width="20" height="20" class="nav-icon-img" aria-hidden="true">
                 </div>

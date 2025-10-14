@@ -264,7 +264,7 @@ body>main {
     color: var(--text-color);
     font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     opacity: 0.8;
     transition: all 0.3s ease;
 }
@@ -284,7 +284,6 @@ footer {
     text-align: left;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
-    padding: 0;
     margin-top: 0;
     position: relative;
     overflow: hidden;
@@ -431,7 +430,6 @@ section>ul {
     --accent-color: var(--accent-color-dark);
     --img-color: var(--img-color-dark);
     --menu-color: var(--menu-color-dark);
-    --menu-bg: var(--menu-bg-dark);
     --menu-border: var(--menu-border-dark);
     --a-color: var(--a-color-dark);
     --sidebar-bg: var(--sidebar-bg-dark);
@@ -456,7 +454,6 @@ section>ul {
     --accent-color: var(--accent-color-dark);
     --img-color: var(--img-color-dark);
     --menu-color: var(--menu-color-dark);
-    --menu-bg: var(--menu-bg-dark);
     --menu-border: var(--menu-border-dark);
     --a-color: var(--a-color-dark);
     --icon-filter: invert(0) brightness(1) contrast(1);
@@ -482,7 +479,6 @@ section>ul {
     --accent-color: var(--accent-color-light);
     --img-color: var(--img-color-light);
     --menu-color: var(--menu-color-light);
-    --menu-bg: var(--menu-bg-light);
     --menu-border: var(--menu-border-light);
     --a-color: var(--a-color-light);
     --icon-filter: invert(0) brightness(0) contrast(1);
@@ -506,7 +502,6 @@ section>ul {
     opacity: 0;
     pointer-events: none;
     transition: opacity 320ms cubic-bezier(.2,.9,.2,1);
-    display: flex;
     align-items: center;
     justify-content: center;
     padding: 28px;
@@ -566,7 +561,6 @@ section>ul {
     background: rgba(0, 0, 0, 0.8);
     border-radius: 8px;
     backdrop-filter: blur(10px);
-    padding: 12px 24px;
 }
 
 .modal-title {
@@ -809,8 +803,6 @@ body.no-hover-effect {
     background: linear-gradient(to bottom, var(--primary-color), #fad0c4);
     border-radius: 10px;
     background-size: 10%;
-    background-repeat: no-repeat;
-    background-position: right center;
     position: relative;
     overflow: hidden;
 }
@@ -1105,3 +1097,4 @@ footer {
         transform: translateY(0);
     }
 }
+

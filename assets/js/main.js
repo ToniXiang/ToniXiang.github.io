@@ -136,10 +136,6 @@ function createSplash(raindrop) {
     }, 300);
 }
 
-function getRandomNumber(n) {
-  return Math.floor(Math.random() * n) + 1;
-}
-
 let rainInterval = null;
 function startRain() {
     if (!rainInterval) {

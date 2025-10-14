@@ -10,15 +10,12 @@
     }
 }
 
-.mobile-col,
-.expand-btn {
+.mobile-col{
     display: none !important;
 }
 
 @media (max-width: 768px) {
-
-    .mobile-col,
-    .expand-btn {
+    .mobile-col{
         display: none !important;
     }
     .details-row {
@@ -516,9 +513,7 @@
 }
 
 #jobs .table-container td:first-child {
-    font-weight: 600;
     background: rgba(95, 108, 175, 0.05);
-    text-align: center;
     min-width: 100px;
 }
 
@@ -567,7 +562,6 @@ main {
         white-space: normal !important;
     }
 
-    /* 手機隱藏非主欄位 */
     .hide-on-mobile {
         display: none !important;
     }
@@ -575,23 +569,6 @@ main {
         display: table-cell !important;
         width: 48px;
         text-align: center;
-    }
-    .expand-btn {
-        background: none;
-        border: none;
-        padding: 4px;
-        cursor: pointer;
-        font-size: 1.5em;
-        color: var(--primary-color);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .expand-btn[aria-expanded="true"] .material-symbols-sharp {
-        transform: rotate(180deg);
-    }
-    .expand-btn .material-symbols-sharp {
-        transition: transform 0.2s;
     }
     .details-row td {
         background: #f8f9fa;
@@ -601,9 +578,6 @@ main {
         display: block;
         margin-top: 8px;
         color: var(--primary-color);
-    }
-    .detail-block p {
-        margin: 0 0 8px 0;
     }
 }
 
@@ -617,19 +591,6 @@ main {
     text-align: center;
     font-weight: bold;
     position: relative;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    border-radius: 2px;
-    transform: translateX(-50%) scaleX(0);
-    animation: expandLine 2s ease-out 0.5s forwards;
 }
 
 @keyframes fadeInUp {
