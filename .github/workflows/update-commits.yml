@@ -1,12 +1,6 @@
 name: Update Commits Data
 
 on:
-  push:
-    branches: [ main ]
-    # 排除更新 commits.json 的提交，避免無限循環
-    paths-ignore:
-      - 'assets/js/commits.json'
-      - 'assets/js/languages.json'
   workflow_dispatch:
     inputs:
       show_all_commits:
@@ -39,39 +33,6 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y jq
-    
-    - name: Wait for other automation workflows to complete
-      if: github.event_name == 'push'
-      run: |
-        echo "Waiting for other automation workflows to complete..."
-        sleep 30
-        
-        # Check for any running workflows that might update files
-        max_attempts=10
-        attempt=1
-        
-        while [ $attempt -le $max_attempts ]; do
-          echo "Checking for running workflows (attempt $attempt/$max_attempts)..."
-          
-          # Get current running workflows
-          running_workflows=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/${{ github.repository }}/actions/runs?status=in_progress" | \
-            jq -r '.workflow_runs[] | select(.name != "Update Commits Data") | .id')
-          
-          if [ -z "$running_workflows" ]; then
-            echo "No other automation workflows running. Proceeding..."
-            break
-          else
-            echo "Found running workflows: $running_workflows"
-            echo "Waiting 30 seconds before next check..."
-            sleep 30
-            attempt=$((attempt + 1))
-          fi
-        done
-        
-        if [ $attempt -gt $max_attempts ]; then
-          echo "Warning: Max attempts reached. Proceeding anyway..."
-        fi
     
     - name: Generate commits data
       run: |
