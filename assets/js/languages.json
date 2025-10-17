@@ -1,9 +1,8 @@
 {
-  "generated_at": "2025-10-16T02:57:37.017Z",
   "repo_count": 13,
   "totals": {
     "C#": 621929,
-    "C++": 253957,
+    "C++": 255195,
     "Dart": 88481,
     "CSS": 86509,
     "JavaScript": 62798,
@@ -18,5 +17,6 @@
     "Dockerfile": 310,
     "Kotlin": 125,
     "Objective-C": 38
-  }
+  },
+  "generated_at": "2025-10-17T02:55:51.083Z"
 }
