@@ -97,11 +97,18 @@ function fetchGitHubRepos() {
                     { year: 'numeric', month: '2-digit', day: '2-digit' }
                 );
 
+                // 產生顯示用名稱：去掉結尾的 "myproject"（不分大小寫），並移除尾端殘留的分隔符（- _ 或空白）。
+                const rawName = repo.name || '';
+                let base = rawName.replace(/myproject$/i, '');
+                base = base.replace(/[\- _\s]+$/, '');
+                const nameAfterStrip = base && base.trim() ? base : rawName;
+                const displayName = nameAfterStrip.replace(/_/g, ' ').trim();
+
                 const li = document.createElement('li');
                 li.className = 'repo-item';
                 li.innerHTML = `
                     <div class="repo-row">
-                        <a class="repo-name" href="${repo.html_url}" target="_blank" rel="noopener noreferrer" title="${repo.name.replace(/_/g, ' ')}">${repo.name.replace(/_/g, ' ')}</a>
+                        <a class="repo-name" href="${repo.html_url}" target="_blank" rel="noopener noreferrer" title="${rawName}">${displayName}</a>
                         <time class="repo-updated">${updatedDate}</time>
                     </div>
                     <p class="repo-desc">${repo.description || '沒有任何描述'}</p>

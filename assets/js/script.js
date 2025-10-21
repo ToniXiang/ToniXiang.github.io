@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     loadNavigationAndFooter();
     loadDefaultTheme();
-    initializeModalEvents();
     setupMenuHover();
     setupKeyboardEvents();
 });
@@ -26,16 +25,18 @@ function loadDefaultTheme() {
         applyTheme(savedTheme);
     } else {
         applySystemTheme();
-        const mqListener = (e) => {
+        const mqListener = () => {
             if (!localStorage.getItem('theme')) {
                 applySystemTheme();
             }
         };
-        if (prefersDarkMQ) {
-            if (typeof prefersDarkMQ.addEventListener === 'function') {
+
+        // Add listener with proper error handling
+        if (prefersDarkMQ && typeof prefersDarkMQ.addEventListener === 'function') {
+            try {
                 prefersDarkMQ.addEventListener('change', mqListener);
-            } else if (typeof prefersDarkMQ.addListener === 'function') {
-                prefersDarkMQ.addListener(mqListener);
+            } catch (error) {
+                console.warn('Failed to add media query listener:', error);
             }
         }
     }
@@ -167,8 +168,8 @@ function loadNavigationAndFooter() {
                     <h3>開發工具</h3>
                     <ul>
                         <li><a href="https://www.jetbrains.com/webstorm/" target="_blank">WebStorm</a></li>
+                        <li><a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> </li>
                         <li><a href="https://github.com/features/copilot" target="_blank">GitHub Copilot</a></li>
-                        <li><a href="https://github.com/features/copilot/cli/" target="_blank">GitHub Copilot CLI</a></li>
                     </ul>
                 </div>
                 <div class="farea farea-resources">
@@ -368,76 +369,4 @@ function applyTheme(themeName) {
             themeIconImg.setAttribute('alt', 'dark mode');
         }
     }
-}
-// 點擊圖片後顯示它的大圖
-function openModal(imgSrc, imgName) {
-    const modal = document.getElementById("myModal");
-    const modalImg = document.getElementById("img01");
-    const captionText = document.getElementById("caption");
-    
-    modal.classList.add('show');
-    modalImg.src = imgSrc;
-    captionText.textContent = imgName;
-    document.body.classList.add("no-hover-effect");
-    
-    document.body.style.overflow = 'hidden';
-    
-    document.addEventListener('keydown', handleModalKeydown);
-}
-
-// 關閉模態框
-function closeModal() {
-    const modal = document.getElementById("myModal");
-    modal.classList.remove('show');
-    document.body.classList.remove("no-hover-effect");
-    document.body.style.overflow = 'auto';
-    document.removeEventListener('keydown', handleModalKeydown);
-}
-
-// 處理模態框的鍵盤事件
-function handleModalKeydown(event) {
-    if (event.key === 'Escape') {
-        closeModal();
-    }
-}
-// 顯示提示訊息
-function showToast(message) {
-    const toast = document.createElement('div');
-    toast.className = 'toast';
-    toast.textContent = message;
-    toast.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: rgba(0, 0, 0, 0.8);
-        color: white;
-        padding: 12px 20px;
-        border-radius: 8px;
-        z-index: 1002;
-        animation: toastFadeIn 0.3s ease-out;
-    `;
-    
-    document.body.appendChild(toast);
-    
-    setTimeout(() => {
-        toast.style.animation = 'toastFadeOut 0.3s ease-out';
-        setTimeout(() => {
-            document.body.removeChild(toast);
-        }, 300);
-    }, 3000);
-}
-
-// 初始化模態框事件監聽
-function initializeModalEvents() {
-    document.addEventListener('click', function (e) {
-        const closeEl = e.target.closest && e.target.closest('.modal-close');
-        if (closeEl) {
-            closeModal();
-            return;
-        }
-        const overlayEl = e.target.closest && e.target.closest('.modal-overlay');
-        if (overlayEl) {
-            closeModal();
-        }
-    });
 }

@@ -112,7 +112,7 @@ body>main {
     font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.2px;
+    letter-spacing: 1px;
     margin-bottom: 10px;
     padding-left: 8px;
 }
@@ -282,7 +282,6 @@ hr {
 footer {
     padding: 20px 0;
     text-align: left;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
     margin-top: 0;
     position: relative;
@@ -396,6 +395,13 @@ section>ul {
     --sidebar-accent-light: #1a1a1a;
     --sidebar-shadow-light: rgba(0, 0, 0, 0.1);
     --sidebar-accent-rgb-light: 26, 26, 26;
+    --code-bg-light: #f6f8fa;
+    --code-border-light: #d0d7de;
+    --code-text-light: #24292f;
+    --prompt-color-light: #0969da;
+    --status-bg-light: rgba(255, 255, 255, 0.5);
+    --status-border-light: #d0d7de;
+    --status-text-light: #656d76;
 
     --background-color-dark: #0d1117;
     --text-color-dark: aliceblue;
@@ -409,7 +415,7 @@ section>ul {
     --menu-color-dark: #ffffff;
     --menu-border-dark: rgba(255, 255, 255, 0.15);
     --a-color-dark: #FFFFCC;
-    --sidebar-bg-dark: rgba(30, 30, 30, 0.98);
+    --sidebar-bg: rgba(30, 30, 30, 0.98);
     --sidebar-border-dark: rgba(255, 255, 255, 0.1);
     --sidebar-text-dark: #e0e0e0;
     --sidebar-text-secondary-dark: #FFFFCC;
@@ -418,6 +424,13 @@ section>ul {
     --sidebar-accent-dark: #e0e0e0;
     --sidebar-shadow-dark: rgba(0, 0, 0, 0.3);
     --sidebar-accent-rgb-dark: 224, 224, 224;
+    --code-bg-dark: #0d1117;
+    --code-border-dark: #30363d;
+    --code-text-dark: #e6edf3;
+    --prompt-color-dark: #7c3aed;
+    --status-bg-dark: rgba(0, 0, 0, 0.3);
+    --status-border-dark: #21262d;
+    --status-text-dark: #7d8590;
 
     --background-color: var(--background-color-dark);
     --text-color: var(--text-color-dark);
@@ -432,7 +445,6 @@ section>ul {
     --menu-color: var(--menu-color-dark);
     --menu-border: var(--menu-border-dark);
     --a-color: var(--a-color-dark);
-    --sidebar-bg: var(--sidebar-bg-dark);
     --sidebar-border: var(--sidebar-border-dark);
     --sidebar-text: var(--sidebar-text-dark);
     --sidebar-text-secondary: var(--sidebar-text-secondary-dark);
@@ -441,6 +453,15 @@ section>ul {
     --sidebar-accent: var(--sidebar-accent-dark);
     --sidebar-shadow: var(--sidebar-shadow-dark);
     --sidebar-accent-rgb: var(--sidebar-accent-rgb-dark);
+
+    /* Tech blog input default (dark theme) */
+    --code-bg: var(--code-bg-dark);
+    --code-border: var(--code-border-dark);
+    --code-text: var(--code-text-dark);
+    --prompt-color: var(--prompt-color-dark);
+    --status-bg: var(--status-bg-dark);
+    --status-border: var(--status-border-dark);
+    --status-text: var(--status-text-dark);
 }
 
 .dark-theme {
@@ -457,7 +478,6 @@ section>ul {
     --menu-border: var(--menu-border-dark);
     --a-color: var(--a-color-dark);
     --icon-filter: invert(0) brightness(1) contrast(1);
-    --sidebar-bg: var(--sidebar-bg-dark);
     --sidebar-border: var(--sidebar-border-dark);
     --sidebar-text: var(--sidebar-text-dark);
     --sidebar-text-secondary: var(--sidebar-text-secondary-dark);
@@ -466,6 +486,15 @@ section>ul {
     --sidebar-accent: var(--sidebar-accent-dark);
     --sidebar-shadow: var(--sidebar-shadow-dark);
     --sidebar-accent-rgb: var(--sidebar-accent-rgb-dark);
+
+    /* Tech blog input - Dark theme */
+    --code-bg: var(--code-bg-dark);
+    --code-border: var(--code-border-dark);
+    --code-text: var(--code-text-dark);
+    --prompt-color: var(--prompt-color-dark);
+    --status-bg: var(--status-bg-dark);
+    --status-border: var(--status-border-dark);
+    --status-text: var(--status-text-dark);
 }
 
 .light-theme {
@@ -491,6 +520,15 @@ section>ul {
     --sidebar-accent: var(--sidebar-accent-light);
     --sidebar-shadow: var(--sidebar-shadow-light);
     --sidebar-accent-rgb: var(--sidebar-accent-rgb-light);
+
+    /* Tech blog input - Light theme */
+    --code-bg: var(--code-bg-light);
+    --code-border: var(--code-border-light);
+    --code-text: var(--code-text-light);
+    --prompt-color: var(--prompt-color-light);
+    --status-bg: var(--status-bg-light);
+    --status-border: var(--status-border-light);
+    --status-text: var(--status-text-light);
 }
 
 .modal {
@@ -830,20 +868,37 @@ body.no-hover-effect {
 }
 
 .farea ul li a {
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
     color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 4px 0;
+    font-size: 0.9em;
+    display: block;
+    position: relative;
 }
 
-.farea ul li a span,
-.farea p span {
-    font-size: 1.5em;
+.farea ul li a::before {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    color: var(--primary-color);
+    font-weight: bold;
 }
 
 .farea ul li a:hover {
-    color: var(--primary-color);
-    text-decoration: underline;
+    color: var(--secondary-color);
+    transform: translateX(3px);
+    padding-left: 15px;
+}
+
+.farea ul li a:hover::before {
+    content: '>';
+    opacity: 1;
+    left: 0;
 }
 
 .farea-top h2 {
@@ -945,7 +1000,7 @@ h2::after {
 
 footer {
     background: var(--background-color);
-    border-top: 2px solid var(--primary-color);
+    border-top: 1px solid var(--sidebar-divider);
     color: var(--text-color);
     padding: 0;
     margin-top: 40px;
@@ -1057,11 +1112,31 @@ footer {
     padding: 4px 0;
     font-size: 0.9em;
     display: block;
+    position: relative;
+}
+
+.farea ul li a::before {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    color: var(--primary-color);
+    font-weight: bold;
 }
 
 .farea ul li a:hover {
-    color: var(--primary-color);
+    color: var(--secondary-color);
     transform: translateX(3px);
+    padding-left: 15px;
+}
+
+.farea ul li a:hover::before {
+    content: '>';
+    opacity: 1;
+    left: 0;
 }
 
 /* 側邊欄動畫 */
@@ -1097,4 +1172,3 @@ footer {
         transform: translateY(0);
     }
 }
-
