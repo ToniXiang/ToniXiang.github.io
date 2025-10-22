@@ -223,7 +223,7 @@
         width: 3px;
     }
     .timeline-dot {
-        left: calc(20px + 1.5px);
+        left: calc(20px + 1px);
         transform: translateX(-50%);
         width: 14px;
         height: 14px;
@@ -454,7 +454,7 @@
     text-align: left;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     position: relative;
 }
 
