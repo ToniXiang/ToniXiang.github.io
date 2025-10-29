@@ -595,7 +595,7 @@ section>ul {
     min-width: 200px;
     margin: 20px;
     padding: 24px 28px;
-    box-shadow: 0 4px 16px rgba(25, 118, 210, 0.10), 0 1.5px 6px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 16px rgba(25, 118, 210, 0.10), 0 1px 6px rgba(0, 0, 0, 0.06);
     background: linear-gradient(to bottom, var(--primary-color), #fad0c4);
     border-radius: 10px;
     background-size: 10%;
@@ -625,25 +625,25 @@ section>ul {
 }
 
 .farea ul li a {
-    color: var(--text-color);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    padding: 4px 0;
-    font-size: 0.9em;
-    display: block;
     position: relative;
+    color: var(--text-color);
+    padding-left: 20px;
 }
 
 .farea ul li a::before {
     content: '';
     position: absolute;
-    left: -15px;
+    left: -18px;
     top: 50%;
+    width: 12px;
+    height: 12px;
     transform: translateY(-50%);
+    background: currentColor;
+    -webkit-mask: url('../images/chevron_right.svg') no-repeat center;
+    mask: url('../images/chevron_right.svg') no-repeat center / contain;
     opacity: 0;
-    transition: all 0.3s ease;
-    color: var(--text-color);
-    font-weight: bold;
+    transition: opacity 0.2s ease, transform 0.2s ease, left 0.2s ease;
+    pointer-events: none;
 }
 
 .farea ul li a:hover {
@@ -652,9 +652,9 @@ section>ul {
 }
 
 .farea ul li a:hover::before {
-    content: '>';
     opacity: 1;
     left: 0;
+    transform: translateY(-50%) translateX(0);
 }
 
 .farea-top h2 {
@@ -861,28 +861,6 @@ footer {
     font-size: 0.9em;
     display: block;
     position: relative;
-}
-
-.farea ul li a::before {
-    content: '';
-    position: absolute;
-    left: -15px;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0;
-    transition: all 0.3s ease;
-    font-weight: bold;
-}
-
-.farea ul li a:hover {
-    transform: translateX(3px);
-    padding-left: 15px;
-}
-
-.farea ul li a:hover::before {
-    content: '>';
-    opacity: 1;
-    left: 0;
 }
 
 /* 側邊欄動畫 */

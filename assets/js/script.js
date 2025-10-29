@@ -235,7 +235,7 @@ function toggleMenu() {
     if (currentSrc && currentSrc.indexOf('menu.svg') !== -1) {
         blogTitle.classList.add('show');
         if (overlay) overlay.classList.add('show');
-        if (menuIcon) menuIcon.setAttribute('src', 'assets/images/chevron_right.svg');
+        if (menuIcon) menuIcon.setAttribute('src', 'assets/images/close.svg');
         
         // 添加進入動畫
         playSidebarEnterAnimation();
@@ -297,7 +297,7 @@ function setupMenuHover(){
         if(blogTitle.classList.contains('show')) return;
         blogTitle.classList.add('show');
         if (overlay) overlay.classList.add('show');
-        if (menuIcon) menuIcon.setAttribute('src', 'assets/images/chevron_right.svg');
+        if (menuIcon) menuIcon.setAttribute('src', 'assets/images/close.svg');
 
         // 添加進入動畫
         playSidebarEnterAnimation();
