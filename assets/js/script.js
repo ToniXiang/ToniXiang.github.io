@@ -47,15 +47,7 @@ function loadDefaultTheme() {
             if (newVal) {
                 applyTheme(newVal);
             } else {
-                const prefers = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
-                const sysTheme = (prefers && prefers.matches) ? 'dark-theme' : 'light-theme';
-                document.body.classList.remove('dark-theme', 'light-theme');
-                document.body.classList.add(sysTheme);
-                const themeIconImg = document.getElementById('theme-icon');
-                if (themeIconImg) {
-                    themeIconImg.setAttribute('src', 'assets/images/desktop_windows.svg');
-                    themeIconImg.setAttribute('alt', 'system preference');
-                }
+                applySystemTheme();
             }
         }
     });
@@ -198,6 +190,36 @@ function loadNavigationAndFooter() {
         });
     }
 }
+// 添加側邊欄進入動畫的共用函數
+function playSidebarEnterAnimation() {
+    const blogTitle = document.querySelector('.blogTitle');
+    if (!blogTitle) return;
+    
+    const navItems = blogTitle.querySelectorAll('.nav-item');
+    const sidebarHeader = blogTitle.querySelector('.sidebar-header');
+    const sidebarFooter = blogTitle.querySelector('.sidebar-footer');
+    
+    setTimeout(() => {
+        if (sidebarHeader) {
+            sidebarHeader.style.animation = 'slideInFromTop 0.6s cubic-bezier(0.4, 0.0, 0.2, 1) forwards';
+        }
+        
+        navItems.forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(30px)';
+            setTimeout(() => {
+                item.style.animation = `slideInFromRight 0.5s cubic-bezier(0.4, 0.0, 0.2, 1) ${index * 0.1}s forwards`;
+            }, 100);
+        });
+        
+        if (sidebarFooter) {
+            setTimeout(() => {
+                sidebarFooter.style.animation = 'slideInFromBottom 0.6s cubic-bezier(0.4, 0.0, 0.2, 1) forwards';
+            }, navItems.length * 100 + 200);
+        }
+    }, 100);
+}
+
 // 開啟與關閉的導航欄動畫
 function toggleMenu() {
     const blogTitle = document.querySelector('.blogTitle');
@@ -216,25 +238,7 @@ function toggleMenu() {
         if (menuIcon) menuIcon.setAttribute('src', 'assets/images/chevron_right.svg');
         
         // 添加進入動畫
-        setTimeout(() => {
-            if (sidebarHeader) {
-                sidebarHeader.style.animation = 'slideInFromTop 0.6s cubic-bezier(0.4, 0.0, 0.2, 1) forwards';
-            }
-            
-            navItems.forEach((item, index) => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateX(30px)';
-                setTimeout(() => {
-                    item.style.animation = `slideInFromRight 0.5s cubic-bezier(0.4, 0.0, 0.2, 1) ${index * 0.1}s forwards`;
-                }, 100);
-            });
-            
-            if (sidebarFooter) {
-                setTimeout(() => {
-                    sidebarFooter.style.animation = 'slideInFromBottom 0.6s cubic-bezier(0.4, 0.0, 0.2, 1) forwards';
-                }, navItems.length * 100 + 200);
-            }
-        }, 100);
+        playSidebarEnterAnimation();
         
     } else {
         blogTitle.classList.remove('show');
@@ -286,9 +290,6 @@ function setupMenuHover(){
     const blogTitle = document.querySelector('.blogTitle');
     const menuIcon = document.querySelector('.menu img.icon');
     const overlay = document.querySelector('.sidebar-overlay');
-    const navItems = blogTitle ? blogTitle.querySelectorAll('.nav-item') : [];
-    const sidebarHeader = blogTitle ? blogTitle.querySelector('.sidebar-header') : null;
-    const sidebarFooter = blogTitle ? blogTitle.querySelector('.sidebar-footer') : null;
 
     if(!menuEl || !blogTitle) return;
 
@@ -298,26 +299,8 @@ function setupMenuHover(){
         if (overlay) overlay.classList.add('show');
         if (menuIcon) menuIcon.setAttribute('src', 'assets/images/chevron_right.svg');
 
-        // 添加進入動畫（複製 toggleMenu 中的動畫段落）
-        setTimeout(() => {
-            if (sidebarHeader) {
-                sidebarHeader.style.animation = 'slideInFromTop 0.6s cubic-bezier(0.4, 0.0, 0.2, 1) forwards';
-            }
-
-            navItems.forEach((item, index) => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateX(30px)';
-                setTimeout(() => {
-                    item.style.animation = `slideInFromRight 0.5s cubic-bezier(0.4, 0.0, 0.2, 1) ${index * 0.1}s forwards`;
-                }, 100);
-            });
-
-            if (sidebarFooter) {
-                setTimeout(() => {
-                    sidebarFooter.style.animation = 'slideInFromBottom 0.6s cubic-bezier(0.4, 0.0, 0.2, 1) forwards';
-                }, navItems.length * 100 + 200);
-            }
-        }, 100);
+        // 添加進入動畫
+        playSidebarEnterAnimation();
     });
 }
 
@@ -369,4 +352,35 @@ function applyTheme(themeName) {
             themeIconImg.setAttribute('alt', 'dark mode');
         }
     }
+}
+
+// 創建可重用的 IntersectionObserver 工具函數
+function createVisibilityObserver(options = {}) {
+    const {
+        threshold = 0.2,
+        rootMargin = '0px',
+        className = 'visible',
+        callback = null,
+        unobserveAfter = true
+    } = options;
+
+    const observerOptions = {
+        threshold,
+        rootMargin
+    };
+
+    return new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (callback) {
+                    callback(entry.target);
+                } else {
+                    entry.target.classList.add(className);
+                }
+                if (unobserveAfter) {
+                    obs.unobserve(entry.target);
+                }
+            }
+        });
+    }, observerOptions);
 }

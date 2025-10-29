@@ -61,14 +61,7 @@ function initTimeline() {
         });
     });
 }
-const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            obs.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.2 });
+const observer = createVisibilityObserver({ threshold: 0.2 });
 // 新增雨滴特效(預設關閉)
 function createRaindrop() {
     const raindrop = document.createElement('div');
