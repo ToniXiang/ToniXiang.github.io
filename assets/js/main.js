@@ -33,11 +33,11 @@ function initTimeline() {
         }
     }
     
-    // 預設選中第一個項目 (2023年)
+    // 預設選中第一個項目 (2025年)
     if (timelineItems.length > 0) {
-        timelineItems[0].classList.add('active');
+        timelineItems[5].classList.add('active');
         // 檢查第一個內容是否需要滾動
-        const firstContent = document.getElementById('content-2023');
+        const firstContent = document.getElementById('content-2025');
         setTimeout(() => checkScrollable(firstContent), 100);
     }
     

@@ -653,30 +653,12 @@ body:not(.dark-theme) .timeline-nav h3 {
     border-color: rgba(0, 0, 0, 0.08);
 }
 
-/* Vertical guide line */
-.timeline-nav::before {
-    content: "";
-    position: absolute;
-    left: 8px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: rgba(255, 255, 255, 0.15);
-}
-
-.dark-theme .timeline-nav::before {
-    background: rgba(255, 255, 255, 0.15);
-}
-
-body:not(.dark-theme) .timeline-nav::before {
-    background: rgba(0, 0, 0, 0.1);
-}
-
 .timeline-item {
     position: relative;
     padding-left: 28px; /* space for dot */
     margin: 10px 0;
     transition: transform 0.2s ease;
+    cursor: pointer;
 }
 
 .timeline-item:hover {
@@ -696,16 +678,11 @@ body:not(.dark-theme) .timeline-nav::before {
     transition: all 0.3s ease;
 }
 
-.timeline-item.active .timeline-dot {
-    background: var(--primary-color);
-}
-
 .timeline-year {
     font-size: 1rem;
     line-height: 1.6;
     color: var(--text-color);
     opacity: 0.7;
-    cursor: pointer;
     transition: opacity 0.3s ease, color 0.3s ease;
 }
 
@@ -820,7 +797,6 @@ body:not(.dark-theme) .timeline-nav::before {
 .timeline-content a::after { content: ''; position: absolute; left: 0; bottom: 0; height: 2px; width: 0; background: transparent; transition: width 220ms ease, background 220ms ease; }
 .timeline-content a:hover::after { width: 100%; background: var(--primary-color); }
 
-/* Timeline content scrollbar styling - theme aware */
 .timeline-content::-webkit-scrollbar {
     width: 8px;
 }
@@ -861,7 +837,6 @@ body:not(.dark-theme) .timeline-nav::before {
     scrollbar-color: var(--primary-color) rgba(255, 255, 255, 0.05);
 }
 
-/* Light theme scrollbar adjustments */
 body:not(.dark-theme) .timeline-content::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.05);
 }
@@ -870,47 +845,44 @@ body:not(.dark-theme) .timeline-content {
     scrollbar-color: var(--primary-color) rgba(0, 0, 0, 0.05);
 }
 
-@media (max-width: 768px) {
-    .learning-progress {
-        display: block;
-    }
-    .timeline-nav {
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        padding: 15px;
-        margin-bottom: 30px;
-    }
-    .timeline-nav h3 {
-        margin: 0 12px 0 0;
-        font-size: 0.75rem;
-        opacity: 0.65;
-        padding: 4px 8px;
-        flex: 0 0 auto;
-    }
-    .timeline-nav::before {
-        display: none;
-    }
-    .timeline-item {
-        padding-left: 0;
-        margin: 0 10px;
-    }
-    .timeline-dot {
-        position: static;
-        transform: none;
-        margin-bottom: 6px;
-    }
-}
+
 
 @media (max-width: 480px) {
-    .timeline-nav {
-        padding: 10px;
-        margin-bottom: 20px;
+    .learning-progress {
+        margin: 24px auto 16px;
+        width: calc(100% - 16px);
     }
-    .timeline-nav h3 {
-        font-size: 0.72rem;
-        padding: 3px 8px;
-        letter-spacing: 0.18em;
+
+    .timeline-nav {
+        padding: 12px;
+        margin-bottom: 20px;
+        gap: 6px;
+    }
+
+    .timeline-item {
+        min-width: 48px;
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+
+    .timeline-year {
+        font-size: 0.8rem;
+    }
+
+    .timeline-content-area {
+        padding: 20px;
+        max-height: 350px;
+        min-height: 300px;
+    }
+
+    .timeline-content {
+        padding: 20px;
+    }
+
+    .timeline-content li {
+        padding: 14px;
+        font-size: 0.85rem;
+        margin: 10px 0;
     }
 }
 
@@ -932,36 +904,115 @@ body:not(.dark-theme) .timeline-line {
     background: rgba(0, 0, 0, 0.1);
 }
 
+/* Mobile Timeline - Simplified Horizontal Selection */
 @media (max-width: 768px) {
+    .learning-progress {
+        display: block;
+        margin: 30px auto 20px;
+        width: calc(100% - 24px);
+    }
+
     .timeline-nav {
-        padding: 15px;
-        margin-bottom: 30px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        gap: 8px;
+        padding: 16px;
+        margin-bottom: 24px;
+        border-radius: 12px;
+        min-width: 0;
+    }
+
+    .timeline-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .dark-theme .timeline-nav {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    body:not(.dark-theme) .timeline-nav {
+        background: rgba(0, 0, 0, 0.02);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .timeline-nav h3 {
+        display: none;
+    }
+
+    .timeline-item {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 16px;
+        margin: 0;
+        border-radius: 8px;
+        border: 1px solid transparent;
+        background: transparent;
+        min-width: 52px;
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+
+    .timeline-item:hover {
+        transform: translateY(-1px);
+    }
+
+    .dark-theme .timeline-item {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    body:not(.dark-theme) .timeline-item {
+        background: rgba(255, 255, 255, 0.6);
+        border-color: rgba(0, 0, 0, 0.08);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .timeline-item.active {
+        background: var(--primary-color) !important;
+        border-color: var(--primary-color) !important;
+        transform: translateY(-2px);
+    }
+
+    .timeline-item.active .timeline-year {
+        color: white !important;
+        font-weight: 600;
     }
 
     .timeline-dot {
-        width: 14px;
-        height: 14px;
-        margin-bottom: 6px;
+        display: none;
     }
 
     .timeline-year {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-align: center;
+        white-space: nowrap;
+        transition: all 0.2s ease;
+        color: var(--text-color);
+        opacity: 0.8;
     }
 
     .timeline-line {
-        top: -15px;
+        display: none;
     }
 
     .timeline-content-area {
         padding: 24px;
         max-height: 400px;
+        min-height: 320px;
     }
 
     .timeline-content {
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
         padding: 24px;
     }
 
@@ -972,43 +1023,6 @@ body:not(.dark-theme) .timeline-line {
     }
 }
 
-@media (max-width: 480px) {
-    .learning-progress {
-        margin: 28px auto 8px;
-        width: calc(100% - 20px);
-    }
-
-    .timeline-nav {
-        padding: 10px;
-        margin-bottom: 20px;
-    }
-
-    .timeline-content-area {
-        padding: 20px;
-        border-radius: 12px;
-        max-height: 350px;
-    }
-
-    .timeline-content {
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        padding: 20px;
-    }
-
-    .timeline-content li {
-        padding: 16px;
-    }
-
-    .timeline-content::-webkit-scrollbar {
-        width: 6px;
-    }
-
-    .timeline-content {
-        scrollbar-width: thin;
-    }
-}
 
 .timeline-item.active .timeline-dot::after {
     content: '';
@@ -1037,46 +1051,7 @@ body:not(.dark-theme) .timeline-line {
     --footer-input-border: rgba(0, 0, 0, 0.08);
 }
 
-@media (max-width: 768px) {
-    .timeline-nav {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        gap: 12px;
-        padding: 12px 12px;
-        scroll-snap-type: x proximity;
-    }
-    .timeline-item {
-        flex: 0 0 auto;
-        display: inline-flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        scroll-snap-align: center;
-        padding: 8px 10px;
-        border-radius: 12px;
-        border: 1px solid transparent;
-        background: transparent;
-    }
-    .dark-theme .timeline-item {
-        background: rgba(255, 255, 255, 0.04);
-        border-color: rgba(255, 255, 255, 0.12);
-    }
-    body:not(.dark-theme) .timeline-item {
-        background: rgba(0, 0, 0, 0.02);
-        border-color: rgba(0, 0, 0, 0.08);
-    }
-    .timeline-item.active {
-        border-color: var(--primary-color);
-    }
-    .timeline-item.active .timeline-dot::after {
-        width: 12px;
-        height: 12px;
-        transform: translate(-50%, -50%);
-    }
-    .timeline-dot {
-        position: relative;
-    }
-}
+
 
 /* Value Section - Minimalist Design */
 .value-section {
