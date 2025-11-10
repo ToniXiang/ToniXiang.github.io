@@ -597,47 +597,6 @@
     margin: 2rem 0 1.5rem 0;
 }
 
-.simple-item {
-    padding: 16px 20px;
-    border-radius: 8px;
-    background: var(--card-bg, rgba(255, 255, 255, 0.05));
-    border: 1px solid rgba(95, 108, 175, 0.1);
-    transition: all 0.2s ease;
-    position: relative;
-}
-
-.simple-item:hover {
-    background: rgba(95, 108, 175, 0.08);
-    border-color: rgba(95, 108, 175, 0.2);
-    transform: translateY(-2px);
-}
-
-.simple-item::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 4px;
-    height: 100%;
-    background: var(--secondary-color);
-    border-radius: 0 4px 4px 0;
-}
-
-.light-theme .simple-item:hover {
-    background: rgba(0, 0, 0, 0.03);
-}
-
-.simple-item strong {
-    color: var(--tertiary-color);
-    font-weight: 600;
-}
-.simple-item p {
-    margin: 0.5rem 0 0 0;
-    line-height: 1.4;
-    color: var(--text-color);
-    opacity: 0.9;
-}
-
 .repos-meta .meta-row {
     display: flex;
     justify-content: space-between;
