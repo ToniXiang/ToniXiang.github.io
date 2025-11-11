@@ -3,7 +3,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
 }
 
 body {
@@ -374,64 +374,81 @@ section>ul {
 }
 
 :root {
-    --background-color-light: #ffffff;
-    --text-color-light: #0d1117;
-    --primary-color-light: #5f6caf;
-    --secondary-color-light: #0056b3;
-    --tertiary-color-light: #0d1117;
-    --card-bg-light: #ffffff;
-    --card-border-light: rgba(34,41,122,0.06);
-    --accent-color-light: #5f6caf;
+    /* Light Theme Colors */
+    --background-color-light: #FFFFFF;
+    --text-color-light: #1F2328;
+    --primary-color-light: #0969DA;
+    --secondary-color-light: #218BFF;
+    --tertiary-color-light: #57606A;
+    --surface-light: #F6F8FA;
+    --card-bg-light: #F6F8FA;
+    --card-border-light: #D0D7DE;
+    --border-light: #D0D7DE;
+    --accent-color-light: #218BFF;
+    --hover-light: #388BFF;
     --img-color-light: #1990b8;
     --menu-color-light: #0d1117;
     --menu-border-light: rgba(0, 0, 0, 0.15);
-    --a-color-light: #0056b3;
-    --sidebar-bg-light: rgba(255, 255, 255, 0.98);
-    --sidebar-border-light: rgba(0, 0, 0, 0.06);
-    --sidebar-text-light: #1a1a1a;
-    --sidebar-text-secondary-light: #FFFFCC;
-    --sidebar-text-tertiary-light: #999;
-    --sidebar-divider-light: rgba(0, 0, 0, 0.08);
-    --sidebar-accent-light: #1a1a1a;
+    --a-color-light: #0969DA;
+    --sidebar-bg-light: rgba(246, 248, 250, 0.98);
+    --sidebar-border-light: #D0D7DE;
+    --sidebar-text-light: #1F2328;
+    --sidebar-text-secondary-light: #57606A;
+    --sidebar-text-tertiary-light: #57606A;
+    --sidebar-divider-light: #D0D7DE;
+    --sidebar-accent-light: #0969DA;
     --sidebar-shadow-light: rgba(0, 0, 0, 0.1);
-    --sidebar-accent-rgb-light: 26, 26, 26;
-    --code-bg-light: #f6f8fa;
-    --code-border-light: #d0d7de;
-    --code-text-light: #24292f;
-    --prompt-color-light: #0969da;
-    --status-bg-light: rgba(255, 255, 255, 0.5);
-    --status-border-light: #d0d7de;
-    --status-text-light: #656d76;
+    --sidebar-accent-rgb-light: 9, 105, 218;
+    --code-bg-light: #F6F8FA;
+    --code-border-light: #D0D7DE;
+    --code-text-light: #1F2328;
+    --prompt-color-light: #0969DA;
+    --status-bg-light: rgba(246, 248, 250, 0.8);
+    --status-border-light: #D0D7DE;
+    --status-text-light: #57606A;
+    --error-light: #F85149;
+    --warning-light: #D29922;
+    --success-light: #3FB950;
 
-    --background-color-dark: #0d1117;
-    --text-color-dark: aliceblue;
-    --primary-color-dark: #f0883e;
-    --secondary-color-dark: #0056b3;
-    --tertiary-color-dark: #FFFFCC;
-    --card-bg-dark: rgba(255,255,255,0.03);
-    --card-border-dark: rgba(255,255,255,0.06);
-    --accent-color-dark: #FFFFCC;
+    /* Dark Theme Colors */
+    --background-color-dark: #0D1117;
+    --text-color-dark: #C9D1D9;
+    --primary-color-dark: #58A6FF;
+    --secondary-color-dark: #1F6FEB;
+    --tertiary-color-dark: #8B949E;
+    --surface-dark: #161B22;
+    --card-bg-dark: #161B22;
+    --card-border-dark: #30363D;
+    --border-dark: #30363D;
+    --accent-color-dark: #1F6FEB;
+    --hover-dark: #388BFD;
     --img-color-dark: #333333;
     --menu-color-dark: #ffffff;
     --menu-border-dark: rgba(255, 255, 255, 0.15);
-    --a-color-dark: #FFFFCC;
-    --sidebar-bg: rgba(30, 30, 30, 0.98);
-    --sidebar-border-dark: rgba(255, 255, 255, 0.1);
-    --sidebar-text-dark: #e0e0e0;
-    --sidebar-text-secondary-dark: #FFFFCC;
-    --sidebar-text-tertiary-dark: #707070;
-    --sidebar-divider-dark: rgba(255, 255, 255, 0.1);
-    --sidebar-accent-dark: #e0e0e0;
+    --a-color-dark: #58A6FF;
+    --sidebar-bg-dark: rgba(22, 27, 34, 0.98);
+    --sidebar-border-dark: #30363D;
+    --sidebar-text-dark: #C9D1D9;
+    --sidebar-text-secondary-dark: #8B949E;
+    --sidebar-text-tertiary-dark: #8B949E;
+    --sidebar-divider-dark: #30363D;
+    --sidebar-accent-dark: #58A6FF;
     --sidebar-shadow-dark: rgba(0, 0, 0, 0.3);
-    --sidebar-accent-rgb-dark: 224, 224, 224;
-    --code-bg-dark: #0d1117;
-    --code-border-dark: #30363d;
-    --code-text-dark: #e6edf3;
-    --prompt-color-dark: #7c3aed;
-    --status-bg-dark: rgba(0, 0, 0, 0.3);
-    --status-border-dark: #21262d;
-    --status-text-dark: #7d8590;
-
+    --sidebar-accent-rgb-dark: 88, 166, 255;
+    --code-bg-dark: #161B22;
+    --code-border-dark: #30363D;
+    --code-text-dark: #C9D1D9;
+    --prompt-color-dark: #58A6FF;
+    --status-bg-dark: rgba(22, 27, 34, 0.8);
+    --status-border-dark: #30363D;
+    --status-text-dark: #8B949E;
+    --error-dark: #F85149;
+    --warning-dark: #D29922;
+    --success-dark: #3FB950;
+    /* default theme colors */
+    --background-color: var(--background-color-dark);
+    --text-color: var(--text-color-dark);
+    /* default theme colors */
     --background-color: var(--background-color-dark);
     --text-color: var(--text-color-dark);
     --primary-color: var(--primary-color-dark);
@@ -445,7 +462,6 @@ section>ul {
     --menu-color: var(--menu-color-dark);
     --menu-border: var(--menu-border-dark);
     --a-color: var(--a-color-dark);
-    --sidebar-border: var(--sidebar-border-dark);
     --sidebar-text: var(--sidebar-text-dark);
     --sidebar-text-secondary: var(--sidebar-text-secondary-dark);
     --sidebar-text-tertiary: var(--sidebar-text-tertiary-dark);
@@ -453,8 +469,6 @@ section>ul {
     --sidebar-accent: var(--sidebar-accent-dark);
     --sidebar-shadow: var(--sidebar-shadow-dark);
     --sidebar-accent-rgb: var(--sidebar-accent-rgb-dark);
-
-    /* Tech blog input default (dark theme) */
     --code-bg: var(--code-bg-dark);
     --code-border: var(--code-border-dark);
     --code-text: var(--code-text-dark);
@@ -478,7 +492,6 @@ section>ul {
     --menu-border: var(--menu-border-dark);
     --a-color: var(--a-color-dark);
     --icon-filter: invert(0) brightness(1) contrast(1);
-    --sidebar-border: var(--sidebar-border-dark);
     --sidebar-text: var(--sidebar-text-dark);
     --sidebar-text-secondary: var(--sidebar-text-secondary-dark);
     --sidebar-text-tertiary: var(--sidebar-text-tertiary-dark);
@@ -486,8 +499,6 @@ section>ul {
     --sidebar-accent: var(--sidebar-accent-dark);
     --sidebar-shadow: var(--sidebar-shadow-dark);
     --sidebar-accent-rgb: var(--sidebar-accent-rgb-dark);
-
-    /* Tech blog input - Dark theme */
     --code-bg: var(--code-bg-dark);
     --code-border: var(--code-border-dark);
     --code-text: var(--code-text-dark);
@@ -520,9 +531,13 @@ section>ul {
     --sidebar-accent: var(--sidebar-accent-light);
     --sidebar-shadow: var(--sidebar-shadow-light);
     --sidebar-accent-rgb: var(--sidebar-accent-rgb-light);
-
-    /* Tech blog input - Light theme */
     --code-bg: var(--code-bg-light);
+    --code-border: var(--code-border-light);
+    --code-text: var(--code-text-light);
+    --prompt-color: var(--prompt-color-light);
+    --status-bg: var(--status-bg-light);
+    --status-border: var(--status-border-light);
+    --status-text: var(--status-text-light);
     --code-border: var(--code-border-light);
     --code-text: var(--code-text-light);
     --prompt-color: var(--prompt-color-light);
