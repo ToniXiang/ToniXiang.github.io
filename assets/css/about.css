@@ -278,8 +278,7 @@
     border-radius: 20px;
     font-size: 0.8em;
     font-weight: 600;
-    color: var(--background-color);
-    background: var(--primary-color);
+    border: 1px solid var(--sidebar-divider);
     min-width: 60px;
     text-align: center;
 }
@@ -448,7 +447,7 @@
 }
 
 .table-container th {
-    background: var(--primary-color);
+    background: var(--secondary-color);
     color: white;
     padding: 16px 20px;
     text-align: left;
@@ -474,21 +473,21 @@
 }
 
 .table-container tr:hover td {
-    background: rgba(95, 108, 175, 0.05);
+    background: rgba(128, 128, 128, 0.02);
 }
 
 .table-container tr:nth-child(even) td {
-    background: rgba(95, 108, 175, 0.02);
+    background: transparent;
 }
 
 .table-container tr:nth-child(even):hover td {
-    background: rgba(95, 108, 175, 0.08);
+    background: rgba(128, 128, 128, 0.03);
 }
 
 .table-container td[rowspan] {
-    background: rgba(95, 108, 175, 0.1);
+    background: transparent;
     font-weight: 600;
-    color: var(--primary-color);
+    color: var(--text-color);
     position: relative;
 }
 
@@ -513,7 +512,7 @@
 }
 
 #jobs .table-container td:first-child {
-    background: rgba(95, 108, 175, 0.05);
+    background: transparent;
     min-width: 100px;
 }
 
@@ -571,7 +570,7 @@ main {
         text-align: center;
     }
     .details-row td {
-        background: #f8f9fa;
+        background: transparent;
         padding: 12px 8px;
     }
     .detail-block strong {

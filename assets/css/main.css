@@ -175,13 +175,12 @@ body:not(.dark-theme) {
 
 .raindrop-time-display {
     padding: 8px 16px;
-    background: var(--secondary-color);
     border: 1px solid var(--card-border);
     border-radius: 20px;
     font-family: 'Consolas', monospace;
     font-size: 14px;
     font-weight: bold;
-    color: aliceblue;
+    color: var(--text-color);
     min-width: 80px;
     text-align: center;
     transition: all 0.2s ease;
@@ -497,9 +496,9 @@ body:not(.dark-theme) {
     display: flex;
     align-items: center;
     gap: 6px;
-    background: var(--secondary-color);
-    border: none;
-    color: white;
+    background: transparent;
+    border: 1px solid var(--sidebar-divider);
+    color: var(--text-color);
     padding: 8px 16px;
     border-radius: 6px;
     font-family: inherit;
@@ -510,6 +509,8 @@ body:not(.dark-theme) {
 }
 
 .execute-btn:hover {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
     transform: translateY(-2px);
 }
 
@@ -584,21 +585,7 @@ body:not(.dark-theme) .tech-blog-input {
     --status-text: #656d76;
 }
 
-body:not(.dark-theme) .execute-btn {
-    background: linear-gradient(135deg, #0969da, #1976d2);
-    box-shadow: 0 4px 12px rgba(9, 105, 218, 0.3);
-}
 
-body:not(.dark-theme) .execute-btn:hover {
-    background: linear-gradient(135deg, #0550ae, #1565c0);
-    box-shadow: 
-        0 6px 20px rgba(9, 105, 218, 0.4),
-        0 0 20px rgba(9, 105, 218, 0.2);
-}
-
-/* =============================
-   Minimal Timeline Design
-   ============================= */
 .learning-progress {
     margin: 40px auto 60px;
     width: calc(100% - 40px);
@@ -606,7 +593,6 @@ body:not(.dark-theme) .execute-btn:hover {
     box-sizing: border-box;
 }
 
-/* Year Navigation - Horizontal Pills */
 .timeline-nav {
     display: flex;
     flex-wrap: wrap;
@@ -651,10 +637,8 @@ body:not(.dark-theme) .execute-btn:hover {
 
 .timeline-item.active .timeline-year {
     opacity: 1;
-    color: #fff;
-    background: var(--primary-color);
-    border-color: var(--primary-color);
-    box-shadow: 0 2px 12px rgba(var(--primary-color-rgb, 99, 102, 241), 0.3);
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
 }
 
 /* Content Area - Clean Card */
