@@ -250,7 +250,6 @@
 
 .achievement-section h4 {
     margin: 0 0 16px 0;
-    color: var(--secondary-color);
     font-size: 1.1em;
     padding-bottom: 8px;
     border-bottom: 2px solid rgba(95, 108, 175, 0.1);
@@ -576,7 +575,6 @@ main {
     .detail-block strong {
         display: block;
         margin-top: 8px;
-        color: var(--primary-color);
     }
 }
 

@@ -132,7 +132,7 @@ function loadNavigationAndFooter() {
                     <div class="footer-logo">
                         <img src="assets/images/me.png" class="footer-img" alt="個人網頁 Logo">
                         <div class="brand-info">
-                            <h2>陳國翔</h2>
+                            <h4>ToniXiang</h4>
                             <p class="brand-subtitle">個人網頁</p>
                         </div>
                     </div>

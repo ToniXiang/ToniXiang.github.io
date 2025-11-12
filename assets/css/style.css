@@ -94,12 +94,13 @@ body>main {
     display: none;
 }
 
-.brand-info h3 {
+.brand-info h4 {
     margin: 0 0 4px 0;
     color: var(--sidebar-text);
     font-size: 20px;
     font-weight: 700;
     letter-spacing: -0.5px;
+    text-decoration: none;
 }
 
 .nav-section {
@@ -156,23 +157,9 @@ body>main {
 .nav-item.active::before {
     background: var(--sidebar-accent);
 }
-.nav-item.active:hover::before {
-    background: #e0e0e0;
-}
-
-.nav-item:hover {
-    background-color: #333333;
-}
 
 .nav-item:hover .nav-text p {
-    color: var(--sidebar-text-secondary);
-}
-
-.nav-item:hover img.nav-icon-img {
-    filter: invert(0) brightness(1) contrast(1);
-}
-.nav-item:hover .nav-icon {
-    filter: invert(0) brightness(1) contrast(1);
+    color: var(--primary-color);
 }
 
 .nav-icon {
@@ -220,16 +207,14 @@ body>main {
     right: 16px;
     padding: 6px;
     border-radius: 10px;
-    border: 1px solid var(--menu-border, rgba(255, 255, 255, 0.15));
+    border: 1px solid var(--sidebar-divider, rgba(255, 255, 255, 0.15));
     cursor: pointer;
     z-index: 21;
-    background: var(--sidebar-bg);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: transparent;
     transition: all 0.2s ease;
 }
 
 .menu:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     transform: translateY(-1px);
     background-color: #333333;
 }
@@ -292,7 +277,7 @@ h1 {
     text-align: center;
     font-size: 30px;
     letter-spacing: 1px;
-    color: var(--primary-color);
+    color: var(--text-color);
 }
 
 h2 {
@@ -302,12 +287,12 @@ h2 {
     font-size: 20px;
     letter-spacing: 1px;
     position: relative;
-    color: var(--primary-color);
+    color: var(--text-color);
 }
 
 h3 {
     text-align: center;
-    color: var(--secondary-color);
+    color: var(--text-color);
     letter-spacing: 1px;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
@@ -325,7 +310,7 @@ h3 {
 }
 
 h4 {
-    color: var(--tertiary-color);
+    color: var(--text-color);
     text-decoration: underline;
     text-align: center;
 }
@@ -387,8 +372,6 @@ section>ul {
     --accent-color-light: #218BFF;
     --hover-light: #388BFF;
     --img-color-light: #1990b8;
-    --menu-color-light: #0d1117;
-    --menu-border-light: rgba(0, 0, 0, 0.15);
     --a-color-light: #0969DA;
     --sidebar-bg-light: rgba(246, 248, 250, 0.98);
     --sidebar-border-light: #D0D7DE;
@@ -423,8 +406,6 @@ section>ul {
     --accent-color-dark: #1F6FEB;
     --hover-dark: #388BFD;
     --img-color-dark: #333333;
-    --menu-color-dark: #ffffff;
-    --menu-border-dark: rgba(255, 255, 255, 0.15);
     --a-color-dark: #58A6FF;
     --sidebar-bg-dark: rgba(22, 27, 34, 0.98);
     --sidebar-border-dark: #30363D;
@@ -449,7 +430,6 @@ section>ul {
     --background-color: var(--background-color-dark);
     --text-color: var(--text-color-dark);
     /* default theme colors */
-    --background-color: var(--background-color-dark);
     --text-color: var(--text-color-dark);
     --primary-color: var(--primary-color-dark);
     --secondary-color: var(--secondary-color-dark);
@@ -459,8 +439,6 @@ section>ul {
     --icon-filter: invert(0) brightness(1) contrast(1);
     --accent-color: var(--accent-color-dark);
     --img-color: var(--img-color-dark);
-    --menu-color: var(--menu-color-dark);
-    --menu-border: var(--menu-border-dark);
     --a-color: var(--a-color-dark);
     --sidebar-text: var(--sidebar-text-dark);
     --sidebar-text-secondary: var(--sidebar-text-secondary-dark);
@@ -488,8 +466,6 @@ section>ul {
     --card-border: var(--card-border-dark);
     --accent-color: var(--accent-color-dark);
     --img-color: var(--img-color-dark);
-    --menu-color: var(--menu-color-dark);
-    --menu-border: var(--menu-border-dark);
     --a-color: var(--a-color-dark);
     --icon-filter: invert(0) brightness(1) contrast(1);
     --sidebar-text: var(--sidebar-text-dark);
@@ -518,8 +494,6 @@ section>ul {
     --card-border: var(--card-border-light);
     --accent-color: var(--accent-color-light);
     --img-color: var(--img-color-light);
-    --menu-color: var(--menu-color-light);
-    --menu-border: var(--menu-border-light);
     --a-color: var(--a-color-light);
     --icon-filter: invert(0) brightness(0) contrast(1);
     --sidebar-bg: var(--sidebar-bg-light);
@@ -872,11 +846,6 @@ footer {
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
-}
-
-.brand-info h2 {
-    margin: 0;
-    font-size: 1.5em;
 }
 
 .brand-subtitle {
