@@ -78,11 +78,11 @@ function loadNavigationAndFooter() {
                 </div>
                 <div class="nav-indicator"></div>
             </nav>
-            <nav class="nav-item${currentPage === 'project' ? ' active' : ''}" onclick="redirectToPage('project.html')">
-                <img src="assets/images/description.svg" alt="project" width="20" height="20" class="nav-icon-img" aria-hidden="true">
+            <nav class="nav-item${currentPage === 'notes' ? ' active' : ''}" onclick="redirectToPage('notes.html')">
+                <img src="assets/images/description.svg" alt="notes" width="20" height="20" class="nav-icon-img" aria-hidden="true">
                 <div class="nav-text">
-                    <p>作品展示</p>
-                    <span class="nav-description">項目作品</span>
+                    <p>學習筆記</p>
+                    <span class="nav-description">技術筆記整理</span>
                 </div>
                 <div class="nav-indicator"></div>
             </nav>
@@ -151,7 +151,7 @@ function loadNavigationAndFooter() {
                     <h3>網站導航</h3>
                     <ul>
                         <li><a href="index.html">主要頁面</a></li>
-                        <li><a href="project.html">作品展示</a></li>
+                        <li><a href="notes.html">學習筆記</a></li>
                         <li><a href="about.html">關於我</a></li>
                         <li><a href="changelog.html">更新日誌</a></li>
                     </ul>
