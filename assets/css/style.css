@@ -28,14 +28,14 @@ body>main {
     flex-direction: column;
     user-select: none;
     top: 0;
-    right: 0;
+    left: 0;
     background: var(--sidebar-bg);
-    border-radius: 18px 0 0 18px;
-    box-shadow: -4px 0 16px 0 var(--sidebar-shadow);
-    border-left: var(--sidebar-border, none);
+    border-radius: 0 18px 18px 0;
+    box-shadow: 4px 0 16px 0 var(--sidebar-shadow);
+    border-right: var(--sidebar-border, none);
     backdrop-filter: blur(10px);
     transition: transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
-    transform: translateX(100%);
+    transform: translateX(-100%);
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -203,7 +203,7 @@ body>main {
 .menu {
     top: 16px;
     position: fixed;
-    right: 16px;
+    left: 16px;
     padding: 6px;
     border-radius: 10px;
     border: 1px solid var(--sidebar-divider, rgba(255, 255, 255, 0.15));
@@ -238,7 +238,7 @@ body>main {
 .sidebar-footer {
     padding: 24px 24px 32px 24px;
     text-align: center;
-    border-radius: 0 0 18px 0;
+    border-radius: 0 0 0 18px;
     position: relative;
     overflow: hidden;
 }
