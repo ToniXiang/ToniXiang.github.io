@@ -2,17 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     initializeNotes();
     setupNoteInteractions();
-    // 預設將所有分類設為摺疊
-    collapseAllCategories();
 });
-
-function collapseAllCategories() {
-    const categories = document.querySelectorAll('.note-category');
-    categories.forEach(category => {
-        category.classList.add('collapsed');
-    });
-    console.log('所有分類已摺疊');
-}
 
 function initializeNotes() {
     // 為內部筆記添加點擊事件
@@ -20,17 +10,10 @@ function initializeNotes() {
     internalNotes.forEach(note => {
         note.addEventListener('click', handleInternalNoteClick);
     });
-
-
-    // 添加分類摺疊功能
-    setupCategoryCollapse();
 }
 
 function handleInternalNoteClick(event) {
-    // 阻止事件冒泡，避免觸發分類摺疊
-    event.stopPropagation();
-
-    const noteTitle = event.currentTarget.querySelector('h3').textContent;
+    const noteTitle = event.currentTarget.querySelector('.note-title').textContent;
 
     // 創建模擬的筆記內容頁面
     showNoteModal(noteTitle);
@@ -109,21 +92,7 @@ function closeNoteModal(modal) {
     }
 }
 
-function setupCategoryCollapse() {
-    const categoryHeaders = document.querySelectorAll('.category-header');
 
-    categoryHeaders.forEach(header => {
-        header.addEventListener('click', (e) => {
-            const category = header.parentElement;
-            const noteList = category.querySelector('.note-list');
-
-            // 切換摺疊狀態
-            category.classList.toggle('collapsed');
-
-            console.log('分類狀態切換:', category.classList.contains('collapsed') ? '摺疊' : '展開');
-        });
-    });
-}
 
 function setupNoteInteractions() {
     // 預留其他互動功能

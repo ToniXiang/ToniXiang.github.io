@@ -3,7 +3,6 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'JetBrains Mono', monospace;
 }
 
 body {
@@ -98,7 +97,7 @@ body>main {
     margin: 0 0 4px 0;
     color: var(--sidebar-text);
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: -0.5px;
     text-decoration: none;
 }
@@ -111,7 +110,7 @@ body>main {
 .nav-label {
     color: var(--sidebar-text-tertiary);
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 10px;
@@ -296,17 +295,6 @@ h3 {
     letter-spacing: 1px;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
-}
-
-#articleContent section h3,
-#articleContent h3:not(.hero-content h3) {
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-}
-
-#articleContent section:first-child h3,
-#articleContent h3:first-of-type {
-    margin-top: 1.5rem;
 }
 
 h4 {
@@ -538,8 +526,7 @@ section>ul {
 
 .footer-info h3 {
     margin: 0 0 5px 0;
-    font-size: 1.4em;
-    font-weight: 600;
+    font-size: 1.0em;
     color: var(--primary-color);
 }
 
@@ -885,7 +872,7 @@ footer {
 
 .farea h3 {
     margin-bottom: 15px;
-    border-bottom: 2px solid var(--sidebar-divider);
+    border-bottom: 1px solid var(--sidebar-divider);
     padding-bottom: 8px;
     color: var(--text-color);
 }
@@ -975,7 +962,7 @@ footer {
     }
 
     .footer-info h3 {
-        font-size: 1.2em;
+        font-size: 1.0em;
     }
 
     .footer-links {
