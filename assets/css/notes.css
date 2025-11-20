@@ -243,9 +243,6 @@ body:not(.dark-theme) {
 .modal-content {
     backdrop-filter: none;
     isolation: isolate;
-}
-
-.modal-content {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -254,9 +251,8 @@ body:not(.dark-theme) {
     border-radius: 16px;
     width: 100%;
     max-width: 800px;
-    max-height: 80vh;
+    max-height: 90vh;
     overflow-y: auto;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(0, 0, 0, 0.1);
     z-index: 10000;
 }
@@ -720,7 +716,14 @@ code[class*="language-"] {
 
 @media (max-width: 768px) {
     .modal-content {
-        margin: 10px;
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 10px;
+        right: 10px;
+        transform: none;
+        width: auto;
+        border-radius: 16px 16px 0 0;
     }
 
     .modal-body {
@@ -773,3 +776,80 @@ code[class*="language-"] {
         margin: 8px 0;
     }
 }
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* 暗色主題滾動條 */
+.dark-theme ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.dark-theme ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Modal 滾動條特殊樣式 */
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.dark-theme .modal-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .modal-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.note-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.note-list::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.note-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .note-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.dark-theme .note-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+

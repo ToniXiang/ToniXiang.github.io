@@ -316,12 +316,6 @@ span>a {
     color: var(--accent-color);
 }
 
-section>p,
-section>ul {
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
 #background {
     position: fixed;
     top: 0;
