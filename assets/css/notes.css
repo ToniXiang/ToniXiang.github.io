@@ -110,10 +110,12 @@
 .dark-theme .modal-content {
     background: rgba(30, 30, 30, 0.95);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: none;
 }
 
 .dark-theme .modal-header {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(30, 30, 30, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .dark-theme .modal-header h2 {
@@ -244,25 +246,38 @@ body:not(.dark-theme) {
     backdrop-filter: none;
     isolation: isolate;
     position: absolute;
-    top: 50%;
+    top: 80px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    bottom: 20px;
+    transform: translateX(-50%);
     background: #ffffff;
-    border-radius: 16px;
+    border-radius: 0 0 16px 16px;
     width: 100%;
     max-width: 800px;
-    max-height: 90vh;
     overflow-y: auto;
     border: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: none;
     z-index: 10000;
+    box-sizing: border-box;
 }
 
 .modal-header {
-    padding: 24px 24px 16px 24px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 800px;
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 16px 16px 0 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 10001;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
 .modal-header h2 {
@@ -379,6 +394,7 @@ body:not(.dark-theme) {
     border-radius: 0;
     margin: 0;
     max-width: none;
+    box-sizing: border-box;
 }
 
 .markdown-content h1,
@@ -477,6 +493,14 @@ body:not(.dark-theme) {
 .markdown-content em {
     font-style: italic;
     color: var(--text-primary);
+}
+
+.markdown-content hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--text-secondary), transparent);
+    margin: 24px 0;
+    opacity: 0.3;
 }
 
 .markdown-content table {
@@ -715,15 +739,25 @@ code[class*="language-"] {
 }
 
 @media (max-width: 768px) {
+    .modal-header {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        width: auto;
+        max-width: none;
+        transform: none;
+        padding: 16px;
+    }
+
     .modal-content {
         position: fixed;
-        top: auto;
-        bottom: 0;
+        top: 70px;
+        bottom: 10px;
         left: 10px;
         right: 10px;
         transform: none;
         width: auto;
-        border-radius: 16px 16px 0 0;
+        border-radius: 0 0 16px 16px;
     }
 
     .modal-body {

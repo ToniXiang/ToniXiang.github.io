@@ -95,6 +95,9 @@ function parseMarkdown(text) {
         .replace(/^## (.*)$/gm, '<h2>$1</h2>')
         .replace(/^# (.*)$/gm, '<h1>$1</h1>');
 
+    // 分隔線 (--- 或 *** 或 ___)
+    text = text.replace(/^(-{3,}|\*{3,}|_{3,})$/gm, '<hr>');
+
     // 粗體與斜體
     text = text
         .replace(/\*\*\*(.*?)\*\*\*/g, '<strong><em>$1</em></strong>')
@@ -120,11 +123,15 @@ function parseMarkdown(text) {
 
     const htmlBlocks = blocks.map(block => {
         // 如果已是獨立區塊型標籤則直接返回
-        if (/^(<h[1-6]>|<ul>|<pre>|<blockquote>)/.test(block)) {
+        if (/^(<h[1-6]>|<ul>|<pre>|<blockquote>|<hr>)/.test(block)) {
             return block;
         }
-        // 其餘行內換行轉 <br>
-        const withBr = block.replace(/\n/g, '<br>');
+        // 檢查是否只是單行內容，避免不必要的 <br>
+        if (!block.includes('\n')) {
+            return `<p>${block}</p>`;
+        }
+        // 其餘行內換行轉 <br>，但避免連續的 <br>
+        const withBr = block.replace(/\n+/g, '<br>');
         return `<p>${withBr}</p>`;
     });
 
@@ -151,11 +158,11 @@ function showNoteModal(title) {
     modal.className = 'note-modal';
     modal.innerHTML = `
         <div class="modal-overlay"></div>
+        <div class="modal-header">
+            <h2 class="modal-title">${title}</h2>
+            <button class="modal-close">&times;</button>
+        </div>
         <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">${title}</h2>
-                <button class="modal-close">&times;</button>
-            </div>
             <div class="modal-body">
                 <div class="loading">載入中...</div>
             </div>
