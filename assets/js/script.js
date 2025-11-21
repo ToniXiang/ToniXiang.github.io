@@ -97,7 +97,7 @@ function loadNavigationAndFooter() {
             <nav class="nav-item${currentPage === 'changelog' ? ' active' : ''}" onclick="redirectToPage('changelog.html')">
                 <img src="assets/images/changelog.svg" alt="changelog" width="20" height="20" class="nav-icon-img" aria-hidden="true">
                 <div class="nav-text">
-                    <p>更新日誌</p>
+                    <p>關於本站</p>
                     <span class="nav-description">版本變更紀錄</span>
                 </div>
                 <div class="nav-indicator"></div>
@@ -153,7 +153,7 @@ function loadNavigationAndFooter() {
                         <li><a href="index.html">主要頁面</a></li>
                         <li><a href="notes.html">學習筆記</a></li>
                         <li><a href="about.html">關於我</a></li>
-                        <li><a href="changelog.html">更新日誌</a></li>
+                        <li><a href="changelog.html">關於本站</a></li>
                     </ul>
                 </div>
                 <div class="farea farea-tools">

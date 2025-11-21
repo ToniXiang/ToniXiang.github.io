@@ -1,0 +1,34 @@
+## 標籤
+- BFS / DFS
+- Shortest Path(Dijkstra)：權重非負
+- Minimum Spanning Tree：Kruskal 按邊排序；Prim 相鄰矩陣圖
+- 拓樸排序(Topological Sort)：拓樸排序不是整個圖的要求,而是對安全子圖的排序工具
+- 二分圖(Bipartite)：獨立集 U 和 V 的圖,連成邊
+- Strongly Connected Components：Kosaraju；Tarjan
+- 背包(Knapsack)：dp[w]/dp[i][w]
+- 區間 DP：dp[U][r]
+- 樹DP：dfs(u,parent)
+- 狀壓DP(Bitmask DP)：dp[mask][i]
+- 矩陣DP(LCS/LIS)：dp[i][i]
+- DP結合二分搜尋：dp[i]+bs
+- Greedy：sort . swap
+- Binary Search：low/high
+- Two Pointers：left/right
+- Segment Tree(線段樹)：build/update/query
+- Fenwick Tree ( BIT )：lowbit
+- Union-Find ( DSU )：find + union
+- Monotonic Stack/Queue(單調棧)：push/pop single monotone
+- Hash(字典)：計數/查重 unordered_map
+- Trie(字典樹：insert/search
+- Priority Queue(最大堆)：push/pop 預設最大堆，可改變最小堆 `greater<int>`
+- 快速冪
+- 最大和最小公倍數
+- 質數與因數分解
+- 模運算：((a-b)%m+m)%m 安全模
+- 組合數學
+- 數論
+- Sliding Window 滑動視窗
+- KMP：失配的時候不用從頭比起，而是跳到下一個可能成功的位置，由 prefix function 決定
+- Rabin-Karp(滾動哈希)：基於 polynomial hash
+- Z-function：Z[i]是從位置 i 繼續往後看，能跟整個字串的開頭對上多少
+- Manacher：利用左右對稱(mirror)讓你不需要每次從零開始擴展，檢查回文

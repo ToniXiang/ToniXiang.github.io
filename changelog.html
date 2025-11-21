@@ -17,10 +17,45 @@
         <img src="assets/images/menu.svg" alt="選單" width="20" height="20" class="icon" aria-hidden="true">
     </div>
     <main>
-        <div class="changelog-header">
-            <h2 title="本站近年更新歷史">更新日誌</h2>
+        <div class="site-info-section">
+            <h2>關於本站</h2>
+            <div class="site-info-content">
+                <div class="site-info-main">
+                    <div class="site-info-image">
+                        <div class="image-wrapper">
+                            <img src="assets/images/bg.png" alt="網站示意圖" />
+                            <div class="image-overlay">
+                                <div class="overlay-content">
+                                    <img src="assets/images/code.svg" alt="程式碼圖示" class="overlay-icon"/>
+                                    <span class="overlay-text">探索技術世界</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="site-info-text">
+                        <p>
+                            本站採用純前端技術打造，透過 GitHub Pages 託管，所有更新都有完整的版本記錄。
+                            在這裡，您可以找到我的學習筆記以及對技術的思考與分享。專案經驗未來新增。
+                        </p>
+                        <div class="site-stats">
+                            <div class="stat-item">
+                                <strong>持續更新</strong>
+                                <span>記錄每一次成長</span>
+                            </div>
+                            <div class="stat-item">
+                                <strong>開源分享</strong>
+                                <span>知識共享，共同進步</span>
+                            </div>
+                            <div class="stat-item">
+                                <strong>技術探索</strong>
+                                <span>不斷學習新知識</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
+        <h2 title="本站近年更新歷史">更新日誌</h2>
         <div class="changelog-controls">
             <div class="filter-controls">
                 <label for="typeFilter" class="sr-only">篩選類型：</label>
@@ -43,7 +78,6 @@
                 <span>載入中...</span>
             </div>
         </div>
-
         <div class="changelog-container">
             <div id="changelogContent" class="changelog-list">
                 <!-- 動態載入的commit內容 -->
