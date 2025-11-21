@@ -94,8 +94,8 @@ function loadNavigationAndFooter() {
                 </div>
                 <div class="nav-indicator"></div>
             </nav>
-            <nav class="nav-item${currentPage === 'changelog' ? ' active' : ''}" onclick="redirectToPage('changelog.html')">
-                <img src="assets/images/changelog.svg" alt="changelog" width="20" height="20" class="nav-icon-img" aria-hidden="true">
+            <nav class="nav-item${currentPage === 'origin' ? ' active' : ''}" onclick="redirectToPage('origin.html')">
+                <img src="assets/images/changelog.svg" alt="origin" width="20" height="20" class="nav-icon-img" aria-hidden="true">
                 <div class="nav-text">
                     <p>關於本站</p>
                     <span class="nav-description">版本變更紀錄</span>
@@ -127,54 +127,35 @@ function loadNavigationAndFooter() {
         `;
     foot.innerHTML = `
         <div class="footer-content">
-            <div class="footer-main">
-                <div class="farea farea-brand">
+            <div class="footer-grid">
+                <div class="footer-brand">
                     <div class="footer-logo">
-                        <img src="assets/images/me.png" class="footer-img" alt="個人網頁 Logo">
-                        <div class="brand-info">
-                            <h4>ToniXiang</h4>
-                            <p class="brand-subtitle">個人網頁</p>
-                        </div>
+                        <img src="assets/images/me.png" class="footer-img" alt="Logo">
+                        <h4>ToniXiang</h4>
                     </div>
-                    <p class="author-description">
-                        Hi! I'm a student at NTCUST, Taiwan.
-                    </p>
-                    <p class="author-description">
-                        熱愛程式設計，持續學習新技術
-                    </p>
-                    <div class="social-links">
-                        <a href="https://github.com/ToniXiang" target="_blank" aria-label="GitHub" title="ToniXiang">GitHub</a>
-                        <a href="mailto:chen199940@example.com" aria-label="Email" title="chen199940@example.com">Email</a>
-                    </div>
+                    <p class="author-desc">Student at NTCUST, Taiwan</p>
+                    <p class="author-desc">熱愛程式設計，持續學習新技術</p>
                 </div>
-                <div class="farea farea-nav">
-                    <h3>網站導航</h3>
-                    <ul>
-                        <li><a href="index.html">主要頁面</a></li>
-                        <li><a href="notes.html">學習筆記</a></li>
-                        <li><a href="about.html">關於我</a></li>
-                        <li><a href="changelog.html">關於本站</a></li>
-                    </ul>
+                
+                <div class="footer-nav">
+                    <h3>導航</h3>
+                    <a href="index.html">主要頁面</a>
+                    <a href="notes.html">學習筆記</a>
+                    <a href="about.html">關於我</a>
+                    <a href="origin.html">關於本站</a>
                 </div>
-                <div class="farea farea-tools">
-                    <h3>開發工具</h3>
-                    <ul>
-                        <li><a href="https://www.jetbrains.com/webstorm/" target="_blank">WebStorm</a></li>
-                        <li><a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> </li>
-                        <li><a href="https://github.com/features/copilot" target="_blank">GitHub Copilot</a></li>
-                    </ul>
-                </div>
-                <div class="farea farea-resources">
-                    <h3>參考資源</h3>
-                    <ul>
-                        <li><a href="https://navnav.co" target="_blank">NavNav+</a></li>
-                        <li><a href="https://bootstrapmade.com" target="_blank">Bootstrap Templates</a></li>
-                        <li><a href="https://dribbble.com/" target="_blank">Dribbble</a></li>
-                    </ul>
+                
+                <div class="footer-contact">
+                    <h3>聯絡</h3>
+                    <a href="https://github.com/ToniXiang" target="_blank">GitHub</a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=chen199940@gmail.com" target="_blank">Gmail</a>
                 </div>
             </div>
+            <div class="footer-bottom">
+                <p>Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+            </div>
         </div>`;
-    
+
     // 創建背景遮罩
     if (!document.querySelector('.sidebar-overlay')) {
         const overlay = document.createElement('div');

@@ -126,9 +126,13 @@
 .site-info-text p {
     color: var(--text-color);
     line-height: 1.8;
-    margin: 0 0 1rem 0;
+    margin: 0;
     font-size: 0.95rem;
     opacity: 0.9;
+}
+
+.site-info-details {
+    margin-top: 2rem;
 }
 
 .site-stats {
@@ -196,11 +200,86 @@
     }
 }
 
+.resources-section {
+    max-width: 1100px;
+    margin: 2rem auto 3rem;
+    padding: 0 20px;
+}
+
+.resources-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.resource-category h3 {
+    color: var(--text-color);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    opacity: 0.95;
+}
+
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 0.8rem;
+}
+
+.resource-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.resource-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.dark-theme .resource-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.resource-name {
+    color: var(--text-color);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.resource-desc {
+    color: var(--text-color);
+    font-size: 0.8rem;
+    opacity: 0.65;
+    line-height: 1.4;
+}
+
+/* Responsive Design for Resources */
+@media (max-width: 768px) {
+    .resource-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .resource-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 .changelog-controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 750px;
+    max-width: 1100px;
     margin: 0 auto 1.5rem;
     padding: 0 20px;
 }
@@ -277,7 +356,7 @@
 }
 
 .changelog-container {
-    max-width: 750px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px 30px 20px;
 }

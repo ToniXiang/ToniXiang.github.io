@@ -553,14 +553,15 @@ span>a {
 }
 
 .footer-bottom {
-    text-align: center;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
 }
 
-.footer-bottom p {
-    margin: 0;
-    font-size: 0.85em;
+.footer-tech p {
+    font-size: 0.85rem;
     color: var(--text-color);
-    opacity: 0.6;
+    opacity: 0.7;
+    line-height: 1.6;
 }
 
 #loadingScreen {
@@ -593,10 +594,100 @@ span>a {
 }
 
 .footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 1rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.footer-brand {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding: 20px;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.3rem;
+}
+
+.footer-img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+.footer-logo h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.author-desc {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    line-height: 1.5;
+    display: block;
+}
+
+.footer-nav,
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.footer-nav h3,
+.footer-contact h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.85rem;
+    color: var(--text-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+}
+
+.footer-nav a,
+.footer-contact a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.85rem;
+    opacity: 0.75;
+    transition: all 0.2s ease;
+    line-height: 1.6;
+}
+
+.footer-nav a:hover,
+.footer-contact a:hover {
+    opacity: 1;
+    color: var(--primary-color);
+    transform: translateX(2px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 0.8rem;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.75rem;
+    color: var(--text-color);
+    opacity: 0.6;
+    line-height: 1.4;
 }
 
 .farea {
@@ -927,47 +1018,40 @@ footer {
 
 /* 手機版頁尾版面配置 */
 @media (max-width: 768px) {
-    .footer-main {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-        padding-bottom: 15px;
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
-    .footer-info {
-        order: 1;
-    }
-
-    .footer-links {
-        order: 2;
-        justify-content: center;
-        gap: 15px;
+    .footer-content {
+        padding: 1.5rem 1rem 1rem;
     }
 }
 
 @media (max-width: 480px) {
-    .footer-container {
-        padding: 30px 15px 15px;
+    .footer-content {
+        padding: 1.2rem 0.8rem 0.8rem;
     }
 
-    .footer-main {
-        margin-bottom: 20px;
-        gap: 15px;
+    .footer-grid {
+        gap: 1.2rem;
+        padding-bottom: 0.8rem;
     }
 
-    .footer-info h3 {
-        font-size: 1.0em;
+    .footer-logo {
+        gap: 0.5rem;
     }
 
-    .footer-links {
-        flex-direction: column;
-        gap: 8px;
+    .footer-img {
+        width: 32px;
+        height: 32px;
     }
 
-    .footer-links a {
-        padding: 12px;
-        width: 100%;
-        max-width: 200px;
-        text-align: center;
+    .footer-logo h4 {
+        font-size: 1rem;
+    }
+
+    .footer-bottom {
+        padding-top: 0.6rem;
     }
 }

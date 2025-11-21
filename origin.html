@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToniXiang</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/images/me.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/origin.css">
+</head>
+<body>
+    <div id="background"></div>
+    <header class="blogTitle"></header>
+    <div class="menu" onclick="toggleMenu()">
+        <img src="assets/images/menu.svg" alt="選單" width="20" height="20" class="icon" aria-hidden="true">
+    </div>
+    <main>
+        <div class="site-info-section">
+            <h2>關於本站</h2>
+            <div class="site-info-content">
+                <div class="site-info-main">
+                    <div class="site-info-image">
+                        <div class="image-wrapper">
+                            <img src="assets/images/bg.png" alt="網站示意圖" />
+                            <div class="image-overlay">
+                                <div class="overlay-content">
+                                    <img src="assets/images/code.svg" alt="程式碼圖示" class="overlay-icon"/>
+                                    <span class="overlay-text">探索技術世界</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="site-info-text">
+                        <h3>這是什麼網站？</h3>
+                        <p>
+                            這是一個技術學習筆記分享平台，專注於後端開發、演算法、系統設計等領域的知識整理與心得分享。
+                            採用純前端技術打造，透過 GitHub Pages 託管，確保內容的透明度與可追溯性。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="site-info-details">
+                    <p>
+                        在學習技術的過程中，我發現將知識系統化整理不僅能加深理解，更能在未來快速查閱。
+                        同時，透過公開分享，希望能幫助其他同樣在學習路上的開發者，建立一個互相學習、共同成長的空間。
+                    </p>
+                </div>
+
+                <div class="site-stats">
+                    <div class="stat-item">
+                        <strong>持續更新</strong>
+                        <span>記錄每一次成長</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>開源分享</strong>
+                        <span>知識共享，共同進步</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>技術探索</strong>
+                        <span>不斷學習新知識</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="resources-section">
+            <h2>外部資訊</h2>
+            <div class="resources-content">
+                <div class="resource-category">
+                    <h3>開發工具</h3>
+                    <div class="resource-grid">
+                        <a href="https://www.jetbrains.com/webstorm/" target="_blank" class="resource-card">
+                            <div class="resource-name">WebStorm</div>
+                            <div class="resource-desc">主編輯器</div>
+                        </a>
+                        <a href="https://code.visualstudio.com/" target="_blank" class="resource-card">
+                            <div class="resource-name">Visual Studio Code</div>
+                            <div class="resource-desc">副編輯器</div>
+                        </a>
+                        <a href="https://github.com/features/copilot" target="_blank" class="resource-card">
+                            <div class="resource-name">Github Copliot</div>
+                            <div class="resource-desc">AI 助手</div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="resource-category">
+                    <h3>參考資源</h3>
+                    <div class="resource-grid">
+                        <a href="https://bootstrapmade.com" target="_blank" class="resource-card">
+                            <div class="resource-name">Bootstrap Templates</div>
+                            <div class="resource-desc">響應式網頁模板</div>
+                        </a>
+                        <a href="https://dribbble.com/" target="_blank" class="resource-card">
+                            <div class="resource-name">Dribbble</div>
+                            <div class="resource-desc">設計靈感來源</div>
+                        </a>
+                        <a href="https://medium.com/" target="_blank" class="resource-card">
+                            <div class="resource-name">Medium</div>
+                            <div class="resource-desc">技術文章閱讀</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="changelog-controls">
+            <div class="filter-controls">
+                <label for="typeFilter" class="sr-only">篩選類型：</label>
+                <select id="typeFilter" class="filter-select">
+                    <option value="">所有類型</option>
+                    <option value="feat">新功能 (feat)</option>
+                    <option value="fix">修復 (fix)</option>
+                    <option value="docs">文檔 (docs)</option>
+                    <option value="style">樣式 (style)</option>
+                    <option value="refactor">重構 (refactor)</option>
+                    <option value="perf">性能 (perf)</option>
+                    <option value="test">測試 (test)</option>
+                    <option value="build">構建 (build)</option>
+                    <option value="ci">CI/CD (ci)</option>
+                    <option value="chore">雜項 (chore)</option>
+                </select>
+            </div>
+            <div class="loading-indicator" id="loadingIndicator">
+                <div class="loading-spinner"></div>
+                <span>載入中...</span>
+            </div>
+        </div>
+        <div class="changelog-container">
+            <div id="changelogContent" class="changelog-list">
+                <!-- 動態載入的commit內容 -->
+            </div>
+            <div id="errorMessage" class="error-message" style="display: none;">
+                <h3>載入失敗</h3>
+                <p>無法載入更新記錄，請稍後再試或檢查網路連接。</p>
+                <button onclick="loadChangelog()" class="retry-btn">重試</button>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/origin.js" defer></script>
+</body>
+</html>
