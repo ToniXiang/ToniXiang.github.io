@@ -264,12 +264,13 @@ hr {
 }
 
 footer {
-    padding: 20px 0;
+    padding: 0;
     text-align: left;
-    color: white;
-    margin-top: 0;
+    color: var(--text-color);
+    margin-top: 40px;
     position: relative;
     overflow: hidden;
+    background: var(--sidebar-bg);
 }
 
 h1 {
@@ -590,6 +591,48 @@ span>a {
 
     100% {
         transform: rotate(360deg);
+    }
+}
+
+/* Wave Divider Styles */
+.wave-divider {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    margin-bottom: -1px;
+}
+
+.wave-divider .wave {
+    position: relative;
+    display: block;
+    width: calc(150% + 1.3px);
+    height: 60px;
+    color: var(--sidebar-bg);
+    animation: wave-float 6s ease-in-out infinite;
+}
+
+@keyframes wave-float {
+    0%, 100% {
+        transform: translateX(-25px);
+    }
+    50% {
+        transform: translateX(-15px);
+    }
+}
+
+/* Responsive wave adjustments */
+@media (max-width: 768px) {
+    .wave-divider .wave {
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wave-divider .wave {
+        height: 30px;
     }
 }
 
