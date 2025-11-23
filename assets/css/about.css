@@ -738,6 +738,8 @@ body {
     gap: 8px;
     margin-bottom: 32px;
     padding: 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .timeline-nav h3 {
@@ -900,16 +902,63 @@ body {
     .learning-progress {
         width: calc(100% - 20px);
         margin: 20px auto 40px;
+        padding: 0;
+    }
+
+    .timeline-nav {
+        gap: 6px;
+        padding: 0 5px;
+    }
+
+    .timeline-year {
+        padding: 6px 12px;
+        font-size: 0.85rem;
     }
 
     .timeline-content {
-        padding: 20px;
+        padding: 16px;
         width: 100%;
         box-sizing: border-box;
+    }
+    
+    .timeline-content-area {
+        margin: 0;
+        border-radius: 8px;
     }
 
     main {
         padding: 20px 5px 0 5px;
         width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .learning-progress {
+        width: calc(100% - 16px);
+        margin: 15px auto 30px;
+        padding: 0;
+    }
+
+    .timeline-year {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+        min-width: auto;
+    }
+
+    .timeline-content {
+        padding: 12px;
+    }
+
+    .timeline-content li {
+        padding: 12px 0 12px 20px;
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .timeline-content li::before {
+        left: -4px;
+        top: 18px;
+        width: 6px;
+        height: 6px;
     }
 }

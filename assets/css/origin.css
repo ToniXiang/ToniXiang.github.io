@@ -387,7 +387,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-    max-height: 500px;
+    max-height: 600px;
     overflow-y: auto;
     overflow-x: hidden;
     padding-right: 8px;
@@ -721,29 +721,9 @@ body {
 }
 
 @media (max-width: 768px) {
-    .changelog-controls {
-        flex-direction: column;
-        gap: 0.8rem;
-        align-items: stretch;
-        padding: 0 15px;
-    }
-    
     .filter-controls {
         justify-content: center;
         flex-wrap: wrap;
-    }
-
-    .changelog-container {
-        padding: 0 15px 25px 15px;
-        width: calc(100% - 30px);
-    }
-
-    .changelog-list {
-        max-height: 450px;
-        gap: 0.6rem;
-        padding-right: 4px;
-        width: 100%;
-        overflow-x: hidden;
     }
 
     .commit-header {
@@ -751,47 +731,17 @@ body {
         align-items: flex-start;
         gap: 0.4rem;
     }
-    
-    .commit-item {
-        padding: 0.8rem;
-    }
     .commit-meta {
         align-items: flex-start;
         text-align: left;
-    }
-    
-    .commit-item {
-        padding: 1rem;
     }
 }
 
 @media (max-width: 480px) {
     .site-info-section,
-    .resources-section,
-    .changelog-controls,
-    .changelog-container {
+    .resources-section {
         padding: 0 10px;
         width: calc(100% - 20px);
-    }
-
-    .changelog-list {
-        max-height: 500px;
-        padding-right: 2px;
-        width: 100%;
-        overflow-x: hidden;
-    }
-
-    .commit-item {
-        padding: 0.75rem;
-        word-wrap: break-word;
-        width: 100%;
-        max-width: 100%;
-        overflow: hidden;
-    }
-    
-    .commit-header {
-        flex-wrap: wrap;
-        gap: 0.5rem;
     }
     
     .commit-type {
