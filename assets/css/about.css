@@ -6,8 +6,8 @@
     }
 
     .details-row .details-cell {
-        width: 100vw;
-        max-width: 100vw;
+        width: 100%;
+        max-width: 100%;
         box-sizing: border-box;
     }
 }
@@ -448,7 +448,7 @@
 .table-container {
     margin: 20px 0;
     border-radius: 12px;
-    overflow-x: auto;
+    overflow-x: hidden;
     overflow-y: visible;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     background: var(--background-color);
@@ -458,10 +458,10 @@
 
 .table-container table {
     width: 100%;
-    min-width: 700px;
+    min-width: 100%;
     border-collapse: collapse;
     font-size: 0.95em;
-    table-layout: auto;
+    table-layout: fixed;
 }
 
 .table-container th {
@@ -535,8 +535,10 @@
 }
 
 main {
-    padding: 20px 10px 0 10px;
+    padding: 20px 0 0 0;
     box-sizing: border-box;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 .table-container::-webkit-scrollbar {
@@ -559,9 +561,10 @@ main {
 
 @media (max-width: 768px) {
     .table-container {
-        margin: 15px 0;
+        margin: 15px 5px;
         border-radius: 8px;
-        overflow-x: visible !important;
+        overflow-x: hidden !important;
+        width: calc(100% - 10px);
     }
 
     .table-container table {
@@ -569,7 +572,7 @@ main {
         width: 100% !important;
         font-size: 0.9em;
         table-layout: fixed;
-        word-break: break-all;
+        word-break: break-word;
     }
 
     .table-container th,
@@ -660,12 +663,25 @@ main {
     margin-top: 20px;
 }
 
+/* 全域防止橫向滾動 */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+}
+
 /* Profile section styles */
 .profile-content {
     display: flex;
     align-items: flex-start;
     gap: 30px;
     padding: 30px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .profile-photo {
@@ -711,6 +727,7 @@ main {
     width: calc(100% - 40px);
     max-width: 800px;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .timeline-nav {
@@ -887,5 +904,12 @@ main {
 
     .timeline-content {
         padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    main {
+        padding: 20px 5px 0 5px;
+        width: 100%;
     }
 }

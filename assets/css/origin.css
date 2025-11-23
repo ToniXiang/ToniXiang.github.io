@@ -1,7 +1,21 @@
+/* 全域防止橫向滾動 */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+}
+
 .site-info-section {
     max-width: 1100px;
+    width: 100%;
     margin: 2rem auto 3rem;
     padding: 0 20px;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .site-info-content {
@@ -202,8 +216,11 @@
 
 .resources-section {
     max-width: 1100px;
+    width: 100%;
     margin: 2rem auto 3rem;
     padding: 0 20px;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .resources-content {
@@ -280,8 +297,10 @@
     justify-content: space-between;
     align-items: center;
     max-width: 1100px;
+    width: 100%;
     margin: 0 auto 1.5rem;
     padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .filter-controls {
@@ -357,8 +376,11 @@
 
 .changelog-container {
     max-width: 1100px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 20px 30px 20px;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .changelog-list {
@@ -367,7 +389,10 @@
     gap: 0.8rem;
     max-height: 500px;
     overflow-y: auto;
+    overflow-x: hidden;
     padding-right: 8px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .changelog-list::-webkit-scrollbar {
@@ -401,6 +426,10 @@
     border-radius: 6px;
     padding: 0.9rem 1rem;
     transition: all 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .commit-item:hover {
@@ -419,6 +448,8 @@
     align-items: flex-start;
     margin-bottom: 0.6rem;
     gap: 0.8rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .commit-type {
@@ -434,6 +465,8 @@
     flex-shrink: 0;
     transition: all 0.2s ease;
     background: var(--card-bg);
+    max-width: fit-content;
+    white-space: nowrap;
 }
 
 .light-theme .commit-type.feat,
@@ -586,6 +619,8 @@
     align-items: flex-end;
     gap: 0.25rem;
     text-align: right;
+    flex-shrink: 0;
+    min-width: 0;
 }
 
 .commit-date {
@@ -621,6 +656,10 @@
     line-height: 1.4;
     color: var(--text-color);
     margin-bottom: 0.4rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
 }
 
 .commit-author {
@@ -686,19 +725,25 @@
         flex-direction: column;
         gap: 0.8rem;
         align-items: stretch;
+        padding: 0 15px;
     }
     
     .filter-controls {
         justify-content: center;
+        flex-wrap: wrap;
     }
 
     .changelog-container {
         padding: 0 15px 25px 15px;
+        width: calc(100% - 30px);
     }
 
     .changelog-list {
         max-height: 450px;
         gap: 0.6rem;
+        padding-right: 4px;
+        width: 100%;
+        overflow-x: hidden;
     }
 
     .commit-header {
@@ -721,22 +766,68 @@
 }
 
 @media (max-width: 480px) {
+    .site-info-section,
+    .resources-section,
     .changelog-controls,
     .changelog-container {
-        padding: 0 15px;
+        padding: 0 10px;
+        width: calc(100% - 20px);
     }
 
     .changelog-list {
         max-height: 500px;
+        padding-right: 2px;
+        width: 100%;
+        overflow-x: hidden;
     }
 
     .commit-item {
         padding: 0.75rem;
+        word-wrap: break-word;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+    
+    .commit-header {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .commit-type {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.5rem;
+        max-width: fit-content;
+    }
+    
+    .commit-sha {
+        font-size: 0.65rem;
+        padding: 0.1rem 0.3rem;
     }
     
     .filter-select {
         font-size: 0.8rem;
         padding: 0.4rem 0.8rem;
+        max-width: 120px;
+    }
+
+    .filter-controls {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .commit-message {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+        white-space: normal;
+    }
+    
+    .commit-author {
+        font-size: 0.75rem;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }
 
