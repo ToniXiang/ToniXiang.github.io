@@ -674,51 +674,9 @@ body {
     max-width: 100vw;
 }
 
-/* Profile section styles */
 .profile-content {
-    display: flex;
-    align-items: flex-start;
     gap: 30px;
     padding: 30px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.profile-photo {
-    flex-shrink: 0;
-}
-
-.profile-img {
-    width: 200px;
-    height: 200px;
-    border-radius: 20px;
-    object-fit: cover;
-    border: 1px solid var(--sidebar-divider);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-}
-
-.profile-img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-}
-
-.profile-text {
-    flex: 1;
-}
-
-.profile-text h4 {
-    margin: 0 0 20px 0;
-    font-size: 1.8rem;
-    color: var(--primary-color);
-    font-weight: 600;
-}
-
-.intro-text {
-    margin-top: 32px;
-    line-height: 1.7;
-    color: var(--text-color);
-    text-align: justify;
 }
 
 /* Timeline styles for about page */
@@ -879,10 +837,6 @@ body {
         height: 150px;
     }
 
-    .profile-text h4 {
-        font-size: 1.5rem;
-    }
-
     .profile-highlights {
         flex-direction: column;
         align-items: center;
@@ -893,10 +847,6 @@ body {
         width: 100%;
         max-width: 200px;
         justify-content: center;
-    }
-
-    .intro-text {
-        text-align: left;
     }
 
     .learning-progress {

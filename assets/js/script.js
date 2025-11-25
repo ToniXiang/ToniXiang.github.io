@@ -120,8 +120,7 @@ function loadNavigationAndFooter() {
         <div class="nav-section">
             <div class="nav-label">資訊</div>
             <div class="sidebar-footer">
-                <p>ToniXiang</p>
-                <p>網頁設計作品</p>
+                <p>這裡不追求華麗，而追求可讀、可查、可驗證</p>
             </div>
         </div>
         `;
@@ -140,7 +139,7 @@ function loadNavigationAndFooter() {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <img src="assets/images/me.png" class="footer-img" alt="Logo">
+                        <img src="assets/images/me.jpg" class="footer-img" alt="Logo">
                         <h4>ToniXiang</h4>
                     </div>
                     <p class="author-desc">Student at NTCUST, Taiwan</p>

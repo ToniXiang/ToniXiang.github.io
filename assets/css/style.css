@@ -674,6 +674,7 @@ span>a {
     font-size: 1.1rem;
     color: var(--text-color);
     font-weight: 600;
+    text-decoration: none;
 }
 
 .author-desc {
