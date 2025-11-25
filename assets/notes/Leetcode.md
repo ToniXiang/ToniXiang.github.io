@@ -20,7 +20,7 @@
 - Monotonic Stack/Queue(單調棧)：push/pop single monotone
 - Hash(字典)：計數/查重 unordered_map
 - Trie(字典樹：insert/search
-- Priority Queue(最大堆)：push/pop 預設最大堆，可改變最小堆 `greater<int>`
+- Priority Queue(最大堆)：push/pop 預設最大堆，可自訂比較函式
 - 快速冪
 - 最大和最小公倍數
 - 質數與因數分解
