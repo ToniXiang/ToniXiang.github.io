@@ -120,7 +120,7 @@ function loadNavigationAndFooter() {
         <div class="nav-section">
             <div class="nav-label">資訊</div>
             <div class="sidebar-footer">
-                <p>這裡不追求華麗，而追求可讀、可查、可驗證</p>
+                <p>內容是重點，UI 只是載體</p>
             </div>
         </div>
         `;

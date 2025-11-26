@@ -159,7 +159,8 @@ function showNoteModal(title) {
     modal.innerHTML = `
         <div class="modal-overlay"></div>
         <div class="modal-header">
-            <h2 class="modal-title">${title}</h2>
+            <img src="assets/images/description.svg" alt="notes" width="20" height="20" class="icon-img" aria-hidden="true">
+            <p class="modal-title">${title}</p>
             <button class="modal-close">&times;</button>
         </div>
         <div class="modal-content">

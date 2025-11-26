@@ -5,7 +5,7 @@ vector<vector<int>> adj;  // adj[u] = {v1, v2, ...} 表示 u 的鄰居
 vector<int> parent;       // parent[u] = u 的父節點
 vector<int> depth;        // depth[u] = u 的深度
 ```
-## 經典競賽問題與解法
+## 實作
 ### 1. 樹的直徑（Tree Diameter）
 **問題**：找到樹中最長路徑的長度
 ```cpp
@@ -267,4 +267,4 @@ void dfs2(int u, int p) {
 - 邊分治
 - 長鏈剖分
 ---
-TreeNode + DFS 是課本與 LeetCode 入門級的用法，但 演算法競賽中的「樹」是一整個思維領域，而不是一個 class 或結構而已。
+TreeNode + DFS 是 LeetCode 入門級的用法，但演算法競賽中的「樹」是一整個思維領域，又稱「圖論」，而不是一個 class 或結構而已。

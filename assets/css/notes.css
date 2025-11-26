@@ -269,8 +269,8 @@ body:not(.dark-theme) {
     width: 100%;
     max-width: 800px;
     padding: 16px 20px;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
     border-radius: 16px 16px 0 0;
     display: flex;
     justify-content: center;
@@ -280,16 +280,16 @@ body:not(.dark-theme) {
     text-align: center;
 }
 
-.modal-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: #374151;
-    margin: 0;
-    line-height: 1.4;
-    flex: 1;
+.modal-header .icon-img {
+    filter: var(--icon-filter);
+    margin-right: 8px;
 }
-.modal-title::after{
-    display: none;
+
+.modal-title {
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.5;
+    flex: 1;
 }
 
 .modal-close {
@@ -301,7 +301,7 @@ body:not(.dark-theme) {
     background: none;
     border: none;
     font-size: 20px;
-    color: #6b7280;
+    color: var(--tertiary-color);
     cursor: pointer;
     padding: 4px 8px;
     border-radius: 4px;
@@ -309,9 +309,14 @@ body:not(.dark-theme) {
     line-height: 1;
 }
 
+.modal-close:hover {
+    color: var(--text-color);
+    background: var(--card-border);
+}
+
 .modal-body {
     padding: 24px;
-    color: #333333;
+    color: var(--text-color);
     line-height: 1.6;
 }
 
