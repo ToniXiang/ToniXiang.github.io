@@ -1,60 +1,41 @@
 ## 基本概念
-
 Binary Search 是一種在已排序陣列中查找特定元素的高效演算法，時間複雜度為 O(log n)。
-
 ## 實作
-
 ### 常用變體與回傳值
-
-- lower_bound | return left;  | 第一個 ≥ key |
-- upper_bound | return left;  | 第一個 > key |
-- 找最後一個 ≤ key | return index 或 right; | 基本 |
-- 找某個等於 key 的 index | return index 或 -1 | 基本 |
-
+STL 已實作: lower_bound, upper_bound, binary_search
+相關可參考下表：
+- 第一個 ≥ key | return left;  | lower_bound |
+- 第一個 > key | return left;  | upper_bound |
+- 是否存在 key | return bool;  | binary_search |
+- 找最後一個 ≤ key | return right; | - |
+- 找最後一個 < key | return right; | - |
 ### 基本模板
-
 ### 標準二分搜尋模板
 ```cpp
-auto=[&](int left, int right, int key) -> int {
-    while (left <= right) {
-        int mid = left + (right - left) / 2;
-        if (/* condition to move left */) {
-            right = mid - 1;
-        } else if (/* condition to move right */) {
-            left = mid + 1;
-        } else {
-            return mid; // Found the key
-        }
-    }
-    return -1; // Key not found
+auto bs=[&](int left, int right, int key) -> bool {
+    if(left>right)return false;
+    int mid=(left+right)>>1;
+    if(arr[mid]==key)return true;
+    else if(arr[mid]<key)return self(self, mid+1, right, key);
+    else return self(self, left, mid-1, key);
 };
 ```
-### lower_bound 模板
+### 標準 lower_bound 模板
 ```cpp
-auto =[&](int left, int right, int key) -> int {
-    while (left < right) {
-        int mid = left + (right - left) / 2;
-        if (arr[mid] >= key) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return left; // First position where arr[left] >= key
+auto lower_bound=[&](int left, int right, int key) -> int {
+    if(left>=right) return left;
+    int mid=(left+right)>>1;
+    if(arr[mid]<key)return self(self, mid+1, right, key);
+    else return self(self, left, mid, key);
 };
 ```
-### upper_bound 模板
+### 標準 upper_bound 模板
 ```cpp
-auto =[&](int left, int right, int key) -> int {
-    while (left < right) {
-        int mid = left + (right - left) / 2;
-        if (arr[mid] > key) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return left; // First position where arr[left] > key
+auto upper_bound=[&](int left, int right, int key) -> int {
+    if(left>=right) return left;
+    int mid=(left+right)>>1;
+    if(arr[mid]<=key)return self(self, mid+1, right, key);
+    else return self(self, left, mid, key);
 };
 ```
 快速使用
@@ -80,12 +61,6 @@ void example() {
 - 找插入位置以保持排序
 - 找排序陣列中某個值的範圍
 - 在數學問題中使用二分搜尋逼近解
-## 使用場景
-- 在排序陣列中查找元素
-- 查找插入位置
-- 範圍查詢（找到區間的左右邊界）
-- 最值問題的二分搜索
-
 ## 注意事項
 - 陣列必須已排序
 - 注意邊界條件
