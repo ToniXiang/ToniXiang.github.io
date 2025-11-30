@@ -2,12 +2,12 @@
 Binary Search 是一種在已排序陣列中查找特定元素的高效演算法，時間複雜度為 O(log n)。
 ## 實作
 ### 常用變體
-STL 已實作: lower_bound, upper_bound, binary_search 相關可參考下表：
-- 第一個 ≥ key | return left;  | lower_bound |
-- 第一個 > key | return left;  | upper_bound |
-- 是否存在 key | return bool;  | binary_search |
-- 找最後一個 ≤ key | return right; | upper_bound - 1 |
-- 找最後一個 < key | return right; | lower_bound - 1 |
+STL 已實作: lower_bound, upper_bound, binary_search
+- 第一個 ≥ key → lower_bound
+- 第一個 > key → upper_bound
+- 是否存在 key → binary_search
+- 找最後一個 ≤ key → upper_bound - 1
+- 找最後一個 < key → lower_bound - 1
 ### 基本模板
 ### 標準二分搜尋模板
 ```cpp
@@ -58,7 +58,6 @@ void example() {
 ## 實戰應用
 - 找元素在排序陣列中的位置
 - 找插入位置以保持排序
-- 找排序陣列中某個值的範圍
 - 在數學問題中使用二分搜尋逼近解
 ## 注意事項
 - 陣列必須已排序
