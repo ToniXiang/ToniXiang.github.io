@@ -18,9 +18,10 @@
         <img src="assets/images/menu.svg" alt="選單" width="20" height="20" class="icon" aria-hidden="true">
     </div>
     <main>
-        <article class="notes-container">
-            <h2>學習筆記</h2>
-            <div class="notes-grid">
+        <div class="notes-layout">
+            <article class="notes-container">
+                <h2>學習筆記</h2>
+                <div class="notes-grid">
                 <div class="note-category">
                     <div class="category-header">
                         <div class="category-title">演算法</div>
@@ -74,6 +75,17 @@
                 </div>
             </div>
         </article>
+        <div class="note-viewer">
+            <div class="note-viewer-header">
+                <img src="assets/images/description.svg" alt="notes" width="20" height="20" class="icon-img" aria-hidden="true">
+                <p class="note-viewer-title"></p>
+                <button class="note-viewer-close">&times;</button>
+            </div>
+            <div class="note-viewer-body">
+                <div class="loading">選擇一個筆記以查看內容</div>
+            </div>
+        </div>
+        </div>
     </main>
     <footer></footer>
     <script src="assets/js/script.js" defer></script>

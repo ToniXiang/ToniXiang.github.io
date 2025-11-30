@@ -147,56 +147,51 @@ function parseMarkdown(text) {
 function showNoteModal(title) {
     console.log('正在顯示筆記:', title);
 
-    // 檢查是否已存在彈窗，如果有則先關閉
-    const existingModal = document.querySelector('.note-modal');
-    if (existingModal) {
-        existingModal.remove();
+    const notesLayout = document.querySelector('.notes-layout');
+    const noteViewerTitle = document.querySelector('.note-viewer-title');
+    const noteViewerBody = document.querySelector('.note-viewer-body');
+
+    // 檢查是否已經在分割視圖模式
+    const isAlreadySplit = notesLayout.classList.contains('split-view');
+
+    // 設置標題
+    noteViewerTitle.textContent = title;
+
+    // 顯示載入狀態
+    noteViewerBody.innerHTML = '<div class="loading">載入中...</div>';
+
+    // 只在尚未切換到分割視圖時才切換
+    if (!isAlreadySplit) {
+        // 使用 requestAnimationFrame 確保 DOM 更新後再添加 class
+        requestAnimationFrame(() => {
+            notesLayout.classList.add('split-view');
+            document.body.classList.add('split-view-active');
+        });
     }
-
-    // 創建筆記內容彈窗
-    const modal = document.createElement('div');
-    modal.className = 'note-modal';
-    modal.innerHTML = `
-        <div class="modal-overlay"></div>
-        <div class="modal-header">
-            <img src="assets/images/description.svg" alt="notes" width="20" height="20" class="icon-img" aria-hidden="true">
-            <p class="modal-title">${title}</p>
-            <button class="modal-close">&times;</button>
-        </div>
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="loading">載入中...</div>
-            </div>
-        </div>
-    `;
-
-    document.body.appendChild(modal);
-    console.log('彈窗已添加到DOM');
 
     // 載入並顯示筆記內容
     loadNoteContent(title).then(result => {
-        const modalBody = modal.querySelector('.modal-body');
         if (result.success) {
             if (result.type === 'markdown') {
                 // Markdown 內容解析並渲染為 HTML
                 const htmlContent = parseMarkdown(result.content);
-                modalBody.innerHTML = `<div class="note-content markdown-content">${htmlContent}</div>`;
+                noteViewerBody.innerHTML = `<div class="note-content markdown-content">${htmlContent}</div>`;
 
                 // 觸發 Prism.js 語法高亮
                 if (typeof Prism !== 'undefined') {
-                    Prism.highlightAllUnder(modalBody);
+                    Prism.highlightAllUnder(noteViewerBody);
                 }
             } else {
                 // 純文字內容保持原格式
-                modalBody.innerHTML = `<pre class="note-content text-content"><code class="language-text">${result.content}</code></pre>`;
+                noteViewerBody.innerHTML = `<pre class="note-content text-content"><code class="language-text">${result.content}</code></pre>`;
 
                 // 觸發 Prism.js 語法高亮
                 if (typeof Prism !== 'undefined') {
-                    Prism.highlightAllUnder(modalBody);
+                    Prism.highlightAllUnder(noteViewerBody);
                 }
             }
         } else {
-            modalBody.innerHTML = `
+            noteViewerBody.innerHTML = `
                 <div class="error-message">
                     <p>無法載入筆記內容</p>
                     <p class="error-detail">${result.error}</p>
@@ -204,63 +199,50 @@ function showNoteModal(title) {
                 </div>
             `;
         }
+        // 滾動到頂部
+        noteViewerBody.scrollTop = 0;
     }).catch(error => {
         console.error('載入筆記內容時發生錯誤:', error);
-        const modalBody = modal.querySelector('.modal-body');
-        modalBody.innerHTML = `
+        noteViewerBody.innerHTML = `
             <div class="error-message">
                 <p>載入筆記時發生錯誤</p>
                 <p class="error-detail">${error.message}</p>
             </div>
         `;
     });
-
-    // 添加關閉事件
-    const closeBtn = modal.querySelector('.modal-close');
-    const overlay = modal.querySelector('.modal-overlay');
-
-    closeBtn.addEventListener('click', () => closeNoteModal(modal));
-    overlay.addEventListener('click', () => closeNoteModal(modal));
-
-    // ESC 鍵關閉
-    const escHandler = (e) => {
-        if (e.key === 'Escape') {
-            closeNoteModal(modal);
-        }
-    };
-    document.addEventListener('keydown', escHandler);
-    // 存儲事件處理器以便後續清理
-    modal._escHandler = escHandler;
-
-    // 確保彈窗立即顯示
-    requestAnimationFrame(() => {
-        modal.classList.add('show');
-        console.log('彈窗顯示動畫已觸發');
-    });
 }
 
-function closeNoteModal(modal) {
-    console.log('正在關閉彈窗');
-    if (modal && modal.parentNode) {
-        // 清理 ESC 鍵監聽器
-        if (modal._escHandler) {
-            document.removeEventListener('keydown', modal._escHandler);
-            delete modal._escHandler;
-        }
+function closeNoteModal() {
+    console.log('正在關閉筆記檢視器');
+    const notesLayout = document.querySelector('.notes-layout');
+    const noteViewerBody = document.querySelector('.note-viewer-body');
 
-        modal.classList.add('hiding');
-        setTimeout(() => {
-            if (modal.parentNode) {
-                modal.parentNode.removeChild(modal);
-                console.log('彈窗已移除');
-            }
-        }, 300);
-    }
+    // 移除分割視圖模式
+    notesLayout.classList.remove('split-view');
+    document.body.classList.remove('split-view-active');
+
+    // 重置內容
+    noteViewerBody.innerHTML = '<div class="loading">選擇一個筆記以查看內容</div>';
 }
 
 
 
 function setupNoteInteractions() {
-    // 預留其他互動功能
+    // 設置關閉按鈕
+    const closeBtn = document.querySelector('.note-viewer-close');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeNoteModal);
+    }
+
+    // ESC 鍵關閉
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const notesLayout = document.querySelector('.notes-layout');
+            if (notesLayout && notesLayout.classList.contains('split-view')) {
+                closeNoteModal();
+            }
+        }
+    });
+
     console.log('筆記互動功能已準備就緒');
 }
