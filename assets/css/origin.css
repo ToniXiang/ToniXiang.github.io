@@ -129,21 +129,6 @@ body {
     }
 }
 
-.site-info-text h3 {
-    color: var(--text-color);
-    font-size: 1.4rem;
-    margin: 0 0 1rem 0;
-    font-weight: 600;
-}
-
-.site-info-text p {
-    color: var(--text-color);
-    line-height: 1.8;
-    margin: 0;
-    font-size: 0.95rem;
-    opacity: 0.9;
-}
-
 .site-info-details {
     margin-top: 2.5rem;
 }

@@ -43,14 +43,21 @@ body.split-view-active > main {
 }
 
 .notes-grid {
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
     margin-top: 40px;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .note-category {
-    margin-bottom: 48px;
+    margin-bottom: 0;
     transition: none;
     position: relative;
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
 }
 
 .note-category:hover {
@@ -226,10 +233,15 @@ body:not(.dark-theme) {
 
     .notes-grid {
         margin-top: 24px;
+        flex-direction: column;
+        gap: 0;
     }
 
     .note-category {
         margin-bottom: 36px;
+        flex: none;
+        min-width: auto;
+        max-width: none;
     }
 
     .category-header {

@@ -10,14 +10,44 @@
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
-<body>
+<body class="home-page">
     <div id="background"></div>
     <header class="blogTitle"></header>
     <div class="menu" onclick="toggleMenu()">
         <img src="assets/images/menu.svg" alt="選單" width="20" height="20" class="icon" aria-hidden="true">
     </div>
     <main>
-        <!-- Comming Soon -->
+        <div class="welcome-container">
+            <div class="welcome-content">
+                <div class="welcome-text">
+                    <h1 class="welcome-title">Welcome</h1>
+                    <p class="welcome-subtitle">探索技術，分享知識，記錄成長</p>
+                    <p class="welcome-description">這裡是我的個人網站，記錄著我在程式開發和學習路上的點點滴滴。</p>
+                </div>
+                <div class="welcome-visual">
+                    <div class="floating-card">
+                        <div class="card-header">
+                            <div class="card-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <span class="card-title">Code</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="code-line">
+                                <span class="code-keyword">function</span>
+                                <span class="code-function"> welcome</span>() {
+                            </div>
+                            <div class="code-line indent">
+                                <span class="code-keyword">std</span>::<span class="code-method">cout</span> << <span class="code-string">"Hello World!"</span> << <span class="code-keyword">std</span>::<span class="code-method">endl</span>;
+                            </div>
+                            <div class="code-line">}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <footer></footer>
     <script src="assets/js/script.js" defer></script>
