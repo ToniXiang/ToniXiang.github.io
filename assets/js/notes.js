@@ -162,6 +162,17 @@ function showNoteModal(title) {
 
     // 只在尚未切換到分割視圖時才切換
     if (!isAlreadySplit) {
+        // 先關閉任何打開的側邊欄
+        const blogTitle = document.querySelector('.blogTitle');
+        const overlay = document.querySelector('.sidebar-overlay');
+        const menuIcon = document.querySelector('.menu img.icon');
+
+        if (blogTitle && blogTitle.classList.contains('show')) {
+            blogTitle.classList.remove('show');
+            if (overlay) overlay.classList.remove('show');
+            if (menuIcon) menuIcon.setAttribute('src', 'assets/images/menu.svg');
+        }
+
         // 使用 requestAnimationFrame 確保 DOM 更新後再添加 class
         requestAnimationFrame(() => {
             notesLayout.classList.add('split-view');

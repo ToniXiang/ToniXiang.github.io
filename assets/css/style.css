@@ -385,7 +385,7 @@ span>a {
     --secondary-color-dark: #1F6FEB;
     --tertiary-color-dark: #8B949E;
     --surface-dark: #161B22;
-    --card-bg-dark: #161B22;
+    --card-bg-dark: #0D11117;
     --card-border-dark: #30363D;
     --border-dark: #30363D;
     --accent-color-dark: #1F6FEB;
@@ -900,7 +900,7 @@ h2::after {
     bottom: -8px;
     left: 50%;
     width: 60px;
-    height: 4px;
+    height: 1px;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     border-radius: 2px;
     transform: translateX(-50%) scaleX(0);
