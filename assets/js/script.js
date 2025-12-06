@@ -117,12 +117,6 @@ function loadNavigationAndFooter() {
                 <div class="nav-indicator"></div>
             </nav>
         </div>
-        <div class="nav-section">
-            <div class="nav-label">資訊</div>
-            <div class="sidebar-footer">
-                <p>內容是重點，UI 只是載體</p>
-            </div>
-        </div>
         `;
     foot.innerHTML = `
         <div class="wave-divider">

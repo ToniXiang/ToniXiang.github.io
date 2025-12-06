@@ -2,7 +2,26 @@
 document.addEventListener('DOMContentLoaded', () => {
     initializeNotes();
     setupNoteInteractions();
+    handleUrlHash(); // 處理從搜尋頁面傳來的 hash 參數
 });
+
+// 處理 URL hash 參數，自動打開指定的筆記
+function handleUrlHash() {
+    const hash = window.location.hash;
+    if (hash && hash.length > 1) {
+        // 移除 # 符號並解碼
+        const noteTitle = decodeURIComponent(hash.substring(1));
+        console.log('從 URL hash 載入筆記:', noteTitle);
+
+        // 延遲一點時間確保頁面完全載入
+        setTimeout(() => {
+            showNoteModal(noteTitle);
+        }, 100);
+    }
+}
+
+// 監聽 hash 變化，支援瀏覽器前進/後退
+window.addEventListener('hashchange', handleUrlHash);
 
 function initializeNotes() {
     // 為內部筆記添加點擊事件
@@ -147,6 +166,12 @@ function parseMarkdown(text) {
 function showNoteModal(title) {
     console.log('正在顯示筆記:', title);
 
+    // 更新 URL hash，但不觸發 hashchange 事件
+    const newHash = `#${encodeURIComponent(title)}`;
+    if (window.location.hash !== newHash) {
+        history.replaceState(null, null, newHash);
+    }
+
     const notesLayout = document.querySelector('.notes-layout');
     const noteViewerTitle = document.querySelector('.note-viewer-title');
     const noteViewerBody = document.querySelector('.note-viewer-body');
@@ -234,6 +259,9 @@ function closeNoteModal() {
 
     // 重置內容
     noteViewerBody.innerHTML = '<div class="loading">選擇一個筆記以查看內容</div>';
+
+    // 清除 URL hash
+    history.replaceState(null, null, window.location.pathname);
 }
 
 

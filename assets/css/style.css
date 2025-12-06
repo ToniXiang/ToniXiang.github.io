@@ -237,24 +237,6 @@ body>main {
     padding-top: 0;
 }
 
-.sidebar-footer {
-    padding: 24px 24px 32px 24px;
-    text-align: center;
-    border-radius: 0 0 0 18px;
-    position: relative;
-    overflow: hidden;
-}
-
-.sidebar-footer p {
-    margin: 0;
-    color: var(--text-color);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    opacity: 0.8;
-    transition: all 0.3s ease;
-}
-
 .modal-close,
 .modal-control-btn {
     display: inline-flex;

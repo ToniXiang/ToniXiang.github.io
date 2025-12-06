@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="shortcut icon" href="assets/images/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/notes.css">
+    <link rel="stylesheet" href="assets/css/search.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet"/>
 </head>
 
@@ -18,6 +19,38 @@
     <img src="assets/images/menu.svg" alt="選單" width="20" height="20" class="icon" aria-hidden="true">
 </div>
 <main>
+    <div class="search-container">
+        <div class="search-header">
+            <h2>筆記搜尋</h2>
+            <p class="search-subtitle">快速找到所需內容</p>
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="輸入關鍵字搜尋..." autocomplete="off">
+            <button id="searchBtn" type="button">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="M21 21l-4.35-4.35"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div class="search-stats">
+            <span id="searchStats">輸入關鍵字開始搜尋</span>
+        </div>
+
+        <div class="search-results" id="searchResults">
+            <div class="notes-grid" id="notesGrid">
+                <!-- 搜尋結果將在這裡顯示 -->
+            </div>
+        </div>
+
+        <div class="search-loading" id="searchLoading" style="display: none;">
+            <div class="loading-spinner"></div>
+            <p>搜尋中...</p>
+        </div>
+    </div>
+
     <div class="notes-layout">
         <article class="notes-container">
             <h2>學習筆記</h2>
@@ -119,6 +152,7 @@
 <footer></footer>
 <script src="assets/js/script.js" defer></script>
 <script src="assets/js/notes.js" defer></script>
+<script src="assets/js/search.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>

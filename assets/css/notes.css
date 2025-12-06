@@ -14,6 +14,8 @@ body.split-view-active > main {
     transition: all 0.3s ease;
     justify-content: center;
     min-height: 100vh;
+    flex-direction: row; /* 確保是水平佈局 */
+    align-items: flex-start; /* 頂部對齊 */
 }
 
 .notes-layout.split-view {
@@ -22,6 +24,7 @@ body.split-view-active > main {
     width: 100%;
     padding: 0 20px;
     box-sizing: border-box;
+    flex-direction: row !important; /* 強制水平佈局 */
 }
 
 .notes-container {
@@ -36,10 +39,12 @@ body.split-view-active > main {
 
 .split-view .notes-container {
     max-width: 500px;
+    width: 500px;
     margin: 0;
     flex-shrink: 0;
-    padding-right: 10px;
+    padding-right: 20px;
     box-sizing: border-box;
+    flex: 0 0 500px; /* 固定寬度不伸縮 */
 }
 
 .notes-grid {
@@ -200,11 +205,12 @@ body:not(.dark-theme) {
 
 @media (max-width: 768px) {
     .notes-layout {
-        flex-direction: column;
+        flex-direction: column !important;
     }
 
     .notes-layout.split-view {
         position: relative;
+        flex-direction: column !important;
     }
 
     .split-view .notes-container {
@@ -222,13 +228,33 @@ body:not(.dark-theme) {
         border-radius: 0;
         z-index: 10000;
         background: var(--card-bg);
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .split-view .note-viewer-header {
+        flex-shrink: 0;
+        position: relative;
+        z-index: 10001;
+    }
+
+    .split-view .note-viewer-body {
+        flex: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        padding: 0;
+        height: calc(100vh - 60px); /* 减去header高度 */
+        max-height: calc(100vh - 60px);
     }
 
     body.split-view-active {
         overflow: hidden;
         position: fixed;
         width: 100%;
-        height: 100%;
+        height: 100vh;
+        touch-action: none;
     }
 
     body.split-view-active .menu {
@@ -241,6 +267,29 @@ body:not(.dark-theme) {
 
     body.split-view-active .sidebar-overlay {
         display: none !important;
+    }
+
+    /* 确保移动端markdown内容可以滚动 */
+    .split-view .note-viewer-body .markdown-content {
+        padding: 16px;
+        min-height: 100%;
+        box-sizing: border-box;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+
+    /* 修复移动端代码块的显示 */
+    .split-view .note-viewer-body .markdown-content pre {
+        overflow-x: auto;
+        white-space: pre;
+        word-wrap: normal;
+    }
+
+    /* 强制移动端的触摸滚动 */
+    .split-view .note-viewer-body {
+        -webkit-overflow-scrolling: touch !important;
+        overflow-y: auto !important;
+        transform: translateZ(0); /* 启用硬件加速 */
     }
 
     .note-modal {
@@ -520,10 +569,11 @@ body:not(.dark-theme) {
     box-sizing: border-box;
     transform: translateX(20px);
     transition: opacity 0.3s ease, transform 0.3s ease;
+    height: fit-content;
 }
 
 .split-view .note-viewer {
-    display: flex;
+    display: flex !important;
     transform: translateX(0);
 }
 
@@ -567,7 +617,10 @@ body:not(.dark-theme) {
 .note-viewer-body {
     flex: 1;
     overflow-y: auto;
+    overflow-x: hidden;
     padding: 0;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
 }
 
 .note-viewer-body .loading {
@@ -1063,6 +1116,31 @@ code[class*="language-"] {
     }
 }
 
+@media (min-width: 769px) {
+    .notes-layout.split-view {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+    }
+
+    .split-view .notes-container {
+        display: block !important;
+        flex: 0 0 500px !important;
+    }
+
+    .split-view .note-viewer {
+        display: flex !important;
+        flex: 1 !important;
+        min-width: 300px !important;
+    }
+}
+
+/* 調試用：確保可見性 */
+.notes-layout.split-view {
+    outline: 2px solid transparent; /* 用於調試的邊框 */
+}
+
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -1137,5 +1215,202 @@ code[class*="language-"] {
 
 .dark-theme .note-list::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.15);
+}
+
+/* Search container integration with notes page */
+.search-container {
+    display: none !important; /* Initially hidden and force hide */
+    padding: 80px 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+/* When search is active, ensure proper spacing */
+.search-container.active {
+    display: block !important;
+}
+
+/* Responsive adjustments for search in notes page */
+@media (max-width: 768px) {
+    .search-container {
+        padding: 80px 16px 20px;
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .search-header {
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    .search-header h2 {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+    }
+
+    .search-subtitle {
+        font-size: 0.9rem;
+    }
+}
+
+/* 桌面端确保正常滚动 */
+@media (min-width: 769px) {
+    body.split-view-active {
+        overflow: visible;
+        position: static;
+        height: auto;
+    }
+
+    .split-view .note-viewer {
+        position: relative;
+        height: auto;
+        max-height: none;
+    }
+
+    .split-view .note-viewer-body {
+        height: auto;
+        max-height: none;
+    }
+}
+
+/* Search toggle button styles */
+.search-toggle-btn {
+    background: transparent;
+    color: var(--text-color);
+    border: none;
+    border-radius: 24px;
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.search-toggle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.close-search-btn {
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 16px;
+}
+
+.close-search-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Responsive adjustments for toggle buttons */
+@media (max-width: 768px) {
+    .search-toggle-btn {
+        width: 100%;
+        padding: 16px 24px;
+        font-size: 1rem;
+        margin-bottom: 24px;
+        border-radius: 28px;
+    }
+
+    .close-search-btn {
+        width: auto;
+        min-width: 160px;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        margin: 20px auto 0 auto;
+        display: block;
+        text-align: center;
+        border-radius: 24px;
+    }
+
+    .search-header {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-toggle-btn {
+        padding: 14px 20px;
+        font-size: 0.95rem;
+    }
+
+    .close-search-btn {
+        width: calc(100% - 24px);
+        min-width: auto;
+        margin: 16px 12px 0 12px;
+    }
+}
+
+/* 手機版搜索功能整體修復 */
+@media (max-width: 768px) {
+    body.search-active {
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+    .search-container {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        transform: none;
+        overflow-x: hidden;
+    }
+
+    .search-container.active {
+        display: block !important;
+        position: relative;
+        width: 100vw;
+        min-height: 100vh;
+        margin: 0;
+        padding-top: 90px;
+        padding-left: 12px;
+        padding-right: 12px;
+        box-sizing: border-box;
+    }
+
+    /* 確保搜索結果不會偏移 */
+    .search-results {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* 修復搜索網格在手機版的顯示 */
+    .search-results .notes-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* 超小屏幕優化 */
+@media (max-width: 480px) {
+    .search-container.active {
+        padding-top: 80px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
 }
 

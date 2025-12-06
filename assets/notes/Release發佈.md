@@ -31,5 +31,4 @@ v[MAJOR].[MINOR].[PATCH]
 ```
 - 日常開發階段每次：Commit 寫清楚變更內容(例如:修bug、加功能)。不需要每次都發佈 Release 或改版本號。
 - 準備發佈版本時：根據變更的性質決定要升級哪個版本號(主、次、修訂)。撰寫 Release notes(發佈說明)，說明這個版本包含哪些新功能、修復或變更。
-- 使用 Git tag 標記版本：發佈時使用 git tag v1.2.3 標記版本。可以搭配 GitHub/GitLab 的 Release 功能，
-讓使用者清楚知道每個版本的內容。
+- 使用 Git tag 標記版本：發佈時使用 git tag v1.2.3 標記版本。可以搭配 GitHub/GitLab 的 Release 功能， 讓使用者清楚知道每個版本的內容。
