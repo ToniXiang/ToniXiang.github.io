@@ -79,24 +79,11 @@ body>main {
     padding: 28px 20px 18px 20px;
     background: transparent;
     border-bottom: 1px solid var(--sidebar-divider);
-    margin-bottom: 8px;
-}
-
-.brand-container {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    padding: 0;
-    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-}
-
-
-.brand-icon {
-    display: none;
+    margin-bottom: 20px;
 }
 
 .brand-info h4 {
-    margin: 0 0 4px 0;
+    margin-top: 20px;
     color: var(--sidebar-text);
     font-size: 20px;
     font-weight: 500;
@@ -202,22 +189,46 @@ body>main {
     line-height: 1.2;
 }
 
+.theme-select {
+    margin-top: 4px;
+    padding: 6px 10px;
+    font-size: 12px;
+    color: var(--sidebar-text);
+    background: var(--sidebar-select-bg, rgba(255, 255, 255, 0.05));
+    border: 1px solid var(--sidebar-divider, rgba(255, 255, 255, 0.15));
+    border-radius: 6px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.theme-select:hover {
+    background: var(--sidebar-select-hover-bg, rgba(255, 255, 255, 0.08));
+    border-color: var(--sidebar-select-hover-border, rgba(255, 255, 255, 0.25));
+}
+
+.theme-select:focus {
+    border-color: var(--primary-color, #007aff);
+    box-shadow: 0 0 0 3px var(--select-focus-shadow, rgba(0, 122, 255, 0.1));
+}
+
+.theme-select option {
+    background: var(--dropdown-bg, #1e1e1e);
+    color: var(--dropdown-text, #ffffff);
+    padding: 8px;
+}
+
 .menu {
     top: 16px;
     position: fixed;
     left: 16px;
     padding: 6px;
     border-radius: 10px;
-    border: 1px solid var(--sidebar-divider, rgba(255, 255, 255, 0.15));
     cursor: pointer;
     z-index: 21;
     background: transparent;
     transition: all 0.2s ease;
-}
-
-.menu:hover {
-    transform: translateY(-1px);
-    background-color: #333333;
 }
 
 .menu:active {
@@ -229,6 +240,12 @@ body>main {
     display: block;
     width: 20px;
     height: 20px;
+    filter: none;
+}
+
+.light-theme .menu img,
+.light-theme .menu img.icon {
+    filter: invert(1) brightness(0) contrast(1);
 }
 
 .sidebar-divider {
@@ -359,6 +376,12 @@ span>a {
     --error-light: #F85149;
     --warning-light: #D29922;
     --success-light: #3FB950;
+    --sidebar-select-bg-light: rgba(0, 0, 0, 0.03);
+    --sidebar-select-hover-bg-light: rgba(0, 0, 0, 0.06);
+    --sidebar-select-hover-border-light: #8B949E;
+    --dropdown-bg-light: #FFFFFF;
+    --dropdown-text-light: #1F2328;
+    --select-focus-shadow-light: rgba(9, 105, 218, 0.1);
 
     /* Dark Theme Colors */
     --background-color-dark: #0D1117;
@@ -393,6 +416,12 @@ span>a {
     --error-dark: #F85149;
     --warning-dark: #D29922;
     --success-dark: #3FB950;
+    --sidebar-select-bg-dark: rgba(255, 255, 255, 0.05);
+    --sidebar-select-hover-bg-dark: rgba(255, 255, 255, 0.08);
+    --sidebar-select-hover-border-dark: rgba(255, 255, 255, 0.25);
+    --dropdown-bg-dark: #1e1e1e;
+    --dropdown-text-dark: #C9D1D9;
+    --select-focus-shadow-dark: rgba(88, 166, 255, 0.1);
     /* default theme colors */
     --background-color: var(--background-color-dark);
     --text-color: var(--text-color-dark);
@@ -421,6 +450,12 @@ span>a {
     --status-bg: var(--status-bg-dark);
     --status-border: var(--status-border-dark);
     --status-text: var(--status-text-dark);
+    --sidebar-select-bg: var(--sidebar-select-bg-dark);
+    --sidebar-select-hover-bg: var(--sidebar-select-hover-bg-dark);
+    --sidebar-select-hover-border: var(--sidebar-select-hover-border-dark);
+    --dropdown-bg: var(--dropdown-bg-dark);
+    --dropdown-text: var(--dropdown-text-dark);
+    --select-focus-shadow: var(--select-focus-shadow-dark);
 }
 
 .dark-theme {
@@ -479,12 +514,12 @@ span>a {
     --status-bg: var(--status-bg-light);
     --status-border: var(--status-border-light);
     --status-text: var(--status-text-light);
-    --code-border: var(--code-border-light);
-    --code-text: var(--code-text-light);
-    --prompt-color: var(--prompt-color-light);
-    --status-bg: var(--status-bg-light);
-    --status-border: var(--status-border-light);
-    --status-text: var(--status-text-light);
+    --sidebar-select-bg: var(--sidebar-select-bg-light);
+    --sidebar-select-hover-bg: var(--sidebar-select-hover-bg-light);
+    --sidebar-select-hover-border: var(--sidebar-select-hover-border-light);
+    --dropdown-bg: var(--dropdown-bg-light);
+    --dropdown-text: var(--dropdown-text-light);
+    --select-focus-shadow: var(--select-focus-shadow-light);
 }
 
 /* 頁尾基礎樣式 */
@@ -1081,5 +1116,70 @@ footer {
 
     .footer-bottom {
         padding-top: 0.6rem;
+    }
+}
+/* 回到頂部按鈕 */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--card-bg, rgba(255, 255, 255, 0.9));
+    border: 1px solid var(--card-border, rgba(0, 0, 0, 0.1));
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    backdrop-filter: blur(10px);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: var(--primary-color, #667eea);
+    color: white;
+    border-color: var(--primary-color, #667eea);
+    transform: translateY(-3px);
+}
+
+.back-to-top:active {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+}
+
+.back-to-top svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.back-to-top:hover svg {
+    transform: translateY(-2px);
+}
+
+/* 響应式调整 */
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 20px;
+        left: 20px;
+        width: 44px;
+        height: 44px;
+    }
+    
+    .back-to-top svg {
+        width: 18px;
+        height: 18px;
     }
 }

@@ -40,8 +40,8 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-    animation: shimmer 2s ease-in-out infinite;
-    animation-delay: 1.5s;
+    animation: shimmer 4s ease-in-out infinite;
+    animation-delay: 4s;
 }
 
 .welcome-subtitle {

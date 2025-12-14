@@ -1,32 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
     loadNavigationAndFooter();
     loadDefaultTheme();
-    setupMenuHover();
     setupKeyboardEvents();
+    setupBackToTop();
 });
 // 載入預設主題
 function loadDefaultTheme() {
-    const savedTheme = localStorage.getItem('theme');
+    const savedTheme = localStorage.getItem('theme') || 'auto';
     const prefersDarkMQ = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
 
     function applySystemTheme() {
         const systemTheme = (prefersDarkMQ && prefersDarkMQ.matches) ? 'dark-theme' : 'light-theme';
         document.body.classList.remove('dark-theme', 'light-theme');
         document.body.classList.add(systemTheme);
-
-        const themeIconImg = document.getElementById('theme-icon');
-        if (themeIconImg) {
-            themeIconImg.setAttribute('src', 'assets/images/desktop_windows.svg');
-            themeIconImg.setAttribute('alt', 'system preference');
-        }
     }
 
-    if (savedTheme) {
-        applyTheme(savedTheme);
-    } else {
+    if (savedTheme === 'auto') {
         applySystemTheme();
         const mqListener = () => {
-            if (!localStorage.getItem('theme')) {
+            const currentTheme = localStorage.getItem('theme') || 'auto';
+            if (currentTheme === 'auto') {
                 applySystemTheme();
             }
         };
@@ -39,16 +32,26 @@ function loadDefaultTheme() {
                 console.warn('Failed to add media query listener:', error);
             }
         }
+    } else if (savedTheme === 'light') {
+        applyTheme('light-theme');
+    } else if (savedTheme === 'dark') {
+        applyTheme('dark-theme');
     }
+
+    // 更新下拉選單的選中項
+    updateThemeSelect(savedTheme);
 
     window.addEventListener('storage', (ev) => {
         if (ev.key === 'theme') {
-            const newVal = ev.newValue;
-            if (newVal) {
-                applyTheme(newVal);
-            } else {
+            const newVal = ev.newValue || 'auto';
+            if (newVal === 'auto') {
                 applySystemTheme();
+            } else if (newVal === 'light') {
+                applyTheme('light-theme');
+            } else if (newVal === 'dark') {
+                applyTheme('dark-theme');
             }
+            updateThemeSelect(newVal);
         }
     });
 }
@@ -59,11 +62,9 @@ function loadNavigationAndFooter() {
     const currentPage = window.location.pathname.split('/').pop().replace('.html', '');
     blogTitle.innerHTML = `
         <div class="sidebar-header">
-            <div class="brand-container">
-                <div class="brand-info">
-                    <h3>側邊欄</h3>
+            <div class="brand-info">
+                    <h4>ToniXiang</h4>
                 </div>
-            </div>
         </div>
         
         <div class="nav-section">
@@ -97,20 +98,24 @@ function loadNavigationAndFooter() {
         </div>
         
         <div class="nav-section">
-            <div class="nav-label">設定</div>
-            <nav class="nav-item theme" onclick="toggleTheme()" aria-label="切換主題">
-                <div class="nav-icon">
-                    <img id="theme-icon" src="assets/images/desktop_windows.svg" alt="theme" width="20" height="20" class="nav-icon-img" aria-hidden="true">
-                </div>
+            <div class="nav-label">主題</div>
+            <div class="nav-item theme" aria-label="切換主題"  title="按鍵 T">
                 <div class="nav-text">
-                    <p>切換主題</p>
-                    <span class="nav-description">明暗模式</span>
+                    <select id="theme-select" class="theme-select" onchange="handleThemeChange(this.value)" aria-label="選擇主題">
+                        <option value="auto">隨系統主題</option>
+                        <option value="light">淺色模式</option>
+                        <option value="dark">深色模式</option>
+                    </select>
                 </div>
-                <div class="nav-indicator"></div>
-            </nav>
+            </div>
         </div>
         `;
     foot.innerHTML = `
+        <button id="backToTop" class="back-to-top" aria-label="回到頂部" title="回到頂部">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+        </button>
         <div class="wave-divider">
             <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                 <path d="M321.39,56.44C187.52,49.69,155,114.13,125.48,137.28c-30.21,23.68-59.77,21.22-92.66,0C-19.39,110.56-55.13,72.44-101.88,56.44c-46.75-16-95.89-9-138.17,18.72C-284.14,98.88-320.3,137-375.2,137s-91.06-38.12-135.15-61.84C-554.44,51.44-603.58,44.44-645.86,72.16c-42.28,27.72-78.44,65.84-133.34,65.84s-91.06-38.12-135.15-61.84C-958.44,51.44-1007.58,44.44-1049.86,72.16c-42.28,27.72-78.44,65.84-133.34,65.84V0H1200V56.44Z" 
@@ -131,7 +136,6 @@ function loadNavigationAndFooter() {
                     記錄技術筆記與求學歷程
                     <p class="author-desc"># 專長|嵌⼊式系統與演算法</p>
                     <p class="author-desc"># 技能|C/C++</p>
-                    <p class="author-desc"># 專案作品|GitHub</p>
                 </div>
                 
                 <div class="footer-nav">
@@ -258,34 +262,20 @@ function closeSidebar() {
     }
 }
 
-// 在非觸控裝置上啟用滑鼠移入顯示、移出隱藏的行為（手機仍以點擊為主）
-function setupMenuHover(){
-    const isTouchDevice = (('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints && navigator.msMaxTouchPoints > 0));
-    if(isTouchDevice) return; // 觸控裝置不綁定 hover
-
-    const menuEl = document.querySelector('.menu');
-    const blogTitle = document.querySelector('.blogTitle');
-    const menuIcon = document.querySelector('.menu img.icon');
-    const overlay = document.querySelector('.sidebar-overlay');
-
-    if(!menuEl || !blogTitle) return;
-
-    menuEl.addEventListener('mouseenter', ()=>{
-        if(blogTitle.classList.contains('show')) return;
-        blogTitle.classList.add('show');
-        if (overlay) overlay.classList.add('show');
-        if (menuIcon) menuIcon.setAttribute('src', 'assets/images/menu_open.svg');
-
-        // 添加進入動畫
-        playSidebarEnterAnimation();
-    });
-}
-
 // 設置鍵盤事件
 function setupKeyboardEvents() {
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
             closeSidebar();
+        }
+        else if (event.key === 'M' || event.key === 'm') {
+            toggleMenu();
+        }
+        else if(event.key === 'T' || event.key === 't'){
+            const themeSelect = document.getElementById('theme-select');
+            if(themeSelect){
+                themeSelect.focus();
+            }
         }
     });
 }
@@ -294,41 +284,36 @@ function setupKeyboardEvents() {
 function redirectToPage(url) {
     window.location.href = url;
 }
-// 點擊後交換主題
-function toggleTheme(){
-    const themeIconImg = document.getElementById('theme-icon');
-    const currentSrc = themeIconImg ? themeIconImg.getAttribute('src') : '';
-
-    if (currentSrc && currentSrc.indexOf('desktop_windows.svg') !== -1) {
-        setTheme('light-theme');
-        return;
-    }
-
-    if (document.body.classList.contains('dark-theme')) {
-        setTheme('light-theme');
-    } else {
-        setTheme('dark-theme');
+// 處理主題變更
+function handleThemeChange(value) {
+    localStorage.setItem('theme', value);
+    
+    if (value === 'auto') {
+        const prefersDarkMQ = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+        const systemTheme = (prefersDarkMQ && prefersDarkMQ.matches) ? 'dark-theme' : 'light-theme';
+        document.body.classList.remove('dark-theme', 'light-theme');
+        document.body.classList.add(systemTheme);
+    } else if (value === 'light') {
+        applyTheme('light-theme');
+    } else if (value === 'dark') {
+        applyTheme('dark-theme');
     }
 }
-// 紀錄使用者選擇的主題
-function setTheme(themeName) {
-    localStorage.setItem('theme', themeName);
-    applyTheme(themeName);
+
+
+
+// 更新下拉選單的選中項
+function updateThemeSelect(value) {
+    const themeSelect = document.getElementById('theme-select');
+    if (themeSelect) {
+        themeSelect.value = value;
+    }
 }
+
 // 切換主題
 function applyTheme(themeName) {
     document.body.classList.remove('dark-theme', 'light-theme');
     document.body.classList.add(themeName);
-    const themeIconImg = document.getElementById('theme-icon');
-    if (themeIconImg) {
-        if (document.body.classList.contains('dark-theme')) {
-            themeIconImg.setAttribute('src', 'assets/images/light_mode.svg');
-            themeIconImg.setAttribute('alt', 'light mode');
-        } else {
-            themeIconImg.setAttribute('src', 'assets/images/dark_mode.svg');
-            themeIconImg.setAttribute('alt', 'dark mode');
-        }
-    }
 }
 
 // 創建可重用的 IntersectionObserver 工具函數
@@ -360,4 +345,27 @@ function createVisibilityObserver(options = {}) {
             }
         });
     }, observerOptions);
+}
+
+// 設置回到頂部按鈕功能
+function setupBackToTop() {
+    const backToTopButton = document.getElementById('backToTop');
+    if (!backToTopButton) return;
+
+    // 顯示/隱藏按鈕
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
+    });
+
+    // 點擊返回頂部
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 }
