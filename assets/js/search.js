@@ -72,18 +72,10 @@ class NotesSearch {
         // 定義所有筆記檔案
         const noteFiles = [
             'Binary_Search.md',
-            'Commit提交.md',
-            'Flutter目標.md',
-            'Flutter設置.md',
             'Leetcode.md',
             'Priority.md',
-            'Release發佈.md',
             'Tree.md',
-            'TreeNode.md',
             'Unordered.md',
-            '後端開發.md',
-            '技術概論.md',
-            '管理概論.md'
         ];
 
         this.showLoading(true);

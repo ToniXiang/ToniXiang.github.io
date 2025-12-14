@@ -133,9 +133,9 @@ function loadNavigationAndFooter() {
                         <img src="assets/images/me.jpg" class="footer-img" alt="Logo">
                         <h4>ToniXiang</h4>
                     </div>
-                    記錄技術筆記與求學歷程
-                    <p class="author-desc"># 專長|嵌⼊式系統與演算法</p>
-                    <p class="author-desc"># 技能|C/C++</p>
+                    陳國翔 - NTCUST 資工學士
+                    <p class="author-desc"># 專長|嵌入式系統與低階程式開發</p>
+                    <p class="author-desc"># 技能|C/C++· MCU</p>
                 </div>
                 
                 <div class="footer-nav">

@@ -32,7 +32,8 @@ function initializeNotes() {
 }
 
 function handleInternalNoteClick(event) {
-    const noteTitle = event.currentTarget.querySelector('.note-title').textContent;
+    const noteTitleElement = event.currentTarget.querySelector('.note-title');
+    const noteTitle = noteTitleElement.getAttribute('note');
     showNoteModal(noteTitle);
 }
 
