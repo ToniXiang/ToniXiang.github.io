@@ -19,6 +19,9 @@ body {
 
 .site-info-content {
     padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .site-info-main {
@@ -36,19 +39,6 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-}
-
-.site-info-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.6s ease;
-    animation: zoomIn 1s ease-out;
-}
-
-.site-info-image:hover img {
-    transform: scale(1.05);
 }
 
 .image-overlay {
@@ -171,13 +161,12 @@ body {
     font-weight: 600;
     border: none !important;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .github-link:hover {
     background: var(--accent-color);
+    color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive Design for Site Info */
@@ -207,57 +196,6 @@ body {
         font-size: 1.2rem;
         left: 0.3rem;
     }
-}
-
-.resources-section {
-    max-width: 1100px;
-    width: 100%;
-    margin: 2rem auto 3rem;
-    padding: 0 20px;
-    box-sizing: border-box;
-    overflow-x: hidden;
-}
-
-.resources-content {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-}
-
-.resource-category h3 {
-    color: var(--text-color);
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
-    opacity: 0.95;
-}
-
-.resource-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 0.8rem;
-}
-
-.resource-card {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 6px;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    cursor: pointer;
-}
-
-.resource-card:hover {
-    transform: translateY(-2px);
-    border-color: var(--primary-color);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.dark-theme .resource-card:hover {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 .resource-name {

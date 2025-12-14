@@ -86,14 +86,6 @@ function loadNavigationAndFooter() {
                 </div>
                 <div class="nav-indicator"></div>
             </nav>
-            <nav class="nav-item${currentPage === 'about' ? ' active' : ''}" onclick="redirectToPage('about.html')">
-                <img src="assets/images/person.svg" alt="about" width="20" height="20" class="nav-icon-img" aria-hidden="true">
-                <div class="nav-text">
-                    <p>關於我</p>
-                    <span class="nav-description">個人簡介</span>
-                </div>
-                <div class="nav-indicator"></div>
-            </nav>
             <nav class="nav-item${currentPage === 'origin' ? ' active' : ''}" onclick="redirectToPage('origin.html')">
                 <img src="assets/images/changelog.svg" alt="origin" width="20" height="20" class="nav-icon-img" aria-hidden="true">
                 <div class="nav-text">
@@ -136,15 +128,16 @@ function loadNavigationAndFooter() {
                         <img src="assets/images/me.jpg" class="footer-img" alt="Logo">
                         <h4>ToniXiang</h4>
                     </div>
-                    <p class="author-desc">Student at NTCUST, Taiwan</p>
-                    <p class="author-desc">熱愛程式設計，持續學習新技術</p>
+                    記錄技術筆記與求學歷程
+                    <p class="author-desc"># 專長|嵌⼊式系統與演算法</p>
+                    <p class="author-desc"># 技能|C/C++</p>
+                    <p class="author-desc"># 專案作品|GitHub</p>
                 </div>
                 
                 <div class="footer-nav">
                     <h3>導航</h3>
                     <a href="index.html">主要頁面</a>
                     <a href="notes.html">學習筆記</a>
-                    <a href="about.html">關於我</a>
                     <a href="origin.html">關於本站</a>
                 </div>
                 

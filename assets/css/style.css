@@ -637,25 +637,25 @@ span>a {
 .footer-brand {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.15rem;
 }
 
 .footer-logo {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-    margin-bottom: 0.3rem;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
 }
 
 .footer-img {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
 }
 
 .footer-logo h4 {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--text-color);
     font-weight: 600;
     text-decoration: none;
@@ -663,10 +663,10 @@ span>a {
 
 .author-desc {
     margin: 0;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--text-color);
-    opacity: 0.7;
-    line-height: 1.5;
+    opacity: 0.65;
+    line-height: 1.4;
     display: block;
 }
 
@@ -881,8 +881,8 @@ h2::after {
     position: absolute;
     bottom: -8px;
     left: 50%;
-    width: 60px;
-    height: 1px;
+    width: 30px;
+    height: 3px;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     border-radius: 2px;
     transform: translateX(-50%) scaleX(0);
