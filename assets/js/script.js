@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 // 載入預設主題
 function loadDefaultTheme() {
-    const savedTheme = localStorage.getItem('theme') || 'auto';
+    const savedTheme = localStorage.getItem('theme') || 'dark';
     const prefersDarkMQ = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
 
     function applySystemTheme() {
