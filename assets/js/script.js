@@ -63,8 +63,14 @@ function loadNavigationAndFooter() {
     blogTitle.innerHTML = `
         <div class="sidebar-header">
             <div class="brand-info">
-                    <h4>ToniXiang</h4>
+                <img src="assets/images/me.jpg" class="sidebar-avatar" alt="Avatar">
+                <h4>ToniXiang</h4>
+                <p class="sidebar-subtitle">Code · Build · Debug</p>
+                <div class="sidebar-tags">
+                    <span class="tag tag-experience">C++ 學習 6 年</span>
+                    <span class="tag tag-leetcode">LC 400+ 題</span>
                 </div>
+            </div>
         </div>
         
         <div class="nav-section">
@@ -99,7 +105,7 @@ function loadNavigationAndFooter() {
         
         <div class="nav-section">
             <div class="nav-label">主題</div>
-            <div class="nav-item theme" aria-label="切換主題"  title="按鍵 T">
+            <div class="nav-item theme" aria-label="切換主題"  title="快捷鍵 T">
                 <div class="nav-text">
                     <select id="theme-select" class="theme-select" onchange="handleThemeChange(this.value)" aria-label="選擇主題">
                         <option value="auto">隨系統主題</option>
@@ -129,13 +135,22 @@ function loadNavigationAndFooter() {
         <div class="footer-content">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <div class="footer-logo">
-                        <img src="assets/images/me.jpg" class="footer-img" alt="Logo">
-                        <h4>ToniXiang</h4>
+                    <div class="footer-brand-header">
+                        <p>ToniXiang - 陳國翔</p>
                     </div>
-                    陳國翔 - NTCUST 資工學士
-                    <p class="author-desc"># 專長|嵌入式系統與低階程式開發</p>
-                    <p class="author-desc"># 技能|C/C++· MCU</p>
+                    <div class="footer-specialties">
+                        <div class="specialty-item">
+                            <span class="specialty-icon">#專長</span>
+                            <span class="specialty-text">嵌入式系統與低階程式開發</span>
+                        </div>
+                        <div class="specialty-item">
+                            <span class="specialty-icon">#技能</span>
+                            <span class="specialty-text">C/C++ · MCU · 韌體開發</span>
+                        </div>
+                    </div>
+                    <span class="more-info-trigger" onclick="toggleMoreInfo()">
+                        更多資訊 <span class="chevron">›</span>
+                    </span>
                 </div>
                 
                 <div class="footer-nav">
@@ -153,6 +168,57 @@ function loadNavigationAndFooter() {
             </div>
             <div class="footer-bottom">
                 <p>Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+            </div>
+        </div>
+        
+        <!-- 更多資訊卡片 -->
+        <div id="moreInfoCard" class="more-info-card">
+            <div class="more-info-overlay" onclick="toggleMoreInfo()"></div>
+            <div class="more-info-content">
+                <button class="close-card" onclick="toggleMoreInfo()" aria-label="關閉">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <h2>陳國翔</h2>
+                <div class="about-section">
+                    <p>我從高中電子科出身，一路在軟體開發與硬體實作中累積經驗，
+                    之後在大學進一步接觸資安與網路相關領域，並建立起扎實的嵌入式系統與網路安全基礎。
+                    比起停留在理論，我更喜歡將知識應用到實際專案中。</p>
+                </div>
+                
+                <h3>學歷</h3>
+                <div class="education-list">
+                    <div class="education-item" title="四技日間部 就學中 2023/9~2027/6">
+                        <div class="education-school">國立臺中科技大學</div>
+                        <div class="education-department">資訊工程系</div>
+                    </div>
+                    <div class="education-item" title="已畢業 2020/9~2023/6 家長會長獎">
+                        <div class="education-school">國立龍潭高級中學</div>
+                        <div class="education-department">電子科</div>
+                    </div>
+                </div>
+                
+                <h3>證照與成就</h3>
+                <div class="achievement-list">
+                    <div class="achievement-item" title="序號:2025030016">
+                        <span class="achievement-badge">程式</span>
+                        <span>大學程式能力檢定(CPE) C/C++ 進階級</span>
+                    </div>
+                    <div class="achievement-item" title="序號:ACE-25-06-A003">
+                        <span class="achievement-badge">嵌入式</span>
+                        <span>Andes Certified Engineer-ACE 高級</span>
+                    </div>
+                    <div class="achievement-item" title="序號:">
+                        <span class="achievement-badge">資安</span>
+                        <span>iPAS 資訊安全工程師 初級能力鑑定</span>
+                    </div>
+                    <div class="achievement-item" title="2025/07/27場次">
+                        <span class="achievement-badge">英文</span>
+                        <span>TOEIC Listening and Reading Test 485</span>
+                    </div>
+                </div>
             </div>
         </div>`;
 
@@ -375,3 +441,18 @@ function setupBackToTop() {
         });
     });
 }
+
+// 切換更多資訊卡片
+function toggleMoreInfo() {
+    const card = document.getElementById('moreInfoCard');
+    if (card) {
+        card.classList.toggle('active');
+        // 防止背景滾動
+        if (card.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    }
+}
+
