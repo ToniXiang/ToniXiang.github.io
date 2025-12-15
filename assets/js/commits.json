@@ -1,18 +1,115 @@
 {
-  "total": 166,
   "commits": [
+    {
+      "sha": "a909a95fbd1eb34a89d387b2e8cd07e829f001db",
+      "author": {
+        "login": "ToniXiang"
+      },
+      "commit": {
+        "author": {
+          "email": "s1411232069@ad1.nutc.edu.tw",
+          "date": "2025-12-15 20:35:34 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: add PowerShell script to generate commits data with UTF-8 encoding and output to JSON"
+      }
+    },
+    {
+      "sha": "8d01ad348c137face07cc33b19b7e9dc728f5ec5",
+      "author": {
+        "login": "ToniXiang"
+      },
+      "commit": {
+        "author": {
+          "email": "s1411232069@ad1.nutc.edu.tw",
+          "date": "2025-12-15 20:25:53 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: enhance personal info section with new layout, badges, and version check functionality"
+      }
+    },
+    {
+      "sha": "4885e89bf08c73f9cfe44324f5cb6122d39df28f",
+      "author": {
+        "login": "ToniXiang"
+      },
+      "commit": {
+        "author": {
+          "email": "s1411232069@ad1.nutc.edu.tw",
+          "date": "2025-12-15 11:56:06 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: enhance sidebar and footer with new avatar, specialties, and more info card"
+      }
+    },
+    {
+      "sha": "e326556749a9555d4a82fd189a05b65580cee03c",
+      "author": {
+        "login": "ToniXiang"
+      },
+      "commit": {
+        "author": {
+          "email": "s1411232069@ad1.nutc.edu.tw",
+          "date": "2025-12-15 10:42:41 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: update theme loading behavior and enhance search functionality with improved note handling"
+      }
+    },
+    {
+      "sha": "4394cdb61f4794dd893f0ce2268322b54f45e4c2",
+      "author": {
+        "login": "陳國翔"
+      },
+      "commit": {
+        "author": {
+          "email": "s1411232069@ad1.nutc.edu.tw",
+          "date": "2025-12-14 13:35:12 +0800",
+          "name": "陳國翔"
+        },
+        "message": "refactor:refine notes and add new content"
+      }
+    },
+    {
+      "sha": "cd9ec62a972b53474bc45fb747b7d22025adbe09",
+      "author": {
+        "login": "陳國翔"
+      },
+      "commit": {
+        "author": {
+          "email": "s1411232069@ad1.nutc.edu.tw",
+          "date": "2025-12-14 12:50:25 +0800",
+          "name": "陳國翔"
+        },
+        "message": "feat: update welcome section animations and remove hover effects; adjust default theme loading behavior"
+      }
+    },
+    {
+      "sha": "e3567bc5af19ae824b2968a014dc2e68245c24d5",
+      "author": {
+        "login": "陳國翔"
+      },
+      "commit": {
+        "author": {
+          "email": "s1411232069@ad1.nutc.edu.tw",
+          "date": "2025-12-14 11:33:20 +0800",
+          "name": "陳國翔"
+        },
+        "message": "feat: enhance theme selection and add back-to-top button; improve accessibility with ARIA attributes"
+      }
+    },
     {
       "sha": "3d764d429613117914389f291fdab06ea5273f02",
       "author": {
         "login": "陳國翔"
       },
       "commit": {
-        "message": "feat: remove about page and related styles/scripts; update origin page content and layout",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-12-14 09:20:36 +0800"
-        }
+          "date": "2025-12-14 09:20:36 +0800",
+          "name": "陳國翔"
+        },
+        "message": "feat: remove about page and related styles/scripts; update origin page content and layout"
       }
     },
     {
@@ -21,12 +118,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: implement search functionality for notes with responsive design and UI enhancements",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-12-06 21:58:44 +0800"
-        }
+          "date": "2025-12-06 21:58:44 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: implement search functionality for notes with responsive design and UI enhancements"
       }
     },
     {
@@ -35,12 +132,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: Add new notes and refine styling",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-12-02 17:14:09 +0800"
-        }
+          "date": "2025-12-02 17:14:09 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: Add new notes and refine styling"
       }
     },
     {
@@ -49,12 +146,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: enhance welcome page layout and styling with responsive design",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-12-01 20:37:02 +0800"
-        }
+          "date": "2025-12-01 20:37:02 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: enhance welcome page layout and styling with responsive design"
       }
     },
     {
@@ -63,12 +160,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "refactor: remove unused styles and optimize about page layout",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-12-01 10:56:59 +0800"
-        }
+          "date": "2025-12-01 10:56:59 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "refactor: remove unused styles and optimize about page layout"
       }
     },
     {
@@ -77,12 +174,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: implement split view for notes with enhanced viewer and responsive design",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-30 15:41:32 +0800"
-        }
+          "date": "2025-11-30 15:41:32 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: implement split view for notes with enhanced viewer and responsive design"
       }
     },
     {
@@ -91,12 +188,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "docs: improve Binary Search documentation formatting and clarity",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-30 10:57:43 +0800"
-        }
+          "date": "2025-11-30 10:57:43 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "docs: improve Binary Search documentation formatting and clarity"
       }
     },
     {
@@ -105,12 +202,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "docs: update Binary Search documentation for clarity and accuracy",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-29 21:20:04 +0800"
-        }
+          "date": "2025-11-29 21:20:04 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "docs: update Binary Search documentation for clarity and accuracy"
       }
     },
     {
@@ -119,12 +216,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "docs: refine Binary Search documentation and enhance algorithm templates",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-28 13:34:47 +0800"
-        }
+          "date": "2025-11-28 13:34:47 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "docs: refine Binary Search documentation and enhance algorithm templates"
       }
     },
     {
@@ -133,12 +230,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: add Binary Search algorithm documentation and update notes",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-28 11:02:50 +0800"
-        }
+          "date": "2025-11-28 11:02:50 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: add Binary Search algorithm documentation and update notes"
       }
     },
     {
@@ -147,12 +244,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: enhance styling and layout for notes and modal components",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-26 10:24:06 +0800"
-        }
+          "date": "2025-11-26 10:24:06 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: enhance styling and layout for notes and modal components"
       }
     },
     {
@@ -161,12 +258,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "Merge remote-tracking branch 'origin/main'",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-25 21:51:23 +0800"
-        }
+          "date": "2025-11-25 21:51:23 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "Merge remote-tracking branch 'origin/main'"
       }
     },
     {
@@ -175,12 +272,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: update profile section layout and enhance footer content for improved clarity",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-25 21:51:12 +0800"
-        }
+          "date": "2025-11-25 21:51:12 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: update profile section layout and enhance footer content for improved clarity"
       }
     },
     {
@@ -189,12 +286,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: add new and enhance existing content in notes",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-25 21:11:00 +0800"
-        }
+          "date": "2025-11-25 21:11:00 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: add new and enhance existing content in notes"
       }
     },
     {
@@ -203,12 +300,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "style: enhance layout and responsiveness for timeline and learning progress sections",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-11-23 12:28:42 +0800"
-        }
+          "date": "2025-11-23 12:28:42 +0800",
+          "name": "陳國翔"
+        },
+        "message": "style: enhance layout and responsiveness for timeline and learning progress sections"
       }
     },
     {
@@ -217,12 +314,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "style: adjust layout and overflow properties for improved responsiveness",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-11-23 11:39:04 +0800"
-        }
+          "date": "2025-11-23 11:39:04 +0800",
+          "name": "陳國翔"
+        },
+        "message": "style: adjust layout and overflow properties for improved responsiveness"
       }
     },
     {
@@ -231,12 +328,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "refactor: enhance footer with wave divider,reset index.html",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-11-22 21:58:07 +0800"
-        }
+          "date": "2025-11-22 21:58:07 +0800",
+          "name": "陳國翔"
+        },
+        "message": "refactor: enhance footer with wave divider,reset index.html"
       }
     },
     {
@@ -245,12 +342,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: restructure site layout and enhance footer with resource links and improved styling",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-21 13:14:20 +0800"
-        }
+          "date": "2025-11-21 13:14:20 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: restructure site layout and enhance footer with resource links and improved styling"
       }
     },
     {
@@ -259,12 +356,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: enhance site information section with new layout and styling",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-21 10:41:48 +0800"
-        }
+          "date": "2025-11-21 10:41:48 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: enhance site information section with new layout and styling"
       }
     },
     {
@@ -273,12 +370,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "style: improve modal layout and enhance markdown rendering in notes",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-20 17:10:53 +0800"
-        }
+          "date": "2025-11-20 17:10:53 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "style: improve modal layout and enhance markdown rendering in notes"
       }
     },
     {
@@ -287,12 +384,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "style: update modal styling and scrollbar appearance for improved user experience",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-20 15:37:53 +0800"
-        }
+          "date": "2025-11-20 15:37:53 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "style: update modal styling and scrollbar appearance for improved user experience"
       }
     },
     {
@@ -301,12 +398,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "style: refine modal styling",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-20 15:19:29 +0800"
-        }
+          "date": "2025-11-20 15:19:29 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "style: refine modal styling"
       }
     },
     {
@@ -315,12 +412,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: enhance notes page with new styling, improved layout, and markdown support",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-20 12:52:02 +0800"
-        }
+          "date": "2025-11-20 12:52:02 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: enhance notes page with new styling, improved layout, and markdown support"
       }
     },
     {
@@ -329,12 +426,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: update hero section text and remove unused footer chat component for cleaner layout",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-19 20:07:17 +0800"
-        }
+          "date": "2025-11-19 20:07:17 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: update hero section text and remove unused footer chat component for cleaner layout"
       }
     },
     {
@@ -343,12 +440,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: update sidebar layout and menu icon for improved navigation experience",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-19 19:24:09 +0800"
-        }
+          "date": "2025-11-19 19:24:09 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: update sidebar layout and menu icon for improved navigation experience"
       }
     },
     {
@@ -357,12 +454,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: restructure notes page layout and enhance styling for better readability",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-19 19:14:55 +0800"
-        }
+          "date": "2025-11-19 19:14:55 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: restructure notes page layout and enhance styling for better readability"
       }
     },
     {
@@ -371,12 +468,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: add notes page with interactive features and update navigation",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-13 18:24:09 +0800"
-        }
+          "date": "2025-11-13 18:24:09 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: add notes page with interactive features and update navigation"
       }
     },
     {
@@ -385,12 +482,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: enhance styling and responsiveness across multiple sections",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-12 09:40:29 +0800"
-        }
+          "date": "2025-11-12 09:40:29 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: enhance styling and responsiveness across multiple sections"
       }
     },
     {
@@ -399,12 +496,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: update footer styles and enhance mobile responsiveness",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-11 22:40:52 +0800"
-        }
+          "date": "2025-11-11 22:40:52 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: update footer styles and enhance mobile responsiveness"
       }
     },
     {
@@ -413,12 +510,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "Merge remote-tracking branch 'origin/main'",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-11 11:56:42 +0800"
-        }
+          "date": "2025-11-11 11:56:42 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "Merge remote-tracking branch 'origin/main'"
       }
     },
     {
@@ -427,12 +524,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: simplify timeline design and enhance responsiveness",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-11 11:56:25 +0800"
-        }
+          "date": "2025-11-11 11:56:25 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: simplify timeline design and enhance responsiveness"
       }
     },
     {
@@ -441,12 +538,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: add self-introduction and remove secondary sections",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-10 19:35:39 +0800"
-        }
+          "date": "2025-11-10 19:35:39 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: add self-introduction and remove secondary sections"
       }
     },
     {
@@ -455,12 +552,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "Merge remote-tracking branch 'origin/main'",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-08 21:18:29 +0800"
-        }
+          "date": "2025-11-08 21:18:29 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "Merge remote-tracking branch 'origin/main'"
       }
     },
     {
@@ -469,12 +566,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: enhance timeline with additional years and improve mobile responsiveness",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-11-08 21:17:49 +0800"
-        }
+          "date": "2025-11-08 21:17:49 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: enhance timeline with additional years and improve mobile responsiveness"
       }
     },
     {
@@ -483,12 +580,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: update SVG icons and enhance timeline styling for better theme support",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-10-29 22:01:35 +0800"
-        }
+          "date": "2025-10-29 22:01:35 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: update SVG icons and enhance timeline styling for better theme support"
       }
     },
     {
@@ -497,12 +594,12 @@
         "login": "Guoxiang Chen"
       },
       "commit": {
-        "message": "Merge pull request #2 from ToniXiang/copilot/refactor-duplicated-code",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "Guoxiang Chen",
-          "date": "2025-10-29 10:04:21 +0800"
-        }
+          "date": "2025-10-29 10:04:21 +0800",
+          "name": "Guoxiang Chen"
+        },
+        "message": "Merge pull request #2 from ToniXiang/copilot/refactor-duplicated-code"
       }
     },
     {
@@ -511,12 +608,12 @@
         "login": "copilot-swe-agent[bot]"
       },
       "commit": {
-        "message": "Refactor duplicated code - extract common functions",
         "author": {
           "email": "198982749+Copilot@users.noreply.github.com",
-          "name": "copilot-swe-agent[bot]",
-          "date": "2025-10-29 01:59:36 +0000"
-        }
+          "date": "2025-10-29 01:59:36 +0000",
+          "name": "copilot-swe-agent[bot]"
+        },
+        "message": "Refactor duplicated code - extract common functions"
       }
     },
     {
@@ -525,12 +622,12 @@
         "login": "copilot-swe-agent[bot]"
       },
       "commit": {
-        "message": "Initial plan",
         "author": {
           "email": "198982749+Copilot@users.noreply.github.com",
-          "name": "copilot-swe-agent[bot]",
-          "date": "2025-10-29 01:52:42 +0000"
-        }
+          "date": "2025-10-29 01:52:42 +0000",
+          "name": "copilot-swe-agent[bot]"
+        },
+        "message": "Initial plan"
       }
     },
     {
@@ -539,12 +636,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: add quantifiable stress section with insights and methods for management",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-10-22 16:48:54 +0800"
-        }
+          "date": "2025-10-22 16:48:54 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: add quantifiable stress section with insights and methods for management"
       }
     },
     {
@@ -553,12 +650,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "chore: remove duplicate Deploy Pages workflow",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-10-21 13:13:19 +0800"
-        }
+          "date": "2025-10-21 13:13:19 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "chore: remove duplicate Deploy Pages workflow"
       }
     },
     {
@@ -567,12 +664,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: enhance timeline layout and improve styling for better responsiveness",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-10-21 13:07:25 +0800"
-        }
+          "date": "2025-10-21 13:07:25 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: enhance timeline layout and improve styling for better responsiveness"
       }
     },
     {
@@ -581,12 +678,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "chore: update workflows to use workflow_dispatch and remove push triggers",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-10-17 21:40:41 +0800"
-        }
+          "date": "2025-10-17 21:40:41 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "chore: update workflows to use workflow_dispatch and remove push triggers"
       }
     },
     {
@@ -595,12 +692,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "style: refine layout and improve responsiveness across multiple pages",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-10-14 13:05:35 +0800"
-        }
+          "date": "2025-10-14 13:05:35 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "style: refine layout and improve responsiveness across multiple pages"
       }
     },
     {
@@ -609,12 +706,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: enhance about and project pages with improved structure and content updates",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-10-11 17:51:45 +0800"
-        }
+          "date": "2025-10-11 17:51:45 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: enhance about and project pages with improved structure and content updates"
       }
     },
     {
@@ -623,12 +720,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "fix: correct minor formatting issues",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-10-10 11:52:51 +0800"
-        }
+          "date": "2025-10-10 11:52:51 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "fix: correct minor formatting issues"
       }
     },
     {
@@ -637,12 +734,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "fix: correct minor formatting issues",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-10-10 11:52:18 +0800"
-        }
+          "date": "2025-10-10 11:52:18 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "fix: correct minor formatting issues"
       }
     },
     {
@@ -651,12 +748,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: unify project showcase in Traditional Chinese and remove loading format",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-10-09 12:07:41 +0800"
-        }
+          "date": "2025-10-09 12:07:41 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: unify project showcase in Traditional Chinese and remove loading format"
       }
     },
     {
@@ -665,12 +762,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "Merge branch 'main' of https://github.com/ToniXiang/ToniXiang.github.io",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-10-05 11:46:26 +0800"
-        }
+          "date": "2025-10-05 11:46:26 +0800",
+          "name": "陳國翔"
+        },
+        "message": "Merge branch 'main' of https://github.com/ToniXiang/ToniXiang.github.io"
       }
     },
     {
@@ -679,12 +776,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "feat: add wait mechanism for updating commits.json",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-10-05 11:46:23 +0800"
-        }
+          "date": "2025-10-05 11:46:23 +0800",
+          "name": "陳國翔"
+        },
+        "message": "feat: add wait mechanism for updating commits.json"
       }
     },
     {
@@ -693,12 +790,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "Merge branch 'main' of https://github.com/ToniXiang/ToniXiang.github.io",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-10-04 14:14:19 +0800"
-        }
+          "date": "2025-10-04 14:14:19 +0800",
+          "name": "陳國翔"
+        },
+        "message": "Merge branch 'main' of https://github.com/ToniXiang/ToniXiang.github.io"
       }
     },
     {
@@ -707,12 +804,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "feat: remove non-functional checkboxes, refine sidebar styling, and display current time",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-10-04 14:14:16 +0800"
-        }
+          "date": "2025-10-04 14:14:16 +0800",
+          "name": "陳國翔"
+        },
+        "message": "feat: remove non-functional checkboxes, refine sidebar styling, and display current time"
       }
     },
     {
@@ -721,12 +818,12 @@
         "login": "Guoxiang Chen"
       },
       "commit": {
-        "message": "Merge pull request #1 from ToniXiang/yolo-test",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "Guoxiang Chen",
-          "date": "2025-10-04 08:55:29 +0800"
-        }
+          "date": "2025-10-04 08:55:29 +0800",
+          "name": "Guoxiang Chen"
+        },
+        "message": "Merge pull request #1 from ToniXiang/yolo-test"
       }
     },
     {
@@ -735,12 +832,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "test: YOLO badge test",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-10-04 08:55:04 +0800"
-        }
+          "date": "2025-10-04 08:55:04 +0800",
+          "name": "陳國翔"
+        },
+        "message": "test: YOLO badge test"
       }
     },
     {
@@ -749,12 +846,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "refactor:fetches all repositories for the user using GitHub API",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-10-04 01:43:26 +0800"
-        }
+          "date": "2025-10-04 01:43:26 +0800",
+          "name": "陳國翔"
+        },
+        "message": "refactor:fetches all repositories for the user using GitHub API"
       }
     },
     {
@@ -763,12 +860,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "fix:add contents write permission for pushing changes",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-10-04 01:31:09 +0800"
-        }
+          "date": "2025-10-04 01:31:09 +0800",
+          "name": "陳國翔"
+        },
+        "message": "fix:add contents write permission for pushing changes"
       }
     },
     {
@@ -777,12 +874,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "fix:removed the Node.js setup step",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-10-04 01:27:16 +0800"
-        }
+          "date": "2025-10-04 01:27:16 +0800",
+          "name": "陳國翔"
+        },
+        "message": "fix:removed the Node.js setup step"
       }
     },
     {
@@ -791,12 +888,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "feat: display version history for website",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-10-04 01:20:57 +0800"
-        }
+          "date": "2025-10-04 01:20:57 +0800",
+          "name": "陳國翔"
+        },
+        "message": "feat: display version history for website"
       }
     },
     {
@@ -805,12 +902,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "style: improve homepage and project page styling",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-10-02 12:03:31 +0800"
-        }
+          "date": "2025-10-02 12:03:31 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "style: improve homepage and project page styling"
       }
     },
     {
@@ -819,12 +916,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: remove all project introductions",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-10-01 17:41:35 +0800"
-        }
+          "date": "2025-10-01 17:41:35 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: remove all project introductions"
       }
     },
     {
@@ -833,12 +930,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "fix: update GitHub Pages deployment workflow",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-10-01 13:10:45 +0800"
-        }
+          "date": "2025-10-01 13:10:45 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "fix: update GitHub Pages deployment workflow"
       }
     },
     {
@@ -847,12 +944,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "feat: Add dynamic typing animation to 2026 timeline section and Improve text link style",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-09-28 10:45:35 +0800"
-        }
+          "date": "2025-09-28 10:45:35 +0800",
+          "name": "陳國翔"
+        },
+        "message": "feat: Add dynamic typing animation to 2026 timeline section and Improve text link style"
       }
     },
     {
@@ -861,12 +958,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "feat: filter out forked repositories from GitHub repo list and enhance simple-guide",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-09-27 08:49:43 +0800"
-        }
+          "date": "2025-09-27 08:49:43 +0800",
+          "name": "陳國翔"
+        },
+        "message": "feat: filter out forked repositories from GitHub repo list and enhance simple-guide"
       }
     },
     {
@@ -875,12 +972,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "feat:improve year card and sidebar",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-09-27 00:50:27 +0800"
-        }
+          "date": "2025-09-27 00:50:27 +0800",
+          "name": "陳國翔"
+        },
+        "message": "feat:improve year card and sidebar"
       }
     },
     {
@@ -889,12 +986,12 @@
         "login": "ToniXiang"
       },
       "commit": {
-        "message": "feat: enhance light theme styling and add year-card-2026",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ToniXiang",
-          "date": "2025-09-26 14:24:10 +0800"
-        }
+          "date": "2025-09-26 14:24:10 +0800",
+          "name": "ToniXiang"
+        },
+        "message": "feat: enhance light theme styling and add year-card-2026"
       }
     },
     {
@@ -903,12 +1000,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "feat: remove auto-click on image hover, other optimizations",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-09-09 11:01:07 +0800"
-        }
+          "date": "2025-09-09 11:01:07 +0800",
+          "name": "陳國翔"
+        },
+        "message": "feat: remove auto-click on image hover, other optimizations"
       }
     },
     {
@@ -917,12 +1014,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "feat:sidebar hover effects for desktop version; organize portfolio JSON; Initial theme follows user's default preference",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-09-06 14:54:24 +0800"
-        }
+          "date": "2025-09-06 14:54:24 +0800",
+          "name": "陳國翔"
+        },
+        "message": "feat:sidebar hover effects for desktop version; organize portfolio JSON; Initial theme follows user's default preference"
       }
     },
     {
@@ -931,12 +1028,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "feat: center modal title and close button ; redesign project showcase",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2025-09-04 13:22:39 +0800"
-        }
+          "date": "2025-09-04 13:22:39 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "feat: center modal title and close button ; redesign project showcase"
       }
     },
     {
@@ -945,12 +1042,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "feat: enhance personal resume styling",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-09-04 11:21:49 +0800"
-        }
+          "date": "2025-09-04 11:21:49 +0800",
+          "name": "陳國翔"
+        },
+        "message": "feat: enhance personal resume styling"
       }
     },
     {
@@ -959,12 +1056,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "Merge branch 'main' of https://github.com/ChenGuoXiang940/ChenGuoXiang940.github.io",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-09-03 18:37:31 +0800"
-        }
+          "date": "2025-09-03 18:37:31 +0800",
+          "name": "陳國翔"
+        },
+        "message": "Merge branch 'main' of https://github.com/ChenGuoXiang940/ChenGuoXiang940.github.io"
       }
     },
     {
@@ -973,12 +1070,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "feat: remove language cards, enhance timeline UI, and restructure homepage layout",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-09-03 18:37:27 +0800"
-        }
+          "date": "2025-09-03 18:37:27 +0800",
+          "name": "陳國翔"
+        },
+        "message": "feat: remove language cards, enhance timeline UI, and restructure homepage layout"
       }
     },
     {
@@ -987,12 +1084,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "Add footer animation, enhance timeline styling, and improve homepage hero section",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-09-03 16:37:54 +0800"
-        }
+          "date": "2025-09-03 16:37:54 +0800",
+          "name": "陳國翔"
+        },
+        "message": "Add footer animation, enhance timeline styling, and improve homepage hero section"
       }
     },
     {
@@ -1001,12 +1098,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "ci: add Build and Deploy workflows (concurrency, gh-pages deploy)",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2025-08-30 16:33:03 +0800"
-        }
+          "date": "2025-08-30 16:33:03 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "ci: add Build and Deploy workflows (concurrency, gh-pages deploy)"
       }
     },
     {
@@ -1015,12 +1112,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "ci: add pages deploy workflow with concurrency",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2025-08-30 16:28:55 +0800"
-        }
+          "date": "2025-08-30 16:28:55 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "ci: add pages deploy workflow with concurrency"
       }
     },
     {
@@ -1029,12 +1126,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "feat:新增證照證書 Serial Number",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2025-08-30 16:15:07 +0800"
-        }
+          "date": "2025-08-30 16:15:07 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "feat:新增證照證書 Serial Number"
       }
     },
     {
@@ -1043,12 +1140,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "feat: update project intro, optimize icons, and remove scroll-to-top feature - Revised project description for clarity and professionalism - Replaced icons with optimized SVGs to eliminate load delay and fix sizing - Removed scroll-to-top shortcut for cleaner UX",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-08-25 14:27:08 +0800"
-        }
+          "date": "2025-08-25 14:27:08 +0800",
+          "name": "陳國翔"
+        },
+        "message": "feat: update project intro, optimize icons, and remove scroll-to-top feature - Revised project description for clarity and professionalism - Replaced icons with optimized SVGs to eliminate load delay and fix sizing - Removed scroll-to-top shortcut for cleaner UX"
       }
     },
     {
@@ -1057,12 +1154,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "chore(ci): add permissions for GitHub Actions to push languages.json",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-08-24 00:57:54 +0800"
-        }
+          "date": "2025-08-24 00:57:54 +0800",
+          "name": "陳國翔"
+        },
+        "message": "chore(ci): add permissions for GitHub Actions to push languages.json"
       }
     },
     {
@@ -1071,12 +1168,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "chore(ci): auto-commit and push generated languages.json in workflow",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-08-24 00:55:57 +0800"
-        }
+          "date": "2025-08-24 00:55:57 +0800",
+          "name": "陳國翔"
+        },
+        "message": "chore(ci): auto-commit and push generated languages.json in workflow"
       }
     },
     {
@@ -1085,12 +1182,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "chore(ci): generate languages.json via GitHub Actions; front-end fallback",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-08-24 00:43:07 +0800"
-        }
+          "date": "2025-08-24 00:43:07 +0800",
+          "name": "陳國翔"
+        },
+        "message": "chore(ci): generate languages.json via GitHub Actions; front-end fallback"
       }
     },
     {
@@ -1099,12 +1196,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "fix(style): shrink top-right menu container; expand About description on mobile",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-08-22 18:15:13 +0800"
-        }
+          "date": "2025-08-22 18:15:13 +0800",
+          "name": "陳國翔"
+        },
+        "message": "fix(style): shrink top-right menu container; expand About description on mobile"
       }
     },
     {
@@ -1113,12 +1210,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "feat: update displayed content in HTML",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-08-13 18:25:45 +0800"
-        }
+          "date": "2025-08-13 18:25:45 +0800",
+          "name": "陳國翔"
+        },
+        "message": "feat: update displayed content in HTML"
       }
     },
     {
@@ -1127,12 +1224,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "feat:移除頂部導覽、簡化UI設計",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-08-12 00:00:57 +0800"
-        }
+          "date": "2025-08-12 00:00:57 +0800",
+          "name": "陳國翔"
+        },
+        "message": "feat:移除頂部導覽、簡化UI設計"
       }
     },
     {
@@ -1141,12 +1238,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "feat:修正主題問題、重新設計側邊導覽、同步履歷",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-08-11 22:14:37 +0800"
-        }
+          "date": "2025-08-11 22:14:37 +0800",
+          "name": "陳國翔"
+        },
+        "message": "feat:修正主題問題、重新設計側邊導覽、同步履歷"
       }
     },
     {
@@ -1155,12 +1252,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "feat:新增作品介紹",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-07-27 16:32:03 +0800"
-        }
+          "date": "2025-07-27 16:32:03 +0800",
+          "name": "陳國翔"
+        },
+        "message": "feat:新增作品介紹"
       }
     },
     {
@@ -1169,12 +1266,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "feat: 全面重設網站主題與排版 - 調整配色與字體樣式 - 重新設計頁面結構與導覽列 - 增強響應式設計與可讀性",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-07-07 15:18:13 +0800"
-        }
+          "date": "2025-07-07 15:18:13 +0800",
+          "name": "陳國翔"
+        },
+        "message": "feat: 全面重設網站主題與排版 - 調整配色與字體樣式 - 重新設計頁面結構與導覽列 - 增強響應式設計與可讀性"
       }
     },
     {
@@ -1183,12 +1280,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "fix:language-cards寬度問題",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-06-14 14:23:17 +0800"
-        }
+          "date": "2025-06-14 14:23:17 +0800",
+          "name": "陳國翔"
+        },
+        "message": "fix:language-cards寬度問題"
       }
     },
     {
@@ -1197,12 +1294,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "feat:美化首頁",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-06-14 14:09:45 +0800"
-        }
+          "date": "2025-06-14 14:09:45 +0800",
+          "name": "陳國翔"
+        },
+        "message": "feat:美化首頁"
       }
     },
     {
@@ -1211,12 +1308,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "feat:美化按鍵、新增語言工具",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-05-30 13:01:37 +0800"
-        }
+          "date": "2025-05-30 13:01:37 +0800",
+          "name": "陳國翔"
+        },
+        "message": "feat:美化按鍵、新增語言工具"
       }
     },
     {
@@ -1225,12 +1322,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "feat:優化雪花效果",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2025-05-28 19:02:03 +0800"
-        }
+          "date": "2025-05-28 19:02:03 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "feat:優化雪花效果"
       }
     },
     {
@@ -1239,12 +1336,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "feat:新增about內容和自己的學習、整理頁尾",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2025-05-25 11:08:35 +0800"
-        }
+          "date": "2025-05-25 11:08:35 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "feat:新增about內容和自己的學習、整理頁尾"
       }
     },
     {
@@ -1253,12 +1350,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "fix:手機關閉導覽時右邊沒有完全隱藏",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2025-05-22 14:33:57 +0800"
-        }
+          "date": "2025-05-22 14:33:57 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "fix:手機關閉導覽時右邊沒有完全隱藏"
       }
     },
     {
@@ -1267,12 +1364,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "fix:雪花預設關閉、手機排版問題",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-05-17 19:22:42 +0800"
-        }
+          "date": "2025-05-17 19:22:42 +0800",
+          "name": "陳國翔"
+        },
+        "message": "fix:雪花預設關閉、手機排版問題"
       }
     },
     {
@@ -1281,12 +1378,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "feat:新增雪花、淡入動畫",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-05-17 18:16:00 +0800"
-        }
+          "date": "2025-05-17 18:16:00 +0800",
+          "name": "陳國翔"
+        },
+        "message": "feat:新增雪花、淡入動畫"
       }
     },
     {
@@ -1295,12 +1392,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "Create LICENSE",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-05-04 11:15:47 +0800"
-        }
+          "date": "2025-05-04 11:15:47 +0800",
+          "name": "陳國翔"
+        },
+        "message": "Create LICENSE"
       }
     },
     {
@@ -1309,12 +1406,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "feat(website): 新增專案介紹 JSON，並美化頁尾",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "陳國翔",
-          "date": "2025-05-03 22:02:32 +0800"
-        }
+          "date": "2025-05-03 22:02:32 +0800",
+          "name": "陳國翔"
+        },
+        "message": "feat(website): 新增專案介紹 JSON，並美化頁尾"
       }
     },
     {
@@ -1323,12 +1420,12 @@
         "login": "chen199940"
       },
       "commit": {
-        "message": "1.美化導航欄 2.修正作品中英支持",
         "author": {
           "email": "chen199940@gmail.com",
-          "name": "chen199940",
-          "date": "2025-04-19 10:50:48 +0800"
-        }
+          "date": "2025-04-19 10:50:48 +0800",
+          "name": "chen199940"
+        },
+        "message": "1.美化導航欄 2.修正作品中英支持"
       }
     },
     {
@@ -1337,12 +1434,12 @@
         "login": "chen199940"
       },
       "commit": {
-        "message": "1.作品中英支持 2.美化導航欄 3.about標籤式導航",
         "author": {
           "email": "chen199940@gmail.com",
-          "name": "chen199940",
-          "date": "2025-04-18 23:37:58 +0800"
-        }
+          "date": "2025-04-18 23:37:58 +0800",
+          "name": "chen199940"
+        },
+        "message": "1.作品中英支持 2.美化導航欄 3.about標籤式導航"
       }
     },
     {
@@ -1351,12 +1448,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "新增",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2025-04-18 12:42:51 +0800"
-        }
+          "date": "2025-04-18 12:42:51 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "新增"
       }
     },
     {
@@ -1365,12 +1462,12 @@
         "login": "chen199940"
       },
       "commit": {
-        "message": "美化導航欄",
         "author": {
           "email": "chen199940@gmail.com",
-          "name": "chen199940",
-          "date": "2025-04-04 20:23:10 +0800"
-        }
+          "date": "2025-04-04 20:23:10 +0800",
+          "name": "chen199940"
+        },
+        "message": "美化導航欄"
       }
     },
     {
@@ -1379,12 +1476,12 @@
         "login": "chen199940"
       },
       "commit": {
-        "message": "新增mailto",
         "author": {
           "email": "chen199940@gmail.com",
-          "name": "chen199940",
-          "date": "2025-04-03 15:44:38 +0800"
-        }
+          "date": "2025-04-03 15:44:38 +0800",
+          "name": "chen199940"
+        },
+        "message": "新增mailto"
       }
     },
     {
@@ -1393,12 +1490,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "Modal Image修正",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2025-04-02 11:51:19 +0800"
-        }
+          "date": "2025-04-02 11:51:19 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "Modal Image修正"
       }
     },
     {
@@ -1407,12 +1504,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "repo垂直滾動",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2025-03-26 09:42:27 +0800"
-        }
+          "date": "2025-03-26 09:42:27 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "repo垂直滾動"
       }
     },
     {
@@ -1421,12 +1518,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "新增",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2025-03-26 09:27:21 +0800"
-        }
+          "date": "2025-03-26 09:27:21 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "新增"
       }
     },
     {
@@ -1435,12 +1532,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "assets目錄結構",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2025-03-25 10:29:15 +0800"
-        }
+          "date": "2025-03-25 10:29:15 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "assets目錄結構"
       }
     },
     {
@@ -1449,12 +1546,12 @@
         "login": "chen199940"
       },
       "commit": {
-        "message": "API提程式倉庫",
         "author": {
           "email": "chen199940@gmail.com",
-          "name": "chen199940",
-          "date": "2025-03-23 00:04:12 +0800"
-        }
+          "date": "2025-03-23 00:04:12 +0800",
+          "name": "chen199940"
+        },
+        "message": "API提程式倉庫"
       }
     },
     {
@@ -1463,12 +1560,12 @@
         "login": "chen199940"
       },
       "commit": {
-        "message": "作品中英支持",
         "author": {
           "email": "chen199940@gmail.com",
-          "name": "chen199940",
-          "date": "2025-03-22 15:54:03 +0800"
-        }
+          "date": "2025-03-22 15:54:03 +0800",
+          "name": "chen199940"
+        },
+        "message": "作品中英支持"
       }
     },
     {
@@ -1477,12 +1574,12 @@
         "login": "chen199940"
       },
       "commit": {
-        "message": "以 JSON 來存儲文章數據",
         "author": {
           "email": "chen199940@gmail.com",
-          "name": "chen199940",
-          "date": "2025-03-22 11:12:45 +0800"
-        }
+          "date": "2025-03-22 11:12:45 +0800",
+          "name": "chen199940"
+        },
+        "message": "以 JSON 來存儲文章數據"
       }
     },
     {
@@ -1491,12 +1588,12 @@
         "login": "chen199940"
       },
       "commit": {
-        "message": "整理",
         "author": {
           "email": "chen199940@gmail.com",
-          "name": "chen199940",
-          "date": "2025-03-22 01:04:22 +0800"
-        }
+          "date": "2025-03-22 01:04:22 +0800",
+          "name": "chen199940"
+        },
+        "message": "整理"
       }
     },
     {
@@ -1505,12 +1602,12 @@
         "login": "chen199940"
       },
       "commit": {
-        "message": "修正",
         "author": {
           "email": "chen199940@gmail.com",
-          "name": "chen199940",
-          "date": "2025-03-09 00:23:38 +0800"
-        }
+          "date": "2025-03-09 00:23:38 +0800",
+          "name": "chen199940"
+        },
+        "message": "修正"
       }
     },
     {
@@ -1519,12 +1616,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "新增",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2025-02-14 21:33:40 +0800"
-        }
+          "date": "2025-02-14 21:33:40 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "新增"
       }
     },
     {
@@ -1533,12 +1630,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "小修正",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2025-01-31 09:40:28 +0800"
-        }
+          "date": "2025-01-31 09:40:28 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "小修正"
       }
     },
     {
@@ -1547,12 +1644,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "小修正",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2025-01-30 23:14:45 +0800"
-        }
+          "date": "2025-01-30 23:14:45 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "小修正"
       }
     },
     {
@@ -1561,12 +1658,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "1.新增主頁內容 2.美化主題",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2025-01-30 11:20:19 +0800"
-        }
+          "date": "2025-01-30 11:20:19 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "1.新增主頁內容 2.美化主題"
       }
     },
     {
@@ -1575,12 +1672,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "美化主題",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2025-01-29 22:14:54 +0800"
-        }
+          "date": "2025-01-29 22:14:54 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "美化主題"
       }
     },
     {
@@ -1589,12 +1686,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "新增作品",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2025-01-28 12:01:24 +0800"
-        }
+          "date": "2025-01-28 12:01:24 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "新增作品"
       }
     },
     {
@@ -1603,12 +1700,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "小修正",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-12-08 11:14:02 +0800"
-        }
+          "date": "2024-12-08 11:14:02 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "小修正"
       }
     },
     {
@@ -1617,12 +1714,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "整理",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-12-08 10:53:52 +0800"
-        }
+          "date": "2024-12-08 10:53:52 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "整理"
       }
     },
     {
@@ -1631,12 +1728,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "小修正",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-12-07 17:48:01 +0800"
-        }
+          "date": "2024-12-07 17:48:01 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "小修正"
       }
     },
     {
@@ -1645,12 +1742,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "美化",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-12-07 16:30:57 +0800"
-        }
+          "date": "2024-12-07 16:30:57 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "美化"
       }
     },
     {
@@ -1659,12 +1756,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "小修改",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-11-28 10:53:02 +0800"
-        }
+          "date": "2024-11-28 10:53:02 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "小修改"
       }
     },
     {
@@ -1673,12 +1770,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "優化導航欄",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-11-28 10:28:33 +0800"
-        }
+          "date": "2024-11-28 10:28:33 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "優化導航欄"
       }
     },
     {
@@ -1687,12 +1784,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "美化導航欄",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-11-26 19:35:59 +0800"
-        }
+          "date": "2024-11-26 19:35:59 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "美化導航欄"
       }
     },
     {
@@ -1701,12 +1798,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "小修正",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-11-25 20:00:25 +0800"
-        }
+          "date": "2024-11-25 20:00:25 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "小修正"
       }
     },
     {
@@ -1715,12 +1812,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "優化導航欄",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-11-25 19:48:36 +0800"
-        }
+          "date": "2024-11-25 19:48:36 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "優化導航欄"
       }
     },
     {
@@ -1729,12 +1826,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "優化精選圖集",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-11-23 17:22:39 +0800"
-        }
+          "date": "2024-11-23 17:22:39 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "優化精選圖集"
       }
     },
     {
@@ -1743,12 +1840,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "補充連結&美化",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-11-22 22:45:34 +0800"
-        }
+          "date": "2024-11-22 22:45:34 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "補充連結&美化"
       }
     },
     {
@@ -1757,12 +1854,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "新增頁尾",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-11-21 22:12:35 +0800"
-        }
+          "date": "2024-11-21 22:12:35 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "新增頁尾"
       }
     },
     {
@@ -1771,12 +1868,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "Loading優化",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-11-21 17:21:09 +0800"
-        }
+          "date": "2024-11-21 17:21:09 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "Loading優化"
       }
     },
     {
@@ -1785,12 +1882,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "美化深色主題",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-11-21 10:17:06 +0800"
-        }
+          "date": "2024-11-21 10:17:06 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "美化深色主題"
       }
     },
     {
@@ -1799,12 +1896,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "導航優化",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-11-20 21:52:38 +0800"
-        }
+          "date": "2024-11-20 21:52:38 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "導航優化"
       }
     },
     {
@@ -1813,12 +1910,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "美化",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-10-27 13:59:57 +0800"
-        }
+          "date": "2024-10-27 13:59:57 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "美化"
       }
     },
     {
@@ -1827,12 +1924,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "新增",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-10-25 13:46:09 +0800"
-        }
+          "date": "2024-10-25 13:46:09 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "新增"
       }
     },
     {
@@ -1841,12 +1938,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "修正淺色代碼主題",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-10-23 19:01:59 +0800"
-        }
+          "date": "2024-10-23 19:01:59 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "修正淺色代碼主題"
       }
     },
     {
@@ -1855,12 +1952,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "修正",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-10-22 19:00:36 +0800"
-        }
+          "date": "2024-10-22 19:00:36 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "修正"
       }
     },
     {
@@ -1869,12 +1966,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "照片改連結並修正淺色主題",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-10-21 22:01:39 +0800"
-        }
+          "date": "2024-10-21 22:01:39 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "照片改連結並修正淺色主題"
       }
     },
     {
@@ -1883,12 +1980,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "修正",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-10-18 22:11:25 +0800"
-        }
+          "date": "2024-10-18 22:11:25 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "修正"
       }
     },
     {
@@ -1897,12 +1994,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "新增",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-10-13 11:49:06 +0800"
-        }
+          "date": "2024-10-13 11:49:06 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "新增"
       }
     },
     {
@@ -1911,12 +2008,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "整理",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-10-12 18:54:01 +0800"
-        }
+          "date": "2024-10-12 18:54:01 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "整理"
       }
     },
     {
@@ -1925,12 +2022,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "小更",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-10-05 14:26:39 +0800"
-        }
+          "date": "2024-10-05 14:26:39 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "小更"
       }
     },
     {
@@ -1939,12 +2036,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "修正",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-07-24 10:06:52 +0800"
-        }
+          "date": "2024-07-24 10:06:52 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "修正"
       }
     },
     {
@@ -1953,12 +2050,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "整理",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-07-24 00:20:35 +0800"
-        }
+          "date": "2024-07-24 00:20:35 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "整理"
       }
     },
     {
@@ -1967,12 +2064,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "整理",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-07-24 00:18:43 +0800"
-        }
+          "date": "2024-07-24 00:18:43 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "整理"
       }
     },
     {
@@ -1981,12 +2078,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "1.整理 about 內容 2.優化照片放大功能",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-07-23 16:08:51 +0800"
-        }
+          "date": "2024-07-23 16:08:51 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "1.整理 about 內容 2.優化照片放大功能"
       }
     },
     {
@@ -1995,12 +2092,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "1.新增主頁內容 2.切換深色淺色主題",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-07-20 18:50:23 +0800"
-        }
+          "date": "2024-07-20 18:50:23 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "1.新增主頁內容 2.切換深色淺色主題"
       }
     },
     {
@@ -2009,12 +2106,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "新增",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-07-19 17:27:45 +0800"
-        }
+          "date": "2024-07-19 17:27:45 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "新增"
       }
     },
     {
@@ -2023,12 +2120,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "修改",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-07-14 18:05:28 +0800"
-        }
+          "date": "2024-07-14 18:05:28 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "修改"
       }
     },
     {
@@ -2037,12 +2134,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "美化",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-07-14 12:15:51 +0800"
-        }
+          "date": "2024-07-14 12:15:51 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "美化"
       }
     },
     {
@@ -2051,12 +2148,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "修正",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-05-25 14:31:50 +0800"
-        }
+          "date": "2024-05-25 14:31:50 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "修正"
       }
     },
     {
@@ -2065,12 +2162,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "整理",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-05-21 16:44:16 +0800"
-        }
+          "date": "2024-05-21 16:44:16 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "整理"
       }
     },
     {
@@ -2079,12 +2176,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "美化",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-05-20 13:41:22 +0800"
-        }
+          "date": "2024-05-20 13:41:22 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "美化"
       }
     },
     {
@@ -2093,12 +2190,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "美化",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-05-18 18:25:01 +0800"
-        }
+          "date": "2024-05-18 18:25:01 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "美化"
       }
     },
     {
@@ -2107,12 +2204,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "新增作品展示",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-01-31 21:14:40 +0800"
-        }
+          "date": "2024-01-31 21:14:40 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "新增作品展示"
       }
     },
     {
@@ -2121,12 +2218,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "優化頁面",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-01-30 14:27:55 +0800"
-        }
+          "date": "2024-01-30 14:27:55 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "優化頁面"
       }
     },
     {
@@ -2135,12 +2232,12 @@
         "login": "ChenGuoXiang940"
       },
       "commit": {
-        "message": "新增背景",
         "author": {
           "email": "s1411232069@ad1.nutc.edu.tw",
-          "name": "ChenGuoXiang940",
-          "date": "2024-01-27 14:00:13 +0800"
-        }
+          "date": "2024-01-27 14:00:13 +0800",
+          "name": "ChenGuoXiang940"
+        },
+        "message": "新增背景"
       }
     },
     {
@@ -2149,12 +2246,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "作品展示程式碼高亮",
         "author": {
           "email": "chen199940@gmail.com",
-          "name": "陳國翔",
-          "date": "2024-01-20 12:23:57 +0800"
-        }
+          "date": "2024-01-20 12:23:57 +0800",
+          "name": "陳國翔"
+        },
+        "message": "作品展示程式碼高亮"
       }
     },
     {
@@ -2163,12 +2260,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "美化readme",
         "author": {
           "email": "chen199940@gmail.com",
-          "name": "陳國翔",
-          "date": "2024-01-19 13:30:52 +0800"
-        }
+          "date": "2024-01-19 13:30:52 +0800",
+          "name": "陳國翔"
+        },
+        "message": "美化readme"
       }
     },
     {
@@ -2177,12 +2274,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "button修改",
         "author": {
           "email": "chen199940@gmail.com",
-          "name": "陳國翔",
-          "date": "2024-01-18 23:20:00 +0800"
-        }
+          "date": "2024-01-18 23:20:00 +0800",
+          "name": "陳國翔"
+        },
+        "message": "button修改"
       }
     },
     {
@@ -2191,12 +2288,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "更改h1元素",
         "author": {
           "email": "chen199940@gmail.com",
-          "name": "陳國翔",
-          "date": "2024-01-18 18:09:18 +0800"
-        }
+          "date": "2024-01-18 18:09:18 +0800",
+          "name": "陳國翔"
+        },
+        "message": "更改h1元素"
       }
     },
     {
@@ -2205,12 +2302,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "優化主頁",
         "author": {
           "email": "chen199940@gmail.com",
-          "name": "陳國翔",
-          "date": "2024-01-18 12:48:44 +0800"
-        }
+          "date": "2024-01-18 12:48:44 +0800",
+          "name": "陳國翔"
+        },
+        "message": "優化主頁"
       }
     },
     {
@@ -2219,12 +2316,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "整理",
         "author": {
           "email": "chen199940@gmail.com",
-          "name": "陳國翔",
-          "date": "2024-01-17 23:14:41 +0800"
-        }
+          "date": "2024-01-17 23:14:41 +0800",
+          "name": "陳國翔"
+        },
+        "message": "整理"
       }
     },
     {
@@ -2233,12 +2330,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "整理",
         "author": {
           "email": "chen199940@gmail.com",
-          "name": "陳國翔",
-          "date": "2024-01-16 23:40:54 +0800"
-        }
+          "date": "2024-01-16 23:40:54 +0800",
+          "name": "陳國翔"
+        },
+        "message": "整理"
       }
     },
     {
@@ -2247,12 +2344,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "重寫自我介紹",
         "author": {
           "email": "chen199940@gmail.com",
-          "name": "陳國翔",
-          "date": "2024-01-16 20:57:19 +0800"
-        }
+          "date": "2024-01-16 20:57:19 +0800",
+          "name": "陳國翔"
+        },
+        "message": "重寫自我介紹"
       }
     },
     {
@@ -2261,12 +2358,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "修正進度條延遲，新增雪花",
         "author": {
           "email": "chen199940@gmail.com",
-          "name": "陳國翔",
-          "date": "2023-12-11 16:22:22 +0800"
-        }
+          "date": "2023-12-11 16:22:22 +0800",
+          "name": "陳國翔"
+        },
+        "message": "修正進度條延遲，新增雪花"
       }
     },
     {
@@ -2275,12 +2372,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "新增",
         "author": {
           "email": "chen199940@gmail.com",
-          "name": "陳國翔",
-          "date": "2023-12-08 08:14:04 +0800"
-        }
+          "date": "2023-12-08 08:14:04 +0800",
+          "name": "陳國翔"
+        },
+        "message": "新增"
       }
     },
     {
@@ -2289,12 +2386,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "修改",
         "author": {
           "email": "chen199940@gmail.com",
-          "name": "陳國翔",
-          "date": "2023-12-04 23:12:45 +0800"
-        }
+          "date": "2023-12-04 23:12:45 +0800",
+          "name": "陳國翔"
+        },
+        "message": "修改"
       }
     },
     {
@@ -2303,12 +2400,12 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "新增",
         "author": {
           "email": "chen199940@gmail.com",
-          "name": "陳國翔",
-          "date": "2023-12-04 22:51:38 +0800"
-        }
+          "date": "2023-12-04 22:51:38 +0800",
+          "name": "陳國翔"
+        },
+        "message": "新增"
       }
     },
     {
@@ -2317,14 +2414,15 @@
         "login": "陳國翔"
       },
       "commit": {
-        "message": "first commit",
         "author": {
           "email": "chen199940@gmail.com",
-          "name": "陳國翔",
-          "date": "2023-12-04 22:51:13 +0800"
-        }
+          "date": "2023-12-04 22:51:13 +0800",
+          "name": "陳國翔"
+        },
+        "message": "first commit"
       }
     }
   ],
-  "timestamp": "2025-12-14T01:23:49.411Z"
+  "total": 173,
+  "timestamp": "2025-12-15T12:36:47.353Z"
 }
