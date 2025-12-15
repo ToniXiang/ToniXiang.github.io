@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 // 載入預設主題
 function loadDefaultTheme() {
-    const savedTheme = localStorage.getItem('theme') || 'dark';
+    const savedTheme = localStorage.getItem('theme') || 'auto';
     const prefersDarkMQ = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
 
     function applySystemTheme() {
@@ -265,13 +265,19 @@ function closeSidebar() {
 // 設置鍵盤事件
 function setupKeyboardEvents() {
     document.addEventListener('keydown', (event) => {
+        // 檢查是否在輸入框或可編輯元素中（包括搜索輸入框）
+        const isInInputField = document.activeElement.tagName === 'INPUT' ||
+                               document.activeElement.tagName === 'TEXTAREA' ||
+                               document.activeElement.isContentEditable;
+
         if (event.key === 'Escape') {
             closeSidebar();
         }
-        else if (event.key === 'M' || event.key === 'm') {
+        // 只有在不處於輸入狀態時才觸發快捷鍵
+        else if ((event.key === 'M' || event.key === 'm') && !isInInputField) {
             toggleMenu();
         }
-        else if(event.key === 'T' || event.key === 't'){
+        else if((event.key === 'T' || event.key === 't') && !isInInputField){
             const themeSelect = document.getElementById('theme-select');
             if(themeSelect){
                 themeSelect.focus();

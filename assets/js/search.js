@@ -69,33 +69,33 @@ class NotesSearch {
     }
 
     async loadNotes() {
-        // 定義所有筆記檔案
+        // 定義所有筆記檔案及其對應標題
         const noteFiles = [
-            'Binary_Search.md',
-            'Leetcode.md',
-            'Priority.md',
-            'Tree.md',
-            'Unordered.md',
+            { filename: 'Binary_Search.md', title: '二分搜尋演算法' },
+            { filename: 'Leetcode.md', title: 'LeetCode 演算法解題' },
+            { filename: 'Priority.md', title: '堆積與優先佇列' },
+            { filename: 'Tree.md', title: '樹與圖論演算法' },
+            { filename: 'Unordered.md', title: '雜湊表應用' },
+            { filename: '後端整合.md', title: '後端系統整合' },
         ];
 
         this.showLoading(true);
 
         try {
-            const promises = noteFiles.map(async (filename) => {
+            const promises = noteFiles.map(async (noteFile) => {
                 try {
-                    const response = await fetch(`assets/notes/${filename}`);
+                    const response = await fetch(`assets/notes/${noteFile.filename}`);
                     if (response.ok) {
                         const content = await response.text();
                         return {
-                            filename: filename,
-                            title: this.extractTitle(filename, content),
+                            filename: noteFile.filename,
+                            title: noteFile.title,
                             content: content,
                             preview: this.generatePreview(content),
-                            tags: this.extractTags(content)
                         };
                     }
                 } catch (error) {
-                    console.warn(`Failed to load ${filename}:`, error);
+                    console.warn(`Failed to load ${noteFile.filename}:`, error);
                 }
                 return null;
             });
@@ -111,17 +111,6 @@ class NotesSearch {
         }
 
         this.showLoading(false);
-    }
-
-    extractTitle(filename, content) {
-        // 嘗試從內容中提取標題
-        const titleMatch = content.match(/^#\s+(.+)$/m);
-        if (titleMatch) {
-            return titleMatch[1].trim();
-        }
-
-        // 如果沒有找到標題，使用檔名（去掉副檔名）
-        return filename.replace('.md', '').replace(/_/g, ' ');
     }
 
     generatePreview(content) {
@@ -140,15 +129,7 @@ class NotesSearch {
         return preview.length > 200 ? preview.substring(0, 200) + '...' : preview;
     }
 
-    extractTags(content) {
-        const tags = [];
 
-        // 根據內容推測標籤
-        if (content.includes('Git') || content.includes('commit')) tags.push('Git');
-        if (content.includes('規範') || content.includes('Management')) tags.push('規範');
-
-        return tags;
-    }
 
     bindEvents() {
         // 搜尋按鈕點擊
@@ -190,18 +171,18 @@ class NotesSearch {
     performSearch() {
         const query = this.searchInput.value.trim().toLowerCase();
 
-        if (query === '') {
-            this.toggleLayouts(false); // Show original layout when no search
-            return;
-        }
-
-        this.toggleLayouts(true); // Show search results
+        this.toggleLayouts(true); // Always show search results when in search mode
         this.showLoading(true);
 
         // 模擬搜尋延遲
         setTimeout(() => {
-            const results = this.searchNotes(query);
-            this.displayResults(results, query);
+            if (query === '') {
+                // 當搜索框為空時，顯示所有筆記
+                this.displayResults(this.notes, query);
+            } else {
+                const results = this.searchNotes(query);
+                this.displayResults(results, query);
+            }
             this.showLoading(false);
         }, 200);
     }
@@ -231,13 +212,6 @@ class NotesSearch {
                 score += 3;
             }
 
-            // 標籤搜尋
-            for (const tag of note.tags) {
-                if (tag.toLowerCase().includes(query)) {
-                    score += 2;
-                }
-            }
-
             if (score > 0) {
                 results.push({
                     ...note,
@@ -250,12 +224,6 @@ class NotesSearch {
 
         // 按分數排序
         return results.sort((a, b) => b.score - a.score);
-    }
-
-    displayAllNotes() {
-        this.toggleLayouts(true); // Show search layout for all notes
-        this.searchStats.textContent = `共 ${this.notes.length} 篇筆記`;
-        this.displayResults(this.notes.map(note => ({...note, score: 0})), '');
     }
 
     displayResults(results, query) {
@@ -277,7 +245,7 @@ class NotesSearch {
         const highlightedTitle = this.highlightText(note.title, query);
         const highlightedPreview = this.highlightText(note.preview, query);
 
-        // 使用filename（去掉扩展名）作为参数，这样能与notes.js的逻辑匹配
+        // 生成筆記ID以供打開筆記使用
         const noteId = note.filename.replace('.md', '').replace('.txt', '');
         const escapedNoteId = noteId.replace(/'/g, "\\'");
 
@@ -286,9 +254,6 @@ class NotesSearch {
                 <h3 class="note-title">${highlightedTitle}</h3>
                 <p class="note-preview">${highlightedPreview}</p>
                 <div class="note-meta">
-                    <div class="note-tags">
-                        ${note.tags.map(tag => `<span class="note-tag">${tag}</span>`).join('')}
-                    </div>
                     <span class="note-filename">${note.filename}</span>
                 </div>
             </div>
