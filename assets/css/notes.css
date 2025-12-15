@@ -13,7 +13,6 @@ body.split-view-active > main {
     margin: 0 auto;
     transition: all 0.3s ease;
     justify-content: center;
-    min-height: 100vh;
     flex-direction: row; /* 確保是水平佈局 */
     align-items: flex-start; /* 頂部對齊 */
 }
@@ -43,7 +42,7 @@ body.split-view-active > main {
     flex-shrink: 0;
     padding-right: 20px;
     box-sizing: border-box;
-    flex: 0 0 500px; /* 固定寬度不伸縮 */
+    flex: 0 0 500px;
 }
 
 .notes-grid {
@@ -72,8 +71,6 @@ body.split-view-active > main {
     padding: 16px 20px;
     background: var(--category-bg);
     border: none;
-    cursor: default;
-    user-select: none;
     position: relative;
     margin-bottom: 16px;
     border-radius: 12px;
@@ -1135,7 +1132,6 @@ code[class*="language-"] {
     }
 }
 
-/* 調試用：確保可見性 */
 .notes-layout.split-view {
     outline: 2px solid transparent; /* 用於調試的邊框 */
 }
@@ -1286,7 +1282,6 @@ code[class*="language-"] {
     cursor: pointer;
     transition: all 0.3s ease;
     margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1295,7 +1290,6 @@ code[class*="language-"] {
 
 .search-toggle-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .close-search-btn {

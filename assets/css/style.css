@@ -33,9 +33,7 @@ body>main {
     left: 0;
     background: var(--sidebar-bg);
     border-radius: 0 18px 18px 0;
-    box-shadow: 4px 0 16px 0 var(--sidebar-shadow);
-    border-right: var(--sidebar-border, none);
-    backdrop-filter: blur(10px);
+    border-right: var(--sidebar-border);
     transition: transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
     transform: translateX(-100%);
     overflow-y: auto;
@@ -62,12 +60,10 @@ body>main {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.3);
     z-index: 19;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
-    backdrop-filter: blur(2px);
 }
 
 .sidebar-overlay.show {
@@ -94,7 +90,7 @@ body>main {
     height: 80px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid var(--primary-color, #667eea);
+    border: 1px solid var(--sidebar-divider);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     margin-bottom: 12px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -153,17 +149,9 @@ body>main {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-.sidebar-tags .tag-experience:hover {
-    background: linear-gradient(135deg, #5568d3 0%, #6a4190 100%);
-}
-
 /* LeetCode標籤 - 金色漸變 */
 .sidebar-tags .tag-leetcode {
     background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-}
-
-.sidebar-tags .tag-leetcode:hover {
-    background: linear-gradient(135deg, #e07fe8 0%, #e04659 100%);
 }
 
 .nav-section {
@@ -334,19 +322,12 @@ body>main {
     display: inline-flex;
 }
 
-hr {
-    border-top: 1px solid rgba(0, 0, 0.2);
-    margin: 50px 0 20px;
-}
-
 footer {
     padding: 0;
     text-align: left;
     color: var(--text-color);
-    margin-top: 40px;
     position: relative;
     overflow: hidden;
-    background: var(--sidebar-bg);
 }
 
 h1 {
@@ -502,8 +483,6 @@ span>a {
     /* default theme colors */
     --background-color: var(--background-color-dark);
     --text-color: var(--text-color-dark);
-    /* default theme colors */
-    --text-color: var(--text-color-dark);
     --primary-color: var(--primary-color-dark);
     --secondary-color: var(--secondary-color-dark);
     --tertiary-color: var(--tertiary-color-dark);
@@ -534,6 +513,7 @@ span>a {
     --dropdown-text: var(--dropdown-text-dark);
     --select-focus-shadow: var(--select-focus-shadow-dark);
     --hover-bg: var(--hover-bg-dark);
+    --sidebar-bg: var(--sidebar-bg-dark);
 }
 
 .dark-theme {
@@ -563,6 +543,7 @@ span>a {
     --status-border: var(--status-border-dark);
     --status-text: var(--status-text-dark);
     --hover-bg: var(--hover-bg-dark);
+    --sidebar-bg: var(--sidebar-bg-dark);
 }
 
 .light-theme {
@@ -690,48 +671,6 @@ span>a {
 
     100% {
         transform: rotate(360deg);
-    }
-}
-
-/* Wave Divider Styles */
-.wave-divider {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    margin-bottom: -1px;
-}
-
-.wave-divider .wave {
-    position: relative;
-    display: block;
-    width: calc(150% + 1.3px);
-    height: 60px;
-    color: #1e3a8a;
-    animation: wave-float 6s ease-in-out infinite;
-}
-
-@keyframes wave-float {
-    0%, 100% {
-        transform: translateX(-25px);
-    }
-    50% {
-        transform: translateX(-15px);
-    }
-}
-
-/* Responsive wave adjustments */
-@media (max-width: 768px) {
-    .wave-divider .wave {
-        height: 40px;
-    }
-}
-
-@media (max-width: 480px) {
-    .wave-divider .wave {
-        height: 30px;
     }
 }
 
@@ -1010,10 +949,10 @@ h2::after {
 }
 
 footer {
-    background: var(--background-color);
+    background: var(--sidebar-bg);
     border-top: none;
     color: var(--text-color);
-    padding: 0;
+    padding-left: 2rem;
     margin-top: 40px;
     position: relative;
 }
@@ -1317,11 +1256,11 @@ footer .specialty-text {
 
 .more-info-content {
     position: relative;
-    background: var(--card-bg, #fff);
-    border-radius: 16px;
-    max-width: 600px;
+    background: var(--background-color);
+    border-radius: 20px;
+    max-width: 900px;
     width: 90%;
-    max-height: 85vh;
+    max-height: 80vh;
     overflow-y: auto;
     padding: 2rem;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -1332,6 +1271,56 @@ footer .specialty-text {
 
 .more-info-card.active .more-info-content {
     transform: scale(1);
+}
+
+/* 明信片橫向佈局 */
+.postcard-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.postcard-left,
+.postcard-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.postcard-left {
+    padding-right: 2rem;
+}
+
+.postcard-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* 響應式設計 - 小螢幕改回縱向 */
+@media (max-width: 768px) {
+    .postcard-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .postcard-left {
+        border-right: none;
+        padding-right: 0;
+        padding-bottom: 1.5rem;
+    }
+
+    .more-info-content {
+        max-height: 90vh;
+        padding: 1.5rem;
+    }
 }
 
 .close-card {
@@ -1359,39 +1348,72 @@ footer .specialty-text {
 }
 
 .more-info-content h2 {
-    margin: 0 0 1rem 0;
+    margin: 0 0 0.75rem 0;
     color: var(--text-color);
+    font-size: 1.75rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.name-en {
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+.github-link {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.75rem;
+    background: var(--hover-bg, rgba(102, 126, 234, 0.08));
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    width: fit-content;
+    transition: all 0.3s ease;
+}
+
+.github-link svg {
+    flex-shrink: 0;
 }
 
 .more-info-content h3 {
-    margin: 1.5rem 0 0.75rem 0;
+    margin: 0 0 0.5rem 0;
     color: var(--text-color);
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: 600;
     border-bottom: 2px solid var(--primary-color, #667eea);
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.4rem;
 }
 
 .about-section {
-    margin-bottom: 1rem;
+    margin-bottom: 0;
 }
 
 .about-section p {
     color: var(--text-color);
-    line-height: 1.8;
-    font-size: 0.95rem;
+    line-height: 1.7;
+    font-size: 0.9rem;
     opacity: 0.85;
+    margin: 0;
 }
 
 /* 學歷列表 */
 .education-list {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.5rem;
 }
 
 .education-item {
-    padding: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
     border-radius: 10px;
     background: var(--hover-bg, rgba(102, 126, 234, 0.05));
     transition: all 0.3s ease;
@@ -1403,31 +1425,38 @@ footer .specialty-text {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+.item-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
 .education-school {
     font-weight: 600;
     color: var(--text-color);
-    font-size: 1rem;
-    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
 }
 
 .education-department {
     color: var(--text-color);
     opacity: 0.7;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 /* 成就列表 */
 .achievement-list {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.5rem;
 }
 
 .achievement-item {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 0.875rem 1rem;
+    padding: 0.65rem 0.875rem;
     border-radius: 10px;
     background: var(--hover-bg, rgba(102, 126, 234, 0.05));
     transition: all 0.3s ease;
@@ -1439,12 +1468,32 @@ footer .specialty-text {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.achievement-badge {
-    padding: 0.25rem 0.75rem;
-    border-radius: 6px;
-    background: var(--primary-color, #667eea);
-    color: white;
+.item-badge {
+    padding: 0.3rem 0.7rem;
+    background: var(--secondary-color, #764ba2);
+    border-radius: 8px;
     font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.item-text {
+    color: var(--text-color);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* 保持舊的 achievement-badge 向後兼容 */
+.achievement-badge {
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    background: var(--secondary-color, #667eea);
+    color: aliceblue !important;
+    font-size: 0.7rem;
     font-weight: 600;
     white-space: nowrap;
     flex-shrink: 0;
@@ -1452,8 +1501,7 @@ footer .specialty-text {
 
 .achievement-item span:last-child {
     color: var(--text-color);
-    font-size: 0.9rem;
-    line-height: 1.4;
+    font-size: 0.85rem;
 }
 
 /* 響應式設計 */

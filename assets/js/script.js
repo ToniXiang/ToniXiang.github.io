@@ -4,6 +4,26 @@ document.addEventListener('DOMContentLoaded', () => {
     setupKeyboardEvents();
     setupBackToTop();
 });
+
+// 版本檢查（手動觸發）
+function checkVersion() {
+    const CURRENT_VERSION = '2025.12.15';
+    const savedVersion = localStorage.getItem('tonixiang_version');
+
+    if (savedVersion !== CURRENT_VERSION) {
+        // 使用命名空間式清除，只清除本站相關資料
+        Object.keys(localStorage).forEach(key => {
+            if (key.startsWith('tonixiang_')|| key === 'theme') {
+                localStorage.removeItem(key);
+            }
+        });
+        localStorage.setItem('tonixiang_version', CURRENT_VERSION);
+        loadDefaultTheme(); // 重新載入主題設定
+        alert(`當前版本：${CURRENT_VERSION}\n已更新至最新版本，網站資料已重置。`);
+    } else {
+        alert(`當前版本：${CURRENT_VERSION}\n版本已是最新！`);
+    }
+}
 // 載入預設主題
 function loadDefaultTheme() {
     const savedTheme = localStorage.getItem('theme') || 'auto';
@@ -65,10 +85,10 @@ function loadNavigationAndFooter() {
             <div class="brand-info">
                 <img src="assets/images/me.jpg" class="sidebar-avatar" alt="Avatar">
                 <h4>ToniXiang</h4>
-                <p class="sidebar-subtitle">Code · Build · Debug</p>
+                <p class="sidebar-subtitle">Coding · Building · Debugging</p>
                 <div class="sidebar-tags">
                     <span class="tag tag-experience">C++ 學習 6 年</span>
-                    <span class="tag tag-leetcode">LC 400+ 題</span>
+                    <span class="tag tag-leetcode">LC400+DSA</span>
                 </div>
             </div>
         </div>
@@ -115,6 +135,18 @@ function loadNavigationAndFooter() {
                 </div>
             </div>
         </div>
+        
+        <div class="nav-section">
+            <div class="nav-label">系統</div>
+            <nav class="nav-item" onclick="checkVersion()" title="檢查網站版本">
+                <img src="assets/images/code.svg" alt="version" width="20" height="20" class="nav-icon-img" aria-hidden="true">
+                <div class="nav-text">
+                    <p>版本檢查</p>
+                    <span class="nav-description">檢查更新</span>
+                </div>
+                <div class="nav-indicator"></div>
+            </nav>
+        </div>
         `;
     foot.innerHTML = `
         <button id="backToTop" class="back-to-top" aria-label="回到頂部" title="回到頂部">
@@ -122,21 +154,11 @@ function loadNavigationAndFooter() {
                 <polyline points="18 15 12 9 6 15"></polyline>
             </svg>
         </button>
-        <div class="wave-divider">
-            <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44C187.52,49.69,155,114.13,125.48,137.28c-30.21,23.68-59.77,21.22-92.66,0C-19.39,110.56-55.13,72.44-101.88,56.44c-46.75-16-95.89-9-138.17,18.72C-284.14,98.88-320.3,137-375.2,137s-91.06-38.12-135.15-61.84C-554.44,51.44-603.58,44.44-645.86,72.16c-42.28,27.72-78.44,65.84-133.34,65.84s-91.06-38.12-135.15-61.84C-958.44,51.44-1007.58,44.44-1049.86,72.16c-42.28,27.72-78.44,65.84-133.34,65.84V0H1200V56.44Z" 
-                      fill="currentColor" opacity="0.3"></path>
-                <path d="M0,84.44s116.23-67.09,243.27-45.22C370.31,61.09,410.42,139.78,548.32,137S829.64,49.09,957.47,71.22C1085.3,93.35,1200,26.44,1200,26.44V0H0V84.44Z" 
-                      fill="currentColor" opacity="0.5"></path>
-                <path d="M0,26.44C122.76,57.78,245.52,120,368.28,120S613.8,57.78,736.56,26.44C859.32-4.9,981.08-4.9,1200,26.44V0H0V26.44Z" 
-                      fill="currentColor"></path>
-            </svg>
-        </div>
         <div class="footer-content">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="footer-brand-header">
-                        <p>ToniXiang - 陳國翔</p>
+                        <p>ToniXiang</p>
                     </div>
                     <div class="footer-specialties">
                         <div class="specialty-item">
@@ -181,42 +203,63 @@ function loadNavigationAndFooter() {
                         <line x1="6" y1="6" x2="18" y2="18"></line>
                     </svg>
                 </button>
-                <h2>陳國翔</h2>
-                <div class="about-section">
-                    <p>我從高中電子科出身，一路在軟體開發與硬體實作中累積經驗，
-                    之後在大學進一步接觸資安與網路相關領域，並建立起扎實的嵌入式系統與網路安全基礎。
-                    比起停留在理論，我更喜歡將知識應用到實際專案中。</p>
-                </div>
                 
-                <h3>學歷</h3>
-                <div class="education-list">
-                    <div class="education-item" title="四技日間部 就學中 2023/9~2027/6">
-                        <div class="education-school">國立臺中科技大學</div>
-                        <div class="education-department">資訊工程系</div>
+                <div class="postcard-layout">
+                    <div class="postcard-left">
+                        <p>陳國翔<span class="name-en">(Guo-Xiang Chen)</span></p>
+                        <div class="github-link">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                            </svg>
+                            <span>ToniXiang</span>
+                            <span style="margin: 0 8px;">·</span>
+                            <span><a href="https://drive.google.com/drive/u/0/folders/128d_VtA-tXoIiIJfNZrQk87KNk_VWu_y" target="_blank">履歷表</a></span>
+                        </div>
+                        <div class="about-section">
+                            <p>我從高中電子科出身，一路在軟體開發與硬體實作中累積經驗，之後在大學進一步接觸資安與網路相關領域，並建立起扎實的嵌入式系統與網路安全基礎。比起停留在理論，我更喜歡將知識應用到實際專案中。</p>
+                        </div>
                     </div>
-                    <div class="education-item" title="已畢業 2020/9~2023/6 家長會長獎">
-                        <div class="education-school">國立龍潭高級中學</div>
-                        <div class="education-department">電子科</div>
-                    </div>
-                </div>
-                
-                <h3>證照與成就</h3>
-                <div class="achievement-list">
-                    <div class="achievement-item" title="序號:2025030016">
-                        <span class="achievement-badge">程式</span>
-                        <span>大學程式能力檢定(CPE) C/C++ 進階級</span>
-                    </div>
-                    <div class="achievement-item" title="序號:ACE-25-06-A003">
-                        <span class="achievement-badge">嵌入式</span>
-                        <span>Andes Certified Engineer-ACE 高級</span>
-                    </div>
-                    <div class="achievement-item" title="序號:">
-                        <span class="achievement-badge">資安</span>
-                        <span>iPAS 資訊安全工程師 初級能力鑑定</span>
-                    </div>
-                    <div class="achievement-item" title="2025/07/27場次">
-                        <span class="achievement-badge">英文</span>
-                        <span>TOEIC Listening and Reading Test 485</span>
+                    
+                    <div class="postcard-right">
+                        <div class="info-section">
+                            <div class="education-list">
+                                <p>學歷</p>
+                                <div class="education-item" title="四技日間部 就學中 2023/9~2027/6">
+                                    <div class="item-content">
+                                        <div class="education-school">國立臺中科技大學</div>
+                                        <div class="education-department">資訊工程系</div>
+                                    </div>
+                                </div>
+                                <div class="education-item" title="已畢業 2020/9~2023/6 家長會長獎">
+                                    <div class="item-content">
+                                        <div class="education-school">國立龍潭高級中學</div>
+                                        <div class="education-department">電子科</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-section">
+                            <p>證書</p>
+                            <div class="achievement-list">
+                                <div class="achievement-item" title="序號:2025030016">
+                                    <span class="item-badge">程式</span>
+                                    <span class="item-text">大學程式能力檢定(CPE) C/C++ 進階級</span>
+                                </div>
+                                <div class="achievement-item" title="序號:ACE-25-06-A003">
+                                    <span class="item-badge">嵌入式</span>
+                                    <span class="item-text">Andes Certified Engineer-ACE 高級</span>
+                                </div>
+                                <div class="achievement-item" title="序號:">
+                                    <span class="item-badge">資安</span>
+                                    <span class="item-text">iPAS 資訊安全工程師 初級能力鑑定</span>
+                                </div>
+                                <div class="achievement-item" title="2025/07/27場次">
+                                    <span class="item-badge">英文</span>
+                                    <span class="item-text">TOEIC Listening and Reading Test 485</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -372,8 +415,6 @@ function handleThemeChange(value) {
     }
 }
 
-
-
 // 更新下拉選單的選中項
 function updateThemeSelect(value) {
     const themeSelect = document.getElementById('theme-select');
@@ -388,36 +429,6 @@ function applyTheme(themeName) {
     document.body.classList.add(themeName);
 }
 
-// 創建可重用的 IntersectionObserver 工具函數
-function createVisibilityObserver(options = {}) {
-    const {
-        threshold = 0.2,
-        rootMargin = '0px',
-        className = 'visible',
-        callback = null,
-        unobserveAfter = true
-    } = options;
-
-    const observerOptions = {
-        threshold,
-        rootMargin
-    };
-
-    return new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                if (callback) {
-                    callback(entry.target);
-                } else {
-                    entry.target.classList.add(className);
-                }
-                if (unobserveAfter) {
-                    obs.unobserve(entry.target);
-                }
-            }
-        });
-    }, observerOptions);
-}
 
 // 設置回到頂部按鈕功能
 function setupBackToTop() {

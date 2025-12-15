@@ -19,7 +19,6 @@ body {
 
 .site-info-content {
     padding: 2rem;
-    background: var(--card-bg);
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
@@ -123,18 +122,54 @@ body {
     margin-top: 2.5rem;
 }
 
+.info-item {
+    margin-bottom: 2rem;
+}
+
+.info-badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    background: var(--secondary-color);
+    color: aliceblue !important;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.info-badge:hover {
+    transform: translateY(-2px);
+}
+
 .site-info-details p {
     line-height: 1.8;
     margin-bottom: 1.2rem;
     color: var(--text-color);
 }
 
-.site-info-details strong {
-    color: var(--primary-color);
-    font-weight: 600;
+.info-item p {
+    margin-top: 0.8rem;
+    margin-bottom: 0;
+    padding-left: 0.3rem;
 }
 
-/* Responsive Design for Site Info */
+.site-info-details ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.8rem;
+    margin-bottom: 0;
+}
+
+.site-info-details ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
 @media (max-width: 900px) {
     .site-info-main {
         grid-template-columns: 1fr;
