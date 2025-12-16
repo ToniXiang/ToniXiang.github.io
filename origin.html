@@ -12,41 +12,42 @@
 </head>
 
 <body>
-    <div id="background"></div>
-    <header class="blogTitle"></header>
-    <div class="menu" onclick="toggleMenu()" aria-label="切換選單" title="快捷鍵 M">
-        <img src="assets/images/menu.svg" alt="選單" width="20" height="20" class="icon" aria-hidden="true">
-    </div>
-    <main>
-        <div class="site-info-section">
-            <h2>關於本站</h2>
-            <div class="site-info-content">
-                <div class="site-info-details">
-                    <div class="info-item">
-                        <span class="info-badge">使用技術</span>
-                        <ul>
-                            <li>HTML / CSS / JavaScript</li>
-                            <li>原生前端實作，除了程式碼高亮以外無框架依賴</li>
-                            <li>導入 Git 版本控制</li>
-                        </ul>
-                    </div>
+<div id="background"></div>
+<header class="blogTitle"></header>
+<div class="menu" onclick="toggleMenu()" aria-label="切換選單" title="快捷鍵 M">
+    <img src="assets/images/menu.svg" alt="選單" width="20" height="20" class="icon" aria-hidden="true">
+</div>
+<main>
+    <div class="site-info-section">
+        <h2>關於本站</h2>
+        <div class="site-info-content">
+            <div class="site-info-details">
+                <div class="info-item">
+                    <span class="info-badge">使用技術</span>
+                    <ul>
+                        <li>HTML / CSS / JavaScript</li>
+                        <li>原生前端實作，除了程式碼高亮以外無框架依賴</li>
+                        <li>導入 Git 版本控制</li>
+                    </ul>
+                </div>
 
-                    <div class="info-item">
-                        <span class="info-badge">設計特色</span>
-                        <ul>
-                            <li>自行設計版面與 UI，採極簡風格提升內容專注度</li>
-                            <li>清楚的資訊結構，利於長期維護與內容擴充</li>
-                            <li>響應式設計，支援桌機與行動裝置瀏覽</li>
-                        </ul>
-                    </div>
+                <div class="info-item">
+                    <span class="info-badge">設計特色</span>
+                    <ul>
+                        <li>自行設計版面與 UI，採極簡風格提升內容專注度</li>
+                        <li>清楚的資訊結構，利於長期維護與內容擴充</li>
+                        <li>響應式設計，支援桌機與行動裝置瀏覽</li>
+                    </ul>
+                </div>
 
-                    <div class="info-item">
-                        <span class="info-badge">授權方式</span>
-                        <p>MIT License</p>
-                    </div>
+                <div class="info-item">
+                    <span class="info-badge">授權方式</span>
+                    <p>MIT License</p>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="site-info-section">
         <h2 class="changelog-title">更新記錄</h2>
         <div class="changelog-controls">
             <div class="filter-controls">
@@ -80,10 +81,11 @@
                 <button onclick="loadChangelog()" class="retry-btn">重試</button>
             </div>
         </div>
-    </main>
-    <footer></footer>
-    <script src="assets/js/script.js" defer></script>
-    <script src="assets/js/origin.js" defer></script>
+    </div>
+</main>
+<footer></footer>
+<script src="assets/js/script.js" defer></script>
+<script src="assets/js/origin.js" defer></script>
 </body>
 
 </html>

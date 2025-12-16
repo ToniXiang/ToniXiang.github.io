@@ -69,7 +69,7 @@ class NotesSearch {
     }
 
     async loadNotes() {
-        // 定義所有筆記檔案及其對應標題
+        // 定義所有筆記檔案及其對應標題（包含 .md 副檔名）
         const noteFiles = [
             { filename: 'Binary_Search.md', title: '二分搜尋演算法' },
             { filename: 'Leetcode.md', title: 'LeetCode 演算法解題' },
@@ -309,9 +309,10 @@ function openNote(noteId) {
         window.location.hash = `#${encodeURIComponent(noteId)}`;
 
         // 如果notes.js已加载，直接调用showNoteModal
-        if (typeof showNoteModal === 'function') {
+        if (typeof showNoteModal === 'function' && typeof getNoteFileInfo === 'function') {
             setTimeout(() => {
-                showNoteModal(noteId);
+                const fileInfo = getNoteFileInfo(noteId);
+                showNoteModal(fileInfo.filename, fileInfo.title);
             }, 100);
         }
     } else {
@@ -327,12 +328,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 添加一些實用的搜尋快捷鍵
 document.addEventListener('keydown', (e) => {
-    // Ctrl/Cmd + K 快速聚焦搜尋框
-    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-        e.preventDefault();
-        document.getElementById('searchInput').focus();
-    }
-
     // ESC 清除搜尋
     if (e.key === 'Escape') {
         const searchInput = document.getElementById('searchInput');

@@ -1,14 +1,15 @@
 ## 基本概念
-Binary Search 是一種在已排序陣列中查找特定元素的高效演算法，時間複雜度為 O(log n)。
+Binary Search 是一種在已排序陣列中查找特定元素的高效演算法，時間複雜度為 O(log n)
 ## 實作
-### 常用變體
 STL 已實作: lower_bound, upper_bound, binary_search
-- 第一個 ≥ key → lower_bound
-- 第一個 > key → upper_bound
-- 是否存在 key → binary_search
-- 找最後一個 ≤ key → upper_bound - 1
-- 找最後一個 < key → lower_bound - 1
-### 基本模板
+```txt
+第一個 ≥ key → lower_bound
+第一個 > key → upper_bound
+是否存在 key → binary_search
+找最後一個 ≤ key → upper_bound - 1
+找最後一個 < key → lower_bound - 1
+```
+## 基本模板
 ### 標準二分搜尋模板
 ```cpp
 auto bs=[&](int left, int right, int key) -> bool {
@@ -37,7 +38,7 @@ auto upper_bound=[&](int left, int right, int key) -> int {
     else return self(self, left, mid, key);
 };
 ```
-### 快速使用
+## 快速使用
 ```cpp
 #include <algorithm>
 namespace std;

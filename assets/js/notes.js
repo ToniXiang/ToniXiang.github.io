@@ -1,3 +1,32 @@
+// 筆記檔案配置 - 將檔案名稱與顯示標題對應
+const noteFiles = [
+    { filename: 'Binary_Search.md', title: '二分搜尋演算法' },
+    { filename: 'Leetcode.md', title: 'LeetCode 演算法解題' },
+    { filename: 'Priority.md', title: '堆積與優先佇列' },
+    { filename: 'Tree.md', title: '樹與圖論演算法' },
+    { filename: 'Unordered.md', title: '雜湊表應用' },
+    { filename: '後端整合.md', title: '後端系統整合' },
+];
+
+// 根據 note 屬性查找對應的檔案資訊
+function getNoteFileInfo(noteAttr) {
+    // 先嘗試精確匹配檔案名（不含副檔名）
+    const fileInfo = noteFiles.find(nf => {
+        const filenameWithoutExt = nf.filename.replace(/\.(md|txt)$/, '');
+        return filenameWithoutExt === noteAttr;
+    });
+
+    if (fileInfo) {
+        return fileInfo;
+    }
+
+    // 如果找不到，返回預設值（使用 noteAttr 作為檔案名）
+    return {
+        filename: noteAttr + '.md',
+        title: noteAttr
+    };
+}
+
 // 筆記頁面功能
 document.addEventListener('DOMContentLoaded', () => {
     initializeNotes();
@@ -10,12 +39,14 @@ function handleUrlHash() {
     const hash = window.location.hash;
     if (hash && hash.length > 1) {
         // 移除 # 符號並解碼
-        const noteTitle = decodeURIComponent(hash.substring(1));
-        console.log('從 URL hash 載入筆記:', noteTitle);
+        const noteIdentifier = decodeURIComponent(hash.substring(1));
+        console.log('從 URL hash 載入筆記:', noteIdentifier);
 
         // 延遲一點時間確保頁面完全載入
         setTimeout(() => {
-            showNoteModal(noteTitle);
+            // 嘗試將標識符對應到檔案資訊
+            const fileInfo = getNoteFileInfo(noteIdentifier);
+            showNoteModal(fileInfo.filename, fileInfo.title);
         }, 100);
     }
 }
@@ -33,56 +64,59 @@ function initializeNotes() {
 
 function handleInternalNoteClick(event) {
     const noteTitleElement = event.currentTarget.querySelector('.note-title');
-    const noteTitle = noteTitleElement.getAttribute('note');
-    showNoteModal(noteTitle);
-}
+    const noteAttr = noteTitleElement.getAttribute('note');
 
-// 將筆記標題轉換為對應的檔案名稱，支持 .md 和 .txt
-function getNoteFileName(title) {
-    const cleanTitle = title.trim();
-    // 優先檢查 .md 檔案，然後檢查 .txt 檔案
-    return {
-        md: cleanTitle + '.md',
-        txt: cleanTitle + '.txt'
-    };
+    // 根據 note 屬性獲取檔案資訊
+    const fileInfo = getNoteFileInfo(noteAttr);
+
+    console.log('點擊筆記:', noteAttr, '-> 檔案:', fileInfo.filename, '標題:', fileInfo.title);
+
+    // 使用檔案名和標題顯示筆記
+    showNoteModal(fileInfo.filename, fileInfo.title);
 }
 
 // 從檔案讀取筆記內容，支持 .md 和 .txt
-async function loadNoteContent(title) {
-    const fileNames = getNoteFileName(title);
+async function loadNoteContent(filename) {
+    // filename 已經包含副檔名（例如 'Binary_Search.md'）
+    const filenameWithoutExt = filename.replace(/\.(md|txt)$/, '');
 
-    // 先嘗試讀取 .md 檔案
+    // 先嘗試讀取指定的檔案
     try {
-        const mdResponse = await fetch(`assets/notes/${fileNames.md}`);
-        if (mdResponse.ok) {
-            const content = await mdResponse.text();
+        const response = await fetch(`assets/notes/${filename}`);
+        if (response.ok) {
+            const content = await response.text();
+            const fileType = filename.endsWith('.md') ? 'markdown' : 'text';
             return {
                 success: true,
                 content: content,
-                type: 'markdown'
+                type: fileType
             };
         }
     } catch (error) {
-        console.log(`Markdown 檔案不存在: ${fileNames.md}`);
+        console.log(`指定檔案不存在: ${filename}`);
     }
 
-    // 如果 .md 檔案不存在，嘗試讀取 .txt 檔案
+    // 如果指定檔案不存在，嘗試替代副檔名
+    const alternateExt = filename.endsWith('.md') ? '.txt' : '.md';
+    const alternateFilename = filenameWithoutExt + alternateExt;
+
     try {
-        const txtResponse = await fetch(`assets/notes/${fileNames.txt}`);
-        if (txtResponse.ok) {
-            const content = await txtResponse.text();
+        const response = await fetch(`assets/notes/${alternateFilename}`);
+        if (response.ok) {
+            const content = await response.text();
+            const fileType = alternateFilename.endsWith('.md') ? 'markdown' : 'text';
             return {
                 success: true,
                 content: content,
-                type: 'text'
+                type: fileType
             };
         }
-        throw new Error(`檔案不存在: ${fileNames.txt}`);
+        throw new Error(`檔案不存在: ${filename} 或 ${alternateFilename}`);
     } catch (error) {
         console.error('讀取筆記內容失敗:', error);
         return {
             success: false,
-            error: `無法找到檔案: ${fileNames.md} 或 ${fileNames.txt}`
+            error: `無法找到檔案: ${filename} 或 ${alternateFilename}`
         };
     }
 }
@@ -164,11 +198,12 @@ function parseMarkdown(text) {
 }
 
 
-function showNoteModal(title) {
-    console.log('正在顯示筆記:', title);
+function showNoteModal(filename, title) {
+    console.log('正在顯示筆記 - 檔案:', filename, '標題:', title);
 
-    // 更新 URL hash，但不觸發 hashchange 事件
-    const newHash = `#${encodeURIComponent(title)}`;
+    // 更新 URL hash，使用檔案名（不含副檔名）作為識別符
+    const filenameWithoutExt = filename.replace(/\.(md|txt)$/, '');
+    const newHash = `#${encodeURIComponent(filenameWithoutExt)}`;
     if (window.location.hash !== newHash) {
         history.replaceState(null, null, newHash);
     }
@@ -207,7 +242,7 @@ function showNoteModal(title) {
     }
 
     // 載入並顯示筆記內容
-    loadNoteContent(title).then(result => {
+    loadNoteContent(filename).then(result => {
         if (result.success) {
             if (result.type === 'markdown') {
                 // Markdown 內容解析並渲染為 HTML
