@@ -355,16 +355,6 @@ body {
     word-wrap: break-word;
 }
 
-.commit-item:hover {
-    border-color: var(--primary-color);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-}
-
-.dark-theme .commit-item:hover {
-    border-color: var(--primary-color);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
-}
-
 .commit-header {
     display: flex;
     justify-content: space-between;

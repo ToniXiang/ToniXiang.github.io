@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 版本檢查（手動觸發）
 function checkVersion() {
-    const CURRENT_VERSION = '2025.12.16';
+    const CURRENT_VERSION = '2025.12.18';
     const savedVersion = localStorage.getItem('tonixiang_version');
 
     if (savedVersion !== CURRENT_VERSION) {
@@ -87,8 +87,8 @@ function loadNavigationAndFooter() {
                 <h4>ToniXiang</h4>
                 <p class="sidebar-subtitle">Coding · Building · Debugging</p>
                 <div class="sidebar-tags">
-                    <span class="tag tag-experience">C++ 學習 6 年</span>
-                    <span class="tag tag-leetcode">LC400+DSA</span>
+                    <span class="tag tag-experience">10+Repos</span>
+                    <span class="tag tag-leetcode">LC450+DSA</span>
                 </div>
             </div>
         </div>
@@ -170,8 +170,7 @@ function loadNavigationAndFooter() {
                             <span class="specialty-text">C/C++ · MCU · 韌體開發</span>
                         </div>
                     </div>
-                    <span class="more-info-trigger" onclick="toggleMoreInfo()">
-                        更多資訊 <span class="chevron">›</span>
+                    <span class="more-info-trigger" onclick="toggleMoreInfo()">關於我<span class="chevron">›</span>
                     </span>
                 </div>
                 

@@ -6,6 +6,7 @@ const noteFiles = [
     { filename: 'Tree.md', title: '樹與圖論演算法' },
     { filename: 'Unordered.md', title: '雜湊表應用' },
     { filename: '後端整合.md', title: '後端系統整合' },
+    { filename: 'Queue.md', title: '佇列與雙端佇列' },
 ];
 
 // 根據 note 屬性查找對應的檔案資訊

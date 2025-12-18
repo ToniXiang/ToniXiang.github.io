@@ -23,8 +23,7 @@ unordered_set<int> st;
 if (st.count(x)) {
     // 出現過
 }
-st.
-insert(x);
+st.insert(x);
 ```
 ### 字符頻率統計
 常用於字串問題：

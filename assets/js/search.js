@@ -77,6 +77,7 @@ class NotesSearch {
             { filename: 'Tree.md', title: '樹與圖論演算法' },
             { filename: 'Unordered.md', title: '雜湊表應用' },
             { filename: '後端整合.md', title: '後端系統整合' },
+            { filename: 'Queue.md', title: '佇列與雙端佇列' },
         ];
 
         this.showLoading(true);
@@ -253,9 +254,6 @@ class NotesSearch {
             <div class="note-card" onclick="openNote('${escapedNoteId}')">
                 <h3 class="note-title">${highlightedTitle}</h3>
                 <p class="note-preview">${highlightedPreview}</p>
-                <div class="note-meta">
-                    <span class="note-filename">${note.filename}</span>
-                </div>
             </div>
         `;
     }

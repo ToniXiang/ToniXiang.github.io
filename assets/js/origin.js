@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', function () {
-    loadChangelog();
+document.addEventListener('DOMContentLoaded', async function () {
+    await loadChangelog();
     setupEventListeners();
 });
 

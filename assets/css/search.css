@@ -12,7 +12,9 @@
     margin-bottom: 32px;
     animation: fadeInUp 0.6s ease-out;
 }
-
+.search-header>h2::after{
+    display: none;
+}
 .search-subtitle {
     font-size: 0.95rem;
     color: var(--tertiary-color);
@@ -133,16 +135,6 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-}
-
-.note-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 16px;
-    border-top: 1px solid var(--card-border);
-    font-size: 0.85rem;
-    color: var(--tertiary-color);
 }
 
 .search-highlight {
