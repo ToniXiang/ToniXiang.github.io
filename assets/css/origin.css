@@ -149,6 +149,7 @@ body {
 }
 
 .info-item p {
+    font-size: 0.9rem;
     margin-top: 0.8rem;
     margin-bottom: 0;
     padding-left: 0.3rem;

@@ -1,5 +1,5 @@
 ## 標籤
-不是所有標籤都適合用在每個題目上，請看情況斟酌使用
+不是任一標籤都適合用在某種題目上，請看情況斟酌使用
 - BFS / DFS
 - Shortest Path(Dijkstra)：權重非負
 - Minimum Spanning Tree：Kruskal 按邊排序；Prim 相鄰矩陣圖
@@ -38,6 +38,7 @@
 - Z-function：Z[i]是從位置 i 繼續往後看，能跟整個字串的開頭對上多少
 - Rabin-Karp(滾動哈希)：基於多項式的哈希函數，子串更新 O(1) → 支援快速比較，多字串匹配
 - Manacher：利用對稱性 → 每次擴展時不需從零開始 O(n)
+- stringstream：字串流，方便字串按指定分隔符拆分字串
 ## 誤區
 行為穩定，不靠運氣
 ```txt
@@ -48,6 +49,12 @@ erase() while iterate 直接炸
 cmath 的 pow() 回傳 double，不準確，改用自訂快速冪
 unordered_map.clear() 不會釋放 bucket，累積下可能 MLE，改 unordered_map<int,int>().swap(mp);
 string += char 是 O(n) 不是 O(1)  
+stoi 空字串會拋例外
+resize(n,val) 前面的保留，只有在放大時空值用 val 來填；縮小時完全忽略第二個參數
+放大表示 n > 原本大小，縮小表示 n < 原本大小，不變表示 n == 原本大小
+assign(n,val) 不管原來的元素是什麼，全部清掉，類於 vector.clear() + push_back(val) n 次
+stringstream ss(",a,b"); getline(ss,data,',') 會讀到 空字串、"a"、"b"，要預防
+以上改成 ss("a,b,,"); 一個EOF前的空字串不會被讀取，但還剩一個，可知順序 "a"、"b"、空字串
 ```
 ---
 你以為 STL 在幫你，其實它在背刺你

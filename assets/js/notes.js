@@ -1,7 +1,7 @@
 // 筆記檔案配置 - 將檔案名稱與顯示標題對應
 const noteFiles = [
     { filename: 'Binary_Search.md', title: '二分搜尋演算法' },
-    { filename: 'Leetcode.md', title: 'LeetCode 演算法解題' },
+    { filename: 'Algorithm.md', title: '演算法解題' },
     { filename: 'Priority.md', title: '堆積與優先佇列' },
     { filename: 'Tree.md', title: '樹與圖論演算法' },
     { filename: 'Unordered.md', title: '雜湊表應用' },

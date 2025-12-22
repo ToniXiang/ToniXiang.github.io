@@ -85,7 +85,7 @@ function loadNavigationAndFooter() {
             <div class="brand-info">
                 <img src="assets/images/me.jpg" class="sidebar-avatar" alt="Avatar">
                 <h4>ToniXiang</h4>
-                <p class="sidebar-subtitle">learn. build. iterate</p>
+                <p class="sidebar-subtitle">learn·build·iterate</p>
                 <div class="sidebar-tags">
                     <span class="tag tag-experience">10+Repos</span>
                     <span class="tag tag-leetcode">LC500+DSA</span>
@@ -170,7 +170,7 @@ function loadNavigationAndFooter() {
                         </div>
                         <div class="specialty-item">
                             <span class="specialty-icon">#技能</span>
-                            <span class="specialty-text">C/C++ · MCU · 韌體開發</span>
+                            <span class="specialty-text">C/C++·微控制器</span>
                         </div>
                     </div>
                     <span class="more-info-trigger" onclick="toggleMoreInfo()">關於我<span class="chevron">›</span>
@@ -178,14 +178,14 @@ function loadNavigationAndFooter() {
                 </div>
                 
                 <div class="footer-nav">
-                    <h3>導航</h3>
+                    <h3>Internal</h3>
                     <a href="index.html">主要頁面</a>
                     <a href="notes.html">學習筆記</a>
                     <a href="origin.html">關於本站</a>
                 </div>
                 
                 <div class="footer-contact">
-                    <h3>外部</h3>
+                    <h3>External</h3>
                     <a href="https://github.com/ToniXiang" target="_blank">我的 GitHub</a>
                     <a href="https://leetcode.com/u/chen199940/" target="_blank">我的 Leetcode</a>
                 </div>

@@ -169,8 +169,7 @@ body:not(.dark-theme) .notes-thoughts::before {
 .note-title {
     font-size: 0.95rem;
     font-weight: 500;
-    color: var(--link-color);
-    transition: color 0.2s ease;
+    color: var(--text-color);
 }
 
 .note-desc {
@@ -184,7 +183,6 @@ body:not(.dark-theme) .notes-thoughts::before {
     --text-primary: rgba(255, 255, 255, 0.9);
     --text-secondary: rgba(255, 255, 255, 0.6);
     --link-color: #66d9a6;
-    --link-hover: #7ee6b3;
     --accent-color: #66d9a6;
     --accent-color-bright: #7ee6b3;
     --accent-gradient-start: #66d9a6;
@@ -832,15 +830,9 @@ body:not(.dark-theme) {
 }
 
 .markdown-content a {
-    color: var(--link-color);
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: all 0.2s ease;
-}
-
-.markdown-content a:hover {
-    color: var(--link-hover);
-    border-bottom-color: var(--link-hover);
 }
 
 .markdown-content strong {
