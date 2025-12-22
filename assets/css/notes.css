@@ -54,6 +54,51 @@ body.split-view-active > main {
     align-items: flex-start;
 }
 
+.notes-thoughts {
+    margin-top: 40px;
+    padding: 24px 28px;
+    background: linear-gradient(135deg, rgba(102, 217, 166, 0.03) 0%, rgba(74, 222, 128, 0.02) 100%);
+    border-radius: 8px;
+    position: relative;
+    box-shadow: var(--subtle-shadow);
+    backdrop-filter: blur(10px);
+    width: 80%;
+}
+
+.notes-thoughts p {
+    margin: 8px 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    font-style: italic;
+    position: relative;
+    padding-left: 8px;
+}
+
+.notes-thoughts p:first-of-type {
+    margin-top: 0;
+}
+
+.notes-thoughts p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Dark theme adjustments */
+.dark-theme .notes-thoughts {
+    background: linear-gradient(135deg, rgba(102, 217, 166, 0.05) 0%, rgba(74, 222, 128, 0.03) 100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Light theme adjustments */
+body:not(.dark-theme) .notes-thoughts {
+    background: linear-gradient(135deg, rgba(5, 150, 105, 0.04) 0%, rgba(16, 185, 129, 0.02) 100%);
+    border-left-color: #059669;
+}
+
+body:not(.dark-theme) .notes-thoughts::before {
+    color: #059669;
+}
+
 .note-category {
     margin-bottom: 0;
     transition: none;
@@ -212,6 +257,25 @@ body:not(.dark-theme) {
     .split-view .notes-container {
         max-width: 100%;
         display: none;
+    }
+
+    /* Mobile responsive for notes-thoughts */
+    .notes-thoughts {
+        margin-top: 30px;
+        padding: 20px 20px;
+        font-size: 0.9rem;
+    }
+
+    .notes-thoughts::before {
+        font-size: 2.5rem;
+        top: 8px;
+        left: 8px;
+    }
+
+    .notes-thoughts p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        padding-left: 4px;
     }
 
     .split-view .note-viewer {

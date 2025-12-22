@@ -1,4 +1,5 @@
 ## 標籤
+不是所有標籤都適合用在每個題目上，請看情況斟酌使用
 - BFS / DFS
 - Shortest Path(Dijkstra)：權重非負
 - Minimum Spanning Tree：Kruskal 按邊排序；Prim 相鄰矩陣圖
@@ -37,3 +38,16 @@
 - Z-function：Z[i]是從位置 i 繼續往後看，能跟整個字串的開頭對上多少
 - Rabin-Karp(滾動哈希)：基於多項式的哈希函數，子串更新 O(1) → 支援快速比較，多字串匹配
 - Manacher：利用對稱性 → 每次擴展時不需從零開始 O(n)
+## 誤區
+行為穩定，不靠運氣
+```txt
+== 用來比 double 之類的幾乎一定錯，改 if (fabs(a - b) < 1e-9)
+n%2==1 判斷奇偶，負數會錯，從二進制可知，改 n&1
+不要用 mp[key]>0 判斷 key 是否存在，如果不存在，會「自動插入」一個值 = 0，改 mp.count(key)
+erase() while iterate 直接炸
+cmath 的 pow() 回傳 double，不準確，改用自訂快速冪
+unordered_map.clear() 不會釋放 bucket，累積下可能 MLE，改 unordered_map<int,int>().swap(mp);
+string += char 是 O(n) 不是 O(1)  
+```
+---
+你以為 STL 在幫你，其實它在背刺你

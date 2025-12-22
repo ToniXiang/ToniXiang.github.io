@@ -146,12 +146,12 @@ body>main {
 
 /* 經驗標籤 - 藍色漸變 */
 .sidebar-tags .tag-experience {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0078d4, #005fb8);
 }
 
-/* LeetCode標籤 - 金色漸變 */
+/* LeetCode標籤 - 金橘漸變 */
 .sidebar-tags .tag-leetcode {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background: linear-gradient(135deg, #ff9a00, #ff6a00);
 }
 
 .nav-section {
@@ -693,8 +693,11 @@ span>a {
 
 .footer-brand-header {
     display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+    align-items: center;
+    gap: 6px;
+}
+.footer-brand-header p {
+    margin: 0;
 }
 .footer-name-subtitle {
     font-size: 0.9rem;
@@ -1115,7 +1118,7 @@ footer .specialty-text {
         padding-top: 0.6rem;
     }
 }
-/* 回到頂部按鈕 */
+
 .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -1123,9 +1126,8 @@ footer .specialty-text {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: var(--card-bg, rgba(255, 255, 255, 0.9));
-    border: 1px solid var(--card-border, rgba(0, 0, 0, 0.1));
-    color: var(--text-color);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -1146,14 +1148,7 @@ footer .specialty-text {
 
 .back-to-top:hover {
     background: var(--primary-color, #667eea);
-    color: white;
-    border-color: var(--primary-color, #667eea);
     transform: translateY(-3px);
-}
-
-.back-to-top:active {
-    transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
 }
 
 .back-to-top svg {
@@ -1430,7 +1425,6 @@ footer .specialty-text {
     font-size: 0.85rem;
 }
 
-/* 成就列表 */
 .achievement-list {
     display: flex;
     flex-direction: column;
@@ -1455,7 +1449,8 @@ footer .specialty-text {
 
 .item-badge {
     padding: 0.3rem 0.7rem;
-    background: var(--secondary-color, #764ba2);
+    background: var(--secondary-color);
+    color:aliceblue !important;
     border-radius: 8px;
     font-size: 0.75rem;
     font-weight: 600;
@@ -1472,21 +1467,14 @@ footer .specialty-text {
     font-weight: 500;
 }
 
-/* 保持舊的 achievement-badge 向後兼容 */
 .achievement-badge {
     padding: 0.25rem 0.65rem;
     border-radius: 6px;
-    background: var(--secondary-color, #667eea);
-    color: aliceblue !important;
+    background: var(--secondary-color);
     font-size: 0.7rem;
     font-weight: 600;
     white-space: nowrap;
     flex-shrink: 0;
-}
-
-.achievement-item span:last-child {
-    color: var(--text-color);
-    font-size: 0.85rem;
 }
 
 /* 響應式設計 */

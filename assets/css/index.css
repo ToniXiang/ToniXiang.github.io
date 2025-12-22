@@ -52,19 +52,6 @@
     letter-spacing: 0.5px;
 }
 
-/* 背景装饰动画 */
-.welcome-container::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(from 0deg, transparent, rgba(102, 126, 234, 0.1), transparent);
-    animation: rotate 20s linear infinite;
-    z-index: 1;
-}
-
 .welcome-container::after {
     content: '';
     position: absolute;
