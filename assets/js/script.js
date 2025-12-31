@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 版本檢查（手動觸發）
 function checkVersion() {
-    const CURRENT_VERSION = '2025.12.22';
+    const CURRENT_VERSION = '2025.12.31';
     const savedVersion = localStorage.getItem('tonixiang_version');
 
     if (savedVersion !== CURRENT_VERSION) {
@@ -85,7 +85,7 @@ function loadNavigationAndFooter() {
             <div class="brand-info">
                 <img src="assets/images/me.jpg" class="sidebar-avatar" alt="Avatar">
                 <h4>ToniXiang</h4>
-                <p class="sidebar-subtitle">learn·build·iterate</p>
+                <p class="sidebar-subtitle">學習·構建·改進</p>
                 <div class="sidebar-tags">
                     <span class="tag tag-experience">10+Repos</span>
                     <span class="tag tag-leetcode">LC500+DSA</span>
@@ -165,12 +165,16 @@ function loadNavigationAndFooter() {
                     </div>
                     <div class="footer-specialties">
                         <div class="specialty-item">
-                            <span class="specialty-icon">#專長</span>
-                            <span class="specialty-text">嵌入式系統與低階程式開發</span>
+                            <span class="specialty-icon">#專長領域</span>
+                            <span class="specialty-text">嵌入式系統、全端開發</span>
                         </div>
                         <div class="specialty-item">
                             <span class="specialty-icon">#技能</span>
-                            <span class="specialty-text">C/C++·微控制器</span>
+                            <span class="specialty-text">C/C++、Flutter 前端、Django 後端</span>
+                        </div>
+                        <div class="specialty-item">
+                            <span class="specialty-icon">#自我定位</span>
+                            <span class="specialty-text">學生（持續實作不限於專題的東西）</span>
                         </div>
                     </div>
                     <span class="more-info-trigger" onclick="toggleMoreInfo()">關於我<span class="chevron">›</span>
@@ -178,16 +182,16 @@ function loadNavigationAndFooter() {
                 </div>
                 
                 <div class="footer-nav">
-                    <h3>Internal</h3>
+                    <h3>本站連結</h3>
                     <a href="index.html">主要頁面</a>
                     <a href="notes.html">學習筆記</a>
                     <a href="origin.html">關於本站</a>
                 </div>
                 
                 <div class="footer-contact">
-                    <h3>External</h3>
-                    <a href="https://github.com/ToniXiang" target="_blank">我的 GitHub</a>
-                    <a href="https://leetcode.com/u/chen199940/" target="_blank">我的 Leetcode</a>
+                    <h3>外部連結</h3>
+                    <a href="https://github.com/ToniXiang" target="_blank">GitHub</a>
+                    <a href="https://leetcode.com/u/chen199940/" target="_blank">Leetcode</a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -208,17 +212,17 @@ function loadNavigationAndFooter() {
                 
                 <div class="postcard-layout">
                     <div class="postcard-left">
-                        <p>陳國翔<span class="name-en">(Guo-Xiang Chen)</span></p>
+                        <img src="assets/gif/CryingBlueArchive.gif" alt="https://tenor.com/zh-TW/view/blue-archive-gif-11558330212366339285" class="crying-blue-gif" style="max-width:180px; border-radius:12px; margin-bottom:1rem;" title="Why is it so hard to implement code?">
+                        <p>陳國翔<span class="name-en">Guo-Xiang Chen</span></p>
                         <div class="github-link">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
                                 <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
                             </svg>
                             <span>ToniXiang</span>
-                            <span style="margin: 0 8px;">·</span>
-                            <span><a href="https://drive.google.com/drive/u/0/folders/128d_VtA-tXoIiIJfNZrQk87KNk_VWu_y" target="_blank">履歷表</a></span>
                         </div>
                         <div class="about-section">
-                            <p>我從高中電子科出身，一路在軟體開發與硬體實作中累積經驗，之後在大學進一步接觸資安與網路相關領域，並建立起扎實的嵌入式系統與網路安全基礎。比起停留在理論，我更喜歡將知識應用到實際專案中。</p>
+                            <p>我從高中電子科起步，在軟體開發與硬體實作中累積經驗，之後在大學接觸資安與網路相關領域，並在嵌入式系統建立起扎實的實作能力。
+                            比起停留在理論和考試，我更想將知識應用到實際專案中。</p>
                         </div>
                     </div>
                     
@@ -226,13 +230,13 @@ function loadNavigationAndFooter() {
                         <div class="info-section">
                             <div class="education-list">
                                 <p>學歷</p>
-                                <div class="education-item" title="四技日間部 就學中 2023/9~2027/6">
+                                <div class="education-item" title="2023/9~2027/6">
                                     <div class="item-content">
                                         <div class="education-school">國立臺中科技大學</div>
                                         <div class="education-department">資訊工程系</div>
                                     </div>
                                 </div>
-                                <div class="education-item" title="已畢業 2020/9~2023/6 家長會長獎">
+                                <div class="education-item" title="2020/9~2023/6 家長會長獎">
                                     <div class="item-content">
                                         <div class="education-school">國立龍潭高級中學</div>
                                         <div class="education-department">電子科</div>
@@ -242,7 +246,7 @@ function loadNavigationAndFooter() {
                         </div>
                         
                         <div class="info-section">
-                            <p>證書</p>
+                            <p>證書(僅顯示近期)</p>
                             <div class="achievement-list">
                                 <div class="achievement-item" title="序號:2025030016">
                                     <span class="item-badge">程式</span>
@@ -252,7 +256,7 @@ function loadNavigationAndFooter() {
                                     <span class="item-badge">嵌入式</span>
                                     <span class="item-text">Andes Certified Engineer-ACE 高級</span>
                                 </div>
-                                <div class="achievement-item" title="序號:">
+                                <div class="achievement-item" title="序號:過了還沒收到證書">
                                     <span class="item-badge">資安</span>
                                     <span class="item-text">iPAS 資訊安全工程師 初級能力鑑定</span>
                                 </div>
@@ -468,4 +472,3 @@ function toggleMoreInfo() {
         }
     }
 }
-

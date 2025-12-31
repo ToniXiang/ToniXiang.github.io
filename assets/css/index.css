@@ -42,16 +42,6 @@
     animation: none;
 }
 
-.welcome-subtitle {
-    font-size: clamp(1.1rem, 3vw, 1.4rem);
-    color: var(--text-color, #666);
-    margin: 0;
-    opacity: 1;
-    transform: none;
-    font-weight: 300;
-    letter-spacing: 0.5px;
-}
-
 .welcome-container::after {
     content: '';
     position: absolute;
@@ -111,10 +101,6 @@
 
     .welcome-content h1 {
         font-size: 2.5rem;
-    }
-
-    .welcome-subtitle {
-        font-size: 1.1rem;
     }
 
     .welcome-container::after {
@@ -209,7 +195,6 @@
 
 @media (prefers-reduced-motion: reduce) {
     .welcome-content,
-    .welcome-subtitle,
     .welcome-content h1::before,
     .welcome-container::before,
     .welcome-container::after,
@@ -218,11 +203,6 @@
     }
 
     .welcome-content {
-        opacity: 1;
-        transform: none;
-    }
-
-    .welcome-subtitle {
         opacity: 1;
         transform: none;
     }

@@ -57,7 +57,6 @@ body.split-view-active > main {
 .notes-thoughts {
     margin-top: 40px;
     padding: 24px 28px;
-    background: linear-gradient(135deg, rgba(102, 217, 166, 0.03) 0%, rgba(74, 222, 128, 0.02) 100%);
     border-radius: 8px;
     position: relative;
     box-shadow: var(--subtle-shadow);
@@ -81,22 +80,6 @@ body.split-view-active > main {
 
 .notes-thoughts p:last-of-type {
     margin-bottom: 0;
-}
-
-/* Dark theme adjustments */
-.dark-theme .notes-thoughts {
-    background: linear-gradient(135deg, rgba(102, 217, 166, 0.05) 0%, rgba(74, 222, 128, 0.03) 100%);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Light theme adjustments */
-body:not(.dark-theme) .notes-thoughts {
-    background: linear-gradient(135deg, rgba(5, 150, 105, 0.04) 0%, rgba(16, 185, 129, 0.02) 100%);
-    border-left-color: #059669;
-}
-
-body:not(.dark-theme) .notes-thoughts::before {
-    color: #059669;
 }
 
 .note-category {

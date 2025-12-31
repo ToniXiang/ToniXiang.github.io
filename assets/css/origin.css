@@ -19,8 +19,6 @@ body {
 
 .site-info-content {
     padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .site-info-main {
@@ -203,7 +201,6 @@ body {
     line-height: 1.4;
 }
 
-/* Responsive Design for Resources */
 @media (max-width: 768px) {
     .resource-grid {
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
