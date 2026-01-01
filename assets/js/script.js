@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 版本檢查（手動觸發）
 function checkVersion() {
-    const CURRENT_VERSION = '2025.12.31';
+    const CURRENT_VERSION = '2026.01.01';
     const savedVersion = localStorage.getItem('tonixiang_version');
 
     if (savedVersion !== CURRENT_VERSION) {

@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="assets/images/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/notes.css">
     <link rel="stylesheet" href="assets/css/search.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="assets/css/prism-tomorrow.min.css">
 </head>
 
 <body>
@@ -28,7 +28,8 @@
         <div class="search-box">
             <input type="text" id="searchInput" placeholder="輸入關鍵字搜尋..." autocomplete="off">
             <button id="searchBtn" type="button">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="11" cy="11" r="8"></circle>
                     <path d="M21 21l-4.35-4.35"></path>
                 </svg>
@@ -56,7 +57,7 @@
             <div class="notes-grid">
                 <div class="note-category">
                     <div class="category-header">
-                        <div class="category-title">演算法</div>
+                        <h2 class="category-title">演算法</h2>
                         <div class="category-desc">資料結構與演算法</div>
                     </div>
                     <ul class="note-list">
@@ -82,7 +83,7 @@
                 </div>
                 <div class="note-category">
                     <div class="category-header">
-                        <div class="category-title">系統開發</div>
+                        <h2 class="category-title">系統開發</h2>
                         <div class="category-desc">後端架構與系統整合</div>
                     </div>
                     <ul class="note-list">
@@ -92,14 +93,11 @@
                     </ul>
                 </div>
             </div>
-            <div class="notes-thoughts">
-                <p>未必有完整的結論，內容仍在持續修正與累積中</p>
-            </div>
         </article>
         <div class="note-viewer">
             <div class="note-viewer-header">
                 <img src="assets/images/description.svg" alt="notes" width="20" height="20" class="icon-img"
-                    aria-hidden="true">
+                     aria-hidden="true">
                 <p class="note-viewer-title"></p>
                 <button class="note-viewer-close">&times;</button>
             </div>
@@ -113,8 +111,11 @@
 <script src="assets/js/script.js" defer></script>
 <script src="assets/js/notes.js" defer></script>
 <script src="assets/js/search.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="assets/js/prism-core.min.js"></script>
+<script src="assets/js/prism-clike.min.js"></script>
+<script src="assets/js/prism-c.min.js"></script>
+<script src="assets/js/prism-cpp.min.js"></script>
+<script src="assets/js/prism-python.min.js"></script>
 </body>
 
 </html>

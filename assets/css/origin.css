@@ -342,7 +342,7 @@ body {
 }
 
 .commit-item {
-    background: var(--card-bg);
+    background: rgba(255, 255, 255, 0.01);
     border: 1px solid var(--card-border);
     border-radius: 6px;
     padding: 0.9rem 1rem;

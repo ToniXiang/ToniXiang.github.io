@@ -15,6 +15,7 @@ body {
 }
 
 body>main {
+    min-height: 80vh;
     width: 100%;
     margin: 0 auto;
     overflow-x: hidden;
@@ -214,7 +215,7 @@ body>main {
 }
 .nav-item:hover {
     background: rgba(102,126,234,0.12) !important;
-    color: var(--primary-color, #667eea) !important;
+    color: var(--primary-color) !important;
 }
 .nav-item.theme {
     background: none !important;
@@ -464,7 +465,7 @@ span>a {
     --secondary-color-dark: #1F6FEB;
     --tertiary-color-dark: #8B949E;
     --surface-dark: #161B22;
-    --card-bg-dark: #0D11117;
+    --card-bg-dark: rgba(102,126,234,0.12);
     --card-border-dark: #30363D;
     --border-dark: #30363D;
     --accent-color-dark: #1F6FEB;
@@ -503,7 +504,7 @@ span>a {
     --primary-color: var(--primary-color-dark);
     --secondary-color: var(--secondary-color-dark);
     --tertiary-color: var(--tertiary-color-dark);
-    --card-bg: var(--card-bg-dark);
+    --card-bg: rgba(102,126,234,0.12);
     --card-border: var(--card-border-dark);
     --icon-filter: invert(0) brightness(1) contrast(1);
     --accent-color: var(--accent-color-dark);
@@ -539,7 +540,6 @@ span>a {
     --primary-color: var(--primary-color-dark);
     --secondary-color: var(--secondary-color-dark);
     --tertiary-color: var(--tertiary-color-dark);
-    --card-bg: var(--card-bg-dark);
     --card-border: var(--card-border-dark);
     --accent-color: var(--accent-color-dark);
     --img-color: var(--img-color-dark);
@@ -569,7 +569,6 @@ span>a {
     --primary-color: var(--primary-color-light);
     --secondary-color: var(--secondary-color-light);
     --tertiary-color: var(--tertiary-color-light);
-    --card-bg: var(--card-bg-light);
     --card-border: var(--card-border-light);
     --accent-color: var(--accent-color-light);
     --img-color: var(--img-color-light);
@@ -787,7 +786,6 @@ span>a {
 .footer-contact a:hover {
     opacity: 1;
     color: var(--primary-color);
-    transform: translateX(2px);
 }
 
 .footer-bottom {
