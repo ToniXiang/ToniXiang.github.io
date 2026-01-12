@@ -1,4 +1,6 @@
-// Search functionality for notes
+document.addEventListener('DOMContentLoaded', () => {
+    new NotesSearch();
+});
 class NotesSearch {
     constructor() {
         this.notes = [];
@@ -9,10 +11,7 @@ class NotesSearch {
         this.searchLoading = document.getElementById('searchLoading');
         this.originalNotesLayout = document.querySelector('.notes-layout');
         this.searchContainer = document.querySelector('.search-container');
-
-        // 将实例保存到全局变量，供openNote函数使用
         window.notesSearchInstance = this;
-
         this.init();
     }
 
@@ -29,22 +28,17 @@ class NotesSearch {
     }
 
     addSearchToggle() {
-        // Create search toggle button
         const notesContainer = document.querySelector('.notes-container');
         if (notesContainer) {
             const searchToggleBtn = document.createElement('button');
             searchToggleBtn.innerHTML = '搜尋筆記';
             searchToggleBtn.className = 'search-toggle-btn';
             searchToggleBtn.onclick = () => this.showSearchMode();
-
-            // Insert at the beginning of notes container
             const firstChild = notesContainer.firstElementChild;
             if (firstChild) {
                 notesContainer.insertBefore(searchToggleBtn, firstChild);
             }
         }
-
-        // Add close search button to search container
         if (this.searchContainer) {
             const closeSearchBtn = document.createElement('button');
             closeSearchBtn.innerHTML = '✕ 返回筆記列表';
@@ -172,10 +166,9 @@ class NotesSearch {
     performSearch() {
         const query = this.searchInput.value.trim().toLowerCase();
 
-        this.toggleLayouts(true); // Always show search results when in search mode
+        this.toggleLayouts(true);
         this.showLoading(true);
 
-        // 模擬搜尋延遲
         setTimeout(() => {
             if (query === '') {
                 // 當搜索框為空時，顯示所有筆記
@@ -190,29 +183,20 @@ class NotesSearch {
 
     searchNotes(query) {
         const results = [];
-
         for (const note of this.notes) {
             let score = 0;
             let titleMatch = false;
             let contentMatch = false;
-
-            // 標題搜尋（權重更高）
+            // 標題搜尋（權重高）
             if (note.title.toLowerCase().includes(query)) {
                 score += 10;
                 titleMatch = true;
             }
-
             // 內容搜尋
             if (note.content.toLowerCase().includes(query)) {
                 score += 5;
                 contentMatch = true;
             }
-
-            // 檔名搜尋
-            if (note.filename.toLowerCase().includes(query)) {
-                score += 3;
-            }
-
             if (score > 0) {
                 results.push({
                     ...note,
@@ -222,8 +206,6 @@ class NotesSearch {
                 });
             }
         }
-
-        // 按分數排序
         return results.sort((a, b) => b.score - a.score);
     }
 
@@ -292,21 +274,12 @@ class NotesSearch {
 
 // 開啟筆記的函數
 function openNote(noteId) {
-    console.log(`正在打開筆記: ${noteId}`);
-
-    // 检查是否在notes.html页面
     if (window.location.pathname.includes('notes.html') || window.location.pathname.endsWith('/notes.html')) {
-        // 在当前页面打开笔记
         const searchInstance = window.notesSearchInstance;
         if (searchInstance) {
-            // 关闭搜索模式，显示原始笔记布局
             searchInstance.hideSearchMode();
         }
-
-        // 使用hash来打开笔记（这会触发notes.js中的handleUrlHash）
         window.location.hash = `#${encodeURIComponent(noteId)}`;
-
-        // 如果notes.js已加载，直接调用showNoteModal
         if (typeof showNoteModal === 'function' && typeof getNoteFileInfo === 'function') {
             setTimeout(() => {
                 const fileInfo = getNoteFileInfo(noteId);
@@ -314,17 +287,9 @@ function openNote(noteId) {
             }, 100);
         }
     } else {
-        // 如果不在notes页面，则跳转到notes页面
         window.location.href = `notes.html#${encodeURIComponent(noteId)}`;
     }
 }
-
-// 當頁面載入完成時初始化搜尋功能
-document.addEventListener('DOMContentLoaded', () => {
-    new NotesSearch();
-});
-
-// 添加一些實用的搜尋快捷鍵
 document.addEventListener('keydown', (e) => {
     // ESC 清除搜尋
     if (e.key === 'Escape') {

@@ -15,13 +15,6 @@
 .search-header>h2::after{
     display: none;
 }
-.search-subtitle {
-    font-size: 0.95rem;
-    color: var(--tertiary-color);
-    margin: 0;
-    font-weight: 400;
-    opacity: 0.7;
-}
 
 .search-box {
     position: relative;
@@ -49,6 +42,21 @@
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(74, 144, 226, 0.08);
 }
 
+.close-search-btn {
+    background: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    margin-top: 16px;
+}
+
+.close-search-btn:hover {
+    background: rgb(102,126,234,0.12) !important;
+}
+
 .search-box button {
     position: absolute;
     right: 6px;
@@ -65,16 +73,6 @@
     color: white;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
-}
-
-.search-box button svg {
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
-    transition: all 0.3s ease;
-}
-
-.search-box button:hover svg {
-    transform: scale(1.1);
 }
 
 .search-stats {
@@ -249,10 +247,6 @@
 @media (max-width: 480px) {
     .search-container {
         padding: 80px 12px 20px;
-    }
-
-    .search-subtitle {
-        font-size: 0.85rem;
     }
 
     .search-box input {

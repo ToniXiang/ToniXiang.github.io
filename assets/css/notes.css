@@ -1122,7 +1122,7 @@ code[class*="language-"] {
 }
 
 .notes-layout.split-view {
-    outline: 2px solid transparent; /* 用於調試的邊框 */
+    outline: 2px solid transparent;
 }
 
 ::-webkit-scrollbar {
@@ -1149,7 +1149,6 @@ code[class*="language-"] {
     background: transparent;
 }
 
-/* 暗色主題滾動條 */
 .dark-theme ::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.15);
 }
@@ -1158,7 +1157,6 @@ code[class*="language-"] {
     background: rgba(255, 255, 255, 0.25);
 }
 
-/* Modal 滾動條特殊樣式 */
 .modal-content::-webkit-scrollbar {
     width: 6px;
 }
@@ -1201,21 +1199,18 @@ code[class*="language-"] {
     background: rgba(255, 255, 255, 0.15);
 }
 
-/* Search container integration with notes page */
 .search-container {
-    display: none !important; /* Initially hidden and force hide */
+    display: none !important;
     padding: 80px 20px 40px;
     max-width: 1200px;
     margin: 0 auto;
     min-height: 100vh;
 }
 
-/* When search is active, ensure proper spacing */
 .search-container.active {
     display: block !important;
 }
 
-/* Responsive adjustments for search in notes page */
 @media (max-width: 768px) {
     .search-container {
         padding: 80px 16px 20px;
@@ -1239,7 +1234,6 @@ code[class*="language-"] {
     }
 }
 
-/* 桌面端确保正常滚动 */
 @media (min-width: 769px) {
     body.split-view-active {
         overflow: visible;
@@ -1259,7 +1253,6 @@ code[class*="language-"] {
     }
 }
 
-/* Search toggle button styles */
 .search-toggle-btn {
     background: transparent;
     color: var(--text-color);
@@ -1281,23 +1274,6 @@ code[class*="language-"] {
     background: rgb(102,126,234,0.12) !important;
 }
 
-.close-search-btn {
-    background: var(--card-bg);
-    color: var(--text-color);
-    border: 1px solid var(--card-border);
-    border-radius: 20px;
-    padding: 8px 16px;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 16px;
-}
-
-.close-search-btn:hover {
-    border-color: var(--primary-color);
-}
-
-/* Responsive adjustments for toggle buttons */
 @media (max-width: 768px) {
     .search-toggle-btn {
         text-align: center;
@@ -1306,18 +1282,6 @@ code[class*="language-"] {
         margin: 0 auto 24px auto;
         border-radius: 28px;
     }
-
-    .close-search-btn {
-        width: auto;
-        min-width: 160px;
-        padding: 12px 20px;
-        font-size: 0.9rem;
-        margin: 20px auto 0 auto;
-        display: block;
-        text-align: center;
-        border-radius: 24px;
-    }
-
     .search-header {
         position: relative;
         display: flex;
@@ -1326,15 +1290,6 @@ code[class*="language-"] {
     }
 }
 
-@media (max-width: 480px) {
-    .close-search-btn {
-        width: calc(100% - 24px);
-        min-width: auto;
-        margin: 16px 12px 0 12px;
-    }
-}
-
-/* 手機版搜索功能整體修復 */
 @media (max-width: 768px) {
     body.search-active {
         padding-top: 0;
@@ -1362,14 +1317,12 @@ code[class*="language-"] {
         box-sizing: border-box;
     }
 
-    /* 確保搜索結果不會偏移 */
     .search-results {
         width: 100%;
         margin: 0;
         padding: 0;
     }
 
-    /* 修復搜索網格在手機版的顯示 */
     .search-results .notes-grid {
         display: flex;
         flex-direction: column;
@@ -1380,7 +1333,6 @@ code[class*="language-"] {
     }
 }
 
-/* 超小屏幕優化 */
 @media (max-width: 480px) {
     .search-container.active {
         padding-top: 80px;

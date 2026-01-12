@@ -111,15 +111,6 @@ body>main {
     text-decoration: none;
 }
 
-.sidebar-subtitle {
-    margin: 6px 0 12px 0;
-    color: var(--sidebar-text-secondary);
-    font-size: 13px;
-    font-weight: 400;
-    opacity: 0.8;
-    letter-spacing: 0.5px;
-}
-
 .sidebar-tags {
     display: flex;
     gap: 6px;
@@ -715,6 +706,12 @@ span>a {
     align-items: center;
     gap: 6px;
 }
+
+.footer-brand-header img {
+    filter: var(--icon-filter);
+    transition: filter 0.3s ease;
+}
+
 .footer-brand-header p {
     margin: 0;
 }
@@ -1271,7 +1268,7 @@ footer .specialty-text {
 .more-info-content {
     position: relative;
     background: var(--background-color);
-    border-radius: 20px;
+    border-radius: 10px;
     max-width: 900px;
     width: 90%;
     max-height: 80vh;
@@ -1316,6 +1313,17 @@ footer .specialty-text {
     gap: 0.5rem;
 }
 
+.info-section p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info-section img {
+    filter: var(--icon-filter);
+    transition: filter 0.3s ease;
+}
+
 /* 響應式設計 - 小螢幕改回縱向 */
 @media (max-width: 768px) {
     .postcard-layout {
@@ -1352,6 +1360,11 @@ footer .specialty-text {
     z-index: 10001;
     width: 40px;
     height: 40px;
+}
+
+.close-card img {
+    filter: var(--icon-filter);
+    transition: filter 0.3s ease;
 }
 
 .close-card:hover {
@@ -1414,7 +1427,6 @@ footer .specialty-text {
     margin: 0;
 }
 
-/* 學歷列表 */
 .education-list {
     display: flex;
     flex-direction: column;
@@ -1427,7 +1439,7 @@ footer .specialty-text {
     gap: 0.75rem;
     padding: 0.75rem 1rem;
     border-radius: 10px;
-    background: var(--hover-bg, rgba(102, 126, 234, 0.05));
+    background: var(--hover-bg);
     transition: all 0.3s ease;
     cursor: pointer;
 }
@@ -1445,7 +1457,7 @@ footer .specialty-text {
 }
 
 .education-school {
-    font-weight: 600;
+    font-weight: 500;
     color: var(--text-color);
     font-size: 0.95rem;
     margin-bottom: 0.2rem;
@@ -1469,7 +1481,7 @@ footer .specialty-text {
     gap: 0.75rem;
     padding: 0.65rem 0.875rem;
     border-radius: 10px;
-    background: var(--hover-bg, rgba(102, 126, 234, 0.05));
+    background: var(--hover-bg);
     transition: all 0.3s ease;
     cursor: pointer;
 }

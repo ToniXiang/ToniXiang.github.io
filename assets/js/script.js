@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 版本檢查（手動觸發）
 function checkVersion() {
-    const CURRENT_VERSION = '2026.01.01';
+    const CURRENT_VERSION = '2026.01.12';
     const savedVersion = localStorage.getItem('tonixiang_version');
 
     if (savedVersion !== CURRENT_VERSION) {
@@ -85,7 +85,6 @@ function loadNavigationAndFooter() {
             <div class="brand-info">
                 <img src="assets/images/me.jpg" class="sidebar-avatar" alt="Avatar">
                 <h4>ToniXiang</h4>
-                <p class="sidebar-subtitle">學習·構建·改進</p>
                 <div class="sidebar-tags">
                     <span class="tag tag-experience">10+Repos</span>
                     <span class="tag tag-leetcode">LC500+DSA</span>
@@ -158,15 +157,13 @@ function loadNavigationAndFooter() {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="footer-brand-header">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-                        </svg>
+                        <img src="assets/images/commit.svg" class="footer-avatar" alt="Avatar">
                         <p>ToniXiang</p>
                     </div>
                     <div class="footer-specialties">
                         <div class="specialty-item">
                             <span class="specialty-icon">#專長領域</span>
-                            <span class="specialty-text">嵌入式系統、全端開發</span>
+                            <span class="specialty-text">全端架構</span>
                         </div>
                         <div class="specialty-item">
                             <span class="specialty-icon">#技能</span>
@@ -192,10 +189,11 @@ function loadNavigationAndFooter() {
                     <h3>外部連結</h3>
                     <a href="https://github.com/ToniXiang" target="_blank">GitHub</a>
                     <a href="https://leetcode.com/u/chen199940/" target="_blank">Leetcode</a>
+                    <a href="https://drive.google.com/drive/folders/128d_VtA-tXoIiIJfNZrQk87KNk_VWu_y?usp=sharing" target="_blank">履歷</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+                <p>Built with HTML/CSS/JS · Thanks for visiting</p>
             </div>
         </div>
         
@@ -204,32 +202,23 @@ function loadNavigationAndFooter() {
             <div class="more-info-overlay" onclick="toggleMoreInfo()"></div>
             <div class="more-info-content">
                 <button class="close-card" onclick="toggleMoreInfo()" aria-label="關閉">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
+                    <img src="assets/images/close.svg" alt="Close" width="20" height="20">
                 </button>
                 
                 <div class="postcard-layout">
                     <div class="postcard-left">
                         <img src="assets/gif/CryingBlueArchive.gif" alt="https://tenor.com/zh-TW/view/blue-archive-gif-11558330212366339285" class="crying-blue-gif" style="max-width:180px; border-radius:12px; margin-bottom:1rem;" title="Why is it so hard to implement code?">
                         <p>陳國翔<span class="name-en">Guo-Xiang Chen</span></p>
-                        <div class="github-link">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-                            </svg>
-                            <span>ToniXiang</span>
-                        </div>
                         <div class="about-section">
-                            <p>我從高中電子科起步，在軟體開發與硬體實作中累積經驗，之後在大學接觸資安與網路相關領域，並在嵌入式系統建立起扎實的實作能力。
-                            比起停留在理論和考試，我更想將知識應用到實際專案中。</p>
+                            <p>從高中電子科起步，最初以硬體為主要學習方向。進入科大後接觸資安與網路相關領域。
+                            課業之外，會利用時間提升資料結構與演算法能力，透過線上解題或實作專案來驗證所學。</p>
                         </div>
                     </div>
                     
                     <div class="postcard-right">
                         <div class="info-section">
                             <div class="education-list">
-                                <p>學歷</p>
+                                <p><img src="assets/images/school.svg" alt="school">學歷</p>
                                 <div class="education-item" title="2023/9~2027/6">
                                     <div class="item-content">
                                         <div class="education-school">國立臺中科技大學</div>
@@ -246,12 +235,8 @@ function loadNavigationAndFooter() {
                         </div>
                         
                         <div class="info-section">
-                            <p>證書(僅顯示近期)</p>
+                            <p><img src="assets/images/license.svg" alt="license">證書(僅顯示近期)</p>
                             <div class="achievement-list">
-                                <div class="achievement-item" title="序號:2025030016">
-                                    <span class="item-badge">程式</span>
-                                    <span class="item-text">大學程式能力檢定(CPE) C/C++ 進階級</span>
-                                </div>
                                 <div class="achievement-item" title="序號:ACE-25-06-A003">
                                     <span class="item-badge">嵌入式</span>
                                     <span class="item-text">Andes Certified Engineer-ACE 高級</span>
