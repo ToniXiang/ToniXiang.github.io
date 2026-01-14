@@ -3,11 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     loadDefaultTheme();
     setupKeyboardEvents();
     setupBackToTop();
+    setupAvatarClick();
 });
 
 // 版本檢查（手動觸發）
 function checkVersion() {
-    const CURRENT_VERSION = '2026.01.12';
+    const CURRENT_VERSION = '2026.01.14';
     const savedVersion = localStorage.getItem('tonixiang_version');
 
     if (savedVersion !== CURRENT_VERSION) {
@@ -18,10 +19,44 @@ function checkVersion() {
             }
         });
         localStorage.setItem('tonixiang_version', CURRENT_VERSION);
-        loadDefaultTheme(); // 重新載入主題設定
-        alert(`當前版本：${CURRENT_VERSION}\n已更新至最新版本，網站資料已重置。`);
+
+        // 清除 sessionStorage
+        sessionStorage.clear();
+
+        // 提示用戶並強制重新載入（清除快取）
+        alert(`當前版本：${CURRENT_VERSION}\n已更新至最新版本，網站資料已重置。\n\n即將強制重新載入以獲取最新資源...`);
+
+        // 使用 location.reload(true) 強制從伺服器重新載入，繞過快取
+        // 對於現代瀏覽器，使用 hard reload
+        if (window.location.reload) {
+            window.location.reload(true);
+        } else {
+            // 備用方案：添加時間戳強制重新載入
+            window.location.href = window.location.href.split('?')[0] + '?t=' + new Date().getTime();
+        }
     } else {
-        alert(`當前版本：${CURRENT_VERSION}\n版本已是最新！`);
+        // 即使版本相同，也提供強制重新載入選項
+        const forceReload = confirm(`當前版本：${CURRENT_VERSION}\n版本已是最新！\n\n是否要強制重新載入以獲取最新資源？\n（這將清除快取並重新下載所有檔案）`);
+
+        if (forceReload) {
+            // 清除快取並重新載入
+            sessionStorage.clear();
+
+            // 使用多種方法確保清除快取
+            if ('caches' in window) {
+                // 清除 Service Worker 快取（如果有）
+                caches.keys().then(names => {
+                    names.forEach(name => {
+                        caches.delete(name);
+                    });
+                });
+            }
+
+            // 強制重新載入
+            setTimeout(() => {
+                window.location.reload(true);
+            }, 100);
+        }
     }
 }
 // 載入預設主題
@@ -84,7 +119,7 @@ function loadNavigationAndFooter() {
         <div class="sidebar-header">
             <div class="brand-info">
                 <img src="assets/images/me.jpg" class="sidebar-avatar" alt="Avatar">
-                <h4>ToniXiang</h4>
+                <p>Guo-Xiang Chen</p>
                 <div class="sidebar-tags">
                     <span class="tag tag-experience">10+Repos</span>
                     <span class="tag tag-leetcode">LC500+DSA</span>
@@ -167,7 +202,7 @@ function loadNavigationAndFooter() {
                         </div>
                         <div class="specialty-item">
                             <span class="specialty-icon">#技能</span>
-                            <span class="specialty-text">C/C++、Flutter 前端、Django 後端</span>
+                            <span class="specialty-text">C/C++ MCU、Flutter 前端、Django 後端</span>
                         </div>
                         <div class="specialty-item">
                             <span class="specialty-icon">#自我定位</span>
@@ -193,7 +228,7 @@ function loadNavigationAndFooter() {
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>Built with HTML/CSS/JS · Thanks for visiting</p>
+                <p>Engineering-oriented notes and long-term learning documentation.</p>
             </div>
         </div>
         
@@ -210,8 +245,10 @@ function loadNavigationAndFooter() {
                         <img src="assets/gif/CryingBlueArchive.gif" alt="https://tenor.com/zh-TW/view/blue-archive-gif-11558330212366339285" class="crying-blue-gif" style="max-width:180px; border-radius:12px; margin-bottom:1rem;" title="Why is it so hard to implement code?">
                         <p>陳國翔<span class="name-en">Guo-Xiang Chen</span></p>
                         <div class="about-section">
-                            <p>從高中電子科起步，最初以硬體為主要學習方向。進入科大後接觸資安與網路相關領域。
-                            課業之外，會利用時間提升資料結構與演算法能力，透過線上解題或實作專案來驗證所學。</p>
+                            <p>最初以硬體與 C# 桌面應用程式作為主要學習方向，透過實際電路實作與軟體設計，培養基本的數位邏輯。
+                            進入科技大學後，隨著課程與專題的深入，開始接觸資訊安全、網路通訊與系統相關領域，逐步將視野從單一硬體實作拓展至整體系統與架構層面。
+                            在課業之外，持續強化資料結構與演算法能力，透過線上解題平台訓練邏輯思維與問題拆解能力，並將所學應用於實作專案中，驗證理論在實務情境下的可行性與效能表現。
+                            過程中也逐漸建立以「系統性思考」與「可維護性」為導向的開發習慣，期望能在軟硬體整合、系統設計與實務應用之間取得平衡。</p>
                         </div>
                     </div>
                     
@@ -222,7 +259,7 @@ function loadNavigationAndFooter() {
                                 <div class="education-item" title="2023/9~2027/6">
                                     <div class="item-content">
                                         <div class="education-school">國立臺中科技大學</div>
-                                        <div class="education-department">資訊工程系</div>
+                                        <div class="education-department">資訊工程系 學士班</div>
                                     </div>
                                 </div>
                                 <div class="education-item" title="2020/9~2023/6 家長會長獎">
@@ -245,10 +282,6 @@ function loadNavigationAndFooter() {
                                     <span class="item-badge">資安</span>
                                     <span class="item-text">iPAS 資訊安全工程師 初級能力鑑定</span>
                                 </div>
-                                <div class="achievement-item" title="2025/07/27場次">
-                                    <span class="item-badge">英文</span>
-                                    <span class="item-text">TOEIC Listening and Reading Test 485</span>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -267,6 +300,10 @@ function loadNavigationAndFooter() {
     // 防止點擊側邊欄時關閉側邊欄
     if (blogTitle) {
         blogTitle.addEventListener('click', (e) => {
+            // 允許頭像點擊事件傳播，以便觸發開啟更多資訊功能
+            if (e.target.classList.contains('sidebar-avatar')) {
+                return; // 不阻止傳播
+            }
             e.stopPropagation();
         });
     }
@@ -371,6 +408,13 @@ function setupKeyboardEvents() {
                                document.activeElement.isContentEditable;
 
         if (event.key === 'Escape') {
+            // 檢查是否有更多資訊卡片需要關閉
+            const moreInfoCard = document.getElementById('moreInfoCard');
+            if (moreInfoCard && moreInfoCard.classList.contains('active')) {
+                toggleMoreInfo();
+                return;
+            }
+            // 最後關閉側邊欄
             closeSidebar();
         }
         // 只有在不處於輸入狀態時才觸發快捷鍵
@@ -457,3 +501,26 @@ function toggleMoreInfo() {
         }
     }
 }
+
+// 設置頭像點擊開啟更多資訊功能
+function setupAvatarClick() {
+    // 使用事件委派，因為側邊欄是動態生成的
+    document.addEventListener('click', (e) => {
+        // 檢查點擊的元素或其父元素是否為 sidebar-avatar
+        const target = e.target;
+        if (target.classList.contains('sidebar-avatar')) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMoreInfo();
+        }
+    });
+
+    // 為已存在的頭像添加視覺提示
+    document.addEventListener('mouseover', (e) => {
+        if (e.target.classList.contains('sidebar-avatar')) {
+            e.target.style.cursor = 'pointer';
+        }
+    });
+}
+
+

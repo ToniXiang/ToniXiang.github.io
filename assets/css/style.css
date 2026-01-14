@@ -95,11 +95,17 @@ body>main {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     margin-bottom: 12px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: zoom-in;
+    user-select: none;
 }
 
 .sidebar-avatar:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.sidebar-avatar:active {
+    transform: scale(0.98);
 }
 
 .brand-info h4 {
@@ -336,6 +342,7 @@ body>main {
 
 footer {
     padding: 0;
+    margin: 0;
     text-align: left;
     color: var(--text-color);
     position: relative;
@@ -1555,5 +1562,124 @@ footer .specialty-text {
     .close-card {
         width: 32px;
         height: 32px;
+    }
+}
+
+/* Avatar Zoom Styles */
+.avatar-zoom-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.avatar-zoom-container.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.avatar-zoom-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+}
+
+.avatar-zoom-content {
+    position: relative;
+    z-index: 10000;
+    max-width: 90%;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.8);
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.avatar-zoom-container.active .avatar-zoom-content {
+    transform: scale(1);
+}
+
+.avatar-zoom-image {
+    max-width: 100%;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    object-fit: contain;
+}
+
+.avatar-zoom-close {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.avatar-zoom-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1) rotate(90deg);
+}
+
+.avatar-zoom-close img {
+    filter: brightness(0) invert(1);
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 768px) {
+    .avatar-zoom-content {
+        max-width: 95%;
+    }
+
+    .avatar-zoom-close {
+        top: -45px;
+        right: 0;
+        width: 40px;
+        height: 40px;
+    }
+
+    .avatar-zoom-image {
+        max-height: 80vh;
+        border-radius: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .avatar-zoom-close {
+        top: 10px;
+        right: 10px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .avatar-zoom-close img {
+        width: 18px;
+        height: 18px;
     }
 }

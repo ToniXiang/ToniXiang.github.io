@@ -169,6 +169,35 @@ body {
     transition: transform 0.2s ease, color 0.2s ease;
 }
 
+.github-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.github-link-btn:hover {
+    transform: translateY(-2px);
+}
+
+.github-icon {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.github-link-btn:hover .github-icon {
+    transform: scale(1.1);
+}
+
 @media (max-width: 900px) {
     .site-info-main {
         grid-template-columns: 1fr;
