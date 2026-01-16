@@ -5,12 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToniXiang</title>
+
+    <!-- 預載入關鍵資源 -->
+    <link rel="preload" href="assets/css/style.css" as="style">
+    <link rel="preload" href="assets/css/index.css" as="style">
+    <link rel="preload" href="assets/js/script.js" as="script">
+
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="assets/css/index.css">
-    <link rel="shortcut icon" href="assets/images/me.jpg" type="image/x-icon">
+    <link rel="icon" href="assets/images/me.jpg" type="image/jpeg">
 </head>
 
 <body class="home-page">
+    <!-- 載入動畫 -->
+    <div class="loading-screen">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Loading...</div>
+    </div>
+
     <div id="background"></div>
     <header class="blogTitle"></header>
     <div class="menu" onclick="toggleMenu()" aria-label="切換選單" title="快捷鍵 M">

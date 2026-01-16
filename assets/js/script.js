@@ -4,11 +4,31 @@ document.addEventListener('DOMContentLoaded', () => {
     setupKeyboardEvents();
     setupBackToTop();
     setupAvatarClick();
+    loadPage();
 });
-
+// 頁面載入動畫處理
+function loadPage(){
+    // 測試模式：在 URL 加上 ?test-loading 可以看到載入動畫效果
+    const isTestMode = window.location.search.includes('test-loading');
+    const testDelay = isTestMode ? 10000 : 0; // 測試模式延遲 10 秒
+    
+    // 頁面載入完成後移除載入動畫
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            document.body.classList.add('loaded');
+        }, testDelay);
+    });
+    
+    // 備用方案：如果 load 事件沒觸發，在 DOMContentLoaded 後也移除載入動畫
+    setTimeout(() => {
+        if (!document.body.classList.contains('loaded')) {
+            document.body.classList.add('loaded');
+        }
+    }, 300 + testDelay);
+}
 // 版本檢查（手動觸發）
 function checkVersion() {
-    const CURRENT_VERSION = '2026.01.14';
+    const CURRENT_VERSION = '2026.01.17';
     const savedVersion = localStorage.getItem('tonixiang_version');
 
     if (savedVersion !== CURRENT_VERSION) {
@@ -192,7 +212,6 @@ function loadNavigationAndFooter() {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="footer-brand-header">
-                        <img src="assets/images/commit.svg" class="footer-avatar" alt="Avatar">
                         <p>ToniXiang</p>
                     </div>
                     <div class="footer-specialties">
@@ -206,7 +225,7 @@ function loadNavigationAndFooter() {
                         </div>
                         <div class="specialty-item">
                             <span class="specialty-icon">#自我定位</span>
-                            <span class="specialty-text">學生（持續實作不限於專題的東西）</span>
+                            <span class="specialty-text">學生</span>
                         </div>
                     </div>
                     <span class="more-info-trigger" onclick="toggleMoreInfo()">關於我<span class="chevron">›</span>
@@ -242,7 +261,7 @@ function loadNavigationAndFooter() {
                 
                 <div class="postcard-layout">
                     <div class="postcard-left">
-                        <img src="assets/gif/CryingBlueArchive.gif" alt="https://tenor.com/zh-TW/view/blue-archive-gif-11558330212366339285" class="crying-blue-gif" style="max-width:180px; border-radius:12px; margin-bottom:1rem;" title="Why is it so hard to implement code?">
+                        <img src="assets/gif/CryingBlueArchive.gif" alt="https://tenor.com/zh-TW/view/blue-archive-gif-11558330212366339285" class="crying-blue-gif" title="Why is it so hard to implement code?">
                         <p>陳國翔<span class="name-en">Guo-Xiang Chen</span></p>
                         <div class="about-section">
                             <p>最初以硬體與 C# 桌面應用程式作為主要學習方向，透過實際電路實作與軟體設計，培養基本的數位邏輯。
@@ -256,13 +275,13 @@ function loadNavigationAndFooter() {
                         <div class="info-section">
                             <div class="education-list">
                                 <p><img src="assets/images/school.svg" alt="school">學歷</p>
-                                <div class="education-item" title="2023/9~2027/6">
+                                <div class="education-item" data-title="2023/9~2027/6">
                                     <div class="item-content">
                                         <div class="education-school">國立臺中科技大學</div>
                                         <div class="education-department">資訊工程系 學士班</div>
                                     </div>
                                 </div>
-                                <div class="education-item" title="2020/9~2023/6 家長會長獎">
+                                <div class="education-item" data-title="2020/9~2023/6 家長會長獎">
                                     <div class="item-content">
                                         <div class="education-school">國立龍潭高級中學</div>
                                         <div class="education-department">電子科</div>
@@ -272,13 +291,13 @@ function loadNavigationAndFooter() {
                         </div>
                         
                         <div class="info-section">
-                            <p><img src="assets/images/license.svg" alt="license">證書(僅顯示近期)</p>
+                            <p><img src="assets/images/license.svg" alt="license">證書</p>
                             <div class="achievement-list">
-                                <div class="achievement-item" title="序號:ACE-25-06-A003">
+                                <div class="achievement-item" data-title="證書號:ACE-25-06-A003">
                                     <span class="item-badge">嵌入式</span>
                                     <span class="item-text">Andes Certified Engineer-ACE 高級</span>
                                 </div>
-                                <div class="achievement-item" title="序號:過了還沒收到證書">
+                                <div class="achievement-item" data-title="證書號:B-S11-4747-2025">
                                     <span class="item-badge">資安</span>
                                     <span class="item-text">iPAS 資訊安全工程師 初級能力鑑定</span>
                                 </div>

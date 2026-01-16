@@ -12,7 +12,8 @@
     margin-bottom: 32px;
     animation: fadeInUp 0.6s ease-out;
 }
-.search-header>h2::after{
+
+.search-header>h2::after {
     display: none;
 }
 
@@ -54,7 +55,7 @@
 }
 
 .close-search-btn:hover {
-    background: rgb(102,126,234,0.12) !important;
+    background: rgb(102, 126, 234, 0.12) !important;
 }
 
 .search-box button {
@@ -97,7 +98,8 @@
 }
 
 .note-card {
-    background: rgba(255, 255, 255, 0.01);;
+    background: rgba(255, 255, 255, 0.01);
+    ;
     border: 1px solid var(--card-border);
     border-radius: 12px;
     padding: 24px;
@@ -175,6 +177,7 @@
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -182,8 +185,13 @@
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* 響應式設計 */

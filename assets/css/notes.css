@@ -1,9 +1,9 @@
-body > main {
+body>main {
     max-width: 1400px;
     transition: max-width 0.3s ease;
 }
 
-body.split-view-active > main {
+body.split-view-active>main {
     max-width: 100%;
 }
 
@@ -13,8 +13,10 @@ body.split-view-active > main {
     margin: 0 auto;
     transition: all 0.3s ease;
     justify-content: center;
-    flex-direction: row; /* 確保是水平佈局 */
-    align-items: flex-start; /* 頂部對齊 */
+    flex-direction: row;
+    /* 確保是水平佈局 */
+    align-items: flex-start;
+    /* 頂部對齊 */
 }
 
 .notes-layout.split-view {
@@ -23,7 +25,8 @@ body.split-view-active > main {
     width: 100%;
     padding: 0 20px;
     box-sizing: border-box;
-    flex-direction: row !important; /* 強制水平佈局 */
+    flex-direction: row !important;
+    /* 強制水平佈局 */
 }
 
 .notes-container {
@@ -116,7 +119,7 @@ body.split-view-active > main {
 }
 
 .note-item:hover {
-    background: rgba(102,126,234,0.12) !important;
+    background: rgba(102, 126, 234, 0.12) !important;
 }
 
 .note-title {
@@ -237,7 +240,8 @@ body:not(.dark-theme) {
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
         padding: 0;
-        height: calc(100vh - 60px); /* 减去header高度 */
+        height: calc(100vh - 60px);
+        /* 减去header高度 */
         max-height: calc(100vh - 60px);
     }
 
@@ -263,7 +267,8 @@ body:not(.dark-theme) {
 
     /* 确保移动端markdown内容可以滚动 */
     .split-view .note-viewer-body .markdown-content {
-        padding-bottom: 80px; /* 底部留空避免被導覽列遮擋 */
+        padding-bottom: 80px;
+        /* 底部留空避免被導覽列遮擋 */
         min-height: 100%;
         box-sizing: border-box;
         overflow-wrap: break-word;
@@ -281,7 +286,8 @@ body:not(.dark-theme) {
     .split-view .note-viewer-body {
         -webkit-overflow-scrolling: touch !important;
         overflow-y: auto !important;
-        transform: translateZ(0); /* 启用硬件加速 */
+        transform: translateZ(0);
+        /* 启用硬件加速 */
     }
 
     .note-modal {
@@ -650,7 +656,8 @@ body:not(.dark-theme) {
     font-weight: 500;
     letter-spacing: -0.02em;
 }
-.markdown-content h2::after{
+
+.markdown-content h2::after {
     display: none;
 }
 
@@ -725,12 +732,12 @@ body:not(.dark-theme) {
 }
 
 /* 列表項目內容樣式 */
-.markdown-content li > p {
+.markdown-content li>p {
     margin: 0;
     display: inline;
 }
 
-.markdown-content li > p:not(:last-child) {
+.markdown-content li>p:not(:last-child) {
     margin-bottom: 6px;
     display: block;
 }
@@ -1271,7 +1278,7 @@ code[class*="language-"] {
 }
 
 .search-toggle-btn:hover {
-    background: rgb(102,126,234,0.12) !important;
+    background: rgb(102, 126, 234, 0.12) !important;
 }
 
 @media (max-width: 768px) {
@@ -1282,6 +1289,7 @@ code[class*="language-"] {
         margin: 0 auto 24px auto;
         border-radius: 28px;
     }
+
     .search-header {
         position: relative;
         display: flex;
@@ -1340,4 +1348,3 @@ code[class*="language-"] {
         padding-right: 8px;
     }
 }
-
