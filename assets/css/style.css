@@ -606,7 +606,6 @@ span>a {
 .footer-container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 40px 20px 20px;
 }
 
 .footer-main {
@@ -696,7 +695,6 @@ span>a {
 .footer-content {
     max-width: 900px;
     margin: 0 auto;
-    padding: 1.5rem 1rem 1rem;
 }
 
 .footer-grid {
@@ -764,15 +762,13 @@ span>a {
     display: block;
 }
 
-.footer-nav,
-.footer-contact {
+.footer-nav {
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
 }
 
-.footer-nav h3,
-.footer-contact h3 {
+.footer-nav h3 {
     margin: 0 0 0.5rem 0;
     font-size: 0.85rem;
     color: var(--text-color);
@@ -782,8 +778,7 @@ span>a {
     opacity: 0.8;
 }
 
-.footer-nav a,
-.footer-contact a {
+.footer-nav a {
     color: var(--text-color);
     text-decoration: none;
     font-size: 0.85rem;
@@ -792,8 +787,7 @@ span>a {
     line-height: 1.6;
 }
 
-.footer-nav a:hover,
-.footer-contact a:hover {
+.footer-nav a:hover {
     opacity: 1;
     color: var(--primary-color);
 }
@@ -968,25 +962,16 @@ footer {
     border-top: none;
     color: var(--text-color);
     padding-left: 2rem;
-    margin-top: 40px;
     position: relative;
 }
 
-/* Footer 恢復正常主題色 */
-footer * {
-    color: var(--text-color) !important;
-}
-
-footer .footer-brand-header h4 {
-    background: linear-gradient(135deg, var(--primary-color, #667eea) 0%, var(--secondary-color, #764ba2) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-footer .footer-nav a:hover,
-footer .footer-contact a:hover {
+footer .footer-nav h3{
     color: var(--primary-color) !important;
+    transition: all 0.3s ease;
+}
+footer .footer-nav a:hover,footer .footer-nav h3:hover,.more-info-trigger:hover {
+    color: var(--primary-color) !important;
+    transform: translateX(2px);
 }
 
 footer .specialty-text {
@@ -1205,6 +1190,8 @@ footer .specialty-text {
     width: 20px;
     height: 20px;
     transition: transform 0.3s ease;
+    color: var(--text-color);
+    stroke: var(--text-color);
 }
 
 .back-to-top:hover svg {
@@ -1403,11 +1390,14 @@ footer .specialty-text {
     gap: 0.5rem;
     flex-wrap: wrap;
 }
-
+.name{
+    font-weight: 400;
+    color: var(--primary-color) !important;
+}
 .name-en {
     font-size: 1rem;
     font-weight: 400;
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 .github-link {
@@ -1547,20 +1537,6 @@ footer .specialty-text {
 .education-item:hover {
     transform: translateX(5px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.item-badge {
-    padding: 0.3rem 0.7rem;
-    background: var(--secondary-color);
-    color: aliceblue !important;
-    border-radius: 8px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    white-space: nowrap;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
 }
 
 .item-text {

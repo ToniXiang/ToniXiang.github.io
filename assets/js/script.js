@@ -8,23 +8,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 // 頁面載入動畫處理
 function loadPage(){
-    // 測試模式：在 URL 加上 ?test-loading 可以看到載入動畫效果
-    const isTestMode = window.location.search.includes('test-loading');
-    const testDelay = isTestMode ? 10000 : 0; // 測試模式延遲 10 秒
-    
     // 頁面載入完成後移除載入動畫
     window.addEventListener('load', () => {
-        setTimeout(() => {
-            document.body.classList.add('loaded');
-        }, testDelay);
+        document.body.classList.add('loaded');
     });
-    
     // 備用方案：如果 load 事件沒觸發，在 DOMContentLoaded 後也移除載入動畫
     setTimeout(() => {
         if (!document.body.classList.contains('loaded')) {
             document.body.classList.add('loaded');
         }
-    }, 300 + testDelay);
+    }, 300);
 }
 // 版本檢查（手動觸發）
 function checkVersion() {
@@ -141,7 +134,7 @@ function loadNavigationAndFooter() {
                 <img src="assets/images/me.jpg" class="sidebar-avatar" alt="Avatar">
                 <p>Guo-Xiang Chen</p>
                 <div class="sidebar-tags">
-                    <span class="tag tag-experience">10+Repos</span>
+                    <span class="tag tag-experience">10+Repo</span>
                     <span class="tag tag-leetcode">LC500+DSA</span>
                 </div>
             </div>
@@ -216,16 +209,16 @@ function loadNavigationAndFooter() {
                     </div>
                     <div class="footer-specialties">
                         <div class="specialty-item">
-                            <span class="specialty-icon">#專長領域</span>
-                            <span class="specialty-text">全端架構</span>
+                            <span class="specialty-icon">#專精方向</span>
+                            <span class="specialty-text">系統導向全端架構</span>
                         </div>
                         <div class="specialty-item">
-                            <span class="specialty-icon">#技能</span>
-                            <span class="specialty-text">C/C++ MCU、Flutter 前端、Django 後端</span>
+                            <span class="specialty-icon">#核心能力</span>
+                            <span class="specialty-text">前後端整合、狀態流設計、效能與穩定性考量</span>
                         </div>
                         <div class="specialty-item">
-                            <span class="specialty-icon">#自我定位</span>
-                            <span class="specialty-text">學生</span>
+                            <span class="specialty-icon">#技術實作</span>
+                            <span class="specialty-text">Flutter（App 架構）、Django（API / 資料流）、C/C++（底層理解）</span>
                         </div>
                     </div>
                     <span class="more-info-trigger" onclick="toggleMoreInfo()">關於我<span class="chevron">›</span>
@@ -239,7 +232,7 @@ function loadNavigationAndFooter() {
                     <a href="origin.html">關於本站</a>
                 </div>
                 
-                <div class="footer-contact">
+                <div class="footer-nav">
                     <h3>外部連結</h3>
                     <a href="https://github.com/ToniXiang" target="_blank">GitHub</a>
                     <a href="https://leetcode.com/u/chen199940/" target="_blank">Leetcode</a>
@@ -262,7 +255,7 @@ function loadNavigationAndFooter() {
                 <div class="postcard-layout">
                     <div class="postcard-left">
                         <img src="assets/gif/CryingBlueArchive.gif" alt="https://tenor.com/zh-TW/view/blue-archive-gif-11558330212366339285" class="crying-blue-gif" title="Why is it so hard to implement code?">
-                        <p>陳國翔<span class="name-en">Guo-Xiang Chen</span></p>
+                        <p class="name">陳國翔<span class="name-en">CHEN, GUO-XIANG</span></p>
                         <div class="about-section">
                             <p>最初以硬體與 C# 桌面應用程式作為主要學習方向，透過實際電路實作與軟體設計，培養基本的數位邏輯。
                             進入科技大學後，隨著課程與專題的深入，開始接觸資訊安全、網路通訊與系統相關領域，逐步將視野從單一硬體實作拓展至整體系統與架構層面。
@@ -294,11 +287,9 @@ function loadNavigationAndFooter() {
                             <p><img src="assets/images/license.svg" alt="license">證書</p>
                             <div class="achievement-list">
                                 <div class="achievement-item" data-title="證書號:ACE-25-06-A003">
-                                    <span class="item-badge">嵌入式</span>
                                     <span class="item-text">Andes Certified Engineer-ACE 高級</span>
                                 </div>
                                 <div class="achievement-item" data-title="證書號:B-S11-4747-2025">
-                                    <span class="item-badge">資安</span>
                                     <span class="item-text">iPAS 資訊安全工程師 初級能力鑑定</span>
                                 </div>
                             </div>
