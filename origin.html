@@ -46,63 +46,63 @@
                             <li>響應式設計，支援桌機與行動裝置瀏覽</li>
                         </ul>
                     </div>
-
-                    <div class="info-item">
-                        <span class="info-badge">授權方式</span>
+                    <div class="info-item" id="site-links">
+                        <span class="info-badge">本站連結</span>
                         <ul>
-                            <li>MIT License</li>
+                            <li><a href="index.html">主要頁面</a>－ 首頁介紹與入口</li>
+                            <li><a href="notes.html">學習筆記</a>－ 筆記與題解整理</li>
+                            <li><a href="origin.html">關於本站</a>－ 網站說明與更新記錄</li>
                         </ul>
                     </div>
 
-                    <div class="info-item">
-                        <a href="https://github.com/ToniXiang/ToniXiang.github.io" target="_blank"
-                            rel="noopener noreferrer" class="github-link-btn">
-                            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor" class="github-icon">
-                                <path
-                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
-                                </path>
-                            </svg>
-                            查看原始碼
-                        </a>
+                    <div class="info-item" id="external-links">
+                        <span class="info-badge">外部連結</span>
+                        <ul>
+                            <li><a href="https://github.com/ToniXiang" target="_blank"
+                                    rel="noopener noreferrer">GitHub</a>－ 我的 GitHub 頁面</li>
+                            <li><a href="https://leetcode.com/u/chen199940/" target="_blank"
+                                    rel="noopener noreferrer">LeetCode</a>－ 我的過去的解題紀錄</li>
+                            <li><a href="https://github.com/ToniXiang/ToniXiang.github.io" target="_blank"
+                                    rel="noopener noreferrer">儲存庫</a>－ 原始碼與更多相關資訊</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="site-info-section">
-            <h2 class="changelog-title">更新記錄</h2>
-            <div class="changelog-controls">
-                <div class="filter-controls">
-                    <label for="typeFilter" class="sr-only">篩選類型：</label>
-                    <select id="typeFilter" class="filter-select">
-                        <option value="">所有類型</option>
-                        <option value="feat">新功能 (feat)</option>
-                        <option value="fix">修復 (fix)</option>
-                        <option value="docs">文檔 (docs)</option>
-                        <option value="style">樣式 (style)</option>
-                        <option value="refactor">重構 (refactor)</option>
-                        <option value="perf">性能 (perf)</option>
-                        <option value="test">測試 (test)</option>
-                        <option value="build">構建 (build)</option>
-                        <option value="ci">CI/CD (ci)</option>
-                        <option value="chore">雜項 (chore)</option>
-                    </select>
+            <div class="site-info-section">
+                <h2 class="changelog-title">更新記錄</h2>
+                <div class="changelog-controls">
+                    <div class="filter-controls">
+                        <label for="typeFilter" class="sr-only">篩選類型：</label>
+                        <select id="typeFilter" class="filter-select">
+                            <option value="">所有類型</option>
+                            <option value="feat">新功能 (feat)</option>
+                            <option value="fix">修復 (fix)</option>
+                            <option value="docs">文檔 (docs)</option>
+                            <option value="style">樣式 (style)</option>
+                            <option value="refactor">重構 (refactor)</option>
+                            <option value="perf">性能 (perf)</option>
+                            <option value="test">測試 (test)</option>
+                            <option value="build">構建 (build)</option>
+                            <option value="ci">CI/CD (ci)</option>
+                            <option value="chore">雜項 (chore)</option>
+                        </select>
+                    </div>
+                    <div class="loading-indicator" id="loadingIndicator">
+                        <div class="loading-text-spinner"></div>
+                        <span>載入中...</span>
+                    </div>
                 </div>
-                <div class="loading-indicator" id="loadingIndicator">
-                    <div class="loading-text-spinner"></div>
-                    <span>載入中...</span>
+                <div class="changelog-container">
+                    <div id="changelogContent" class="changelog-list">
+                        <!-- 動態載入的commit內容 -->
+                    </div>
+                    <div id="errorMessage" class="error-message" style="display: none;">
+                        <h3>載入失敗</h3>
+                        <p>無法載入更新記錄，請稍後再試或檢查網路連接。</p>
+                        <button onclick="loadChangelog()" class="retry-btn">重試</button>
+                    </div>
                 </div>
             </div>
-            <div class="changelog-container">
-                <div id="changelogContent" class="changelog-list">
-                    <!-- 動態載入的commit內容 -->
-                </div>
-                <div id="errorMessage" class="error-message" style="display: none;">
-                    <h3>載入失敗</h3>
-                    <p>無法載入更新記錄，請稍後再試或檢查網路連接。</p>
-                    <button onclick="loadChangelog()" class="retry-btn">重試</button>
-                </div>
-            </div>
-        </div>
     </main>
     <footer></footer>
     <script src="assets/js/script.js" defer></script>

@@ -32,7 +32,11 @@ function getNoteFileInfo(noteAttr) {
 document.addEventListener('DOMContentLoaded', () => {
     initializeNotes();
     setupNoteInteractions();
-    handleUrlHash(); // 處理從搜尋頁面傳來的 hash 參數
+    handleUrlHash();
+    // 頁面載入完成，隱藏載入動畫
+    setTimeout(() => {
+        document.body.classList.add('loaded');
+    }, 300);
 });
 
 // 處理 URL hash 參數，自動打開指定的筆記
@@ -219,8 +223,13 @@ function showNoteModal(filename, title) {
     // 設置標題
     noteViewerTitle.textContent = title;
 
-    // 顯示載入狀態
-    noteViewerBody.innerHTML = '<div class="loading">載入中...</div>';
+    // 只有在第一次打開檢視器（還是預設提示文案時）才顯示「載入中」，
+    // 避免在筆記之間切換時畫面先清空造成閃爍感
+    const loadingElement = noteViewerBody.querySelector('.loading');
+    const shouldShowLoading = loadingElement && loadingElement.textContent.includes('選擇一個筆記以查看內容');
+    if (shouldShowLoading) {
+        noteViewerBody.innerHTML = '<div class="loading">載入中...</div>';
+    }
 
     // 只在尚未切換到分割視圖時才切換
     if (!isAlreadySplit) {

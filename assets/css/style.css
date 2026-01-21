@@ -425,13 +425,11 @@ span>a {
     --text-color-light: #1F2328;
     --primary-color-light: #0969DA;
     --secondary-color-light: #218BFF;
-    --tertiary-color-light: #57606A;
-    --surface-light: #F6F8FA;
-    --card-bg-light: #F6F8FA;
+    --tertiary-color-light: #c2d3e6;
     --card-border-light: #D0D7DE;
     --border-light: #D0D7DE;
     --accent-color-light: #218BFF;
-    --hover-light: #388BFF;
+    
     --img-color-light: #1990b8;
     --a-color-light: #0969DA;
     --sidebar-bg-light: rgba(246, 248, 250, 0.98);
@@ -450,9 +448,6 @@ span>a {
     --status-bg-light: rgba(246, 248, 250, 0.8);
     --status-border-light: #D0D7DE;
     --status-text-light: #57606A;
-    --error-light: #F85149;
-    --warning-light: #D29922;
-    --success-light: #3FB950;
     --sidebar-select-bg-light: rgba(0, 0, 0, 0.03);
     --sidebar-select-hover-bg-light: rgba(0, 0, 0, 0.06);
     --sidebar-select-hover-border-light: #8B949E;
@@ -467,12 +462,10 @@ span>a {
     --primary-color-dark: #58A6FF;
     --secondary-color-dark: #1F6FEB;
     --tertiary-color-dark: #8B949E;
-    --surface-dark: #161B22;
-    --card-bg-dark: rgba(102, 126, 234, 0.12);
     --card-border-dark: #30363D;
     --border-dark: #30363D;
     --accent-color-dark: #1F6FEB;
-    --hover-dark: #388BFD;
+    
     --img-color-dark: #333333;
     --a-color-dark: #58A6FF;
     --sidebar-bg-dark: rgba(22, 27, 34, 0.98);
@@ -488,12 +481,6 @@ span>a {
     --code-border-dark: #30363D;
     --code-text-dark: #C9D1D9;
     --prompt-color-dark: #58A6FF;
-    --status-bg-dark: rgba(22, 27, 34, 0.8);
-    --status-border-dark: #30363D;
-    --status-text-dark: #8B949E;
-    --error-dark: #F85149;
-    --warning-dark: #D29922;
-    --success-dark: #3FB950;
     --sidebar-select-bg-dark: rgba(255, 255, 255, 0.05);
     --sidebar-select-hover-bg-dark: rgba(255, 255, 255, 0.08);
     --sidebar-select-hover-border-dark: rgba(255, 255, 255, 0.25);
@@ -750,7 +737,7 @@ span>a {
     font-size: 0.8rem;
     color: var(--text-color);
     opacity: 0.75;
-    line-height: 1.0;
+    line-height: 1.5;
 }
 
 .author-desc {
@@ -1440,7 +1427,7 @@ footer .specialty-text {
 }
 
 .crying-blue-gif {
-    max-width: 180px;
+    max-width: 150px;
     border-radius: 12px;
     margin-bottom: 1rem;
 }

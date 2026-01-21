@@ -13,10 +13,8 @@ body.split-view-active>main {
     margin: 0 auto;
     transition: all 0.3s ease;
     justify-content: center;
-    flex-direction: row;
-    /* 確保是水平佈局 */
+    flex-direction: column;
     align-items: flex-start;
-    /* 頂部對齊 */
 }
 
 .notes-layout.split-view {
@@ -25,8 +23,6 @@ body.split-view-active>main {
     width: 100%;
     padding: 0 20px;
     box-sizing: border-box;
-    flex-direction: row !important;
-    /* 強制水平佈局 */
 }
 
 .notes-container {
@@ -35,7 +31,6 @@ body.split-view-active>main {
     margin: 0 auto;
     position: relative;
     transition: all 0.3s ease;
-    will-change: max-width, margin, padding;
 }
 
 .split-view .notes-container {
@@ -50,20 +45,18 @@ body.split-view-active>main {
 
 .notes-grid {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 20px;
     margin-top: 40px;
-    justify-content: flex-start;
-    align-items: flex-start;
+    align-items: stretch;
 }
 
 .note-category {
     margin-bottom: 0;
     transition: none;
     position: relative;
-    flex: 1;
-    min-width: 300px;
-    max-width: 400px;
+    width: 100%;
+    max-width: 100%;
 }
 
 .note-category:hover {
@@ -265,29 +258,24 @@ body:not(.dark-theme) {
         display: none !important;
     }
 
-    /* 确保移动端markdown内容可以滚动 */
     .split-view .note-viewer-body .markdown-content {
         padding-bottom: 80px;
-        /* 底部留空避免被導覽列遮擋 */
         min-height: 100%;
         box-sizing: border-box;
         overflow-wrap: break-word;
         word-wrap: break-word;
     }
 
-    /* 修复移动端代码块的显示 */
     .split-view .note-viewer-body .markdown-content pre {
         overflow-x: auto;
         white-space: pre;
         word-wrap: normal;
     }
 
-    /* 强制移动端的触摸滚动 */
     .split-view .note-viewer-body {
         -webkit-overflow-scrolling: touch !important;
         overflow-y: auto !important;
         transform: translateZ(0);
-        /* 启用硬件加速 */
     }
 
     .note-modal {
@@ -315,18 +303,8 @@ body:not(.dark-theme) {
         position: fixed;
     }
 
-    .notes-container {
-        padding: 20px 16px 60px 16px;
-    }
-
     .page-title {
         font-size: 1.8rem;
-    }
-
-    .notes-grid {
-        margin-top: 24px;
-        flex-direction: column;
-        gap: 0;
     }
 
     .note-category {
@@ -575,8 +553,6 @@ body:not(.dark-theme) {
 
 .note-viewer-header {
     padding: 16px 20px;
-    background: var(--category-bg);
-    border-bottom: 1px solid var(--card-border);
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -629,10 +605,23 @@ body:not(.dark-theme) {
 
 .note-viewer-body .markdown-content {
     padding: 24px;
+    animation: noteFadeIn 0.2s ease-out;
 }
 
 .note-viewer-body .error-message {
     padding: 40px 20px;
+}
+
+@keyframes noteFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 
@@ -1116,11 +1105,6 @@ code[class*="language-"] {
         justify-content: flex-start !important;
     }
 
-    .split-view .notes-container {
-        display: block !important;
-        flex: 0 0 500px !important;
-    }
-
     .split-view .note-viewer {
         display: flex !important;
         flex: 1 !important;
@@ -1326,15 +1310,6 @@ code[class*="language-"] {
     }
 
     .search-results {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    .search-results .notes-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
         width: 100%;
         margin: 0;
         padding: 0;

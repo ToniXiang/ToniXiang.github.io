@@ -168,6 +168,14 @@ body {
     color: var(--text-color);
     transition: transform 0.2s ease, color 0.2s ease;
 }
+.site-info-details ul li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.site-info-details ul li a:hover {
+    text-decoration: underline;
+}
 
 .github-link-btn {
     display: inline-flex;

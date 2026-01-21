@@ -21,7 +21,7 @@ function loadPage(){
 }
 // 版本檢查（手動觸發）
 function checkVersion() {
-    const CURRENT_VERSION = '2026.01.17';
+    const CURRENT_VERSION = '2026.01.21';
     const savedVersion = localStorage.getItem('tonixiang_version');
 
     if (savedVersion !== CURRENT_VERSION) {
@@ -226,17 +226,17 @@ function loadNavigationAndFooter() {
                 </div>
                 
                 <div class="footer-nav">
-                    <h3>本站連結</h3>
+                    <h3 onclick="redirectToPage('origin.html#site-links')" style="cursor: pointer;">本站連結</h3>
                     <a href="index.html">主要頁面</a>
                     <a href="notes.html">學習筆記</a>
                     <a href="origin.html">關於本站</a>
                 </div>
                 
                 <div class="footer-nav">
-                    <h3>外部連結</h3>
+                    <h3 onclick="redirectToPage('origin.html#external-links')" style="cursor: pointer;">外部連結</h3>
                     <a href="https://github.com/ToniXiang" target="_blank">GitHub</a>
                     <a href="https://leetcode.com/u/chen199940/" target="_blank">Leetcode</a>
-                    <a href="https://drive.google.com/drive/folders/128d_VtA-tXoIiIJfNZrQk87KNk_VWu_y?usp=sharing" target="_blank">履歷</a>
+                    <a href="https://github.com/ToniXiang/ToniXiang.github.io" target="_blank">儲存庫</a>
                 </div>
             </div>
             <div class="footer-bottom">
