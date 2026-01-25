@@ -21,11 +21,11 @@
 
     <div id="background"></div>
     <header class="blogTitle"></header>
-    <div class="menu" onclick="toggleMenu()" aria-label="切換選單" title="快捷鍵 M">
+    <div class="menu" onclick="toggleMenu()" aria-label="切換選單" title="快捷鍵 M" type="button">
         <img src="assets/images/menu.svg" alt="選單" width="20" height="20" class="icon" aria-hidden="true">
     </div>
     <main>
-        <div class="site-info-section">
+        <section class="site-info-section">
             <h2>關於本站</h2>
             <div class="site-info-content">
                 <div class="site-info-details">
@@ -49,9 +49,9 @@
                     <div class="info-item" id="site-links">
                         <span class="info-badge">本站連結</span>
                         <ul>
-                            <li><a href="index.html">主要頁面</a>－ 首頁介紹與入口</li>
-                            <li><a href="notes.html">學習筆記</a>－ 筆記與題解整理</li>
-                            <li><a href="origin.html">關於本站</a>－ 網站說明與更新記錄</li>
+                            <li><a href="index.html">主要頁面</a> － 首頁介紹與入口</li>
+                            <li><a href="notes.html">學習筆記</a> － 筆記與題解整理</li>
+                            <li><a href="origin.html">關於本站</a> － 網站說明與更新記錄</li>
                         </ul>
                     </div>
 
@@ -59,11 +59,11 @@
                         <span class="info-badge">外部連結</span>
                         <ul>
                             <li><a href="https://github.com/ToniXiang" target="_blank"
-                                    rel="noopener noreferrer">GitHub</a>－ 我的 GitHub 頁面</li>
+                                    rel="noopener noreferrer">GitHub</a> － 我的 GitHub 頁面</li>
                             <li><a href="https://leetcode.com/u/chen199940/" target="_blank"
-                                    rel="noopener noreferrer">LeetCode</a>－ 我的過去的解題紀錄</li>
+                                    rel="noopener noreferrer">LeetCode</a> － 我的過去的解題紀錄</li>
                             <li><a href="https://github.com/ToniXiang/ToniXiang.github.io" target="_blank"
-                                    rel="noopener noreferrer">儲存庫</a>－ 原始碼與更多相關資訊</li>
+                                    rel="noopener noreferrer">儲存庫</a> － 原始碼與更多相關資訊</li>
                         </ul>
                     </div>
                 </div>
@@ -99,10 +99,11 @@
                     <div id="errorMessage" class="error-message" style="display: none;">
                         <h3>載入失敗</h3>
                         <p>無法載入更新記錄，請稍後再試或檢查網路連接。</p>
-                        <button onclick="loadChangelog()" class="retry-btn">重試</button>
+                        <button type="button" onclick="loadChangelog()" class="retry-btn">重試</button>
                     </div>
                 </div>
             </div>
+        </section>
     </main>
     <footer></footer>
     <script src="assets/js/script.js" defer></script>
