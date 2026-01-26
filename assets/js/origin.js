@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 let allCommits = [];
 let filteredCommits = [];
+let sortOrder = 'desc'; // 預設：新 → 舊
 
 function setupEventListeners() {
     const typeFilter = document.getElementById('typeFilter');
@@ -36,11 +37,15 @@ async function loadChangelog() {
         if (!commits || commits.length === 0) {
             // 從文件或 API 載入
             const result = await fetchCommitsFromGitHub();
-            commits = result.commits || result;
+            const rawCommits = result.commits || result;
             dataTimestamp = result.timestamp || new Date().toISOString();
 
-            // 快取資料
+            // 正規化並快取資料（移除作者個資，只保留必要欄位）
+            commits = normalizeCommits(rawCommits);
             setCachedCommits(commits, dataTimestamp);
+        } else {
+            // 將舊版快取或靜態檔案轉成統一格式
+            commits = normalizeCommits(commits);
         }
 
         allCommits = commits;
@@ -127,6 +132,52 @@ function setCachedCommits(commits, timestamp = null) {
     }
 }
 
+// 將不同來源的 commits 轉成統一格式，避免包含作者個資
+// 輸出格式：{ sha, message, date }
+function normalizeCommits(rawCommits) {
+    if (!rawCommits || !Array.isArray(rawCommits)) return [];
+
+    return rawCommits.map(commit => {
+        // 已是簡化格式（來自新的 commits.json 或快取）
+        if (commit.message && commit.date) {
+            return {
+                sha: commit.sha,
+                message: commit.message,
+                date: commit.date
+            };
+        }
+
+        // GitHub API 原始格式或舊版 commits.json
+        if (commit.commit && commit.commit.message) {
+            const inner = commit.commit;
+            let date = null;
+
+            if (inner.author && inner.author.date) {
+                date = inner.author.date;
+            } else if (commit.date) {
+                date = commit.date;
+            }
+
+            return {
+                sha: commit.sha,
+                message: inner.message,
+                date: date
+            };
+        }
+
+        // 後備處理：至少保留 sha / message
+        if (commit.sha && commit.message) {
+            return {
+                sha: commit.sha,
+                message: commit.message,
+                date: commit.date || null
+            };
+        }
+
+        return null;
+    }).filter(Boolean);
+}
+
 function filterCommits() {
     const typeFilter = document.getElementById('typeFilter');
     const selectedType = typeFilter ? typeFilter.value : '';
@@ -135,12 +186,49 @@ function filterCommits() {
         filteredCommits = allCommits;
     } else {
         filteredCommits = allCommits.filter(commit => {
-            const message = commit.commit.message.toLowerCase();
+            const message = (commit.message || '').toLowerCase();
             return message.startsWith(selectedType + ':') ||
                 message.startsWith(selectedType + '(');
         });
     }
 
+    sortCommits();
+    renderCommits();
+}
+
+// 依日期排序 commits
+function sortCommits() {
+    if (!Array.isArray(filteredCommits) || filteredCommits.length === 0) return;
+
+    filteredCommits.sort((a, b) => {
+        const da = new Date(a.date);
+        const db = new Date(b.date);
+
+        if (isNaN(da.getTime()) || isNaN(db.getTime())) {
+            return 0;
+        }
+
+        return sortOrder === 'asc' ? da - db : db - da;
+    });
+}
+
+// 切換時間排序順序
+function toggleSortOrder() {
+    const button = document.getElementById('sortToggle');
+
+    if (sortOrder === 'desc') {
+        sortOrder = 'asc';
+        if (button) {
+            button.textContent = '按時間排序：舊 → 新';
+        }
+    } else {
+        sortOrder = 'desc';
+        if (button) {
+            button.textContent = '按時間排序：新 → 舊';
+        }
+    }
+
+    sortCommits();
     renderCommits();
 }
 
@@ -160,10 +248,10 @@ function renderCommits() {
     }
 
     const commitsHtml = filteredCommits.map(commit => {
-        const message = commit.commit.message;
+        const message = commit.message;
         const type = extractCommitType(message);
         const shortSha = commit.sha.substring(0, 7);
-        const date = new Date(commit.commit.author.date);
+        const date = new Date(commit.date);
 
         return `
             <div class="commit-item">

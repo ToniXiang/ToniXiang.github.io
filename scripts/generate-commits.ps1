@@ -39,19 +39,11 @@ try {
                 )
 
                 if ($shouldInclude) {
+                    # Output only non-personal commit data
                     $commit = @{
                         sha = $parts[0]
-                        commit = @{
-                            message = $parts[1]
-                            author = @{
-                                name = $parts[2]
-                                email = $parts[3]
-                                date = $parts[4]
-                            }
-                        }
-                        author = @{
-                            login = $parts[2]
-                        }
+                        message = $parts[1]
+                        date = $parts[4]
                     }
                     $commits += $commit
                 }
@@ -65,7 +57,9 @@ try {
     }
 
     # Create output data
+    # version: 使用腳本執行當下的日期，格式 yyyy.MM.dd
     $outputData = @{
+        version = (Get-Date -Format "yyyy.MM.dd")
         timestamp = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
         total = $commits.Count
         commits = $commits

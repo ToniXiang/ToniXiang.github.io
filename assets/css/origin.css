@@ -252,13 +252,30 @@ body {
 
 .changelog-controls {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    gap: 0.8rem;
     max-width: 1100px;
     width: 100%;
     margin: 0 auto 1.5rem;
     padding-top: 2rem;
     box-sizing: border-box;
+}
+
+.changelog-header {
+    max-width: 1100px;
+    width: 100%;
+    margin: 2rem auto 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.changelog-title {
+    margin: 0;
 }
 
 .filter-controls {
@@ -312,6 +329,7 @@ body {
     color: var(--text-color);
     opacity: 0.65;
     font-size: 0.85rem;
+    margin-left: auto;
 }
 
 .loading-indicator.hidden {
@@ -739,4 +757,18 @@ body {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+}
+
+.sort-toggle{
+    cursor: pointer;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    border: 1px solid var(--card-border);
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    user-select: none;
 }

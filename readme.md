@@ -16,7 +16,8 @@
 採用日期版本號：`YYYY.MM.DD`
 
 ### 版本更新流程
-1. 更新 `assets/js/script.js` 中的 `CURRENT_VERSION`
+> 但最後一次 commit 不會提交到 `commits.json`，如果需要則完成步驟 2 後用 Actions `Update Commits Data` 更新
+1. 在專案根目錄執行 `& "scripts\generate-commits.ps1" -MaxCommits 10000 -ShowAll`
 2. 提交到 GitHub
 3. 用戶可以透過側邊欄的「版本檢查」按鈕手動檢查更新
 

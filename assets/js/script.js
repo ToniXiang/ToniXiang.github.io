@@ -20,8 +20,29 @@ function loadPage(){
     }, 300);
 }
 // 版本檢查（手動觸發）
-function checkVersion() {
-    const CURRENT_VERSION = '2026.01.21';
+async function checkVersion() {
+    let CURRENT_VERSION = 'unknown';
+
+    try {
+        const response = await fetch('assets/js/commits.json?t=' + Date.now());
+        if (response.ok) {
+            const data = await response.json();
+            if (data.version) {
+                CURRENT_VERSION = data.version;
+            } else if (data.timestamp) {
+                const d = new Date(data.timestamp);
+                if (!Number.isNaN(d.getTime())) {
+                    const y = d.getFullYear();
+                    const m = String(d.getMonth() + 1).padStart(2, '0');
+                    const day = String(d.getDate()).padStart(2, '0');
+                    CURRENT_VERSION = `${y}.${m}.${day}`;
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Failed to load version from commits.json:', error);
+    }
+
     const savedVersion = localStorage.getItem('tonixiang_version');
 
     if (savedVersion !== CURRENT_VERSION) {
